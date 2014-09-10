@@ -175,13 +175,13 @@ public class AshenWheatCore
         GameRegistry.registerBlock(scintillaWheatCrop, "scintillaWheatCrop");
         GameRegistry.registerBlock(scintillaWheatBale, "scintillaWheatBale");
         
-        GameRegistry.registerBlock(ossidRootCrop, "ossidRootCrop");
+        GameRegistry.registerBlock(ossidRootCrop, "ossidVine");
         GameRegistry.registerBlock(ossidRoot, "ossidRoot");
         GameRegistry.registerBlock(ossidLantern, "ossidLantern");
         GameRegistry.registerItem(ossidSeeds, "ossidSeeds");
         GameRegistry.registerItem(calcifiedAsh, "calcifiedAsh");
         
-        GameRegistry.registerBlock(thunderGrassCrop, "thunderGrassCrop");
+        GameRegistry.registerBlock(thunderGrassCrop, "thundergrass");
         GameRegistry.registerItem(thunderSeeds, "thunderSeeds");
         GameRegistry.registerItem(unstableSoot, "unstableSoot");
 

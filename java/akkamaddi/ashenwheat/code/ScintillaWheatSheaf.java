@@ -8,7 +8,7 @@ public class ScintillaWheatSheaf extends Item
     public ScintillaWheatSheaf()
     {
         super();
-        setUnlocalizedName("scintillaWheatItem");
+        setUnlocalizedName("scintillaWheatSheaf");
     }
 
     public void registerIcons(IIconRegister ir)

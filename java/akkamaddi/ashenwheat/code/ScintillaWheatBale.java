@@ -14,6 +14,7 @@ public class ScintillaWheatBale extends BlockHay
         super();
         setTickRandomly(true);
         setBlockName("scintillaWheatBale");
+        setBlockTextureName("ashenwheat:scintillaWheatBale");
         setLightLevel(1.0F);
     }
 

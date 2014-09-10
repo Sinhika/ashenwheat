@@ -5,7 +5,6 @@ import static net.minecraftforge.common.EnumPlantType.Crop;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -26,8 +25,8 @@ import cpw.mods.fml.relauncher.SideOnly;
  */
 public class AkkamaddiCrop extends BlockCrops implements IGrowable 
 {
-	protected String modname;
-	protected IIcon[] iIcon;
+	protected String modname = "ashenwheat";
+	protected IIcon[] iIcon = new IIcon[8];
 	protected Item seed;
 	protected Item crop;
 	protected float fertilityDividend = 25.0F;  // default: same as vanilla wheat.
@@ -162,7 +161,7 @@ public class AkkamaddiCrop extends BlockCrops implements IGrowable
 	@Override
 	public void registerBlockIcons(IIconRegister ir) 
 	{
-		String stem = modname + ":" + (this.getUnlocalizedName().substring(5)) + "_";
+		String stem = modname + ":" + (this.getUnlocalizedName().substring(5)) + "_0";
 		for (int i=0; i<8; i++) {
 			iIcon[i] = ir.registerIcon(stem + String.valueOf(i));
 		} // end-for
@@ -174,9 +173,8 @@ public class AkkamaddiCrop extends BlockCrops implements IGrowable
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random r) 
 	{
-		BlockBush me = (BlockBush) this;
-		me.updateTick(world, x, y, z, r);  // invoke BlockBush updateTick.
-		
+		this.checkAndDropBlock(world, x, y, z);
+		 
         if (world.getBlockLightValue(x, y + 1, z) < 9)
         {
             return;

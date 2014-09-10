@@ -12,8 +12,8 @@ public class ThunderGrassCrop extends AkkamaddiCrop
     public ThunderGrassCrop()
     {
     	super();
-    	setBlockName("thunderGrassCrop");
-    	setBlockTextureName("ashenwheat:thunderGrassCrop_00");
+    	setBlockName("thundergrass");
+    	setBlockTextureName("ashenwheat:thundergrass_00");
     	setLightLevel(0.45F);
     	setMinFertilityDivisor(6.00F);
     	setFertilityDividend(60.0F);

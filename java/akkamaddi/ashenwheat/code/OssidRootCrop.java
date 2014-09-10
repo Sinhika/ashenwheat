@@ -27,7 +27,8 @@ public class OssidRootCrop extends BlockStem
     {
     	super(gourd);
     	fruit = gourd;
-    	setBlockName("ossidRootCrop");
+    	setBlockName("ossidVine");
+    	setBlockTextureName("ashenwheat:ossidVine");
      	// setMinFertilityDivisor(6.36F);
     	// setFertilityDividend(70.0F);
     }
