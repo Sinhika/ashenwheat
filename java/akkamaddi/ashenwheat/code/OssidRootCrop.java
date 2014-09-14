@@ -28,7 +28,8 @@ public class OssidRootCrop extends BlockStem
     	super(gourd);
     	fruit = gourd;
     	setBlockName("ossidVine");
-    	setBlockTextureName("ashenwheat:ossidVine");
+//    	setBlockTextureName("ashenwheat:ossidVine");
+    	setBlockTextureName("pumpkin_stem");
      	// setMinFertilityDivisor(6.36F);
     	// setFertilityDividend(70.0F);
     }
@@ -45,27 +46,28 @@ public class OssidRootCrop extends BlockStem
 //        ossidRootIcon_07 = ir.registerIcon("ashenwheat:ossidVine_07");
 //    }
 
-    public void updateTick(World world, int x, int y, int z, Random random)
-    {
-        if (world.getBlockMetadata(x, y, z) >= 7)
-        {
-            return;
-        }
-
-        if (world.getBlockLightValue(x, y + 1, z) < 9)
-        {
-            return;
-        }
-
-        if (random.nextInt(isFertile(world, x, y - 1, z) ? 8 : 12) != 1)
-        {
-            return;
-        }
-
-        int meta = world.getBlockMetadata(x, y, z);
-        meta++;
-        world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-     } // end updateTick()
+//    @Override
+//    public void updateTick(World world, int x, int y, int z, Random random)
+//    {
+//        if (world.getBlockMetadata(x, y, z) >= 7)
+//        {
+//            return;
+//        }
+//
+//        if (world.getBlockLightValue(x, y + 1, z) < 9)
+//        {
+//            return;
+//        }
+//
+//        if (random.nextInt(isFertile(world, x, y - 1, z) ? 8 : 12) != 1)
+//        {
+//            return;
+//        }
+//
+//        int meta = world.getBlockMetadata(x, y, z);
+//        meta++;
+//        world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+//     } // end updateTick()
 
     /**
      * Generate a seed ItemStack for this crop.

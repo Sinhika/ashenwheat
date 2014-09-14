@@ -2,6 +2,7 @@ package akkamaddi.ashenwheat.code;
 
 import static net.minecraftforge.common.EnumPlantType.Crop;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -9,6 +10,7 @@ import net.minecraft.block.BlockCrops;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
@@ -23,12 +25,10 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author cyhiggin
  *
  */
-public class AkkamaddiCrop extends BlockCrops implements IGrowable 
+abstract public class AkkamaddiCrop extends BlockCrops implements IGrowable 
 {
 	protected String modname = "ashenwheat";
 	protected IIcon[] iIcon = new IIcon[8];
-	protected Item seed;
-	protected Item crop;
 	protected float fertilityDividend = 25.0F;  // default: same as vanilla wheat.
 	protected float minFertilityDivisor = 2.0F; // default: same as vanilla wheat.
 	
@@ -38,25 +38,29 @@ public class AkkamaddiCrop extends BlockCrops implements IGrowable
 	}
 
 	/* (non-Javadoc)
+	 * @see net.minecraft.block.BlockCrops#quantityDropped(java.util.Random)
+	 */
+	@Override
+	public int quantityDropped(Random p_149745_1_) 
+	{
+		return 1;
+	}
+
+	/* (non-Javadoc)
+	 * @see net.minecraft.block.BlockCrops#getItemDropped(int, java.util.Random, int)
+	 */
+	@Override
+	public Item getItemDropped(int meta, Random r, int fortune) 
+	{
+        return ((meta >= 7) ? this.func_149865_P() : this.func_149866_i());
+	}
+
+	/* (non-Javadoc)
 	 * @see net.minecraft.block.BlockBush#getPlantType(net.minecraft.world.IBlockAccess, int, int, int)
 	 */
 	@Override
 	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
 		return Crop;
-	}
-
-	/**
-	 * @param seed the seed to set
-	 */
-	public void setSeed(Item seed) {
-		this.seed = seed;
-	}
-
-	/**
-	 * @param crop the crop to set
-	 */
-	public void setCrop(Item crop) {
-		this.crop = crop;
 	}
 
 	/**
@@ -74,16 +78,10 @@ public class AkkamaddiCrop extends BlockCrops implements IGrowable
 	}
 
 	@Override
-    protected Item func_149866_i()
-    {
-        return this.seed;
-    }
+	abstract protected Item func_149866_i();
 
 	@Override
-    protected Item func_149865_P()
-    {
-        return this.crop;
-    }
+    abstract protected Item func_149865_P();
 
 	/** wrapper for obfuscated function func_149866_i() */
 	protected Item getSeedItem()
@@ -133,6 +131,34 @@ public class AkkamaddiCrop extends BlockCrops implements IGrowable
 	 */
 	// BlockCrops method fine //
 	
+	/* (non-Javadoc)
+	 * @see net.minecraft.block.BlockCrops#getDrops(net.minecraft.world.World, int, int, int, int, int)
+	 * 
+	 * override to force at least one item dropped.
+	 */
+	@Override
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z,
+			int metadata, int fortune) 
+	{
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		Item item = getItemDropped(metadata, world.rand, 0);
+        if (item != null)
+        {
+            ret.add(new ItemStack(item, 1, damageDropped(metadata)));
+        }
+        if (metadata >= 7)
+        {
+            for (int i = 0; i < 3 + fortune; ++i)
+            {
+                if (world.rand.nextInt(15) <= metadata)
+                {
+                    ret.add(new ItemStack(this.func_149866_i(), 1, 0));
+                }
+            }
+        }
+		return ret;
+	} // end getDrops()
+
 	/**
 	 * fertilize()
 	 * processes the actual growth-tick logic, which is usually increasing
@@ -162,8 +188,8 @@ public class AkkamaddiCrop extends BlockCrops implements IGrowable
 	public void registerBlockIcons(IIconRegister ir) 
 	{
 		String stem = modname + ":" + (this.getUnlocalizedName().substring(5)) + "_0";
-		for (int i=0; i<8; i++) {
-			iIcon[i] = ir.registerIcon(stem + String.valueOf(i));
+		for (int i=0; i < this.iIcon.length; i++) {
+			this.iIcon[i] = ir.registerIcon(stem + String.valueOf(i));
 		} // end-for
 	} // end registerBlockIcons()
 

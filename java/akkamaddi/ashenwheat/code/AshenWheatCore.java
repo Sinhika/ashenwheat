@@ -117,11 +117,9 @@ public class AshenWheatCore
         config.save();
         
 		ashWheatCrop = new AshWheatCrop();
+		ashWheatSheaf = new AshenWheatSheaf().setCreativeTab(AshenWheatCore.tabAshenwheat);
 		ashSeeds = new AshSeeds(ashWheatCrop, Blocks.farmland)
 			.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ashWheatSheaf = new AshenWheatSheaf().setCreativeTab(AshenWheatCore.tabAshenwheat);
-		((AshWheatCrop) ashWheatCrop).setSeed(ashSeeds);
-		((AshWheatCrop) ashWheatCrop).setCrop(ashWheatSheaf);
 		ashWheatBale = new AshWheatBale().setCreativeTab(AshenWheatCore.tabAshenwheat);
 		
 		ashBread = new AshBread(4, 0.5F, false).setCreativeTab(AshenWheatCore.tabAshenwheat);
@@ -132,8 +130,6 @@ public class AshenWheatCore
 			.setCreativeTab(AshenWheatCore.tabAshenwheat);
 		scintillaWheatSheaf = new ScintillaWheatSheaf()
 				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		((AkkamaddiCrop) scintillaWheatCrop).setSeed(scintillaSeeds);
-		((AkkamaddiCrop) scintillaWheatCrop).setCrop(scintillaWheatSheaf);
 		
 		scintillaWheatBale = new ScintillaWheatBale().setCreativeTab(AshenWheatCore.tabAshenwheat);
 		
@@ -155,9 +151,6 @@ public class AshenWheatCore
 		thunderGrassCrop = new ThunderGrassCrop();
 		thunderSeeds = new ThunderSeeds(thunderGrassCrop, Blocks.farmland)
 				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		((AkkamaddiCrop) thunderGrassCrop).setSeed(thunderSeeds);
-		((AkkamaddiCrop) thunderGrassCrop).setCrop(thunderSeeds);
-		
 		unstableSoot = new UnstableSoot().setCreativeTab(AshenWheatCore.tabAshenwheat);        
         
         GameRegistry.registerItem(ashSeeds, "ashSeeds");

@@ -2,6 +2,7 @@ package akkamaddi.ashenwheat.code;
 
 import java.util.Random;
 
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,7 +21,26 @@ public class ScintillaWheatCrop extends AkkamaddiCrop
     }
 
 
-    @SideOnly(Side.CLIENT)
+    /* (non-Javadoc)
+	 * @see akkamaddi.ashenwheat.code.AkkamaddiCrop#func_149866_i()
+	 */
+	@Override
+	protected Item func_149866_i() {
+		return AshenWheatCore.scintillaSeeds;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see akkamaddi.ashenwheat.code.AkkamaddiCrop#func_149865_P()
+	 */
+	@Override
+	protected Item func_149865_P() {
+
+		return AshenWheatCore.scintillaWheatSheaf;
+	}
+
+
+	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random random)
     {
         if (AshenWheatCore.MakeScintillawheatScintillate == true)
