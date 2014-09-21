@@ -20,7 +20,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "ashenwheat", name = "Ashenwheat", version = "1.7.10-1.1.0")
+@Mod(modid = "ashenwheat", name = "Ashenwheat", version = "1.7.10-1.1.1")
 
 public class AshenWheatCore
 {
@@ -141,7 +141,7 @@ public class AshenWheatCore
 				.setCreativeTab(AshenWheatCore.tabAshenwheat);
 
 		ossidRoot = new OssidRoot(false).setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ossidRootCrop = new OssidRootCrop(ossidRoot);
+		ossidRootCrop = new OssidRootCrop();
 		ossidLantern = new OssidRoot(true).setBlockName("ossidLantern").setLightLevel(1.0F)
 				.setCreativeTab(AshenWheatCore.tabAshenwheat);
 		ossidSeeds = new OssidSeeds(ossidRootCrop,Blocks.farmland)
