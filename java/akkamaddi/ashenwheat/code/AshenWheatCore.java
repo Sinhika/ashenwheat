@@ -80,7 +80,7 @@ public class AshenWheatCore
    public static AshenWheatCore instance;
 
     // Says where the client and server 'proxy' code is loaded.
-    @SidedProxy(clientSide = "akkamaddi.ashenwheat.code.ClientProxy", serverSide = "SimpleOres.plugins.ashenwheatc.CommonProxy")
+    @SidedProxy(clientSide = "akkamaddi.ashenwheat.code.ClientProxy", serverSide = "akkamaddi.ashenwheat.code.CommonProxy")
     public static CommonProxy proxy;
 
     /**
