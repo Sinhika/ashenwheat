@@ -2,7 +2,12 @@ package akkamaddi.ashenwheat.code;
 
 import java.io.File;
 
+import akkamaddi.ashenwheat.code.MFR.fertilizables.FertilizableCropPlant;
+import akkamaddi.ashenwheat.code.MFR.harvestables.HarvestableCropPlant;
+import akkamaddi.ashenwheat.code.MFR.plantables.PlantableCropPlant;
+import powercrystals.minefactoryreloaded.api.FactoryRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -11,11 +16,13 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -248,5 +255,21 @@ public class AshenWheatCore
    @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+		if (Loader.isModLoaded("MineFactoryReloaded")) {
+			FactoryRegistry.sendMessage("registerPlantable",new PlantableCropPlant(AshenWheatCore.ashSeeds, AshenWheatCore.ashWheatCrop));
+			FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.scintillaSeeds, AshenWheatCore.scintillaWheatCrop));
+			FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.ossidSeeds, AshenWheatCore.ossidRootCrop));
+			FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.thunderSeeds, AshenWheatCore.thunderGrassCrop));
+
+			FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.ashWheatCrop, 7));
+			FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.scintillaWheatCrop, 7));
+			FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.ossidRootCrop, 7));
+			FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.thunderGrassCrop, 7));
+
+			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.ashWheatCrop, 7));
+			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.scintillaWheatCrop, 7));
+			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.ossidRootCrop, 7));
+			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.thunderGrassCrop, 7));
+		}
     } // end postInit()
 } // end class AshenWheatCore
