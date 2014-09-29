@@ -5,7 +5,6 @@ import java.io.File;
 import akkamaddi.ashenwheat.code.MFR.fertilizables.FertilizableCropPlant;
 import akkamaddi.ashenwheat.code.MFR.harvestables.HarvestableCropPlant;
 import akkamaddi.ashenwheat.code.MFR.plantables.PlantableCropPlant;
-import powercrystals.minefactoryreloaded.api.FactoryRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
@@ -256,20 +255,20 @@ public class AshenWheatCore
     public void postInit(FMLPostInitializationEvent event)
     {
 		if (Loader.isModLoaded("MineFactoryReloaded")) {
-			FactoryRegistry.sendMessage("registerPlantable",new PlantableCropPlant(AshenWheatCore.ashSeeds, AshenWheatCore.ashWheatCrop));
-			FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.scintillaSeeds, AshenWheatCore.scintillaWheatCrop));
-			FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.ossidSeeds, AshenWheatCore.ossidRootCrop));
-			FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.thunderSeeds, AshenWheatCore.thunderGrassCrop));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable",new PlantableCropPlant(AshenWheatCore.ashSeeds, AshenWheatCore.ashWheatCrop));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.scintillaSeeds, AshenWheatCore.scintillaWheatCrop));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.ossidSeeds, AshenWheatCore.ossidRootCrop));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.thunderSeeds, AshenWheatCore.thunderGrassCrop));
 
-			FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.ashWheatCrop, 7));
-			FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.scintillaWheatCrop, 7));
-			FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.ossidRootCrop, 7));
-			FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.thunderGrassCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.ashWheatCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.scintillaWheatCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.ossidRootCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.thunderGrassCrop, 7));
 
-			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.ashWheatCrop, 7));
-			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.scintillaWheatCrop, 7));
-			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.ossidRootCrop, 7));
-			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.thunderGrassCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.ashWheatCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.scintillaWheatCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.ossidRootCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.thunderGrassCrop, 7));
 		}
     } // end postInit()
 } // end class AshenWheatCore
