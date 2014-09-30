@@ -1,7 +1,6 @@
-
-/bin
-/build
-/libs
-*.zip
-*.jar
+bin/
+build/
+libs/
 *.log
+*.jar
+*.class
