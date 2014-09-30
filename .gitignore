@@ -1,8 +1,7 @@
 
 /bin
-
-*.classpath
-*.project
+/build
+/libs
 *.zip
 *.jar
 *.log

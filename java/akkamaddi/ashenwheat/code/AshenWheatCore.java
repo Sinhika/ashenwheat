@@ -2,9 +2,6 @@ package akkamaddi.ashenwheat.code;
 
 import java.io.File;
 
-import akkamaddi.ashenwheat.code.MFR.fertilizables.FertilizableCropPlant;
-import akkamaddi.ashenwheat.code.MFR.harvestables.HarvestableCropPlant;
-import akkamaddi.ashenwheat.code.MFR.plantables.PlantableCropPlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,18 +12,20 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import akkamaddi.ashenwheat.code.MFR.fertilizables.FertilizableCropPlant;
+import akkamaddi.ashenwheat.code.MFR.harvestables.HarvestableCropPlant;
+import akkamaddi.ashenwheat.code.MFR.plantables.PlantableCropPlant;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "ashenwheat", name = "Ashenwheat", version = "1.7.10-1.1.1")
+@Mod(modid = "ashenwheat", name = "Ashenwheat", version = "1.7.10-1.2.0")
 
 public class AshenWheatCore
 {
