@@ -18,43 +18,16 @@ import akkamaddi.ashenwheat.code.MFR.plantables.PlantableCropPlant;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "ashenwheat", name = "Ashenwheat", version = "1.7.10-1.2.0")
+@Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, 
+	dependencies=ModInfo.DEPENDENCIES)
 
 public class AshenWheatCore
 {
-    
-    public static Block ashWheatCrop;
-    public static Block ashWheatBale;
-    public static Item ashSeeds;
-    public static Item ashWheatSheaf;
-    public static Item ashBread;
-    public static Item ashCookie;
-
-    public static Block scintillaWheatCrop;
-    public static Block scintillaWheatBale;
-    public static Item scintillaSeeds;
-    public static Item scintillaWheatSheaf;
-    public static Item scintillaBread;
-    public static Item scintillaCookie;
-    public static Item scintillatingAsh;
-
-    public static Block ossidRootCrop;
-    public static Block ossidRoot;
-    public static Block ossidLantern;
-    public static Item ossidSeeds;
-    public static Item calcifiedAsh;
-    
-    public static Block thunderGrassCrop;
-    public static Item thunderSeeds;
-    public static Item unstableSoot;
-    
     public static boolean MakeAshenwheatFlame;
     public static boolean MakeAshenBalesFlame;
 
@@ -76,19 +49,11 @@ public class AshenWheatCore
     public static CreativeTabs tabAshenwheat = new CreativeTabs("tabAshenwheat") {
  		@Override
 		public Item getTabIconItem() {
-			return AshenWheatCore.ashWheatSheaf;
+			return Content.ashWheatSheaf;
 		}
     };
 
-    // The instance of your mod that Forge uses.
-   @Instance(value = "ashenwheat")
-   public static AshenWheatCore instance;
-
-    // Says where the client and server 'proxy' code is loaded.
-    @SidedProxy(clientSide = "akkamaddi.ashenwheat.code.ClientProxy", serverSide = "akkamaddi.ashenwheat.code.CommonProxy")
-    public static CommonProxy proxy;
-
-    /**
+     /**
      * Run before anything else. Read your config, create blocks, items, etc, and 
      * register them with the GameRegistry. Register recipes.
      */
@@ -121,70 +86,7 @@ public class AshenWheatCore
         MakeThunderGrassSmoke = config.get("zz Boolean Configuration", "Smoke particles on Thundergrass crop, false or true", false).getBoolean(false);
         config.save();
         
-		ashWheatCrop = new AshWheatCrop();
-		ashWheatSheaf = new AshenWheatSheaf().setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ashSeeds = new AshSeeds(ashWheatCrop, Blocks.farmland)
-			.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ashWheatBale = new AshWheatBale().setCreativeTab(AshenWheatCore.tabAshenwheat);
-		
-		ashBread = new AshBread(4, 0.5F, false).setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ashCookie = new AshCookie( 1, 0.1F, false).setCreativeTab(AshenWheatCore.tabAshenwheat);
-
-		scintillaWheatCrop = new ScintillaWheatCrop();
-		scintillaSeeds = new ScintillaSeeds(scintillaWheatCrop, Blocks.farmland)
-			.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		scintillaWheatSheaf = new ScintillaWheatSheaf()
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		
-		scintillaWheatBale = new ScintillaWheatBale().setCreativeTab(AshenWheatCore.tabAshenwheat);
-		
-		scintillaBread = new ScintillaBread( 4, 0.7F, false)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		scintillaCookie = new ScintillaCookie( 1, 0.1F, false)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		scintillatingAsh = new ScintillatingAsh()
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-
-		ossidRoot = new OssidRoot(false).setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ossidRootCrop = new OssidRootCrop();
-		ossidLantern = new OssidRoot(true).setBlockName("ossidLantern").setLightLevel(1.0F)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ossidSeeds = new OssidSeeds(ossidRootCrop,Blocks.farmland)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		calcifiedAsh = new OssidAsh().setCreativeTab(AshenWheatCore.tabAshenwheat);
-
-		thunderGrassCrop = new ThunderGrassCrop();
-		thunderSeeds = new ThunderSeeds(thunderGrassCrop, Blocks.farmland)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		unstableSoot = new UnstableSoot().setCreativeTab(AshenWheatCore.tabAshenwheat);        
-        
-        GameRegistry.registerItem(ashSeeds, "ashSeeds");
-        GameRegistry.registerItem(ashWheatSheaf, "ashWheatSheaf");
-        GameRegistry.registerItem(ashBread, "ashBread");
-        GameRegistry.registerItem(ashCookie, "ashCookie");
-        GameRegistry.registerBlock(ashWheatCrop, "ashWheatCrop");
-        GameRegistry.registerBlock(ashWheatBale, "ashWheatBale");
-
-        GameRegistry.registerItem(scintillaSeeds, "scintillaSeeds");
-        GameRegistry.registerItem(scintillaWheatSheaf, "scintillaWheatSheaf");
-        GameRegistry.registerItem(scintillaBread, "scintillaBread");
-        GameRegistry.registerItem(scintillaCookie, "scintillaCookie");
-        GameRegistry.registerItem(scintillatingAsh, "scintillatingAsh");
-        GameRegistry.registerBlock(scintillaWheatCrop, "scintillaWheatCrop");
-        GameRegistry.registerBlock(scintillaWheatBale, "scintillaWheatBale");
-        
-        GameRegistry.registerBlock(ossidRootCrop, "ossidVine");
-        GameRegistry.registerBlock(ossidRoot, "ossidRoot");
-        GameRegistry.registerBlock(ossidLantern, "ossidLantern");
-        GameRegistry.registerItem(ossidSeeds, "ossidSeeds");
-        GameRegistry.registerItem(calcifiedAsh, "calcifiedAsh");
-        
-        GameRegistry.registerBlock(thunderGrassCrop, "thundergrass");
-        GameRegistry.registerItem(thunderSeeds, "thunderSeeds");
-        GameRegistry.registerItem(unstableSoot, "unstableSoot");
-
         AshenRecipes.doAshenRecipes();
-        
     } // end preinit()
 
    /**
@@ -193,56 +95,28 @@ public class AshenWheatCore
    @EventHandler
     public void load(FMLInitializationEvent event)
     {
-        proxy.registerRenderers();
         GameRegistry.registerFuelHandler(new AshenwheatFuel());
         MinecraftForge.EVENT_BUS.register(new AshyBonemeal());
        
         if (dropAsh) {
-        	MinecraftForge.addGrassSeed(new ItemStack(ashSeeds), 4);
+        	MinecraftForge.addGrassSeed(new ItemStack(Content.ashSeeds), 4);
         }
 
         if (dropScintilla) {
-        	MinecraftForge.addGrassSeed(new ItemStack(scintillaSeeds), 1);
+        	MinecraftForge.addGrassSeed(new ItemStack(Content.scintillaSeeds), 1);
         }
         
         if (dropOssid) {
-        	MinecraftForge.addGrassSeed(new ItemStack(ossidSeeds), 3);
+        	MinecraftForge.addGrassSeed(new ItemStack(Content.ossidSeeds), 3);
         }
         
         if (dropThunder) { 
-        	MinecraftForge.addGrassSeed(new ItemStack(thunderSeeds), 2); 
+        	MinecraftForge.addGrassSeed(new ItemStack(Content.thunderSeeds), 2); 
         }
         
-        if (seedsInChests){
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ashSeeds),2,8,20));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaSeeds),2,4,10));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ossidSeeds),2,6,15));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.thunderSeeds),2,6,15));
-
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaSeeds),4,8,16));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaWheatSheaf),2,4,6));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ashCookie),6,16,12));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaCookie),6,16,12));
-        
-        ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ashSeeds),2,6,10));
-        ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaSeeds),1,3,2));
-        ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ossidSeeds),2,4,5));
-        ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.thunderSeeds),2,4,5));
-        
-        ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ashWheatSheaf),2,4,5));
-        ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaWheatSheaf),1,3,2));
-        ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ashCookie),6,16,4));
-        ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaCookie),6,16,2));
-        
-        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ashSeeds),2,6,15));
-        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaSeeds),1,3,5));
-        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ossidSeeds),2,4,10));
-        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.thunderSeeds),2,4,10));
-
-        ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ashSeeds),1,4,3));
-        ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.scintillaSeeds),1,2,1));
-        ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.ossidSeeds),1,3,2));
-        ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(AshenWheatCore.thunderSeeds),1,3,2));
+        if (seedsInChests)
+        {
+        	Content.setLoot();
         }
         
     } // end load()
@@ -254,20 +128,20 @@ public class AshenWheatCore
     public void postInit(FMLPostInitializationEvent event)
     {
 		if (Loader.isModLoaded("MineFactoryReloaded")) {
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable",new PlantableCropPlant(AshenWheatCore.ashSeeds, AshenWheatCore.ashWheatCrop));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.scintillaSeeds, AshenWheatCore.scintillaWheatCrop));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.ossidSeeds, AshenWheatCore.ossidRootCrop));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(AshenWheatCore.thunderSeeds, AshenWheatCore.thunderGrassCrop));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable",new PlantableCropPlant(Content.ashSeeds, Content.ashWheatCrop));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(Content.scintillaSeeds, Content.scintillaWheatCrop));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(Content.ossidSeeds, Content.ossidRootCrop));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerPlantable", new PlantableCropPlant(Content.thunderSeeds, Content.thunderGrassCrop));
 
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.ashWheatCrop, 7));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.scintillaWheatCrop, 7));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.ossidRootCrop, 7));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(AshenWheatCore.thunderGrassCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(Content.ashWheatCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(Content.scintillaWheatCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(Content.ossidRootCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerHarvestable", new HarvestableCropPlant(Content.thunderGrassCrop, 7));
 
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.ashWheatCrop, 7));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.scintillaWheatCrop, 7));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.ossidRootCrop, 7));
-			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)AshenWheatCore.thunderGrassCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)Content.ashWheatCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)Content.scintillaWheatCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)Content.ossidRootCrop, 7));
+			powercrystals.minefactoryreloaded.api.FactoryRegistry.sendMessage("registerFertilizable", new FertilizableCropPlant((IGrowable)Content.thunderGrassCrop, 7));
 		}
     } // end postInit()
 } // end class AshenWheatCore

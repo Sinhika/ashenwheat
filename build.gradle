@@ -1,14 +1,15 @@
-version = "1.7.10-1.2.0"
+version = "1.7.10-1.2.1"
 sourceSets.main {
     java {
-	srcDirs project.projectDir.getPath() exclude ("bin/**", "build*",".gradle/**","eclipse/**")
+		srcDirs project.projectDir.getPath() exclude ("bin/**", "build*",".gradle/**","eclipse/**")
 	}
-    resources {
-	srcDirs '/resources' exclude ("bin/**", "build*",".gradle/**","eclipse/**")
+	resources {
+		srcDirs 'resources' exclude ("bin/**", "build*",".gradle/**","eclipse/**")
 	}
 } 
 
 dependencies {
     // you may put jars on which you depend on in ./libs
+ 
    }
 
