@@ -3,15 +3,15 @@
 "modid": "ashenwheat",
 "name": "Ashenwheat",
 "description": "4 special wheat crops for Minecraft",
-"version": "1.7.10-1.2.0",
-"credits": "Created by akkamaddi, updated by Sinhika, MFR support by TheOldOne822",
+"version": "${version}",
+"credits": "Created by akkamaddi, updated by Sinhika",
 "logoFile": "",
-"mcversion": "1.7.10",
+"mcversion": "${mcversion}",
 "url": "",
 "updateUrl": "",
 "authorList": [ "akkamaddi", "Sinhika" ],
 "parent":"",
 "screenshots": [],
-"dependencies": [ "MinecraftForge" ]
+"dependencies": []
 }
 ]
