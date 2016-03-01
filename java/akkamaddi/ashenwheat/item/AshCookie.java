@@ -1,20 +1,26 @@
 package akkamaddi.ashenwheat.item;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
+import akkamaddi.ashenwheat.AshenWheatCore;
 import net.minecraft.item.ItemFood;
 import net.minecraft.potion.Potion;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class AshCookie extends ItemFood
 {
+	private final String name = "ashcookie";
+	
     public AshCookie(int par2, float par3, boolean par4)
     {
         super(par2, par3, par4);
-        setUnlocalizedName("ashCookie");
+        setUnlocalizedName(name);
         setPotionEffect(Potion.regeneration.id, 2, 1, 1.0F);
+        GameRegistry.registerItem(this, name);
+        setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
 
-    public void registerIcons(IIconRegister ir)
+    public String getName()
     {
-		this.itemIcon = ir.registerIcon("ashenwheat:" + (this.getUnlocalizedName().substring(5)));
+    	return name;
     }
+
 } // end class AshCookie

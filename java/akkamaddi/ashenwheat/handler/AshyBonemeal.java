@@ -2,15 +2,17 @@ package akkamaddi.ashenwheat.handler;
 
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.player.BonemealEvent;
-import cpw.mods.fml.common.eventhandler.Event.Result;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.Content;
 
 public class AshyBonemeal
 {
     @SubscribeEvent
     public void onUseBonemeal(BonemealEvent event)
     {
-        if (event.block == AshenWheatCore.ashWheatCrop)
+        if (event.block == Content.ashWheatCrop)
         {
             int l = event.world.getBlockMetadata(event.x, event.y, event.z) + MathHelper.getRandomIntegerInRange(event.world.rand, 0, 2);
 
@@ -25,7 +27,7 @@ public class AshyBonemeal
             //event.world.setBlockMetadataWithNotify(event.X, event.Y, event.Z, 7, 2);
         }
 
-        if (event.block == AshenWheatCore.scintillaWheatCrop)
+        if (event.block == Content.scintillaWheatCrop)
         {
             int l = event.world.getBlockMetadata(event.x, event.y, event.z) + MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
 
@@ -40,7 +42,7 @@ public class AshyBonemeal
             //event.world.setBlockMetadataWithNotify(event.X, event.Y, event.Z, 7, 2);
         }
         
-        if (event.block == AshenWheatCore.ossidRootCrop)
+        if (event.block == Content.ossidRootCrop)
         {
             int l = event.world.getBlockMetadata(event.x, event.y, event.z) + MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
 
@@ -55,7 +57,7 @@ public class AshyBonemeal
             //event.world.setBlockMetadataWithNotify(event.X, event.Y, event.Z, 7, 2);
         }
 
-        if (event.block == AshenWheatCore.thunderGrassCrop)
+        if (event.block == Content.thunderGrassCrop)
         {
             int l = event.world.getBlockMetadata(event.x, event.y, event.z) + MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
 

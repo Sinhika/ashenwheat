@@ -2,18 +2,20 @@ package akkamaddi.ashenwheat;
 
 import java.io.File;
 
-import akkamaddi.ashenwheat.handler.AshenwheatFuel;
-import net.minecraft.block.Block;
-import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import akkamaddi.ashenwheat.handler.AshenwheatFuel;
+import akkamaddi.ashenwheat.handler.AshyBonemeal;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, 
 	dependencies=ModInfo.DEPENDENCIES)
@@ -78,7 +80,6 @@ public class AshenWheatCore
         MakeThunderGrassSmoke = config.get("zz Boolean Configuration", "Smoke particles on Thundergrass crop, false or true", false).getBoolean(false);
         config.save();
         
-        AshenRecipes.doAshenRecipes();
     } // end preinit()
 
    /**
@@ -111,6 +112,12 @@ public class AshenWheatCore
         	Content.setLoot();
         }
         
+        AshenRecipes.doAshenRecipes();
+        
+        if(event.getSide() == Side.CLIENT)
+        {
+        	Content.doRenderers();
+        }       
     } // end load()
 
    /**

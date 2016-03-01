@@ -1,9 +1,10 @@
 package akkamaddi.ashenwheat.handler;
 
-import akkamaddi.ashenwheat.AshenWheatCore;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.IFuelHandler;
+import net.minecraftforge.fml.common.IFuelHandler;
+import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.Content;
 
 public class AshenwheatFuel implements IFuelHandler
 {
@@ -11,27 +12,27 @@ public class AshenwheatFuel implements IFuelHandler
     public int getBurnTime(ItemStack fuelStack)
     {
     	Item fuel = fuelStack.getItem();
-        if (fuel == AshenWheatCore.ashWheatSheaf)
+        if (fuel == Content.ashWheatSheaf)
         {
             return 100;
         }
 
-        if (fuel == AshenWheatCore.ashBread)
+        if (fuel == Content.ashBread)
         {
             return 600;
         }
 
-        if (fuel == AshenWheatCore.ashCookie)
+        if (fuel == Content.ashCookie)
         {
             return 50;
         }
 
-        if (fuel == AshenWheatCore.ashSeeds)
+        if (fuel == Content.ashSeeds)
         {
             return 25;
         }
 
-        if (fuelStack.isItemEqual(new ItemStack(AshenWheatCore.ashWheatBale)))
+        if (fuelStack.isItemEqual(new ItemStack(Content.ashWheatBale)))
         {
             return 2400;
         }

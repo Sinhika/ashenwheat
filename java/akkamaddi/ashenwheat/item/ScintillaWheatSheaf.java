@@ -1,18 +1,23 @@
 package akkamaddi.ashenwheat.item;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
+import akkamaddi.ashenwheat.AshenWheatCore;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ScintillaWheatSheaf extends Item
 {
+	private final String name = "scintillawheatsheaf";
+	
     public ScintillaWheatSheaf()
     {
         super();
-        setUnlocalizedName("scintillaWheatSheaf");
+        setUnlocalizedName(name);
+        GameRegistry.registerItem(this, name);
+        setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
-
-    public void registerIcons(IIconRegister ir)
+    
+    public String getName()
     {
-		this.itemIcon = ir.registerIcon("ashenwheat:" + (this.getUnlocalizedName().substring(5)));
+    	return name;
     }
 }

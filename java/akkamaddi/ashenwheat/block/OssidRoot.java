@@ -4,14 +4,15 @@ import java.util.Random;
 
 import net.minecraft.block.BlockPumpkin;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import akkamaddi.ashenwheat.AshenWheatCore;
 
 public class OssidRoot extends BlockPumpkin
 {
 	private boolean blockType;
 	
-    protected OssidRoot(boolean isLit)
+    public OssidRoot(boolean isLit)
     {
     	super(isLit);
     	blockType = isLit;

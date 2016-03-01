@@ -1,12 +1,35 @@
 package akkamaddi.ashenwheat;
 
-import akkamaddi.ashenwheat.item.AshenWheatSheaf;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import akkamaddi.ashenwheat.block.AshWheatBale;
+import akkamaddi.ashenwheat.block.AshWheatCrop;
+import akkamaddi.ashenwheat.block.OssidRoot;
+import akkamaddi.ashenwheat.block.OssidRootCrop;
+import akkamaddi.ashenwheat.block.ScintillaWheatBale;
+import akkamaddi.ashenwheat.block.ScintillaWheatCrop;
+import akkamaddi.ashenwheat.block.ThunderGrassCrop;
+import akkamaddi.ashenwheat.item.AshBread;
+import akkamaddi.ashenwheat.item.AshCookie;
+import akkamaddi.ashenwheat.item.AshSeeds;
+import akkamaddi.ashenwheat.item.AshenWheatSheaf;
+import akkamaddi.ashenwheat.item.OssidAsh;
+import akkamaddi.ashenwheat.item.OssidSeeds;
+import akkamaddi.ashenwheat.item.ScintillaBread;
+import akkamaddi.ashenwheat.item.ScintillaCookie;
+import akkamaddi.ashenwheat.item.ScintillaSeeds;
+import akkamaddi.ashenwheat.item.ScintillaWheatSheaf;
+import akkamaddi.ashenwheat.item.ScintillatingAsh;
+import akkamaddi.ashenwheat.item.ThunderSeeds;
+import akkamaddi.ashenwheat.item.UnstableSoot;
 
 public class Content 
 {
@@ -39,75 +62,101 @@ public class Content
 
 	public static void doItems()
 	{
+		ashWheatSheaf = new AshenWheatSheaf();
+		ashSeeds = new AshSeeds(ashWheatCrop, Blocks.farmland);
+		ashBread = new AshBread(4, 0.5F, false);
+		ashCookie = new AshCookie( 1, 0.1F, false);
+
+		scintillaSeeds = new ScintillaSeeds(scintillaWheatCrop, Blocks.farmland);
+		scintillaWheatSheaf = new ScintillaWheatSheaf();
+		scintillaBread = new ScintillaBread( 4, 0.7F, false);
+		scintillaCookie = new ScintillaCookie( 1, 0.1F, false);
+		scintillatingAsh = new ScintillatingAsh();
+
+		ossidSeeds = new OssidSeeds(ossidRootCrop,Blocks.farmland);
+		calcifiedAsh = new OssidAsh();
+
+		thunderSeeds = new ThunderSeeds(thunderGrassCrop, Blocks.farmland);
+		unstableSoot = new UnstableSoot();        
+        
+	} // end doItems()
+	
+	public static void doBlocks()
+	{
+		ashWheatBale = new AshWheatBale();
 		ashWheatCrop = new AshWheatCrop();
-		ashWheatSheaf = new AshenWheatSheaf().setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ashSeeds = new AshSeeds(ashWheatCrop, Blocks.farmland)
-			.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ashWheatBale = new AshWheatBale().setCreativeTab(AshenWheatCore.tabAshenwheat);
 		
-		ashBread = new AshBread(4, 0.5F, false).setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ashCookie = new AshCookie( 1, 0.1F, false).setCreativeTab(AshenWheatCore.tabAshenwheat);
-
+		scintillaWheatBale = new ScintillaWheatBale();
 		scintillaWheatCrop = new ScintillaWheatCrop();
-		scintillaSeeds = new ScintillaSeeds(scintillaWheatCrop, Blocks.farmland)
-			.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		scintillaWheatSheaf = new ScintillaWheatSheaf()
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
 		
-		scintillaWheatBale = new ScintillaWheatBale().setCreativeTab(AshenWheatCore.tabAshenwheat);
-		
-		scintillaBread = new ScintillaBread( 4, 0.7F, false)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		scintillaCookie = new ScintillaCookie( 1, 0.1F, false)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		scintillatingAsh = new ScintillatingAsh()
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-
-		ossidRoot = new OssidRoot(false).setCreativeTab(AshenWheatCore.tabAshenwheat);
+		ossidRoot = new OssidRoot(false);
 		ossidRootCrop = new OssidRootCrop();
 		ossidLantern = new OssidRoot(true).setBlockName("ossidLantern").setLightLevel(1.0F)
 				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		ossidSeeds = new OssidSeeds(ossidRootCrop,Blocks.farmland)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		calcifiedAsh = new OssidAsh().setCreativeTab(AshenWheatCore.tabAshenwheat);
-
+		
 		thunderGrassCrop = new ThunderGrassCrop();
-		thunderSeeds = new ThunderSeeds(thunderGrassCrop, Blocks.farmland)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
-		unstableSoot = new UnstableSoot().setCreativeTab(AshenWheatCore.tabAshenwheat);        
-        
-        GameRegistry.registerItem(ashSeeds, "ashSeeds");
-        GameRegistry.registerItem(ashWheatSheaf, "ashWheatSheaf");
-        GameRegistry.registerItem(ashBread, "ashBread");
-        GameRegistry.registerItem(ashCookie, "ashCookie");
+		
         GameRegistry.registerBlock(ashWheatCrop, "ashWheatCrop");
         GameRegistry.registerBlock(ashWheatBale, "ashWheatBale");
 
-        GameRegistry.registerItem(scintillaSeeds, "scintillaSeeds");
-        GameRegistry.registerItem(scintillaWheatSheaf, "scintillaWheatSheaf");
-        GameRegistry.registerItem(scintillaBread, "scintillaBread");
-        GameRegistry.registerItem(scintillaCookie, "scintillaCookie");
-        GameRegistry.registerItem(scintillatingAsh, "scintillatingAsh");
         GameRegistry.registerBlock(scintillaWheatCrop, "scintillaWheatCrop");
         GameRegistry.registerBlock(scintillaWheatBale, "scintillaWheatBale");
         
         GameRegistry.registerBlock(ossidRootCrop, "ossidVine");
         GameRegistry.registerBlock(ossidRoot, "ossidRoot");
         GameRegistry.registerBlock(ossidLantern, "ossidLantern");
-        GameRegistry.registerItem(ossidSeeds, "ossidSeeds");
-        GameRegistry.registerItem(calcifiedAsh, "calcifiedAsh");
         
         GameRegistry.registerBlock(thunderGrassCrop, "thundergrass");
-        GameRegistry.registerItem(thunderSeeds, "thunderSeeds");
-        GameRegistry.registerItem(unstableSoot, "unstableSoot");
 
-	} // end doItems()
-	
-	public static void doBlocks()
-	{
-		
 	} // end doBlocks();
 
+	
+	public static void doRenderers()
+	{
+    	RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+		
+    	renderItem.getItemModelMesher().register(Content.ashBread, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((AshBread) Content.ashBread).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.ashCookie, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((AshCookie) Content.ashCookie).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.ashWheatSheaf, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((AshenWheatSheaf) Content.ashWheatSheaf).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.ashSeeds, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((AshSeeds) Content.ashSeeds).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.ossidSeeds, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((OssidSeeds) Content.ossidSeeds).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.calcifiedAsh, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((OssidAsh) Content.calcifiedAsh).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.scintillaSeeds, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((ScintillaSeeds) Content.scintillaSeeds).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.scintillaWheatSheaf, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((ScintillaWheatSheaf) Content.scintillaWheatSheaf).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.scintillaBread, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((ScintillaBread) Content.scintillaBread).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.scintillaCookie, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((ScintillaCookie) Content.scintillaCookie).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.scintillatingAsh, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((ScintillatingAsh) Content.scintillatingAsh).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.thunderSeeds, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((ThunderSeeds) Content.thunderSeeds).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Content.unstableSoot, 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((UnstableSoot) Content.unstableSoot).getName(), 
+    								      "inventory"));
+		
+	} // end doRenderers()
+	
     public static void setLoot()
     {
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ashSeeds),2,8,20));

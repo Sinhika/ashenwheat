@@ -1,21 +1,25 @@
 package akkamaddi.ashenwheat.item;
 
+import akkamaddi.ashenwheat.AshenWheatCore;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ThunderSeeds extends ItemSeeds implements IPlantable
 {
+	private final String name = "thunderseeds";
+	
     public ThunderSeeds(Block cropBlock, Block soilBlock)
     {
         super(cropBlock, soilBlock);
-        setUnlocalizedName("thunderSeeds");
+        setUnlocalizedName(name);
+        GameRegistry.registerItem(this, name);
+        setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
-
-    @Override
-    public void registerIcons(IIconRegister ir)
+    
+    public String getName()
     {
-		this.itemIcon = ir.registerIcon("ashenwheat:" + (this.getUnlocalizedName().substring(5)));
+    	return name;
     }
 }
