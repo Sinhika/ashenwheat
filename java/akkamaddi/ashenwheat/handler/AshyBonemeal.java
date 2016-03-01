@@ -6,70 +6,86 @@ import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import akkamaddi.ashenwheat.AshenWheatCore;
 import akkamaddi.ashenwheat.Content;
+import net.minecraft.block.BlockCrops;
+import net.minecraft.block.state.IBlockState;
 
 public class AshyBonemeal
 {
     @SubscribeEvent
     public void onUseBonemeal(BonemealEvent event)
     {
-        if (event.block == Content.ashWheatCrop)
+    	IBlockState state;
+    	
+        if (event.block.getBlock() == Content.ashWheatCrop)
         {
-            int l = event.world.getBlockMetadata(event.x, event.y, event.z) + MathHelper.getRandomIntegerInRange(event.world.rand, 0, 2);
+        	int l = event.block.getBlock().getMetaFromState(event.block);
+            l += MathHelper.getRandomIntegerInRange(event.world.rand, 0, 2);
 
             if (l < 7)
             {
                 ++l;
-                event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, l, 2);
             }
-
-            event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, l, 2);
+            if (l > 7) { 
+            	l = 7;
+            }
+            state = event.block.getBlock().getStateFromMeta(l);
+            event.world.setBlockState(event.pos, state, 2);
             event.setResult(Result.ALLOW);
-            //event.world.setBlockMetadataWithNotify(event.X, event.Y, event.Z, 7, 2);
-        }
+        } // end if ashWheatCrop
 
-        if (event.block == Content.scintillaWheatCrop)
+        if (event.block.getBlock() == Content.scintillaWheatCrop)
         {
-            int l = event.world.getBlockMetadata(event.x, event.y, event.z) + MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
+        	int l = event.block.getBlock().getMetaFromState(event.block);
+            l += MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
 
             if (l < 7)
             {
                 ++l;
-                event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, l, 2);
+            }
+            if (l > 7) { 
+            	l = 7;
             }
 
-            event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, l, 2);
+            state = event.block.getBlock().getStateFromMeta(l);
+            event.world.setBlockState(event.pos, state, 2);
             event.setResult(Result.ALLOW);
-            //event.world.setBlockMetadataWithNotify(event.X, event.Y, event.Z, 7, 2);
-        }
+        } // end if scintillaWheatCrop
         
-        if (event.block == Content.ossidRootCrop)
+        if (event.block.getBlock() == Content.ossidRootCrop)
         {
-            int l = event.world.getBlockMetadata(event.x, event.y, event.z) + MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
+        	int l = event.block.getBlock().getMetaFromState(event.block);
+            l += MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
 
             if (l < 7)
             {
                 ++l;
-                event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, l, 2);
+            }
+            if (l > 7) { 
+            	l = 7;
             }
 
-            event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, l, 2);
+            state = event.block.getBlock().getStateFromMeta(l);
+            event.world.setBlockState(event.pos, state, 2);
             event.setResult(Result.ALLOW);
-            //event.world.setBlockMetadataWithNotify(event.X, event.Y, event.Z, 7, 2);
-        }
+        } // end if ossidRootCrop
 
-        if (event.block == Content.thunderGrassCrop)
+        if (event.block.getBlock() == Content.thunderGrassCrop)
         {
-            int l = event.world.getBlockMetadata(event.x, event.y, event.z) + MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
+        	int l = event.block.getBlock().getMetaFromState(event.block);
+            l += MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
 
             if (l < 7)
             {
                 ++l;
-                event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, l, 2);
             }
-
-            event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, l, 2);
+            if (l > 7) { 
+            	l = 7;
+            }
+            state = event.block.getBlock().getStateFromMeta(l);
+            event.world.setBlockState(event.pos, state, 2);
             event.setResult(Result.ALLOW);
-            //event.world.setBlockMetadataWithNotify(event.X, event.Y, event.Z, 7, 2);
-        }
-    }
-}
+        } // end if thunderGrassCrop
+        
+    } // end onUseBonemeal()
+    
+} // end class AshyBonemeal

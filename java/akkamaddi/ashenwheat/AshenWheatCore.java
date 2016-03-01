@@ -116,7 +116,8 @@ public class AshenWheatCore
         
         if(event.getSide() == Side.CLIENT)
         {
-        	Content.doRenderers();
+        	Content.doItemRenderers();
+        	Content.doBlockRenderers();
         }       
     } // end load()
 

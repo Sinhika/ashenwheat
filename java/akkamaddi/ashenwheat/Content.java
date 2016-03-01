@@ -63,20 +63,16 @@ public class Content
 	public static void doItems()
 	{
 		ashWheatSheaf = new AshenWheatSheaf();
-		ashSeeds = new AshSeeds(ashWheatCrop, Blocks.farmland);
 		ashBread = new AshBread(4, 0.5F, false);
 		ashCookie = new AshCookie( 1, 0.1F, false);
 
-		scintillaSeeds = new ScintillaSeeds(scintillaWheatCrop, Blocks.farmland);
 		scintillaWheatSheaf = new ScintillaWheatSheaf();
 		scintillaBread = new ScintillaBread( 4, 0.7F, false);
 		scintillaCookie = new ScintillaCookie( 1, 0.1F, false);
 		scintillatingAsh = new ScintillatingAsh();
 
-		ossidSeeds = new OssidSeeds(ossidRootCrop,Blocks.farmland);
 		calcifiedAsh = new OssidAsh();
 
-		thunderSeeds = new ThunderSeeds(thunderGrassCrop, Blocks.farmland);
 		unstableSoot = new UnstableSoot();        
         
 	} // end doItems()
@@ -85,33 +81,23 @@ public class Content
 	{
 		ashWheatBale = new AshWheatBale();
 		ashWheatCrop = new AshWheatCrop();
+		ashSeeds = new AshSeeds(ashWheatCrop, Blocks.farmland);
 		
 		scintillaWheatBale = new ScintillaWheatBale();
 		scintillaWheatCrop = new ScintillaWheatCrop();
+		scintillaSeeds = new ScintillaSeeds(scintillaWheatCrop, Blocks.farmland);
 		
 		ossidRoot = new OssidRoot(false);
+		ossidLantern = new OssidRoot(true);
 		ossidRootCrop = new OssidRootCrop();
-		ossidLantern = new OssidRoot(true).setBlockName("ossidLantern").setLightLevel(1.0F)
-				.setCreativeTab(AshenWheatCore.tabAshenwheat);
+		ossidSeeds = new OssidSeeds(ossidRootCrop,Blocks.farmland);
 		
 		thunderGrassCrop = new ThunderGrassCrop();
-		
-        GameRegistry.registerBlock(ashWheatCrop, "ashWheatCrop");
-        GameRegistry.registerBlock(ashWheatBale, "ashWheatBale");
-
-        GameRegistry.registerBlock(scintillaWheatCrop, "scintillaWheatCrop");
-        GameRegistry.registerBlock(scintillaWheatBale, "scintillaWheatBale");
-        
-        GameRegistry.registerBlock(ossidRootCrop, "ossidVine");
-        GameRegistry.registerBlock(ossidRoot, "ossidRoot");
-        GameRegistry.registerBlock(ossidLantern, "ossidLantern");
-        
-        GameRegistry.registerBlock(thunderGrassCrop, "thundergrass");
-
+		thunderSeeds = new ThunderSeeds(thunderGrassCrop, Blocks.farmland);
 	} // end doBlocks();
 
 	
-	public static void doRenderers()
+	public static void doItemRenderers()
 	{
     	RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
 		
@@ -155,7 +141,19 @@ public class Content
     			new ModelResourceLocation(ModInfo.ID + ":" + ((UnstableSoot) Content.unstableSoot).getName(), 
     								      "inventory"));
 		
-	} // end doRenderers()
+    	// block items in inventory.
+    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(Content.ashWheatBale), 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((AshWheatBale) Content.ashWheatBale).getName(), 
+    								      "inventory"));
+    	
+	} // end doItemRenderers()
+	
+	
+	public static void doBlockRenderers()
+	{
+	
+	} // end doBlockRenderers()
+	
 	
     public static void setLoot()
     {
