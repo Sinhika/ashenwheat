@@ -145,15 +145,19 @@ public class Content
     	renderItem.getItemModelMesher().register(Item.getItemFromBlock(Content.ashWheatBale), 0, 
     			new ModelResourceLocation(ModInfo.ID + ":" + ((AshWheatBale) Content.ashWheatBale).getName(), 
     								      "inventory"));
-    	
+    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(Content.scintillaWheatBale), 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((ScintillaWheatBale) Content.scintillaWheatBale).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(Content.ossidRoot), 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((OssidRoot) Content.ossidRoot).getName(), 
+    								      "inventory"));
+    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(Content.ossidLantern), 0, 
+    			new ModelResourceLocation(ModInfo.ID + ":" + ((OssidRoot) Content.ossidLantern).getName(), 
+    								      "inventory"));
+   	
 	} // end doItemRenderers()
 	
-	
-	public static void doBlockRenderers()
-	{
-	
-	} // end doBlockRenderers()
-	
+		
 	
     public static void setLoot()
     {

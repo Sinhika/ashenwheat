@@ -1,0 +1,8 @@
+{
+    "forge_marker": 1,
+    "variants": {
+        "axis=y": { "model": "scintillawheatbale" },
+        "axis=z": { "model": "scintillawheatbale_side" },
+        "axis=x": { "model": "scintillawheatbale_side", "y": 90 }
+    }    
+}

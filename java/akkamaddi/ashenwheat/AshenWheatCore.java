@@ -80,6 +80,7 @@ public class AshenWheatCore
         MakeThunderGrassSmoke = config.get("zz Boolean Configuration", "Smoke particles on Thundergrass crop, false or true", false).getBoolean(false);
         config.save();
         
+        Content.preInitialize();
     } // end preinit()
 
    /**
@@ -112,13 +113,13 @@ public class AshenWheatCore
         	Content.setLoot();
         }
         
-        AshenRecipes.doAshenRecipes();
-        
         if(event.getSide() == Side.CLIENT)
         {
         	Content.doItemRenderers();
-        	Content.doBlockRenderers();
-        }       
+        }
+        
+        AshenRecipes.doAshenRecipes();
+        
     } // end load()
 
    /**
