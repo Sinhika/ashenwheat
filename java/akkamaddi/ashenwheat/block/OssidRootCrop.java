@@ -24,7 +24,6 @@ public class OssidRootCrop extends AkkamaddiCrop
         setTickRandomly(true);
         setUnlocalizedName(name);
         GameRegistry.registerBlock(this, name);
-        setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
 
     public String getName()
