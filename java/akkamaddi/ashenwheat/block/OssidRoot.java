@@ -26,8 +26,8 @@ public class OssidRoot extends BlockPumpkin
     		setLightLevel(1.0F);
             setTickRandomly(true);
     	}
-        GameRegistry.registerBlock(this, getName());
         setUnlocalizedName(getName());
+        GameRegistry.registerBlock(this, getName());
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
 

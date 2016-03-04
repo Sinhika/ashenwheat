@@ -21,8 +21,8 @@ public class ScintillaWheatBale extends BlockHay
         super();
         setTickRandomly(true);
         setLightLevel(1.0F);
-        GameRegistry.registerBlock(this, name);
         setUnlocalizedName(name);
+        GameRegistry.registerBlock(this, name);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
 

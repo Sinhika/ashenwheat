@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model": "ashenwheat:ashwheatcrop_00" },
+        "age=1": { "model": "ashenwheat:ashwheatcrop_01" },
+        "age=2": { "model": "ashenwheat:ashwheatcrop_02" },
+        "age=3": { "model": "ashenwheat:ashwheatcrop_03" },
+        "age=4": { "model": "ashenwheat:ashwheatcrop_04" },
+        "age=5": { "model": "ashenwheat:ashwheatcrop_05" },
+        "age=6": { "model": "ashenwheat:ashwheatcrop_06" },
+        "age=7": { "model": "ashenwheat:ashwheatcrop_07" }
+    }
+}

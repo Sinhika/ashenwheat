@@ -21,8 +21,8 @@ public class AshWheatBale extends BlockHay
         super();
         setTickRandomly(true);
         setLightLevel(0.8F);
-        GameRegistry.registerBlock(this, name);
         setUnlocalizedName(name);
+        GameRegistry.registerBlock(this, name);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
 

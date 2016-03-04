@@ -23,8 +23,8 @@ public class ThunderGrassCrop extends AkkamaddiCrop
     	setLightLevel(0.45F);
     	setFertilityDividend(60.0F);
         setTickRandomly(true);
-        GameRegistry.registerBlock(this, name);
         setUnlocalizedName(name);
+        GameRegistry.registerBlock(this, name);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
 

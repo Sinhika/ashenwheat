@@ -1,8 +1,0 @@
-{
-    "forge_marker": 1,
-    "variants": {
-        "axis=y": { "model": "ashwheatbale" },
-        "axis=z": { "model": "ashwheatbale_side" },
-        "axis=x": { "model": "ashwheatbale_side", "y": 90 }
-    }    
-}

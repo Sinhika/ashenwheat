@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "blocks/ossid_top",
-        "front": "blocks/ossid_face_on",
-        "side": "blocks/ossid_side"
-    }
-}

@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "ashenwheat:ossidlantern" },
+        "facing=north": { "model": "ashenwheat:ossidlantern" },
+        "facing=south": { "model": "ashenwheat:ossidlantern", "y": 180 },
+        "facing=west":  { "model": "ashenwheat:ossidlantern", "y": 270 },
+        "facing=east":  { "model": "ashenwheat:ossidlantern", "y": 90 }
+    }
+}
