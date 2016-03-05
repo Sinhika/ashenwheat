@@ -1,10 +1,9 @@
 package akkamaddi.ashenwheat.item;
 
-import akkamaddi.ashenwheat.AshenWheatCore;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemSeeds;
-import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import akkamaddi.ashenwheat.AshenWheatCore;
 
 public class AshSeeds extends ItemSeeds implements net.minecraftforge.common.IPlantable
 {

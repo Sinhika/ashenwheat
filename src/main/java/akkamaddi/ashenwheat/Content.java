@@ -9,7 +9,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import akkamaddi.ashenwheat.block.AshWheatBale;
 import akkamaddi.ashenwheat.block.AshWheatCrop;
 import akkamaddi.ashenwheat.block.OssidRoot;

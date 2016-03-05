@@ -1,13 +1,11 @@
 package akkamaddi.ashenwheat.handler;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import akkamaddi.ashenwheat.AshenWheatCore;
 import akkamaddi.ashenwheat.Content;
-import net.minecraft.block.BlockCrops;
-import net.minecraft.block.state.IBlockState;
 
 public class AshyBonemeal
 {

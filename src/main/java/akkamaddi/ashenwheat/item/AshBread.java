@@ -1,9 +1,8 @@
 package akkamaddi.ashenwheat.item;
 
-import akkamaddi.ashenwheat.AshenWheatCore;
-import akkamaddi.ashenwheat.ModInfo;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import akkamaddi.ashenwheat.AshenWheatCore;
 
 public class AshBread extends ItemFood
 {

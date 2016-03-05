@@ -3,7 +3,6 @@ package akkamaddi.ashenwheat.handler;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.IFuelHandler;
-import akkamaddi.ashenwheat.AshenWheatCore;
 import akkamaddi.ashenwheat.Content;
 
 public class AshenwheatFuel implements IFuelHandler
