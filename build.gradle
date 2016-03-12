@@ -22,7 +22,7 @@ plugins {
 */
 
 
-version = "1.8.9-2.0.0.0_beta1"
+version = "1.8.9-2.0.0.2"
 
 group= "akkamaddi.ashenwheat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ashenwheat"

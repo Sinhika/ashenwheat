@@ -63,10 +63,10 @@ public class AshenWheatCore
          
         seedsInChests = config.get("xx Seeds in Chests", "Seeds appear in some chests, true or false", true).getBoolean(true);
         
-        dropAsh = config.get("yy Wild Grass Drops", "Ashenwheat Seeds, false or true", false).getBoolean(false);
-        dropScintilla = config.get("yy Wild Grass Drops", "Scintillawheat Seeds, false or true", false).getBoolean(false);
-        dropOssid = config.get("yy Wild Grass Drops", "Ossidroot Seeds, false or true", false).getBoolean(false);
-        dropThunder = config.get("yy Wild Grass Drops", "Thundergrass Seeds, false or true", false).getBoolean(false);
+        dropAsh = config.get("yy Wild Grass Drops", "Ashenwheat Seeds, false or true", true).getBoolean(true);
+        dropScintilla = config.get("yy Wild Grass Drops", "Scintillawheat Seeds, false or true", true).getBoolean(true);
+        dropOssid = config.get("yy Wild Grass Drops", "Ossidroot Seeds, false or true", true).getBoolean(true);
+        dropThunder = config.get("yy Wild Grass Drops", "Thundergrass Seeds, false or true", true).getBoolean(true);
         
         MakeAshenwheatFlame = config.get("zz Boolean Configuration", "Flame particles on Ashenwheat crop, false or true", false).getBoolean(false);
         MakeAshenBalesFlame = config.get("zz Boolean Configuration", "Flame and smoke particles on Ashenwheat bales, false or true", false).getBoolean(false);
@@ -93,19 +93,19 @@ public class AshenWheatCore
         MinecraftForge.EVENT_BUS.register(new AshyBonemeal());
        
         if (dropAsh) {
-        	MinecraftForge.addGrassSeed(new ItemStack(Content.ashSeeds), 4);
+        	MinecraftForge.addGrassSeed(new ItemStack(Content.ashSeeds), 8);
         }
 
         if (dropScintilla) {
-        	MinecraftForge.addGrassSeed(new ItemStack(Content.scintillaSeeds), 1);
+        	MinecraftForge.addGrassSeed(new ItemStack(Content.scintillaSeeds), 3);
         }
         
         if (dropOssid) {
-        	MinecraftForge.addGrassSeed(new ItemStack(Content.ossidSeeds), 3);
+        	MinecraftForge.addGrassSeed(new ItemStack(Content.ossidSeeds), 5);
         }
         
         if (dropThunder) { 
-        	MinecraftForge.addGrassSeed(new ItemStack(Content.thunderSeeds), 2); 
+        	MinecraftForge.addGrassSeed(new ItemStack(Content.thunderSeeds), 4); 
         }
         
         if (seedsInChests)

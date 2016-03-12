@@ -52,7 +52,7 @@ public class AshenRecipes {
 						new ItemStack(Items.dye, 1, 3) });
 
 		GameRegistry.addShapelessRecipe(new ItemStack(Content.ashSeeds,
-				4), new Object[] { Content.ashWheatSheaf });
+				2), new Object[] { Content.ashWheatSheaf });
 		GameRegistry.addShapelessRecipe(new ItemStack(
 				Content.ashWheatSheaf, 9),
 				new Object[] { Content.ashWheatBale });
@@ -70,7 +70,7 @@ public class AshenRecipes {
 						new ItemStack(Items.dye, 1, 3) });
 
 		GameRegistry.addShapelessRecipe(new ItemStack(
-				Content.scintillaSeeds, 4),
+				Content.scintillaSeeds, 2),
 				new Object[] { Content.scintillaWheatSheaf });
 		GameRegistry.addShapelessRecipe(new ItemStack(
 				Content.scintillaWheatSheaf, 9),
