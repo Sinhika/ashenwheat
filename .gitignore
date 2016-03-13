@@ -9,3 +9,5 @@ ashenwheat*.launch
 *.class
 gradlew
 gradlew.bat
+bin/
+.gradle/
