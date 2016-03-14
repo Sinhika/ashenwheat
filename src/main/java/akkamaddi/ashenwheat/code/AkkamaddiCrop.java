@@ -149,7 +149,7 @@ abstract public class AkkamaddiCrop extends BlockCrops implements IGrowable
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
 		if (metadata >= GROWN) {
-			int ndrops = AkkamaddiCrop.getDrops(fortune, rand);
+			int ndrops = getNumberDrops(fortune, rand);
 			ret.add( new ItemStack(getCropItem(), 1, 0 ));
 			ret.add( new ItemStack(getSeedItem(), ndrops, 0 ));
 		}
@@ -159,7 +159,7 @@ abstract public class AkkamaddiCrop extends BlockCrops implements IGrowable
 		return ret;
 	}
 
-	public static int getDrops(int fortune, Random rand) 
+	public int getNumberDrops(int fortune, Random rand) 
 	{
 		int ndrops = 0;
         for (int i = 0; i < 3 + fortune; ++i)

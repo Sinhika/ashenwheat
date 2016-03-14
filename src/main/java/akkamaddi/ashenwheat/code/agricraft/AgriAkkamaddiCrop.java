@@ -58,7 +58,7 @@ abstract public class AgriAkkamaddiCrop implements ICropPlant
 	public ArrayList<ItemStack> getFruitsOnHarvest(int gain, Random rand) 
 	{
 		ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
-		int n = AkkamaddiCrop.getDrops(GAIN_FORTUNE_MAPPING[gain-1], rand);
+		int n = ((AkkamaddiCrop) getBlock()).getNumberDrops(GAIN_FORTUNE_MAPPING[gain-1], rand);
 		while (n > 0) {
 			ItemStack fruit = this.getRandomFruit(rand);
 			int rem = Math.min(n, fruit.getMaxStackSize());

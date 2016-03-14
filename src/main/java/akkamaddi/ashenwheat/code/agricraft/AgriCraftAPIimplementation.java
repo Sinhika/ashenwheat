@@ -1,5 +1,7 @@
 package akkamaddi.ashenwheat.code.agricraft;
 
+import net.minecraft.item.ItemStack;
+
 import com.InfinityRaider.AgriCraft.api.API;
 import com.InfinityRaider.AgriCraft.api.APIBase;
 import com.InfinityRaider.AgriCraft.api.v1.IGrowthRequirement;
@@ -66,6 +68,23 @@ public class AgriCraftAPIimplementation extends AgriCraftAPIwrapper
 		}
     }
     
+    /**
+     * Registers a new mutation: result = parent1 + parent2
+     * @param result ItemStack containing the resulting seed of the mutation
+     * @param parent1 ItemStack containing one parent for the mutation
+     * @param parent2 ItemStack containing the other parent for the mutation
+     * @return True if successful
+     */
+    @Override
+    public boolean registerMutation(ItemStack result, ItemStack parent1, ItemStack parent2)
+    {
+		if (isOk()) {
+			return api.registerMutation(result, parent1, parent2);
+		}
+		else {
+			return super.registerMutation(result, parent1, parent2);
+		}
+    }
 	
     /**
      * Example method, this one gets the stats of a crop

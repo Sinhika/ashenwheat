@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
@@ -28,9 +29,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid="ashenwheat", name="Ashenwheat", version="1.7.10-1.2.2",
+@Mod(modid="ashenwheat", name="Ashenwheat", version="1.7.10-1.2.3",
 	 dependencies="after:AgriCraft;after:MineFactoryReloaded")
 public class AshenWheatCore
 {
@@ -330,10 +332,33 @@ public class AshenWheatCore
    {
 	   	AgriCraftAPIwrapper apiv2 = AgriCraftAPIwrapper.getInstance();
 	   	
+	   	// register the crops using wrapper
 		apiv2.registerCropPlant(new AgriAshenWheat());
 		apiv2.registerCropPlant(new AgriScintillaWheat());
 		apiv2.registerCropPlant(new AgriThunderGrass());
 		apiv2.registerCropPlant(new AgriOssidRoot());
+		
+		// register the mutations.
+		Item seedTulipOrange = GameData.getItemRegistry().getObject("AgriCraft:seedTulipOrange");
+		Item seedPotato = GameData.getItemRegistry().getObject("AgriCraft:seedPotato");
+		
+		// ashSeeds = minecraft:wheat_seeds + minecraft:nether_wart
+		apiv2.registerMutation(new ItemStack(ashSeeds), new ItemStack(Items.wheat_seeds),
+								new ItemStack(Items.nether_wart));
+		
+		// scintillaSeeds = minecraft:wheat_seeds + AgriCraft:seedTulipOrange
+		if (seedTulipOrange != null) {
+			apiv2.registerMutation(new ItemStack(scintillaSeeds), new ItemStack(Items.wheat_seeds),
+							   	   new ItemStack(seedTulipOrange));
+		}
+		// ossidSeeds = AgriCraft:seedPotato + minecraft:pumpkin_seeds
+		if (seedPotato != null) {
+			apiv2.registerMutation(new ItemStack(ossidSeeds), new ItemStack(seedPotato), 
+								   new ItemStack(Items.pumpkin_seeds));
+		}
+		// thunderSeeds = minecraft:nether_wart + ashSeeds
+		apiv2.registerMutation(new ItemStack(thunderSeeds), new ItemStack(Items.nether_wart),
+								new ItemStack(ashSeeds));
 	} // end initAgriCraft()
    
 } // end class AshenWheatCore

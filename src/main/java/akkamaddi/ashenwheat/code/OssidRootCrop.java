@@ -68,7 +68,7 @@ public class OssidRootCrop extends AkkamaddiCrop
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
 		if (metadata >= GROWN) {
-			int ndrops = OssidRootCrop.getDrops(fortune, rand);
+			int ndrops = this.getNumberDrops(fortune, rand);
 			ret.add( new ItemStack(getCropItem(), ndrops, 0 ));
 		}
 		else {
@@ -77,7 +77,8 @@ public class OssidRootCrop extends AkkamaddiCrop
 		return ret;
 	}
 
-	public static int getDrops(int fortune, Random rand) 
+	@Override
+	public int getNumberDrops(int fortune, Random rand) 
 	{
 		int ndrops = 1;
         for (int i = 0; i < fortune; ++i)
