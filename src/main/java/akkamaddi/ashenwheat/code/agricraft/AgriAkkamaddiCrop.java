@@ -39,7 +39,7 @@ abstract public class AgriAkkamaddiCrop implements ICropPlant
      * This method returns the default tier of this plant, tiers can be overridden with the configs.
      * This should be in the interval [1, 5].
      *
-     * @return the default tier
+     * @return the default tier  (2 = slightly slower than wheat)
      */
 	@Override
 	public int tier() {

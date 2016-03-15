@@ -16,8 +16,7 @@ public class ScintillaWheatCrop extends AkkamaddiCrop
     	setBlockName("scintillaWheatCrop");
     	setBlockTextureName("ashenwheat:scintillaWheatCrop_00");
     	setLightLevel(0.55F);
-    	setMinFertilityDivisor(6.67F);
-    	setFertilityDividend(80.0F);
+    	setFertilityDividend(30.0F);  // much slower growing than wheat.
     }
 
 

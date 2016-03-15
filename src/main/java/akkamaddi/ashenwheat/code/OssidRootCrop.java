@@ -16,8 +16,7 @@ public class OssidRootCrop extends AkkamaddiCrop
     	super();
     	setBlockName("ossidVine");
     	setBlockTextureName("ashenwheat:ossidVine_00");
-     	setMinFertilityDivisor(6.36F);
-    	setFertilityDividend(70.0F);
+    	setFertilityDividend(28.0F);  // slower-growing than ashenwheat.
     }
 
      

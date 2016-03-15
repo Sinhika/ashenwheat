@@ -16,8 +16,7 @@ public class AshWheatCrop extends AkkamaddiCrop
     	setBlockName("ashWheatCrop");
     	setBlockTextureName("ashenwheat:ashWheatCrop_00");
     	setLightLevel(0.5F);
-    	setMinFertilityDivisor(5.56F);
-    	setFertilityDividend(50.0F);
+    	setFertilityDividend(26.0F);  // slower growing than wheat
    }
 
     

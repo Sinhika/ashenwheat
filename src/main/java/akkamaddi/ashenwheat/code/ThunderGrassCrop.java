@@ -18,8 +18,8 @@ public class ThunderGrassCrop extends AkkamaddiCrop
     	setBlockName("thundergrass");
     	setBlockTextureName("ashenwheat:thundergrass_00");
     	setLightLevel(0.45F);
-    	setMinFertilityDivisor(6.00F);
-    	setFertilityDividend(60.0F);
+    	setMinFertilityDivisor(5.00F);  // doesn't mind having neighbors
+    	setFertilityDividend(70.0F);    // slower-growing than ashenwheat
     }
  
      /* (non-Javadoc)

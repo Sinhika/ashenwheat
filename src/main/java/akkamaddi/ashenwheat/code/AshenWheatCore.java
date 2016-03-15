@@ -33,8 +33,7 @@ import cpw.mods.fml.common.event.FMLServerAboutToStartEvent;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid="ashenwheat", name="Ashenwheat", version="1.7.10-1.2.3",
-	 dependencies="after:AgriCraft;after:MineFactoryReloaded")
+@Mod(modid=ModInfo.ID, name=ModInfo.NAME, version=ModInfo.VERSION, dependencies=ModInfo.DEPENDENCIES)
 public class AshenWheatCore
 {
     

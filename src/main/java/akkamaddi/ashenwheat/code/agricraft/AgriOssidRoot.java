@@ -25,7 +25,19 @@ public class AgriOssidRoot extends AgriAkkamaddiCrop implements ICropPlant
 {
 	private static final ArrayList<ItemStack> allfruits = new ArrayList<ItemStack>();
 
+
     /**
+     * This method returns the default tier of this plant, tiers can be overridden with the configs.
+     * This should be in the interval [1, 5].
+     *
+     * @return the default tier
+     */
+	@Override
+	public int tier() {
+		return 3;
+	}
+	
+   /**
      * This returns a new ItemStack holding the seed for this plant
      *
      * @return a new ItemStack

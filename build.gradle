@@ -16,14 +16,20 @@ buildscript {
 }
 
 apply plugin: 'forge'
+apply plugin: 'java'
 
-version = "1.7.10-1.2.3"
+sourceCompatibility = version_java
+targetCompatibility = version_java
+
+version = "${version_minecraft}-${version_mod}"
 group= "akkamaddi.ashenwheat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ashenwheat"
 
 minecraft {
-    version = "1.7.10-10.13.4.1558-1.7.10"
+    version = "${version_minecraft}-${version_forge}-${version_minecraft}"
     runDir = "eclipse"
+    replaceIn "ModInfo.java"
+    replace "@MODVERSION@", version_mod
 }
 
 dependencies {
@@ -53,7 +59,10 @@ processResources
         include 'mcmod.info'
                 
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand ([
+        	'version':project.version, 
+        	'mcversion':project.minecraft.version
+        	])
     }
         
     // copy everything else, thats not the mcmod.info
