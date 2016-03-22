@@ -13,6 +13,10 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'java'
+
+sourceCompatibility = version_java
+targetCompatibility = version_java
 
 /*
 // for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
@@ -21,15 +25,24 @@ plugins {
 }
 */
 
+def getVersionAppendage() {
+    if (System.env.BUILD_NUMBER)
+        return System.env.BUILD_NUMBER
 
-version = "1.8.9-2.0.0.2"
+    def proc = "git rev-parse --short HEAD".execute()
+    proc.waitFor()
+    return "DEV." + proc.exitValue() ? "GITBORK" : proc.text.trim()
+}
 
+version = "${version_minecraft}-${version_mod}." + getVersionAppendage()
 group= "akkamaddi.ashenwheat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ashenwheat"
 
 minecraft {
-    version = "1.8.9-11.15.1.1722"
+    version = "${version_minecraft}-${version_forge}"
     runDir = "run"
+    replaceIn "ModInfo.java"
+    replace "@MODVERSION@", version
     
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
