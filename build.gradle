@@ -31,7 +31,7 @@ def getVersionAppendage() {
 
     def proc = "git rev-parse --short HEAD".execute()
     proc.waitFor()
-    return "DEV" + proc.text.trim()
+    return "DEV-" + proc.text.trim()
 }
 
 version = "${version_minecraft}-${version_mod}." + getVersionAppendage()
