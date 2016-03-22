@@ -31,10 +31,10 @@ def getVersionAppendage() {
 
     def proc = "git rev-parse --short HEAD".execute()
     proc.waitFor()
-    return proc.text.trim()
+    return ".DEV" + proc.text.trim()
 }
 
-version = "${version_minecraft}-${version_mod}." + getVersionAppendage()
+version = "${version_minecraft}-${version_mod}" + getVersionAppendage()
 group= "akkamaddi.ashenwheat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ashenwheat"
 
@@ -42,7 +42,7 @@ minecraft {
     version = "${version_minecraft}-${version_forge}"
     runDir = "run"
     replaceIn "ModInfo.java"
-    replace "@MODVERSION@", "${version_minecraft}-${version_mod}"
+    replace "@MODVERSION@", version
     
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
