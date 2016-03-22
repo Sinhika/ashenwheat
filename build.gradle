@@ -31,7 +31,7 @@ def getVersionAppendage() {
 
     def proc = "git rev-parse --short HEAD".execute()
     proc.waitFor()
-    return "DEV." + proc.exitValue() ? "GITBORK" : proc.text.trim()
+    return proc.text.trim()
 }
 
 version = "${version_minecraft}-${version_mod}." + getVersionAppendage()
@@ -42,7 +42,7 @@ minecraft {
     version = "${version_minecraft}-${version_forge}"
     runDir = "run"
     replaceIn "ModInfo.java"
-    replace "@MODVERSION@", version
+    replace "@MODVERSION@", "${version_minecraft}-${version_mod}"
     
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
