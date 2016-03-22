@@ -31,10 +31,10 @@ def getVersionAppendage() {
 
     def proc = "git rev-parse --short HEAD".execute()
     proc.waitFor()
-    return ".DEV" + proc.text.trim()
+    return "DEV" + proc.text.trim()
 }
 
-version = "${version_minecraft}-${version_mod}" + getVersionAppendage()
+version = "${version_minecraft}-${version_mod}." + getVersionAppendage()
 group= "akkamaddi.ashenwheat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ashenwheat"
 
