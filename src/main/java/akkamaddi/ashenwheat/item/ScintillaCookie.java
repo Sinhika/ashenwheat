@@ -1,9 +1,9 @@
 package akkamaddi.ashenwheat.item;
 
-import akkamaddi.ashenwheat.AshenWheatCore;
 import net.minecraft.item.ItemFood;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import akkamaddi.ashenwheat.AshenWheatCore;
 
 public class ScintillaCookie extends ItemFood
 {

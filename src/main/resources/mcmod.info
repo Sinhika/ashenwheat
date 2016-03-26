@@ -8,7 +8,7 @@
 "logoFile": "/assets/textures/items/ashWheatSheaf.png",
 "mcversion": "${mcversion}",
 "url": "http://minecraft.curseforge.com/projects/akkamaddis-ashenwheat",
-"updateUrl": "",
+"updateUrl": "http://minecraft.curseforge.com/projects/akkamaddis-ashenwheat/files",
 "authorList": [ "akkamaddi", "Sinhika" ],
 "parent":"",
 "screenshots": [],

@@ -1,0 +1,11 @@
+{
+  "homepage": "http://minecraft.curseforge.com/projects/akkamaddis-ashenwheat/files",
+  "promos": {
+    "1.7.10-latest": "1.7.10-1.2.4.1",
+    "1.7.10-recommended": "1.7.10-1.2.4.1",
+    "1.8.9-latest": "2.0.1.2",
+    "1.8.9-recommended": "2.0.1.2",
+    "1.9-latest" : "3.0.0.0",
+    "1.9-recommended" : "3.0.0.0"
+  }
+}

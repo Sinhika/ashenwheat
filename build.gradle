@@ -13,6 +13,10 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'java'
+
+sourceCompatibility = version_java
+targetCompatibility = version_java
 
 /*
 // for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
@@ -20,13 +24,23 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+def getVersionAppendage() {
+    if (System.env.BUILD_NUMBER)
+        return System.env.BUILD_NUMBER
+
+    def proc = "git rev-parse --short HEAD".execute()
+    proc.waitFor()
+    return "DEV-" + proc.text.trim()
+}
+version = "${version_minecraft}-${version_mod}." + getVersionAppendage()
+group= "akkamaddi.ashenwheat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "ashenwheat"
 
 minecraft {
     version = "1.9-12.16.0.1802-1.9"
     runDir = "run"
+    replaceIn "ModInfo.java"
+    replace "@MODVERSION@", "${project.version_mod}." + getVersionAppendage()
     
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
@@ -43,28 +57,12 @@ dependencies {
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
       
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
-    // except that these dependencies get remapped to your current MCP mappings
-    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
 }
 
 processResources
 {
     // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
+    inputs.property "version", "${project.version_mod}." + getVersionAppendage()
     inputs.property "mcversion", project.minecraft.version
 
     // replace stuff in mcmod.info, nothing else
@@ -72,7 +70,7 @@ processResources
         include 'mcmod.info'
                 
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version':"${project.version_mod}." + getVersionAppendage(), 'mcversion':project.minecraft.version
     }
         
     // copy everything else, thats not the mcmod.info
