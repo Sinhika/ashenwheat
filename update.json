@@ -1,11 +1,12 @@
 {
   "homepage": "http://minecraft.curseforge.com/projects/akkamaddis-ashenwheat/files",
   "promos": {
-    "1.8.9-latest": "1.8.9-2.0.1.2",
+    "1.8.9-latest": "1.8.9-2.0.1.3",
     "1.8.9-recommended": "1.8.9-2.0.1.1"
   },
   "1.8.9": {
   	"1.8.9-2.0.1.1" : "- fixed number of drops to be consistent with 1.7.10 version and documentation;\n- tweaked growth rates to be consistent with 1.7.10 version and documentation. Also less slow.",
   	"1.8.9-2.0.1.2" : "- added update checker"
+  	"1.8.9-2.0.1.3" : "- exists to test update checker"
     }
 }
