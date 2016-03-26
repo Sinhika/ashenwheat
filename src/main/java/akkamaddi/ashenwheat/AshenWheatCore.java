@@ -18,7 +18,7 @@ import akkamaddi.ashenwheat.handler.AshenwheatFuel;
 import akkamaddi.ashenwheat.handler.AshyBonemeal;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, 
-	dependencies=ModInfo.DEPENDENCIES)
+	dependencies=ModInfo.DEPENDENCIES, updateJSON="https://raw.githubusercontent.com/Sinhika/ashenwheat/master/update.json")
 
 public class AshenWheatCore
 {
