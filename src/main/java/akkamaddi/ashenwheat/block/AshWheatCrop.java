@@ -21,7 +21,7 @@ public class AshWheatCrop extends AkkamaddiCrop
     {
     	super();
         setLightLevel(0.5F);
-    	setFertilityDividend(50.0F);
+    	setFertilityDividend(26.0F);
         setTickRandomly(true);
         setUnlocalizedName(name);
         GameRegistry.registerBlock(this, name);

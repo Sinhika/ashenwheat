@@ -21,7 +21,7 @@ public class ScintillaWheatCrop extends AkkamaddiCrop
     {
         super();
     	setLightLevel(0.55F);
-    	setFertilityDividend(80.0F);
+    	setFertilityDividend(30.0F);
         setTickRandomly(true);
         setUnlocalizedName(name);
         GameRegistry.registerBlock(this, name);

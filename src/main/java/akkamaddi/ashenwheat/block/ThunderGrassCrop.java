@@ -1,9 +1,11 @@
 package akkamaddi.ashenwheat.block;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
@@ -21,7 +23,8 @@ public class ThunderGrassCrop extends AkkamaddiCrop
     {
     	super();
     	setLightLevel(0.45F);
-    	setFertilityDividend(60.0F);
+    	setFertilityDividend(50.0F);
+    	setMinFertilityDivisor(5.00F);  // doesn't mind having neighbors
         setTickRandomly(true);
         setUnlocalizedName(name);
         GameRegistry.registerBlock(this, name);
@@ -44,6 +47,35 @@ public class ThunderGrassCrop extends AkkamaddiCrop
 	@Override
 	protected Item getCrop() {
 		return Content.thunderSeeds;
+	}
+
+	@Override
+	public ArrayList<ItemStack> getDrops(IBlockState state, int fortune, Random rand) 
+	{
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		int metadata = ((Integer)state.getValue(AGE)).intValue();
+		if (metadata >= GROWN) {
+			int ndrops = this.getNumberDrops(fortune, rand);
+			ret.add(new ItemStack(getSeed(), ndrops, 0));
+		} else {
+			ret.add(new ItemStack(this.getSeed(), 1));
+		}
+		return ret;
+	}
+
+	@Override
+	public int getNumberDrops(int fortune, Random rand) 
+	{
+		int ndrops = 1;
+		for (int i = 0; i < 3 + fortune; ++i) {
+			if (rand.nextInt(15) <= GROWN) {
+				ndrops++;
+			}
+		}
+		if (fortune > 0) {
+			ndrops = Math.max(ndrops, 2);
+		}
+		return ndrops;
 	}
 
 	@Override

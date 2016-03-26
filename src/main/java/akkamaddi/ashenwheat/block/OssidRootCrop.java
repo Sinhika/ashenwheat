@@ -1,9 +1,11 @@
 package akkamaddi.ashenwheat.block;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
@@ -20,7 +22,7 @@ public class OssidRootCrop extends AkkamaddiCrop
     public OssidRootCrop()
     {
     	super();
-    	setFertilityDividend(70.0F);
+    	setFertilityDividend(28.0F);
         setTickRandomly(true);
         setUnlocalizedName(name);
         GameRegistry.registerBlock(this, name);
@@ -62,6 +64,30 @@ public class OssidRootCrop extends AkkamaddiCrop
 	protected Item getCrop() {
 			return Item.getItemFromBlock(Content.ossidRoot);
 	}
+	
+	@Override
+	public ArrayList<ItemStack> getDrops(IBlockState state, int fortune, Random rand) {
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		int metadata = ((Integer)state.getValue(AGE)).intValue();
+		if (metadata >= GROWN) {
+			int ndrops = this.getNumberDrops(fortune, rand);
+			ret.add(new ItemStack(getCrop(), ndrops, 0));
+		} else {
+			ret.add(new ItemStack(this.getSeed(), 1));
+		}
+		return ret;
+	} // end ()
+
+	@Override
+	public int getNumberDrops(int fortune, Random rand) {
+		int ndrops = 1;
+		for (int i = 0; i < fortune; ++i) {
+			if (rand.nextInt(15) <= GROWN) {
+				ndrops++;
+			}
+		}
+		return ndrops;
+	} // end ()
    
 
 } // end class OssidRootCrop
