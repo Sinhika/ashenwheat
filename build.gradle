@@ -37,7 +37,7 @@ group= "akkamaddi.ashenwheat" // http://maven.apache.org/guides/mini/guide-namin
 archivesBaseName = "ashenwheat"
 
 minecraft {
-    version = "1.9-12.16.0.1802-1.9"
+    version = "1.9-12.16.0.1811-1.9"
     runDir = "run"
     replaceIn "ModInfo.java"
     replace "@MODVERSION@", "${project.version_mod}." + getVersionAppendage()

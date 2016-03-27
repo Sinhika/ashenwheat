@@ -14,10 +14,10 @@ public class AshyBonemeal
     {
     	IBlockState state;
     	
-        if (event.block.getBlock() == Content.ashWheatCrop)
+        if (event.getBlock().getBlock() == Content.ashWheatCrop)
         {
-        	int l = event.block.getBlock().getMetaFromState(event.block);
-            l += MathHelper.getRandomIntegerInRange(event.world.rand, 0, 2);
+        	int l = event.getBlock().getBlock().getMetaFromState(event.getBlock());
+            l += MathHelper.getRandomIntegerInRange(event.getWorld().rand, 0, 2);
 
             if (l < 7)
             {
@@ -26,15 +26,15 @@ public class AshyBonemeal
             if (l > 7) { 
             	l = 7;
             }
-            state = event.block.getBlock().getStateFromMeta(l);
-            event.world.setBlockState(event.pos, state, 2);
+            state = event.getBlock().getBlock().getStateFromMeta(l);
+            event.getWorld().setBlockState(event.getPos(), state, 2);
             event.setResult(Result.ALLOW);
         } // end if ashWheatCrop
 
-        if (event.block.getBlock() == Content.scintillaWheatCrop)
+        if (event.getBlock().getBlock() == Content.scintillaWheatCrop)
         {
-        	int l = event.block.getBlock().getMetaFromState(event.block);
-            l += MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
+        	int l = event.getBlock().getBlock().getMetaFromState(event.getBlock());
+            l += MathHelper.getRandomIntegerInRange(event.getWorld().rand, 0, 1);
 
             if (l < 7)
             {
@@ -44,15 +44,15 @@ public class AshyBonemeal
             	l = 7;
             }
 
-            state = event.block.getBlock().getStateFromMeta(l);
-            event.world.setBlockState(event.pos, state, 2);
+            state = event.getBlock().getBlock().getStateFromMeta(l);
+            event.getWorld().setBlockState(event.getPos(), state, 2);
             event.setResult(Result.ALLOW);
         } // end if scintillaWheatCrop
         
-        if (event.block.getBlock() == Content.ossidRootCrop)
+        if (event.getBlock().getBlock() == Content.ossidRootCrop)
         {
-        	int l = event.block.getBlock().getMetaFromState(event.block);
-            l += MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
+        	int l = event.getBlock().getBlock().getMetaFromState(event.getBlock());
+            l += MathHelper.getRandomIntegerInRange(event.getWorld().rand, 0, 1);
 
             if (l < 7)
             {
@@ -62,15 +62,15 @@ public class AshyBonemeal
             	l = 7;
             }
 
-            state = event.block.getBlock().getStateFromMeta(l);
-            event.world.setBlockState(event.pos, state, 2);
+            state = event.getBlock().getBlock().getStateFromMeta(l);
+            event.getWorld().setBlockState(event.getPos(), state, 2);
             event.setResult(Result.ALLOW);
         } // end if ossidRootCrop
 
-        if (event.block.getBlock() == Content.thunderGrassCrop)
+        if (event.getBlock().getBlock() == Content.thunderGrassCrop)
         {
-        	int l = event.block.getBlock().getMetaFromState(event.block);
-            l += MathHelper.getRandomIntegerInRange(event.world.rand, 0, 1);
+        	int l = event.getBlock().getBlock().getMetaFromState(event.getBlock());
+            l += MathHelper.getRandomIntegerInRange(event.getWorld().rand, 0, 1);
 
             if (l < 7)
             {
@@ -79,8 +79,8 @@ public class AshyBonemeal
             if (l > 7) { 
             	l = 7;
             }
-            state = event.block.getBlock().getStateFromMeta(l);
-            event.world.setBlockState(event.pos, state, 2);
+            state = event.getBlock().getBlock().getStateFromMeta(l);
+            event.getWorld().setBlockState(event.getPos(), state, 2);
             event.setResult(Result.ALLOW);
         } // end if thunderGrassCrop
         

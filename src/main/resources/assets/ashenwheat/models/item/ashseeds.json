@@ -1,5 +1,5 @@
 {
-    "parent": "builtin/generated",
+    "parent": "item/generated",
     "textures": {
         "layer0": "ashenwheat:items/ashSeeds"
     },
@@ -14,5 +14,5 @@
             "translation": [ 0, 4, 2 ],
             "scale": [ 1.7, 1.7, 1.7 ]
         }
-    }
+    }    
 }

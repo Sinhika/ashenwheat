@@ -132,7 +132,7 @@ abstract public class AkkamaddiCrop extends BlockCrops implements IGrowable
 	@Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
-        super.updateTick(worldIn, pos, state, rand);
+		this.checkAndDropBlock(worldIn, pos, state);
 
         if (worldIn.getLightFromNeighbors(pos.up()) >= 9)
         {
