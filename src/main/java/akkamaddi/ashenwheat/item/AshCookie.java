@@ -1,7 +1,8 @@
 package akkamaddi.ashenwheat.item;
 
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
-import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import akkamaddi.ashenwheat.AshenWheatCore;
 
@@ -13,7 +14,7 @@ public class AshCookie extends ItemFood
     {
         super(par2, par3, par4);
         setUnlocalizedName(name);
-        setPotionEffect(Potion.regeneration.id, 2, 1, 1.0F);
+        setPotionEffect(new PotionEffect(MobEffects.regeneration, 2, 1), 1.0F);
         GameRegistry.registerItem(this, name);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
