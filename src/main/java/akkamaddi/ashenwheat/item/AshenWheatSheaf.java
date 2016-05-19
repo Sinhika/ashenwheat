@@ -1,6 +1,7 @@
 package akkamaddi.ashenwheat.item;
 
 import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.ModInfo;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -12,7 +13,8 @@ public class AshenWheatSheaf extends Item
     {
         super();
         setUnlocalizedName(name);
-        GameRegistry.registerItem(this, name);
+        setRegistryName(ModInfo.ID, name);
+        GameRegistry.register(this);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
     

@@ -1,6 +1,7 @@
 package akkamaddi.ashenwheat.item;
 
 import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.ModInfo;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -12,7 +13,8 @@ public class ScintillaBread extends ItemFood
     {
         super(par2, par3, par4);
         setUnlocalizedName(name);
-        GameRegistry.registerItem(this, name);
+        setRegistryName(ModInfo.ID, name);
+        GameRegistry.register(this);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
     

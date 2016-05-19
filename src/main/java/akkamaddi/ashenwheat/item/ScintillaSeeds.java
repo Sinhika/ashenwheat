@@ -1,6 +1,7 @@
 package akkamaddi.ashenwheat.item;
 
 import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.ModInfo;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.common.IPlantable;
@@ -14,7 +15,8 @@ public class ScintillaSeeds extends ItemSeeds implements IPlantable
     {
         super(cropBlock, soilBlock);
         setUnlocalizedName(name);
-        GameRegistry.registerItem(this, name);
+        setRegistryName(ModInfo.ID, name);
+        GameRegistry.register(this);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
     

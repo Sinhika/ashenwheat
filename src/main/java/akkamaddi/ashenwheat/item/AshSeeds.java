@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.ModInfo;
 
 public class AshSeeds extends ItemSeeds implements net.minecraftforge.common.IPlantable
 {
@@ -13,7 +14,8 @@ public class AshSeeds extends ItemSeeds implements net.minecraftforge.common.IPl
     {
         super(cropBlock, soilBlock);
         setUnlocalizedName(name);
-        GameRegistry.registerItem(this, name);
+        setRegistryName(ModInfo.ID, name);
+        GameRegistry.register(this);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
     

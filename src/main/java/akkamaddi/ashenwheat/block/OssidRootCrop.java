@@ -12,8 +12,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import akkamaddi.ashenwheat.AshenWheatCore;
 import akkamaddi.ashenwheat.Content;
+import akkamaddi.ashenwheat.ModInfo;
+import akkamaddi.ashenwheat.handler.ConfigHandler;
 
 public class OssidRootCrop extends AkkamaddiCrop
 {
@@ -25,7 +26,8 @@ public class OssidRootCrop extends AkkamaddiCrop
     	setFertilityDividend(28.0F);
         setTickRandomly(true);
         setUnlocalizedName(name);
-        GameRegistry.registerBlock(this, name);
+        setRegistryName(ModInfo.ID, name);
+        GameRegistry.register(this);
     }
 
     public String getName()
@@ -38,7 +40,7 @@ public class OssidRootCrop extends AkkamaddiCrop
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
     {
-        if (AshenWheatCore.MakeOssidCropGloom == true)
+        if (ConfigHandler.MakeOssidCropGloom == true)
         {
             float f1 = (float)pos.getX() + 0.5F;
             float f2 = (float)pos.getY() + 0.3F;

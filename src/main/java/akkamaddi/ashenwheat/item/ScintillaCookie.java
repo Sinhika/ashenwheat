@@ -5,6 +5,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.ModInfo;
 
 public class ScintillaCookie extends ItemFood
 {
@@ -16,7 +17,8 @@ public class ScintillaCookie extends ItemFood
         //setAlwaysEdible();
         setPotionEffect(new PotionEffect(MobEffects.regeneration, 3, 1), 1.0F);
         setUnlocalizedName(name);
-        GameRegistry.registerItem(this, name);
+        setRegistryName(ModInfo.ID, name);
+        GameRegistry.register(this);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
     

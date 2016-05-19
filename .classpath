@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/resources"/>
-	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
-	<classpathentry sourcepath="/home/cyhiggin/.gradle/caches/minecraft/net/minecraftforge/forge/1.9-12.16.0.1811-1.9/snapshot/20160312/forgeSrc-1.9-12.16.0.1811-1.9-sources.jar" kind="lib" path="/home/cyhiggin/.gradle/caches/minecraft/net/minecraftforge/forge/1.9-12.16.0.1811-1.9/snapshot/20160312/forgeSrc-1.9-12.16.0.1811-1.9.jar"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry sourcepath="/home/cyhiggin/.gradle/caches/minecraft/net/minecraftforge/forge/1.9-12.16.1.1907/snapshot/20160312/forgeSrc-1.9-12.16.1.1907-sources.jar" kind="lib" path="/home/cyhiggin/.gradle/caches/minecraft/net/minecraftforge/forge/1.9-12.16.1.1907/snapshot/20160312/forgeSrc-1.9-12.16.1.1907.jar"/>
+	<classpathentry sourcepath="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/com.mojang/netty/1.6/cd01cc3788bac1b1eb9cf2cda02fc7698a5ca1cc/netty-1.6-sources.jar" kind="lib" path="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/com.mojang/netty/1.6/4b75825a06139752bd800d9e29c5fd55b8b1b1e4/netty-1.6.jar"/>
 	<classpathentry sourcepath="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/oshi-project/oshi-core/1.1/1ec1ab1e6ac5a1572edfd0dd9ac95e83684b8a65/oshi-core-1.1-sources.jar" kind="lib" path="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/oshi-project/oshi-core/1.1/9ddf7b048a8d701be231c0f4f95fd986198fd2d8/oshi-core-1.1.jar"/>
 	<classpathentry sourcepath="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/3.4.0/2f42653596d0044f0ab456620cba54c9cf53c5ca/jna-3.4.0-sources.jar" kind="lib" path="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/3.4.0/803ff252fedbd395baffd43b37341dc4a150a554/jna-3.4.0.jar"/>
 	<classpathentry sourcepath="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.4.0/2f42653596d0044f0ab456620cba54c9cf53c5ca/platform-3.4.0-sources.jar" kind="lib" path="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.4.0/e3f70017be8100d3d6923f50b3d2ee17714e9c13/platform-3.4.0.jar"/>
@@ -61,5 +62,5 @@
 	<classpathentry kind="lib" path="/home/cyhiggin/.gradle/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.4-nightly-20150209/bcab850f8f487c3f4c4dbabde778bb82bd1a40ed/lwjgl-platform-2.9.4-nightly-20150209-natives-osx.jar"/>
 	<classpathentry kind="lib" path="/home/cyhiggin/.gradle/caches/minecraft/deobfedDeps/compileDummy.jar"/>
 	<classpathentry kind="lib" path="/home/cyhiggin/.gradle/caches/minecraft/deobfedDeps/providedDummy.jar"/>
-	<classpathentry kind="lib" path="/home/cyhiggin/.gradle/caches/minecraft/net/minecraftforge/forge/1.9-12.16.0.1811-1.9/start"/>
+	<classpathentry kind="lib" path="/home/cyhiggin/.gradle/caches/minecraft/net/minecraftforge/forge/1.9-12.16.1.1907/start"/>
 </classpath>

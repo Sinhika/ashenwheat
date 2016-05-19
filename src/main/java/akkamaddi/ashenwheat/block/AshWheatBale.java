@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockHay;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -11,6 +12,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.ModInfo;
+import akkamaddi.ashenwheat.handler.ConfigHandler;
 
 public class AshWheatBale extends BlockHay
 {
@@ -22,7 +25,9 @@ public class AshWheatBale extends BlockHay
         setTickRandomly(true);
         setLightLevel(0.8F);
         setUnlocalizedName(name);
-        GameRegistry.registerBlock(this, name);
+        setRegistryName(ModInfo.ID, name);
+        GameRegistry.register(this);
+        GameRegistry.register(new ItemBlock(this).setRegistryName(this.getRegistryName()));
         setCreativeTab(AshenWheatCore.tabAshenwheat);
     }
 
@@ -35,7 +40,7 @@ public class AshWheatBale extends BlockHay
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand)
     {
-        if (AshenWheatCore.MakeAshenBalesFlame == true)
+        if (ConfigHandler.MakeAshenBalesFlame == true)
         {
             float f1 = (float)pos.getX() - 0.5F;
             float f2 = (float)pos.getY() - 0.5F;

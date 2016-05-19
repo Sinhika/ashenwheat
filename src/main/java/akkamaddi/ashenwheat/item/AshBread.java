@@ -3,6 +3,7 @@ package akkamaddi.ashenwheat.item;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import akkamaddi.ashenwheat.AshenWheatCore;
+import akkamaddi.ashenwheat.ModInfo;
 
 public class AshBread extends ItemFood
 {
@@ -12,7 +13,8 @@ public class AshBread extends ItemFood
     {
         super(par2, par3, par4);
         setUnlocalizedName(name);
-        GameRegistry.registerItem(this, name);
+        setRegistryName(ModInfo.ID, name);
+        GameRegistry.register(this);
         setCreativeTab(AshenWheatCore.tabAshenwheat);
      }
 
