@@ -9,7 +9,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
@@ -37,7 +37,7 @@ group= "akkamaddi.ashenwheat" // http://maven.apache.org/guides/mini/guide-namin
 archivesBaseName = "ashenwheat"
 
 minecraft {
-    version = "1.9.4-12.17.0.1909-1.9.4"
+    version = "1.9.4-12.17.0.1910-1.9.4"
     runDir = "run"
     replaceIn "ModInfo.java"
     replace "@MODVERSION@", "${project.version_mod}." + getVersionAppendage()

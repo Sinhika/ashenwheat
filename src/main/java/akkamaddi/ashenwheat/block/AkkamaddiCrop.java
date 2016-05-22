@@ -136,16 +136,16 @@ abstract public class AkkamaddiCrop extends BlockCrops implements IGrowable
 
         if (worldIn.getLightFromNeighbors(pos.up()) >= 9)
         {
-            int i = ((Integer)state.getValue(AGE)).intValue();
+            int i = this.getAge(state);
 
-            if (i < GROWN)
+            if (i < this.getMaxAge())
             {
                 float f = getGrowthChance(this, worldIn, pos);
                 f = Math.max(f, minFertilityDivisor);
                 
                 if (rand.nextInt((int)(fertilityDividend / f) + 1) == 0)
                 {
-                    worldIn.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(i + 1)), 2);
+                    worldIn.setBlockState(pos, this.withAge(i + 1), 2);
                 }
             }
         }
