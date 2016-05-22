@@ -15,7 +15,7 @@ public class AshCookie extends ItemFood
     {
         super(par2, par3, par4);
         setUnlocalizedName(name);
-        setPotionEffect(new PotionEffect(MobEffects.regeneration, 2, 1), 1.0F);
+        setPotionEffect(new PotionEffect(MobEffects.REGENERATION, 2, 1), 1.0F);
         setRegistryName(ModInfo.ID, name);
         GameRegistry.register(this);
         setCreativeTab(AshenWheatCore.tabAshenwheat);

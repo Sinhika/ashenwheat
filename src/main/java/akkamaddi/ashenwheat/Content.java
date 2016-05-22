@@ -70,23 +70,22 @@ public class Content
         
 	} // end doItems()
 	
-	public static void doBlocks()
-	{
+	public static void doBlocks() {
 		ashWheatBale = new AshWheatBale();
 		ashWheatCrop = new AshWheatCrop();
-		ashSeeds = new AshSeeds(ashWheatCrop, Blocks.farmland);
-		
+		ashSeeds = new AshSeeds(ashWheatCrop, Blocks.FARMLAND);
+
 		scintillaWheatBale = new ScintillaWheatBale();
 		scintillaWheatCrop = new ScintillaWheatCrop();
-		scintillaSeeds = new ScintillaSeeds(scintillaWheatCrop, Blocks.farmland);
-		
+		scintillaSeeds = new ScintillaSeeds(scintillaWheatCrop, Blocks.FARMLAND);
+
 		ossidRoot = new OssidRoot(false);
 		ossidLantern = new OssidRoot(true);
 		ossidRootCrop = new OssidRootCrop();
-		ossidSeeds = new OssidSeeds(ossidRootCrop,Blocks.farmland);
-		
+		ossidSeeds = new OssidSeeds(ossidRootCrop, Blocks.FARMLAND);
+
 		thunderGrassCrop = new ThunderGrassCrop();
-		thunderSeeds = new ThunderSeeds(thunderGrassCrop, Blocks.farmland);
+		thunderSeeds = new ThunderSeeds(thunderGrassCrop, Blocks.FARMLAND);
 	} // end doBlocks();
 
 	

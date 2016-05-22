@@ -15,7 +15,7 @@ public class ScintillaCookie extends ItemFood
     {
         super(par2, par3, par4);
         //setAlwaysEdible();
-        setPotionEffect(new PotionEffect(MobEffects.regeneration, 3, 1), 1.0F);
+        setPotionEffect(new PotionEffect(MobEffects.REGENERATION, 3, 1), 1.0F);
         setUnlocalizedName(name);
         setRegistryName(ModInfo.ID, name);
         GameRegistry.register(this);
