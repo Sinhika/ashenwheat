@@ -20,14 +20,20 @@ public class ConfigHandler
 				"Seeds appear in some chests, true or false", true).getBoolean(
 				true);
 
+		// due to beta feedback, default to true for everything except 
+		// Scintilla wheat, as by the time most people find chests, they
+		// can already kill creepers & skeletons easily--eliminating the
+		// early-game usefulness of Ossid Root & Thunder Grass. Ash wheat
+		// is just another source of charcoal, so no need to make it rare
+		// by default. Glowstone, on the other hand, should be rare pre-Nether.
 		dropAsh = config.get("yy Wild Grass Drops",
-				"Ashenwheat Seeds, false or true", false).getBoolean(false);
+				"Ashenwheat Seeds, false or true", true).getBoolean(true);
 		dropScintilla = config.get("yy Wild Grass Drops",
 				"Scintillawheat Seeds, false or true", false).getBoolean(false);
 		dropOssid = config.get("yy Wild Grass Drops",
-				"Ossidroot Seeds, false or true", false).getBoolean(false);
+				"Ossidroot Seeds, false or true", true).getBoolean(true);
 		dropThunder = config.get("yy Wild Grass Drops",
-				"Thundergrass Seeds, false or true", false).getBoolean(false);
+				"Thundergrass Seeds, false or true", true).getBoolean(true);
 
 		MakeAshenwheatFlame = config.get("zz Boolean Configuration",
 				"Flame particles on Ashenwheat crop, false or true", true)
