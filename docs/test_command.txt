@@ -1,0 +1,3 @@
+Command for testing chest loot:
+
+/setblock ~ ~1 ~ minecraft:chest 0 false {LootTable:"minecraft:chests/simple_dungeon"}
