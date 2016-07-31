@@ -1,5 +1,6 @@
 package akkamaddi.ashenwheat;
 
+import akkamaddi.ashenwheat.handler.AshenwheatFuel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
@@ -8,10 +9,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import akkamaddi.ashenwheat.handler.AshenwheatFuel;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, 
-	dependencies=ModInfo.DEPENDENCIES, 
+	dependencies=ModInfo.DEPENDENCIES, acceptedMinecraftVersions=ModInfo.ACCEPTED_VERSIONS,
 	updateJSON="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.9.4/update.json")
 
 public class AshenWheatCore
