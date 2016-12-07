@@ -1,8 +1,9 @@
 package akkamaddi.ashenwheat.block;
 
-import java.util.ArrayList;
 import java.util.Random;
 
+import akkamaddi.ashenwheat.ModInfo;
+import mcjty.lib.tools.ItemStackList;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import akkamaddi.ashenwheat.ModInfo;
 
 /**
  * new common class used by various crops.
@@ -74,8 +74,8 @@ abstract public class AkkamaddiCrop extends BlockCrops implements IGrowable
 
 
     @Override
-    public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, 
-    										  IBlockState state, int fortune)
+    public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, 
+    										  BlockPos pos, IBlockState state, int fortune)
     {
         Random rand = world instanceof World ? ((World)world).rand : new Random();
 		return getDrops(state, fortune, rand);
@@ -90,9 +90,9 @@ abstract public class AkkamaddiCrop extends BlockCrops implements IGrowable
      * @param rand current RNG.
      * @return list of drops.
      */
-	public ArrayList<ItemStack> getDrops(IBlockState state, int fortune, Random rand) 
+ 	public ItemStackList getDrops(IBlockState state, int fortune, Random rand) 
 	{
-		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		ItemStackList ret = ItemStackList.create();
 
 		if ( ((Integer)state.getValue(AGE)).intValue() >= GROWN) 
 		{

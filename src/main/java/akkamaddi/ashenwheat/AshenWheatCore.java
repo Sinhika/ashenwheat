@@ -1,7 +1,7 @@
 package akkamaddi.ashenwheat;
 
 import akkamaddi.ashenwheat.handler.AshenwheatFuel;
-import net.minecraft.creativetab.CreativeTabs;
+import mcjty.lib.compat.CompatCreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, 
 	dependencies=ModInfo.DEPENDENCIES, acceptedMinecraftVersions=ModInfo.ACCEPTED_VERSIONS,
-	updateJSON="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.9.4/update.json")
+	updateJSON="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.11/update.json")
 
 public class AshenWheatCore
 {
@@ -24,10 +24,10 @@ public class AshenWheatCore
     @Mod.Instance
     public static AshenWheatCore instance;
     
-    public static CreativeTabs tabAshenwheat = new CreativeTabs("tabAshenwheat") 
+    public static CompatCreativeTabs tabAshenwheat = new CompatCreativeTabs("tabAshenwheat") 
     {
  		@Override
-		public Item getTabIconItem() {
+		public Item getItem() {
 			return Content.ashWheatSheaf;
 		}
     };

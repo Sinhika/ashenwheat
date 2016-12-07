@@ -1,8 +1,11 @@
 package akkamaddi.ashenwheat.block;
 
-import java.util.ArrayList;
 import java.util.Random;
 
+import akkamaddi.ashenwheat.Content;
+import akkamaddi.ashenwheat.ModInfo;
+import akkamaddi.ashenwheat.handler.ConfigHandler;
+import mcjty.lib.tools.ItemStackList;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,9 +15,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import akkamaddi.ashenwheat.Content;
-import akkamaddi.ashenwheat.ModInfo;
-import akkamaddi.ashenwheat.handler.ConfigHandler;
 
 public class OssidRootCrop extends AkkamaddiCrop
 {
@@ -68,8 +68,9 @@ public class OssidRootCrop extends AkkamaddiCrop
 	}
 	
 	@Override
-	public ArrayList<ItemStack> getDrops(IBlockState state, int fortune, Random rand) {
-		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+	public ItemStackList getDrops(IBlockState state, int fortune, Random rand) 
+	{
+		ItemStackList ret = ItemStackList.create();
 		int metadata = ((Integer)state.getValue(AGE)).intValue();
 		if (metadata >= GROWN) {
 			int ndrops = this.getNumberDrops(fortune, rand);
