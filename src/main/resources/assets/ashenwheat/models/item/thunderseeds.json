@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ashenwheat:items/thunderSeeds"
+        "layer0": "ashenwheat:items/thunderseeds"
     },
     "display": {
         "thirdperson": {

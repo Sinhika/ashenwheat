@@ -1,6 +1,6 @@
 {
     "parent": "block/crop",
     "textures": {
-        "crop": "ashenwheat:blocks/ashWheatCrop_04"
+        "crop": "ashenwheat:blocks/ashwheatcrop_04"
     }
 }

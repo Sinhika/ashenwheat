@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ashenwheat:items/ashCookie"
+        "layer0": "ashenwheat:items/ashcookie"
     },
     "display": {
         "thirdperson": {

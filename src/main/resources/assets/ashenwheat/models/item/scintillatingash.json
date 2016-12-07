@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ashenwheat:items/scintillatingAsh"
+        "layer0": "ashenwheat:items/scintillatingash"
     },
     "display": {
         "thirdperson": {

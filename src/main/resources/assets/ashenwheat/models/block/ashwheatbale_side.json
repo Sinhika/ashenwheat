@@ -1,7 +1,7 @@
 {
     "parent": "block/column_side",
     "textures": {
-        "end": "ashenwheat:blocks/ashWheatBale_top",
-        "side": "ashenwheat:blocks/ashWheatBale_side"
+        "end": "ashenwheat:blocks/ashwheatbale_top",
+        "side": "ashenwheat:blocks/ashwheatbale_side"
     }
 }
