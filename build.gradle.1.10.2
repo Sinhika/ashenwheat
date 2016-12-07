@@ -10,7 +10,7 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-     }
+    }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'java'
@@ -45,18 +45,12 @@ minecraft {
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
-repositories {
-    maven { // McJtyLib
-            url "http://maven.k-4u.nl"
-    }
-}
-
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-    deobfCompile "com.github.mcjty:compatlayer:1.11-0.1.1"
+      
 }
 
 processResources
