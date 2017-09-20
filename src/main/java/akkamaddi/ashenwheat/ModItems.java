@@ -6,7 +6,9 @@ import akkamaddi.ashenwheat.item.ItemBaseSeeds;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems 
@@ -71,4 +73,25 @@ public class ModItems
 		thunderSeeds.registerItemModel();
 	} // end registerModels()
 
+	public static void registerOreDictionary()
+	{
+		// ore dictionary registrations
+		OreDictionary.registerOre("cropWheatAshen", new ItemStack(ModItems.ashWheatSheaf));
+		OreDictionary.registerOre("seedWheatAshen", new ItemStack(ModItems.ashSeeds));
+		OreDictionary.registerOre("foodBreadAshen", new ItemStack(ModItems.ashBread));
+		OreDictionary.registerOre("foodCookieAshen", new ItemStack(ModItems.ashCookie));
+
+		OreDictionary.registerOre("cropWheatScintilla", new ItemStack(ModItems.scintillaWheatSheaf));
+		OreDictionary.registerOre("seedWheatScintilla", new ItemStack(ModItems.scintillaSeeds));
+		OreDictionary.registerOre("foodBreadScintilla", new ItemStack(ModItems.scintillaBread));
+		OreDictionary.registerOre("foodCookieScintilla", new ItemStack(ModItems.scintillaCookie));
+
+		OreDictionary.registerOre("cropOssidroot", new ItemStack(ModBlocks.ossidRoot));
+		OreDictionary.registerOre("seedOssidroot", new ItemStack(ModItems.ossidSeeds));
+		OreDictionary.registerOre("dustCalcifiedAsh", new ItemStack(ModItems.calcifiedAsh));
+		OreDictionary.registerOre("dustAsh", new ItemStack(ModItems.calcifiedAsh));
+
+		OreDictionary.registerOre("seedThundergrass", new ItemStack(ModItems.thunderSeeds));
+		OreDictionary.registerOre("dustUnstableSoot", new ItemStack(ModItems.unstableSoot));
+	} // end registerOreDictionary()
 } // end class

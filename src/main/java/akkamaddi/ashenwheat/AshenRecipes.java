@@ -1,105 +1,73 @@
 package akkamaddi.ashenwheat;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 
-public class AshenRecipes {
-	public static void doAshenRecipes() {
-		// ore dictionary registrations
-		OreDictionary.registerOre("cropAshenwheat", new ItemStack(
-				Content.ashWheatSheaf));
-		OreDictionary.registerOre("seedAshenwheat", new ItemStack(
-				Content.ashSeeds));
-		OreDictionary.registerOre("foodAshenBread", new ItemStack(
-				Content.ashBread));
-		OreDictionary.registerOre("foodAshenCookie", new ItemStack(
-				Content.ashCookie));
+public class AshenRecipes 
+{
+	public static void doAshenRecipes() 
+	{
 
-		OreDictionary.registerOre("cropScintillawheat", new ItemStack(
-				Content.scintillaWheatSheaf));
-		OreDictionary.registerOre("seedScintillawheat", new ItemStack(
-				Content.scintillaSeeds));
-		OreDictionary.registerOre("foodScintillaBread", new ItemStack(
-				Content.scintillaBread));
-		OreDictionary.registerOre("foodScintillaCookie", new ItemStack(
-				Content.scintillaCookie));
-
-		OreDictionary.registerOre("cropOssidroot", new ItemStack(
-				Content.ossidRoot));
-		OreDictionary.registerOre("seedOssidroot", new ItemStack(
-				Content.ossidSeeds));
-		OreDictionary.registerOre("dustCalcifiedAsh", new ItemStack(
-				Content.calcifiedAsh));
-		OreDictionary.registerOre("dustAsh", new ItemStack(
-				Content.calcifiedAsh));
-
-		OreDictionary.registerOre("seedThundergrass", new ItemStack(
-				Content.thunderSeeds));
-		OreDictionary.registerOre("dustUnstableSoot", new ItemStack(
-				Content.unstableSoot));
-
-		// recipes
-		GameRegistry.addRecipe(new ItemStack(Content.ashBread, 1),
-				new Object[] { "AAA", 'A', Content.ashWheatSheaf });
-		GameRegistry.addRecipe(new ItemStack(Content.ashWheatBale, 1),
-				new Object[] { "AAA", "AAA", "AAA", 'A',
-			Content.ashWheatSheaf });
-		GameRegistry.addRecipe(new ItemStack(Content.ashCookie, 8),
-				new Object[] { "WCW", 'W', Content.ashWheatSheaf, 'C',
-						new ItemStack(Items.DYE, 1, 3) });
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Content.ashSeeds,
-				2), new Object[] { Content.ashWheatSheaf });
-		GameRegistry.addShapelessRecipe(new ItemStack(
-				Content.ashWheatSheaf, 9),
-				new Object[] { Content.ashWheatBale });
-
-		GameRegistry
-				.addRecipe(new ItemStack(Content.scintillaBread, 1),
-						new Object[] { "AAA", 'A',
-					Content.scintillaWheatSheaf });
-		GameRegistry.addRecipe(new ItemStack(Content.scintillaWheatBale,
-				1), new Object[] { "AAA", "AAA", "AAA", 'A',
-			Content.scintillaWheatSheaf });
-		GameRegistry.addRecipe(
-				new ItemStack(Content.scintillaCookie, 8), new Object[] {
-						"WCW", 'W', Content.scintillaWheatSheaf, 'C',
-						new ItemStack(Items.DYE, 1, 3) });
-
-		GameRegistry.addShapelessRecipe(new ItemStack(
-				Content.scintillaSeeds, 2),
-				new Object[] { Content.scintillaWheatSheaf });
-		GameRegistry.addShapelessRecipe(new ItemStack(
-				Content.scintillaWheatSheaf, 9),
-				new Object[] { Content.scintillaWheatBale });
-
-		GameRegistry.addRecipe(new ItemStack(Items.GLOWSTONE_DUST, 1), new Object[] {
-				"AA", "AA", 'A', Content.scintillatingAsh });
-
-		GameRegistry.addRecipe(new ItemStack(Content.ossidLantern, 1),
-				new Object[] { "A", "T", 'A', Content.ossidRoot, 'T', Blocks.TORCH });
-
-		GameRegistry.addShapelessRecipe(new ItemStack(
-				Content.ossidSeeds, 4),
-				new Object[] { Content.ossidRoot });
-		GameRegistry.addRecipe(new ItemStack(Items.DYE, 1, 15),
-				new Object[] { "AA", "AA", 'A', Content.calcifiedAsh });
-
-		GameRegistry.addRecipe(new ItemStack(Items.GUNPOWDER, 1), new Object[] {
-				"AAA", "AAA", "AAA", 'A', Content.unstableSoot });
+//		// recipes
+//		GameRegistry.addRecipe(new ItemStack(ModItems.ashBread, 1),
+//				new Object[] { "AAA", 'A', ModItems.ashWheatSheaf });
+//		GameRegistry.addRecipe(new ItemStack(ModItems.ashWheatBale, 1),
+//				new Object[] { "AAA", "AAA", "AAA", 'A',
+//			ModItems.ashWheatSheaf });
+//		GameRegistry.addRecipe(new ItemStack(ModItems.ashCookie, 8),
+//				new Object[] { "WCW", 'W', ModItems.ashWheatSheaf, 'C',
+//						new ItemStack(Items.DYE, 1, 3) });
+//
+//		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.ashSeeds,
+//				2), new Object[] { ModItems.ashWheatSheaf });
+//		GameRegistry.addShapelessRecipe(new ItemStack(
+//				ModItems.ashWheatSheaf, 9),
+//				new Object[] { ModItems.ashWheatBale });
+//
+//		GameRegistry
+//				.addRecipe(new ItemStack(ModItems.scintillaBread, 1),
+//						new Object[] { "AAA", 'A',
+//					ModItems.scintillaWheatSheaf });
+//		GameRegistry.addRecipe(new ItemStack(ModItems.scintillaWheatBale,
+//				1), new Object[] { "AAA", "AAA", "AAA", 'A',
+//			ModItems.scintillaWheatSheaf });
+//		GameRegistry.addRecipe(
+//				new ItemStack(ModItems.scintillaCookie, 8), new Object[] {
+//						"WCW", 'W', ModItems.scintillaWheatSheaf, 'C',
+//						new ItemStack(Items.DYE, 1, 3) });
+//
+//		GameRegistry.addShapelessRecipe(new ItemStack(
+//				ModItems.scintillaSeeds, 2),
+//				new Object[] { ModItems.scintillaWheatSheaf });
+//		GameRegistry.addShapelessRecipe(new ItemStack(
+//				ModItems.scintillaWheatSheaf, 9),
+//				new Object[] { ModItems.scintillaWheatBale });
+//
+//		GameRegistry.addRecipe(new ItemStack(Items.GLOWSTONE_DUST, 1), new Object[] {
+//				"AA", "AA", 'A', ModItems.scintillatingAsh });
+//
+//		GameRegistry.addRecipe(new ItemStack(ModItems.ossidLantern, 1),
+//				new Object[] { "A", "T", 'A', ModItems.ossidRoot, 'T', Blocks.TORCH });
+//
+//		GameRegistry.addShapelessRecipe(new ItemStack(
+//				ModItems.ossidSeeds, 4),
+//				new Object[] { ModItems.ossidRoot });
+//		GameRegistry.addRecipe(new ItemStack(Items.DYE, 1, 15),
+//				new Object[] { "AA", "AA", 'A', ModItems.calcifiedAsh });
+//
+//		GameRegistry.addRecipe(new ItemStack(Items.GUNPOWDER, 1), new Object[] {
+//				"AAA", "AAA", "AAA", 'A', ModItems.unstableSoot });
 
 		// smelting
-		GameRegistry.addSmelting(Content.ashBread, new ItemStack(
+		GameRegistry.addSmelting(ModItems.ashBread, new ItemStack(
 				Items.COAL, 1, 1), 0.5F);
-		GameRegistry.addSmelting(Content.scintillaWheatBale,
-				new ItemStack(Content.scintillatingAsh), 0.5F);
-		GameRegistry.addSmelting(Content.ossidRoot,
-				new ItemStack(Content.calcifiedAsh), 0.4F);
-		GameRegistry.addSmelting(Content.thunderSeeds,
-				new ItemStack(Content.unstableSoot), 0.4F);
+		GameRegistry.addSmelting(ModBlocks.scintillaWheatBale,
+				new ItemStack(ModItems.scintillatingAsh), 0.5F);
+		GameRegistry.addSmelting(ModBlocks.ossidRoot,
+				new ItemStack(ModItems.calcifiedAsh), 0.4F);
+		GameRegistry.addSmelting(ModItems.thunderSeeds,
+				new ItemStack(ModItems.unstableSoot), 0.4F);
 
 	} // end doAshenRecipes()
 } // end class AshenRecipes

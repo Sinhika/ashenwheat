@@ -19,7 +19,7 @@ public class CommonProxy
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		ConfigHandler.preInit(event);
-        // Content.preInitialize();
+        ModItems.registerOreDictionary();
 	} // end preInit()
 	
     public void load(FMLInitializationEvent event)
