@@ -1,6 +1,5 @@
 package akkamaddi.ashenwheat;
 
-import akkamaddi.ashenwheat.handler.AshenwheatFuel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -8,7 +7,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, 
 	dependencies=ModInfo.DEPENDENCIES, acceptedMinecraftVersions=ModInfo.ACCEPTED_VERSIONS,
@@ -47,8 +45,7 @@ public class AshenWheatCore
    @Mod.EventHandler
     public void load(FMLInitializationEvent event)
     {
-        GameRegistry.registerFuelHandler(new AshenwheatFuel());
-        proxy.load(event);
+         proxy.load(event);
     } // end load()
 
    /**

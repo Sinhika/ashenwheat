@@ -16,17 +16,18 @@ public class ModItems
     		new ItemBase("unstablesoot").setCreativeTab(AshenWheatCore.tabAshenwheat);
     public static ItemBase calcifiedAsh = 
     		new ItemBase("calcifiedash").setCreativeTab(AshenWheatCore.tabAshenwheat);
-	public static ItemBase ashWheatSheaf = 
-			new ItemBase("ashwheatsheaf").setCreativeTab(AshenWheatCore.tabAshenwheat);
+	public static ItemBase ashWheatSheaf = new ItemBase("ashwheatsheaf").setBurnTime(100)
+												.setCreativeTab(AshenWheatCore.tabAshenwheat);
 	public static ItemBase scintillaWheatSheaf = 
 			new ItemBase("scintillawheatsheaf").setCreativeTab(AshenWheatCore.tabAshenwheat);
 	public static ItemBase scintillatingAsh = 
 			new ItemBase("scintillatingash").setCreativeTab(AshenWheatCore.tabAshenwheat);
 	
 	// Food Items
-	public static ItemBaseFood ashBread = new ItemBaseFood("ashbread", 4, 0.5F, false);
+	public static ItemBaseFood ashBread = new ItemBaseFood("ashbread", 4, 0.5F, false)
+												.setBurnTime(600);
 	public static ItemBaseFood ashCookie = 
-			(ItemBaseFood) new ItemBaseFood("ashcookie", 1, 0.1F, false)
+			(ItemBaseFood) new ItemBaseFood("ashcookie", 1, 0.1F, false).setBurnTime(50)
 						.setPotionEffect(new PotionEffect(MobEffects.REGENERATION, 2, 1), 1.0F);
 
 	public static ItemBaseFood scintillaBread = new ItemBaseFood("scintillabread",4, 0.7F, false);
@@ -36,7 +37,8 @@ public class ModItems
 
 	// Seed Items
 	public static ItemBaseSeeds ashSeeds = 
-							new ItemBaseSeeds("ashseeds", ModBlocks.ashWheatCrop, Blocks.FARMLAND);
+							new ItemBaseSeeds("ashseeds", ModBlocks.ashWheatCrop, Blocks.FARMLAND)
+									.setBurnTime(25);
 	public static ItemBaseSeeds ossidSeeds = 
 						new ItemBaseSeeds("ossidseeds", ModBlocks.ossidRootCrop, Blocks.FARMLAND);
 	public static ItemBaseSeeds scintillaSeeds = 

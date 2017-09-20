@@ -1,41 +1,20 @@
 package akkamaddi.ashenwheat.handler;
 
-import net.minecraft.item.Item;
+import akkamaddi.ashenwheat.ModBlocks;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.IFuelHandler;
-import akkamaddi.ashenwheat.Content;
+import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class AshenwheatFuel implements IFuelHandler
+@Mod.EventBusSubscriber
+public class AshenwheatFuel
 {
-    @Override
-    public int getBurnTime(ItemStack fuelStack)
+	@SubscribeEvent
+    public void setBurnTimes(FurnaceFuelBurnTimeEvent event)
     {
-    	Item fuel = fuelStack.getItem();
-        if (fuel == Content.ashWheatSheaf)
+        if (event.getItemStack().isItemEqual(new ItemStack(ModBlocks.ashWheatBale)))
         {
-            return 100;
+        	event.setBurnTime(2400);
         }
-
-        if (fuel == Content.ashBread)
-        {
-            return 600;
-        }
-
-        if (fuel == Content.ashCookie)
-        {
-            return 50;
-        }
-
-        if (fuel == Content.ashSeeds)
-        {
-            return 25;
-        }
-
-        if (fuelStack.isItemEqual(new ItemStack(Content.ashWheatBale)))
-        {
-            return 2400;
-        }
-
-        return 0;
     }
-}
+} // end class
