@@ -1,8 +1,8 @@
 package akkamaddi.ashenwheat;
 
 import akkamaddi.ashenwheat.handler.AshenwheatFuel;
-import mcjty.lib.compat.CompatCreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -12,23 +12,22 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, 
 	dependencies=ModInfo.DEPENDENCIES, acceptedMinecraftVersions=ModInfo.ACCEPTED_VERSIONS,
-	updateJSON="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.11/update.json")
+	updateJSON=ModInfo.VERSIONURL)
 
 public class AshenWheatCore
 {
-    
     @SidedProxy(clientSide="akkamaddi.ashenwheat.ClientProxy", 
-    			serverSide="akkamaddi.ashenwheat.ServerProxy")
+    			serverSide="akkamaddi.ashenwheat.CommonProxy")
     public static CommonProxy proxy;
     
     @Mod.Instance
     public static AshenWheatCore instance;
     
-    public static CompatCreativeTabs tabAshenwheat = new CompatCreativeTabs("tabAshenwheat") 
+    public static CreativeTabs tabAshenwheat = new CreativeTabs("tabAshenwheat") 
     {
- 		@Override
-		public Item getItem() {
-			return Content.ashWheatSheaf;
+		@Override
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.ashWheatSheaf);
 		}
     };
 
@@ -40,7 +39,7 @@ public class AshenWheatCore
     public void preInit(FMLPreInitializationEvent event)
     {
         proxy.preInit(event);
-    } // end preinit()
+    } // end preInit()
 
    /**
     * Do your mod setup. Build whatever data structures you care about. 
@@ -60,4 +59,6 @@ public class AshenWheatCore
     {
 	   proxy.postInit(event);
     } // end postInit()
+   
+   
 } // end class AshenWheatCore

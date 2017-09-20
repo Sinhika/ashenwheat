@@ -2,46 +2,34 @@ package akkamaddi.ashenwheat.block;
 
 import java.util.Random;
 
+import akkamaddi.ashenwheat.ModItems;
+import akkamaddi.ashenwheat.handler.ConfigHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import akkamaddi.ashenwheat.Content;
-import akkamaddi.ashenwheat.ModInfo;
-import akkamaddi.ashenwheat.handler.ConfigHandler;
 
 public class AshWheatCrop extends AkkamaddiCrop
 {
-	private final String name = "ashwheatcrop";
-	
     public AshWheatCrop()
     {
-    	super();
+    	super("ashwheatcrop");
         setLightLevel(0.5F);
     	setFertilityDividend(26.0F);
         setTickRandomly(true);
-        setUnlocalizedName(name);
-        setRegistryName(ModInfo.ID, name);
-        GameRegistry.register(this);
     }
 
-    public String getName()
-    {
-    	return name;
-    }
-    
 	@Override
 	protected Item getSeed() {
-		return Content.ashSeeds;
+		return ModItems.ashSeeds;
 	}
 
 	@Override
 	protected Item getCrop() {
-		return Content.ashWheatSheaf;
+		return ModItems.ashWheatSheaf;
 	}
 
 	@Override
