@@ -16,14 +16,10 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModBlocks 
 {
 	// crop blocks
-	public static AkkamaddiCrop ashWheatCrop = 
-			new AshWheatCrop().setCreativeTab(AshenWheatCore.tabAshenwheat);
-	public static AkkamaddiCrop ossidRootCrop =
-			new OssidRootCrop().setCreativeTab(AshenWheatCore.tabAshenwheat);
-	public static AkkamaddiCrop scintillaWheatCrop =
-			new ScintillaWheatCrop().setCreativeTab(AshenWheatCore.tabAshenwheat);
-	public static AkkamaddiCrop thunderGrassCrop =
-			new ThunderGrassCrop().setCreativeTab(AshenWheatCore.tabAshenwheat);
+	public static AkkamaddiCrop ashWheatCrop = new AshWheatCrop();
+	public static AkkamaddiCrop ossidRootCrop = new OssidRootCrop();
+	public static AkkamaddiCrop scintillaWheatCrop = new ScintillaWheatCrop();
+	public static AkkamaddiCrop thunderGrassCrop = new ThunderGrassCrop();
 
 	// hay bale blocks
 	public static BlockBaseHay ashWheatBale = 

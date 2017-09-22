@@ -21,7 +21,7 @@ public class AshenWheatCore
     @Mod.Instance
     public static AshenWheatCore instance;
     
-    public static CreativeTabs tabAshenwheat = new CreativeTabs("tabAshenwheat") 
+    public static CreativeTabs tabAshenwheat = new CreativeTabs("tabashenwheat") 
     {
 		@Override
 		public ItemStack getTabIconItem() {

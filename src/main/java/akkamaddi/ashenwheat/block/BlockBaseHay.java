@@ -24,7 +24,7 @@ public class BlockBaseHay extends BlockHay
 	}
 	
 	public Item createItemBlock() {
-		return new ItemBlock(this);
+		return new ItemBlock(this).setRegistryName(this.getRegistryName());
 	}
 
 	@Override
