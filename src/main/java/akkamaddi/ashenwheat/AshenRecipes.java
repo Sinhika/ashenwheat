@@ -10,8 +10,6 @@ public class AshenRecipes
 	{
 
 //		// recipes
-//		GameRegistry.addRecipe(new ItemStack(ModItems.ashBread, 1),
-//				new Object[] { "AAA", 'A', ModItems.ashWheatSheaf });
 //		GameRegistry.addRecipe(new ItemStack(ModItems.ashWheatBale, 1),
 //				new Object[] { "AAA", "AAA", "AAA", 'A',
 //			ModItems.ashWheatSheaf });
@@ -25,10 +23,6 @@ public class AshenRecipes
 //				ModItems.ashWheatSheaf, 9),
 //				new Object[] { ModItems.ashWheatBale });
 //
-//		GameRegistry
-//				.addRecipe(new ItemStack(ModItems.scintillaBread, 1),
-//						new Object[] { "AAA", 'A',
-//					ModItems.scintillaWheatSheaf });
 //		GameRegistry.addRecipe(new ItemStack(ModItems.scintillaWheatBale,
 //				1), new Object[] { "AAA", "AAA", "AAA", 'A',
 //			ModItems.scintillaWheatSheaf });
