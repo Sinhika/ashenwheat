@@ -1,0 +1,13 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+	"group" : "ashenwheat",
+	"ingredients" : [
+		 {
+		 	"item" : "ashenwheat:ashwheatsheaf"
+		 }
+	],
+	"result" : { 
+		"item" : "ashenwheat:ashseeds",
+		"count" : 2
+		}
+}

@@ -1,0 +1,16 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"group" : "ashenwheat",
+	"result" : { 
+		"item" : "minecraft:gunpowder"
+		},
+	"pattern" : [
+		"AA",
+		"AA"
+	],
+	"key" : {
+		"A" : {
+			"item" :  "ashenwheat:unstablesoot" 
+		}
+	}
+}

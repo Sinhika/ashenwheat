@@ -1,0 +1,17 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"group" : "ashenwheat",
+	"result" : { 
+		"item" : "minecraft:dye",
+		"data" : 15
+		},
+	"pattern" : [
+		"AA",
+		"AA"
+	],
+	"key" : {
+		"A" : {
+			"item" :  "ashenwheat:calcifiedash" 
+		}
+	}
+}

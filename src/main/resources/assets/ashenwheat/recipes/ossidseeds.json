@@ -1,0 +1,13 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+	"group" : "ashenwheat",
+	"ingredients" : [
+		 {
+		 	"item" : "ashenwheat:ossidroot"
+		 }
+	],
+	"result" : { 
+		"item" : "ashenwheat:ossidseeds",
+		"count" : 4
+		}
+}

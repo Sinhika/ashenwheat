@@ -1,0 +1,19 @@
+{
+	"type" : "forge:ore_shaped",
+	"group" : "ashenwheat",
+	"result" : { 
+		"item" : "ashenwheat:ossidlantern"
+		},
+	"pattern" : [
+		" A ",
+		" T "
+	],
+	"key" : {
+		"A" : {
+		 	"item" : "ashenwheat:ossidroot"
+		 },
+		 "T" : {
+		 	"forge:ore_dict" : "torch"
+		 }
+	}
+}

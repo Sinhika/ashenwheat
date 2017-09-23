@@ -1,0 +1,13 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+	"group" : "ashenwheat",
+	"ingredients" : [
+		 {
+		 	"item" : "ashenwheat:scintillawheatsheaf"
+		 }
+	],
+	"result" : { 
+		"item" : "ashenwheat:scintillaseeds",
+		"count" : 2
+		}
+}
