@@ -13,7 +13,7 @@
 		 	"item" : "ashenwheat:ossidroot"
 		 },
 		 "T" : {
-		 	"forge:ore_dict" : "torch"
+		 	"forge:ore_dict" : "ore:torch"
 		 }
 	}
 }

@@ -3,7 +3,7 @@
     "variants": {
         "normal": { "model": "ashenwheat:ashwheatbale" },   	
         "axis=y": { "model": "ashenwheat:ashwheatbale" },
-        "axis=z": { "model": "ashenwheat:ashwheatbale_side" },
-        "axis=x": { "model": "ashenwheat:ashwheatbale_side", "y": 90 }
+        "axis=z": { "model": "ashenwheat:ashwheatbale", "x": 90  },
+        "axis=x": { "model": "ashenwheat:ashwheatbale", "x": 90, "y": 90 }
     }    
 }
