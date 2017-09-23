@@ -6,7 +6,6 @@
 		"WCW"
 	],
 	"type" : "minecraft:crafting_shaped",
-	"group" : "ashenwheat",
 	"key" : {
 		"W" : {
 		 	"item" : "ashenwheat:scintillawheatsheaf"

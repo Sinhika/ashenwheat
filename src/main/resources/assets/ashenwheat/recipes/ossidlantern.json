@@ -1,6 +1,5 @@
 {
 	"type" : "forge:ore_shaped",
-	"group" : "ashenwheat",
 	"result" : { 
 		"item" : "ashenwheat:ossidlantern"
 		},
@@ -13,7 +12,8 @@
 		 	"item" : "ashenwheat:ossidroot"
 		 },
 		 "T" : {
-		 	"forge:ore_dict" : "ore:torch"
+		 	"type" : "forge:ore_dict",
+		 	"ore" : "torch"
 		 }
 	}
 }
