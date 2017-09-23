@@ -19,8 +19,7 @@ public class CommonProxy
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		ConfigHandler.preInit(event);
-        ModItems.registerOreDictionary();
-	} // end preInit()
+ 	} // end preInit()
 	
     public void load(FMLInitializationEvent event)
     {
@@ -63,6 +62,7 @@ public class CommonProxy
     {
     	ModItems.register(event.getRegistry());
     	ModBlocks.registerItemBlocks(event.getRegistry());
+        ModItems.registerOreDictionary();
     }   
     
     public void registerItemRenderer(Item item, int meta, String id) {
