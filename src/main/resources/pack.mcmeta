@@ -1,6 +1,6 @@
 {
-   "pack":{
-      "pack_format":2,
-      "description":"Resources for akkamaddi's Ashenwheat"
-   }
+    "pack": {
+        "description": "Ashenwheat resources",
+        "pack_format": 5
+    }
 }
