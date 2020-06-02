@@ -15,7 +15,7 @@ version="${version}" #mandatory
 displayName="akkamaddi's Ashenwheat" #mandatory
 updateJSONURL="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.15/update.json" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/akkamaddis-ashenwheat" #optional
-logoFile="ashenwheatsheaf.png" #optional
+logoFile="ashwheatsheaf.png" #optional
 credits="Thanks to akkamaddi for creating the original mod and to Sinhika for porting and maintaining it." #optional
 authors="akkamaddi, Sinhika" #optional
 # The description text for the mod (multi line!) (#mandatory)
