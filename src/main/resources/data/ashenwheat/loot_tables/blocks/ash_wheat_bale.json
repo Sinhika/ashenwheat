@@ -1,0 +1,20 @@
+{
+    "pools": [
+        {
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "entries": [
+                {
+                    "name": "ashenwheat:ash_wheat_bale",
+                    "type": "minecraft:item"
+                }
+            ],
+            "name": "ashenwheat:droppool",
+            "rolls": 1
+        }
+    ],
+    "type": "minecraft:block"
+}
