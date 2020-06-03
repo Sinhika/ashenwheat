@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 public final class ModItemGroups
 {
     public static final ItemGroup MOD_ITEM_GROUP = 
-            new ModItemGroup(Ashenwheat.MODID, () -> new ItemStack(ModItems.ashwheatsheaf.get()));
+            new ModItemGroup(Ashenwheat.MODID, () -> new ItemStack(ModItems.ash_wheat_sheaf.get()));
    
     public static final class ModItemGroup extends ItemGroup 
     {
