@@ -1,7 +1,8 @@
 {
     "variants": {
-        "axis=y":    { "model": "ashenwheat:block/ossid_lantern" },
-        "axis=z":     { "model": "ashenwheat:block/ossid_lantern", "x": 90 },
-        "axis=x":     { "model": "ashenwheat:block/ossid_lantern", "x": 90, "y": 90 }
+        "facing=north": { "model": "ashenwheat:block/ossid_lantern" },
+        "facing=south": { "model": "ashenwheat:block/ossid_lantern", "y": 180 },
+        "facing=west":  { "model": "ashenwheat:block/ossid_lantern", "y": 270 },
+        "facing=east":  { "model": "ashenwheat:block/ossid_lantern", "y": 90 }
     }
 }

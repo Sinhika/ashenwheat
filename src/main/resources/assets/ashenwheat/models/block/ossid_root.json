@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "ashenwheat:block/ossid_side_top",
+        "side": "ashenwheat:block/ossid_side"
+    }
+}

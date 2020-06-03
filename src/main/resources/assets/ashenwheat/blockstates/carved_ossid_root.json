@@ -1,7 +1,8 @@
 {
     "variants": {
-        "axis=y":    { "model": "ashenwheat:block/carved_ossid_root" },
-        "axis=z":     { "model": "ashenwheat:block/carved_ossid_root", "x": 90 },
-        "axis=x":     { "model": "ashenwheat:block/carved_ossid_root", "x": 90, "y": 90 }
+        "facing=north": { "model": "ashenwheat:block/carved_ossid_root" },
+        "facing=south": { "model": "ashenwheat:block/carved_ossid_root", "y": 180 },
+        "facing=west":  { "model": "ashenwheat:block/carved_ossid_root", "y": 270 },
+        "facing=east":  { "model": "ashenwheat:block/carved_ossid_root", "y": 90 }
     }
 }

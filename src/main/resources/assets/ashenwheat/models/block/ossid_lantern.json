@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "ashenwheat:block/ossid_top",
+        "front": "ashenwheat:block/ossid_face_on",
+        "side": "ashenwheat:block/ossid_side"
+    }
+}
