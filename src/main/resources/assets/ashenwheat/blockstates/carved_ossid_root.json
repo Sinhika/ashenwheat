@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":    { "model": "ashenwheat:block/carved_ossid_root" },
+        "axis=z":     { "model": "ashenwheat:block/carved_ossid_root", "x": 90 },
+        "axis=x":     { "model": "ashenwheat:block/carved_ossid_root", "x": 90, "y": 90 }
+    }
+}

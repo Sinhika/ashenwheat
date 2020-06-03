@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":    { "model": "ashenwheat:block/ossid_lantern" },
+        "axis=z":     { "model": "ashenwheat:block/ossid_lantern", "x": 90 },
+        "axis=x":     { "model": "ashenwheat:block/ossid_lantern", "x": 90, "y": 90 }
+    }
+}

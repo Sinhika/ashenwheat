@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":    { "model": "ashenwheat:block/ash_wheat_bale" },
+        "axis=z":     { "model": "ashenwheat:block/ash_wheat_bale", "x": 90 },
+        "axis=x":     { "model": "ashenwheat:block/ash_wheat_bale", "x": 90, "y": 90 }
+    }
+}
