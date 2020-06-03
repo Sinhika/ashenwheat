@@ -1,7 +1,8 @@
 package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import mod.akkamaddi.ashenwheat.content.AshwheatSheafItem;
+import mod.akkamaddi.ashenwheat.content.CombustibleItem;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,13 +24,14 @@ public final class ModItems
     public static final DeferredRegister<Item> ITEMS = 
             new DeferredRegister<>(ForgeRegistries.ITEMS, Ashenwheat.MODID);
 
-    public static final RegistryObject<AshwheatSheafItem> ash_wheat_sheaf = ITEMS.register("ash_wheat_sheaf", 
-            () -> new AshwheatSheafItem(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
-    
-    // TODO initially use generic items until we get the particulars sorted out.
     // Ashwheat items
-    public static final RegistryObject<Item> ash_seeds = ITEMS.register("ash_seeds", 
-            () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+    public static final RegistryObject<CombustibleItem> ash_wheat_sheaf = ITEMS.register("ash_wheat_sheaf", 
+            () -> new CombustibleItem(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+    
+    public static final RegistryObject<BlockNamedItem> ash_seeds = ITEMS.register("ash_seeds", 
+            () -> new BlockNamedItem(ModBlocks.ash_wheat_crop.get(), 
+                                     new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+    // TODO initially use generic items until we get the particulars sorted out.
     public static final RegistryObject<Item> ash_bread = ITEMS.register("ash_bread", 
             () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<Item> ash_cookie = ITEMS.register("ash_cookie", 

@@ -4,6 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import mod.akkamaddi.ashenwheat.config.ConfigHolder;
+import mod.akkamaddi.ashenwheat.init.ModBlocks;
+import mod.akkamaddi.ashenwheat.init.ModItems;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -24,8 +26,8 @@ public final class Ashenwheat
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register Deferred Registers (Does not need to be before Configs)
-//        ModBlocks.BLOCKS.register(modEventBus);
-//        ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
 //        ModTileEntities.TILE_ENTITIES.register(modEventBus);
         
         // Register Configs (Does not need to be after Deferred Registers)
