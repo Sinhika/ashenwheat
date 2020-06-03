@@ -1,7 +1,25 @@
 ashenwheat
 ==========
 
-akkamaddi's Ashenwheat, ported to 1.8.9, 1.9.4, and 1.10.
+akkamaddi's Ashenwheat - a small farming mod, adding four utility crops:
+
+- Ashenwheat (a fuel, and can make charcoal),
+- Ossidroot (can make Bonemeal),
+- Thundergrass (can make gunpowder),
+- and Scintillawheat (can make Glowstone Dust).
+
+The goal is to make it easier to play on peaceful mode, or just farm stuff
+instead of hunting for it all the time.
+
+**Currently being ported to 1.15.2 and backported to 1.14.4**
+
+TODO List
+---------
+- a vine that grows spider eyes.
+- something that grows ender pearls.
+- a RARE nether thing that provides ghast tears.
+- Blaze Tree - nether tree that provides blaze rods (GPL, ask Wuppy29 anyway).
+- flax - crop that yields string (may require loom use?).
 
 License
 -------
