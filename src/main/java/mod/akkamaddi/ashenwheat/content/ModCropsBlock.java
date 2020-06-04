@@ -71,7 +71,7 @@ public class ModCropsBlock extends CropsBlock
             float f3 = (float)pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            worldIn.addParticle(ParticleTypes.ANGRY_VILLAGER, 
+            worldIn.addParticle(ParticleTypes.MYCELIUM, 
                                 (double)(f1 + f4), (double)(f2 + f4 + f5) , (double)(f3 + f5), 
                                 0.0D, 0.0D, 0.0D);
        
@@ -83,7 +83,7 @@ public class ModCropsBlock extends CropsBlock
             float f3 = (float) pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            worldIn.addParticle(ParticleTypes.ENCHANT, (double) (f1 + f4), (double) (f2 + f4 + f5),
+            worldIn.addParticle(ParticleTypes.INSTANT_EFFECT, (double) (f1 + f4), (double) (f2 + f4 + f5),
                     (double) (f3 + f5), 0.0D, 0.0D, 0.0D);
         }
         else if (AshenwheatConfig.MakeThunderGrassSmoke && (stateIn.getBlock() == ModBlocks.thunder_grass_crop.get()))

@@ -49,7 +49,6 @@ public final class ModItems
     public static final RegistryObject<CombustibleBlockItem> ash_wheat_bale = ITEMS.register("ash_wheat_bale", 
             () -> new CombustibleBlockItem(ModBlocks.ash_wheat_bale.get(), new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
     
-    // TODO initially use generic items until we get the particulars sorted out.
     public static final RegistryObject<Item> ash_bread = ITEMS.register("ash_bread", 
             () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP).food(ASHBREAD)));
     public static final RegistryObject<Item> ash_cookie = ITEMS.register("ash_cookie", 

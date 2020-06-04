@@ -1,7 +1,10 @@
 package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
+import mod.akkamaddi.ashenwheat.content.BlockWithAnimation;
+import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
+import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -31,30 +34,30 @@ public final class ModBlocks
     public static final RegistryObject<ModCropsBlock> ash_wheat_crop = BLOCKS.register("ash_wheat_crop", 
             () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.RED_TERRACOTTA)
                     .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.CROP)));
-    public static final RegistryObject<Block> ash_wheat_bale = BLOCKS.register("ash_wheat_bale", 
-            () -> new Block(Block.Properties.create(Material.ORGANIC, MaterialColor.RED_TERRACOTTA)
+    public static final RegistryObject<BlockWithAnimation> ash_wheat_bale = BLOCKS.register("ash_wheat_bale", 
+            () -> new BlockWithAnimation(Block.Properties.create(Material.ORGANIC, MaterialColor.RED_TERRACOTTA)
                             .hardnessAndResistance(0.5F).sound(SoundType.PLANT)));
     
     // Scintillawheat blocks
     public static final RegistryObject<ModCropsBlock> scintilla_wheat_crop = BLOCKS.register("scintilla_wheat_crop", 
             () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.SAND)
                     .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.CROP)));
-    public static final RegistryObject<Block> scintilla_wheat_bale = BLOCKS.register("scintilla_wheat_bale", 
-            () -> new Block(Block.Properties.create(Material.ORGANIC, MaterialColor.SAND)
+    public static final RegistryObject<BlockWithAnimation> scintilla_wheat_bale = BLOCKS.register("scintilla_wheat_bale", 
+            () -> new BlockWithAnimation(Block.Properties.create(Material.ORGANIC, MaterialColor.SAND)
                             .hardnessAndResistance(0.5F).sound(SoundType.PLANT)));
     
     // Ossidroot blocks
     public static final RegistryObject<ModCropsBlock> ossid_root_crop = BLOCKS.register("ossid_root_crop", 
             () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.LIME_TERRACOTTA)
                             .hardnessAndResistance(0.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> ossid_root = BLOCKS.register("ossid_root", 
-            () -> new Block(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
+    public static final RegistryObject<OssidRootBlock> ossid_root = BLOCKS.register("ossid_root", 
+            () -> new OssidRootBlock(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
                             .hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> carved_ossid_root = BLOCKS.register("carved_ossid_root", 
-            () -> new Block(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
+    public static final RegistryObject<CarvedOssidRoot> carved_ossid_root = BLOCKS.register("carved_ossid_root", 
+            () -> new CarvedOssidRoot(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
                             .hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
-   public static final RegistryObject<Block> ossid_lantern = BLOCKS.register("ossid_lantern", 
-            () -> new Block(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
+   public static final RegistryObject<CarvedOssidRoot> ossid_lantern = BLOCKS.register("ossid_lantern", 
+            () -> new CarvedOssidRoot(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
                             .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lightValue(15)));
     
     // Thundergrass blocks
