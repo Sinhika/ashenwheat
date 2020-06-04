@@ -55,7 +55,7 @@ public final class ModBlocks
                             .hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
    public static final RegistryObject<Block> ossid_lantern = BLOCKS.register("ossid_lantern", 
             () -> new Block(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
-                            .hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
+                            .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lightValue(15)));
     
     // Thundergrass blocks
     public static final RegistryObject<ModCropsBlock> thunder_grass_crop = BLOCKS.register("thunder_grass_crop", 

@@ -20,7 +20,14 @@ public class CombustibleItem extends Item implements IForgeItem
         {
             return 100;
         }
-        
+        else if (itemStack.getItem() == ModItems.ash_bread.get()) 
+        {
+            return 600;
+        }
+        else if (itemStack.getItem() == ModItems.ash_cookie.get()) 
+        {
+            return 50;
+        }
         return super.getBurnTime(itemStack);
     } // end getBurnTime
 

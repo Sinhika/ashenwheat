@@ -1,9 +1,5 @@
 package mod.akkamaddi.ashenwheat.config;
 
-import net.minecraft.item.DyeColor;
-
-import java.util.List;
-
 /**
  * This holds the baked (runtime) values for our config.
  * These values should never be from changed outside this package.
@@ -12,22 +8,22 @@ import java.util.List;
  *
  * @author Cadiboo
  */
-public final class AshenwheatConfig {
-
+public final class AshenwheatConfig 
+{
 	// Client
-	public static boolean clientBoolean;
-	public static List<String> clientStringList;
-	public static DyeColor clientDyeColorEnum;
-
-	public static boolean modelTranslucency;
-	public static float modelScale;
+	public static boolean MakeAshenwheatFlame;
+    public static boolean MakeAshenBalesFlame;
+    public static boolean MakeScintillawheatScintillate;
+    public static boolean MakeScintillaBalesScintillate;
+    public static boolean MakeOssidCropGloom;
+    public static boolean MakeOssidLanternGloom;
+    public static boolean MakeThunderGrassSmoke;
 
 	// Server
-	public static boolean serverBoolean;
-	public static List<String> serverStringList;
-	public static DyeColor serverEnumDyeColor;
+	public static boolean SeedsInChests;
+    public static boolean DropAshSeeds;
+    public static boolean DropScintillaSeeds;
+    public static boolean DropOssidSeeds;
+    public static boolean DropThunderSeeds;
 
-	public static int electricFurnaceEnergySmeltCostPerTick = 100;
-	public static int heatCollectorTransferAmountPerTick = 100;
-
-}
+} // end class

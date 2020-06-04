@@ -32,7 +32,7 @@ public final class Ashenwheat
         
         // Register Configs (Does not need to be after Deferred Registers)
         modLoadingContext.registerConfig(ModConfig.Type.CLIENT, ConfigHolder.CLIENT_SPEC);
-        modLoadingContext.registerConfig(ModConfig.Type.SERVER, ConfigHolder.SERVER_SPEC);
+        modLoadingContext.registerConfig(ModConfig.Type.COMMON, ConfigHolder.SERVER_SPEC);
        
     } // end ctor()
 } // end class

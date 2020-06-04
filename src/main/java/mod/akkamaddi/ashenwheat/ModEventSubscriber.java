@@ -5,8 +5,10 @@ import org.apache.logging.log4j.Logger;
 
 import mod.akkamaddi.ashenwheat.config.ConfigHelper;
 import mod.akkamaddi.ashenwheat.config.ConfigHolder;
+import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItemGroups;
+import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -39,7 +41,7 @@ public final class ModEventSubscriber
 		ModBlocks.BLOCKS.getEntries().stream()
 				.map(RegistryObject::get)
 				// You can do extra filtering here if you don't want some blocks to have an BlockItem automatically registered for them
-				// .filter(block -> needsItemBlock(block))
+				.filter(block -> needsItemBlock(block))
 				// Register the BlockItem for the block
 				.forEach(block -> {
 					// Make the properties, and make it so that the item will be on our ItemGroup (CreativeTab)
@@ -53,6 +55,17 @@ public final class ModEventSubscriber
 				});
 		LOGGER.debug("Registered BlockItems");
 	}
+
+    private static boolean needsItemBlock(Block block)
+    {
+        if (block == ModBlocks.ash_wheat_bale.get()) {
+            return false;
+        }
+        else if (block instanceof ModCropsBlock) {
+            return false;
+        }
+        return true;
+    }
 
 	/**
 	 * This method will be called by Forge when a config changes.
