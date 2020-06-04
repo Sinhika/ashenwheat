@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class OssidRootBlock extends BlockWithAnimation
+public class OssidRootBlock extends ModHayBlock
 {
 
     public OssidRootBlock(Properties properties)

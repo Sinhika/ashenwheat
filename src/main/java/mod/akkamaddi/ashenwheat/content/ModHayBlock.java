@@ -4,16 +4,16 @@ import java.util.Random;
 
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.HayBlock;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockWithAnimation extends Block
+public class ModHayBlock extends HayBlock
 {
 
-    public BlockWithAnimation(Properties properties)
+    public ModHayBlock(Properties properties)
     {
         super(properties);
     }

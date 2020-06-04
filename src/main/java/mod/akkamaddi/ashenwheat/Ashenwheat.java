@@ -28,7 +28,6 @@ public final class Ashenwheat
         // Register Deferred Registers (Does not need to be before Configs)
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
-//        ModTileEntities.TILE_ENTITIES.register(modEventBus);
         
         // Register Configs (Does not need to be after Deferred Registers)
         modLoadingContext.registerConfig(ModConfig.Type.CLIENT, ConfigHolder.CLIENT_SPEC);

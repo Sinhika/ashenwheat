@@ -1,7 +1,7 @@
 package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import mod.akkamaddi.ashenwheat.content.BlockWithAnimation;
+import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
@@ -34,16 +34,16 @@ public final class ModBlocks
     public static final RegistryObject<ModCropsBlock> ash_wheat_crop = BLOCKS.register("ash_wheat_crop", 
             () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.RED_TERRACOTTA)
                     .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.CROP)));
-    public static final RegistryObject<BlockWithAnimation> ash_wheat_bale = BLOCKS.register("ash_wheat_bale", 
-            () -> new BlockWithAnimation(Block.Properties.create(Material.ORGANIC, MaterialColor.RED_TERRACOTTA)
+    public static final RegistryObject<ModHayBlock> ash_wheat_bale = BLOCKS.register("ash_wheat_bale", 
+            () -> new ModHayBlock(Block.Properties.create(Material.ORGANIC, MaterialColor.RED_TERRACOTTA)
                             .hardnessAndResistance(0.5F).sound(SoundType.PLANT)));
     
     // Scintillawheat blocks
     public static final RegistryObject<ModCropsBlock> scintilla_wheat_crop = BLOCKS.register("scintilla_wheat_crop", 
             () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.SAND)
                     .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.CROP)));
-    public static final RegistryObject<BlockWithAnimation> scintilla_wheat_bale = BLOCKS.register("scintilla_wheat_bale", 
-            () -> new BlockWithAnimation(Block.Properties.create(Material.ORGANIC, MaterialColor.SAND)
+    public static final RegistryObject<ModHayBlock> scintilla_wheat_bale = BLOCKS.register("scintilla_wheat_bale", 
+            () -> new ModHayBlock(Block.Properties.create(Material.ORGANIC, MaterialColor.SAND)
                             .hardnessAndResistance(0.5F).sound(SoundType.PLANT)));
     
     // Ossidroot blocks
