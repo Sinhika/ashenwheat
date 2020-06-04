@@ -5,11 +5,15 @@ import java.util.Random;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 /**
@@ -18,11 +22,25 @@ import net.minecraft.world.World;
  */
 public class ModCropsBlock extends CropsBlock
 {
+    protected static final VoxelShape[] SHAPES = new VoxelShape[] {
+            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
+            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
+            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
+            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
+            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D),
+            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D),
+            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
+            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D) };
 
     public ModCropsBlock(Properties builder)
     {
         super(builder);
     }
+    
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) 
+    {
+        return SHAPES[state.get(this.getAgeProperty())];
+     }
 
     /**
      * Return the seed item for the corresponding block this actually is...
@@ -30,53 +48,57 @@ public class ModCropsBlock extends CropsBlock
     @Override
     protected IItemProvider getSeedsItem()
     {
-        if (this == ModBlocks.ash_wheat_crop.get()) {
+        if (this == ModBlocks.ash_wheat_crop.get())
+        {
             return ModItems.ash_seeds.get();
         }
-        else if (this == ModBlocks.ossid_root_crop.get()) {
+        else if (this == ModBlocks.ossid_root_crop.get())
+        {
             return ModItems.ossid_seeds.get();
         }
-        else if (this == ModBlocks.scintilla_wheat_crop.get()) {
+        else if (this == ModBlocks.scintilla_wheat_crop.get())
+        {
             return ModItems.scintilla_seeds.get();
         }
-        else if (this == ModBlocks.thunder_grass_crop.get()) {
+        else if (this == ModBlocks.thunder_grass_crop.get())
+        {
             return ModItems.thunder_seeds.get();
         }
         return super.getSeedsItem();
     } // getSeedsItems
 
     /**
-     * display the random particle effect for this crop, whichever it is, if the config allows.
+     * display the random particle effect for this crop, whichever it is, if the
+     * config allows.
      */
     @Override
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand)
     {
         if (!worldIn.isRemote) return;
-        
+
         if (AshenwheatConfig.MakeAshenwheatFlame && (stateIn.getBlock() == ModBlocks.ash_wheat_crop.get()))
         {
-            float f1 = (float)pos.getX() + 0.5F;
-            float f2 = (float)pos.getY() + 0.3F;
-            float f3 = (float)pos.getZ() + 0.5F;
+            float f1 = (float) pos.getX() + 0.5F;
+            float f2 = (float) pos.getY() + 0.3F;
+            float f3 = (float) pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            worldIn.addParticle(ParticleTypes.FLAME, 
-                                (double)(f1 + f4), (double)(f2 + f4 + f5) , (double)(f3 + f5), 
-                                0.0D, 0.0D, 0.0D);
+            worldIn.addParticle(ParticleTypes.FLAME, (double) (f1 + f4), (double) (f2 + f4 + f5), (double) (f3 + f5),
+                    0.0D, 0.0D, 0.0D);
         }
         else if (AshenwheatConfig.MakeOssidCropGloom && (stateIn.getBlock() == ModBlocks.ossid_root_crop.get()))
         {
-            float f1 = (float)pos.getX() + 0.5F;
-            float f2 = (float)pos.getY() + 0.3F;
-            float f3 = (float)pos.getZ() + 0.5F;
+            float f1 = (float) pos.getX() + 0.5F;
+            float f2 = (float) pos.getY() + 0.3F;
+            float f3 = (float) pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            worldIn.addParticle(ParticleTypes.MYCELIUM, 
-                                (double)(f1 + f4), (double)(f2 + f4 + f5) , (double)(f3 + f5), 
-                                0.0D, 0.0D, 0.0D);
-       
+            worldIn.addParticle(ParticleTypes.MYCELIUM, (double) (f1 + f4), (double) (f2 + f4 + f5), (double) (f3 + f5),
+                    0.0D, 0.0D, 0.0D);
+
         }
-        else if (AshenwheatConfig.MakeScintillawheatScintillate && (stateIn.getBlock() == ModBlocks.scintilla_wheat_crop.get()))
+        else if (AshenwheatConfig.MakeScintillawheatScintillate
+                && (stateIn.getBlock() == ModBlocks.scintilla_wheat_crop.get()))
         {
             float f1 = (float) pos.getX() + 0.5F;
             float f2 = (float) pos.getY() + 0.3F;
@@ -88,17 +110,17 @@ public class ModCropsBlock extends CropsBlock
         }
         else if (AshenwheatConfig.MakeThunderGrassSmoke && (stateIn.getBlock() == ModBlocks.thunder_grass_crop.get()))
         {
-            float f1 = (float)pos.getX() + 0.5F;
-            float f2 = (float)pos.getY() + 0.3F;
-            float f3 = (float)pos.getZ() + 0.5F;
+            float f1 = (float) pos.getX() + 0.5F;
+            float f2 = (float) pos.getY() + 0.3F;
+            float f3 = (float) pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            worldIn.addParticle(ParticleTypes.SMOKE, 
-                    (double)(f1 + f4), (double)(f2 + f4 + f5) , (double)(f3 + f5), 
+            worldIn.addParticle(ParticleTypes.SMOKE, (double) (f1 + f4), (double) (f2 + f4 + f5), (double) (f3 + f5),
                     0.0D, 0.0D, 0.0D);
-            
+
         }
-        else {
+        else
+        {
             super.animateTick(stateIn, worldIn, pos, rand);
         }
     } // end animateTick()
