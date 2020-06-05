@@ -1,0 +1,16 @@
+{
+    "key": {
+        "S": {
+            "item": "ashenwheat:scintilla_wheat_sheaf"
+        }
+    },
+    "pattern": [
+        "SSS",
+        "SSS",
+        "SSS"
+    ],
+    "result": {
+        "item": "ashenwheat:scintilla_wheat_bale"
+    },
+    "type": "minecraft:crafting_shaped"
+}
