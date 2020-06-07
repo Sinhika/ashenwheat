@@ -86,22 +86,23 @@ public class GrassLootModifiers
             }
             return newLoot;
         }
+        
+        public static class Serializer extends GlobalLootModifierSerializer<GrassLootModifier>
+        {
+
+            @Override
+            public GrassLootModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition)
+            {
+                int ashen_chance = JSONUtils.getInt(object, "ashenwheat_chance");
+                int scintilla_chance = JSONUtils.getInt(object, "scintillawheat_chance");
+                int ossid_chance = JSONUtils.getInt(object, "ossid_chance");
+                int thunder_chance = JSONUtils.getInt(object, "thundergrass_chance");
+                return new GrassLootModifier(ailootcondition, ashen_chance, scintilla_chance, ossid_chance,
+                                             thunder_chance);
+            }
+
+        } // end-class Serializer
+       
     } // end-class GrassLootModifer
 
-    public static class Serializer extends GlobalLootModifierSerializer<GrassLootModifier>
-    {
-
-        @Override
-        public GrassLootModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition)
-        {
-            int ashen_chance = JSONUtils.getInt(object, "ashenwheat_chance");
-            int scintilla_chance = JSONUtils.getInt(object, "scintillawheat_chance");
-            int ossid_chance = JSONUtils.getInt(object, "ossid_chance");
-            int thunder_chance = JSONUtils.getInt(object, "thundergrass_chance");
-            return new GrassLootModifier(ailootcondition, ashen_chance, scintilla_chance, ossid_chance,
-                                         thunder_chance);
-        }
-
-    } // end-class Serializer
-   
 } // end-class
