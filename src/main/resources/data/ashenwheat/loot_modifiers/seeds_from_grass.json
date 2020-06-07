@@ -1,0 +1,13 @@
+{
+	"type": "ashenwheat:seeds_from_grass",
+	 "conditions": [
+	 {
+      "condition": "block_state_property",
+      "block":"minecraft:grass"	 
+      }
+ 	],
+ 	"ashenwheat_chance" : 8,
+ 	"scintillawheat_chance" : 3,
+ 	"ossid_chance" : 5,
+ 	"thundergrass_chance" : 4
+}
