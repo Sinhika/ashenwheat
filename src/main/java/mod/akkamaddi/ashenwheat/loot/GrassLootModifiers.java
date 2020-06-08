@@ -107,11 +107,11 @@ public class GrassLootModifiers
         
         public static class Serializer extends GlobalLootModifierSerializer<GrassLootModifier>
         {
-            List<String> seeds = new ArrayList<String>();
-            
             @Override
             public GrassLootModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition)
             {
+                List<String> seeds = new ArrayList<String>();
+                
                 JsonArray seedlist = JSONUtils.getJsonArray(object, "seeds");
                 for (JsonElement je: seedlist)
                 {
