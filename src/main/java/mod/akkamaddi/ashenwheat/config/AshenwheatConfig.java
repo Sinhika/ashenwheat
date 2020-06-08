@@ -20,10 +20,17 @@ public final class AshenwheatConfig
     public static boolean MakeThunderGrassSmoke;
 
 	// Server
-	public static boolean SeedsInChests;
-    public static boolean DropAshSeeds = true;
-    public static boolean DropScintillaSeeds = false;
+	public static boolean SeedsInChests = false;  // not yet implemented
+	
+    public static boolean DropAshSeeds = true; 
+    public static boolean DropScintillaSeeds = true;
     public static boolean DropOssidSeeds = true;
     public static boolean DropThunderSeeds = true;
+    
+    public static int relWeightWheatSeeds = 10;
+    public static int relWeightAshSeeds = 8;
+    public static int relWeightScintillaSeeds = 3;
+    public static int relWeightOssidSeeds = 5;
+    public static int relWeightThunderSeeds = 4;
 
 } // end class

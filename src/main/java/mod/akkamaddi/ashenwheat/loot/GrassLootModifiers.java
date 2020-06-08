@@ -9,7 +9,6 @@ import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.storage.loot.LootContext;
@@ -34,34 +33,32 @@ public class GrassLootModifiers
 
     public static class GrassLootModifier extends LootModifier
     {
-        private final int wheat_chance = 10;
         private List<SeedEntry> dropped_seeds = new ArrayList<SeedEntry>();
         
-        public GrassLootModifier(ILootCondition[] conditionsIn, int ashen, int scintilla, 
-                                 int ossid, int thunder)
+        public GrassLootModifier(ILootCondition[] conditionsIn)
         {
             super(conditionsIn);
             dropped_seeds.add(new SeedEntry(new ResourceLocation("minecraft:wheat_seeds"), 
-                                wheat_chance));
+                                AshenwheatConfig.relWeightWheatSeeds));
             Ashenwheat.LOGGER.debug("GrassLootModifier: added minecraft:wheat_seeds");
             if (AshenwheatConfig.DropAshSeeds) {
                 dropped_seeds.add(new SeedEntry(new ResourceLocation(Ashenwheat.MODID, "ash_seeds"),
-                                   ashen));
+                                   AshenwheatConfig.relWeightAshSeeds));
                 Ashenwheat.LOGGER.debug("GrassLootModifier: added ash_seeds");
             }
             if (AshenwheatConfig.DropScintillaSeeds) {
                 dropped_seeds.add(new SeedEntry(new ResourceLocation(Ashenwheat.MODID, "scintilla_seeds"),
-                        scintilla));
+                                  AshenwheatConfig.relWeightScintillaSeeds));
                 Ashenwheat.LOGGER.debug("GrassLootModifier: added scintilla_seeds");
             }
             if (AshenwheatConfig.DropOssidSeeds) {
                 dropped_seeds.add(new SeedEntry(new ResourceLocation(Ashenwheat.MODID, "ossid_seeds"),
-                        ossid));
+                                   AshenwheatConfig.relWeightOssidSeeds));
                 Ashenwheat.LOGGER.debug("GrassLootModifier: added ossid_seeds");
             }
             if (AshenwheatConfig.DropThunderSeeds) {
                 dropped_seeds.add(new SeedEntry(new ResourceLocation(Ashenwheat.MODID, "thunder_seeds"),
-                        thunder));
+                                    AshenwheatConfig.relWeightThunderSeeds));
                 Ashenwheat.LOGGER.debug("GrassLootModifier: added thunder_seeds");
             }
         } // end-ctor
@@ -74,7 +71,6 @@ public class GrassLootModifiers
         protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context)
         {
             List<ItemStack> newLoot = new ArrayList<ItemStack>();
-            Ashenwheat.LOGGER.debug("In GrassLootModifier.doApply()");
             for (ItemStack stack : generatedLoot) 
             {
                 // if wheat_seeds, what is it REALLY?
@@ -84,12 +80,10 @@ public class GrassLootModifiers
                     net.minecraft.item.Item seedItem = ForgeRegistries.ITEMS.getValue(se.seed_name);
                     ItemStack new_stack = new ItemStack(seedItem, stack.getCount()); 
                     newLoot.add(new_stack);
-                    Ashenwheat.LOGGER.debug("Added " + new_stack.getDisplayName());
                 }
                 // anything else, pass through unaltered.
                 else {
                     newLoot.add(stack);
-                    Ashenwheat.LOGGER.debug("Passed through " + stack.getDisplayName());
                 }
             }
             return newLoot;
@@ -100,12 +94,7 @@ public class GrassLootModifiers
             @Override
             public GrassLootModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition)
             {
-                int ashen_chance = JSONUtils.getInt(object, "ashenwheat_chance");
-                int scintilla_chance = JSONUtils.getInt(object, "scintillawheat_chance");
-                int ossid_chance = JSONUtils.getInt(object, "ossid_chance");
-                int thunder_chance = JSONUtils.getInt(object, "thundergrass_chance");
-                return new GrassLootModifier(ailootcondition, ashen_chance, scintilla_chance, ossid_chance,
-                                             thunder_chance);
+                return new GrassLootModifier(ailootcondition);
             } // end read()
         } // end-class Serializer
        
