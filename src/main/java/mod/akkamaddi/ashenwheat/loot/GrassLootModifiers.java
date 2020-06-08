@@ -20,7 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class GrassLootModifiers
 {
-
+    
     public static class SeedEntry extends WeightedRandom.Item
     {
         public final ResourceLocation seed_name;
@@ -43,21 +43,26 @@ public class GrassLootModifiers
             super(conditionsIn);
             dropped_seeds.add(new SeedEntry(new ResourceLocation("minecraft:wheat_seeds"), 
                                 wheat_chance));
+            Ashenwheat.LOGGER.debug("GrassLootModifier: added minecraft:wheat_seeds");
             if (AshenwheatConfig.DropAshSeeds) {
                 dropped_seeds.add(new SeedEntry(new ResourceLocation(Ashenwheat.MODID, "ash_seeds"),
                                    ashen));
+                Ashenwheat.LOGGER.debug("GrassLootModifier: added ash_seeds");
             }
             if (AshenwheatConfig.DropScintillaSeeds) {
                 dropped_seeds.add(new SeedEntry(new ResourceLocation(Ashenwheat.MODID, "scintilla_seeds"),
                         scintilla));
+                Ashenwheat.LOGGER.debug("GrassLootModifier: added scintilla_seeds");
             }
             if (AshenwheatConfig.DropOssidSeeds) {
                 dropped_seeds.add(new SeedEntry(new ResourceLocation(Ashenwheat.MODID, "ossid_seeds"),
                         ossid));
+                Ashenwheat.LOGGER.debug("GrassLootModifier: added ossid_seeds");
             }
             if (AshenwheatConfig.DropThunderSeeds) {
                 dropped_seeds.add(new SeedEntry(new ResourceLocation(Ashenwheat.MODID, "thunder_seeds"),
                         thunder));
+                Ashenwheat.LOGGER.debug("GrassLootModifier: added thunder_seeds");
             }
         } // end-ctor
 
@@ -69,7 +74,7 @@ public class GrassLootModifiers
         protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context)
         {
             List<ItemStack> newLoot = new ArrayList<ItemStack>();
-            
+            Ashenwheat.LOGGER.debug("In GrassLootModifier.doApply()");
             for (ItemStack stack : generatedLoot) 
             {
                 // if wheat_seeds, what is it REALLY?
@@ -77,11 +82,14 @@ public class GrassLootModifiers
                 {
                     SeedEntry se = WeightedRandom.getRandomItem(context.getRandom(), dropped_seeds);
                     net.minecraft.item.Item seedItem = ForgeRegistries.ITEMS.getValue(se.seed_name);
-                    newLoot.add(new ItemStack(seedItem, stack.getCount()));
+                    ItemStack new_stack = new ItemStack(seedItem, stack.getCount()); 
+                    newLoot.add(new_stack);
+                    Ashenwheat.LOGGER.debug("Added " + new_stack.getDisplayName());
                 }
                 // anything else, pass through unaltered.
                 else {
                     newLoot.add(stack);
+                    Ashenwheat.LOGGER.debug("Passed through " + stack.getDisplayName());
                 }
             }
             return newLoot;
@@ -89,7 +97,6 @@ public class GrassLootModifiers
         
         public static class Serializer extends GlobalLootModifierSerializer<GrassLootModifier>
         {
-
             @Override
             public GrassLootModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition)
             {
@@ -99,8 +106,7 @@ public class GrassLootModifiers
                 int thunder_chance = JSONUtils.getInt(object, "thundergrass_chance");
                 return new GrassLootModifier(ailootcondition, ashen_chance, scintilla_chance, ossid_chance,
                                              thunder_chance);
-            }
-
+            } // end read()
         } // end-class Serializer
        
     } // end-class GrassLootModifer

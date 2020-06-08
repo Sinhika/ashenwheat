@@ -21,9 +21,9 @@ public final class AshenwheatConfig
 
 	// Server
 	public static boolean SeedsInChests;
-    public static boolean DropAshSeeds;
-    public static boolean DropScintillaSeeds;
-    public static boolean DropOssidSeeds;
-    public static boolean DropThunderSeeds;
+    public static boolean DropAshSeeds = true;
+    public static boolean DropScintillaSeeds = false;
+    public static boolean DropOssidSeeds = true;
+    public static boolean DropThunderSeeds = true;
 
 } // end class
