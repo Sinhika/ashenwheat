@@ -2,9 +2,17 @@
 	"type": "ashenwheat:seeds_from_grass",
 	"conditions": [
 		{
-			"condition": "block_state_property",
-			"block": "minecraft:grass",
-			"properties" : []
+			"condition": "minecraft:alternative",
+			"terms": [
+				{
+					"condition": "block_state_property",
+					"block": "minecraft:grass"
+				},
+				{
+					"condition": "block_state_property",
+					"block": "minecraft:tall_grass"
+				}
+			]
 		}
 	],
 	"ashenwheat_chance": 8,
