@@ -14,5 +14,11 @@
 				}
 			]
 		}
+	],
+	"seeds": [
+			"ashenwheat:ash_seeds",
+			"ashenwheat:scintilla_seeds",
+			"ashenwheat:ossid_seeds",
+			"ashenwheat:thunder_seeds"
 	]
 }
