@@ -1,0 +1,9 @@
+{
+    "cookingtime": 200,
+    "experience": 0.4,
+    "ingredient": {
+        "item": "ashenwheat:thunder_seeds"
+    },
+    "result": "ashenwheat:unstable_soot",
+    "type": "minecraft:smelting"
+}

@@ -1,0 +1,14 @@
+{
+    "key": {
+        "A": {
+            "item": "ashenwheat:ash_wheat_sheaf"
+        }
+    },
+    "pattern": [
+        "AAA"
+    ],
+    "result": {
+        "item": "ashenwheat:ash_bread"
+    },
+    "type": "minecraft:crafting_shaped"
+}

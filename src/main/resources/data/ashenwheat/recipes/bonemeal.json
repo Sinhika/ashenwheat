@@ -1,0 +1,15 @@
+{
+    "key": {
+        "A": {
+            "item": "ashenwheat:calcified_ash"
+        }
+    },
+    "pattern": [
+        "AA",
+        "AA"
+    ],
+    "result": {
+        "item": "minecraft:bone_meal"
+    },
+    "type": "minecraft:crafting_shaped"
+}

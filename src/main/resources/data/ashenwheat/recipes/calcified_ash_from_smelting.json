@@ -1,0 +1,9 @@
+{
+    "cookingtime": 200,
+    "experience": 0.4,
+    "ingredient": {
+        "item": "ashenwheat:ossid_root"
+    },
+    "result": "ashenwheat:calcified_ash",
+    "type": "minecraft:smelting"
+}

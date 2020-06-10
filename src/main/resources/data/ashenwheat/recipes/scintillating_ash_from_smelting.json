@@ -1,0 +1,9 @@
+{
+    "cookingtime": 200,
+    "experience": 0.5,
+    "ingredient": {
+        "item": "ashenwheat:scintilla_wheat_bale"
+    },
+    "result": "ashenwheat:scintillating_ash",
+    "type": "minecraft:smelting"
+}

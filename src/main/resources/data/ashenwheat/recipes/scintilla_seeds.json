@@ -1,0 +1,12 @@
+{
+    "ingredients": [
+        {
+            "item": "ashenwheat:scintilla_wheat_sheaf"
+        }
+    ],
+    "result": {
+        "count": 2,
+        "item": "ashenwheat:scintilla_seeds"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

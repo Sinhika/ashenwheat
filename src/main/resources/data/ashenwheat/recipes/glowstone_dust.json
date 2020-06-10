@@ -1,0 +1,15 @@
+{
+    "key": {
+        "A": {
+            "item": "ashenwheat:scintillating_ash"
+        }
+    },
+    "pattern": [
+        "AA",
+        "AA"
+    ],
+    "result": {
+        "item": "minecraft:glowstone_dust"
+    },
+    "type": "minecraft:crafting_shaped"
+}

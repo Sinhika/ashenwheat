@@ -1,0 +1,18 @@
+{
+    "key": {
+        "C": {
+            "item": "minecraft:cocoa_beans"
+        },
+        "W": {
+            "item": "ashenwheat:ash_wheat_sheaf"
+        }
+    },
+    "pattern": [
+        "WCW"
+    ],
+    "result": {
+        "count": 8,
+        "item": "ashenwheat:ash_cookie"
+    },
+    "type": "minecraft:crafting_shaped"
+}
