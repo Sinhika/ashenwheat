@@ -4,7 +4,8 @@
         "recipes": [
             "ashenwheat:ash_bread",
             "ashenwheat:ash_cookie",
-            "ashenwheat:ash_seeds"
+            "ashenwheat:ash_seeds",
+            "ashenwheat:ash_wheat_bale"
         ]
     },
     "criteria": {
