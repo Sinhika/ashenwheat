@@ -1,0 +1,25 @@
+{
+    "parent": "ashenwheat:recipes/root",
+    "rewards": {
+        "recipes": [
+            "ashenwheat:unstable_soot_from_smelting"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "ashenwheat:thunder_seeds"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item"
+        ]
+    ]
+}

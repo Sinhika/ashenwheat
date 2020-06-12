@@ -1,0 +1,25 @@
+{
+    "parent": "ashenwheat:recipes/root",
+    "rewards": {
+        "recipes": [
+            "ashenwheat:glowstone_dust"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "ashenwheat:scintillating_ash"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item"
+        ]
+    ]
+}

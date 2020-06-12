@@ -1,0 +1,26 @@
+{
+    "parent": "ashenwheat:recipes/root",
+    "rewards": {
+        "recipes": [
+            "ashenwheat:gunpowder",
+            "ashenwheat:black_dye"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "ashenwheat:unstable_soot"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item"
+        ]
+    ]
+}

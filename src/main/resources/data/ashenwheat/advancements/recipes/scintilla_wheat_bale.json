@@ -1,0 +1,26 @@
+{
+    "parent": "ashenwheat:recipes/root",
+    "rewards": {
+        "recipes": [
+            "ashenwheat:scintillating_ash_from_smelting",
+            "ashenwheat:scintilla_wheat_sheaf"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "ashenwheat:scintilla_wheat_bale"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item"
+        ]
+    ]
+}

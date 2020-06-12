@@ -1,0 +1,25 @@
+{
+    "parent": "ashenwheat:recipes/root",
+    "rewards": {
+        "recipes": [
+            "ashenwheat:charcoal_from_smelting"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "ashenwheat:ash_bread"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item"
+        ]
+    ]
+}

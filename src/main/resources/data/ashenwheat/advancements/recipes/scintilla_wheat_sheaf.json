@@ -1,0 +1,28 @@
+{
+    "parent": "ashenwheat:recipes/root",
+    "rewards": {
+        "recipes": [
+            "ashenwheat:scintilla_bread",
+            "ashenwheat:scintilla_cookie",
+            "ashenwheat:scintilla_seeds",
+            "ashenwheat:scintilla_wheat_bale"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "ashenwheat:scintilla_wheat_sheaf"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item"
+        ]
+    ]
+}
