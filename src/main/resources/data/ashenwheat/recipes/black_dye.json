@@ -1,0 +1,15 @@
+{
+    "key": {
+        "A": {
+            "item": "ashenwheat:unstable_soot"
+        }
+    },
+    "pattern": [
+        "AA",
+        "AA"
+    ],
+    "result": {
+        "item": "minecraft:black_dye"
+    },
+    "type": "minecraft:crafting_shaped"
+}
