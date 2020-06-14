@@ -22,6 +22,11 @@ final class ServerConfig
     final ForgeConfigSpec.IntValue server_relWeightScintillaSeeds;
     final ForgeConfigSpec.IntValue server_relWeightOssidSeeds;
     final ForgeConfigSpec.IntValue server_relWeightThunderSeeds;
+    final ForgeConfigSpec.DoubleValue serverGrowthRateAshenWheat;
+    final ForgeConfigSpec.DoubleValue serverGrowthRateScintillaWheat; 
+    final ForgeConfigSpec.DoubleValue serverGrowthRateOssidRoot;
+    final ForgeConfigSpec.DoubleValue serverGrowthRateThunderGrass;
+    final ForgeConfigSpec.DoubleValue serverNeighborFactorThunderGrass;
     
 	ServerConfig(final ForgeConfigSpec.Builder builder) 
 	{	
@@ -38,7 +43,6 @@ final class ServerConfig
         // is just another source of charcoal, so no need to make it rare
         // by default. Glowstone, on the other hand, should be rare pre-Nether.
         builder.push("Wild Grass Drops");
-
         server_relWeightWheatSeeds = builder.comment("Relative weight of wheat seeds in grass drops")
                 .translation(Ashenwheat.MODID + "config.relWeightWheatSeeds")
                 .defineInRange("relWeightWheatSeeds", 10, 0, 100);
@@ -71,6 +75,25 @@ final class ServerConfig
                  .translation(Ashenwheat.MODID + "config.relWeightThunderSeeds")
                  .defineInRange("relWeightThunderSeeds", 4, 0, 100);
         builder.pop();
+        
+        builder.push("Crop Growth Rates");
+        serverGrowthRateAshenWheat = builder.comment("Ashenwheat growth rate (wheat = 1.0)")
+                .translation(Ashenwheat.MODID + "config.serverGrowthRateAshenWheat")
+                .defineInRange("growthRateAshenwheat", 0.96, 0.01, 100.0);
+        serverGrowthRateScintillaWheat = builder.comment("Scintilla growth rate (wheat = 1.0)")
+                .translation(Ashenwheat.MODID + "config.serverGrowthRateScintillaWheat")
+                .defineInRange("growthRateScintillaWheat", 0.83, 0.01, 100.0); 
+        serverGrowthRateOssidRoot = builder.comment("Ossid root growth rate (wheat = 1.0)")
+                .translation(Ashenwheat.MODID + "config.serverGrowthRateOssidRoot")
+                .defineInRange("growthRateOssidRoot", 0.89, 0.01, 100.0);
+        serverGrowthRateThunderGrass = builder.comment("Thundergrass growth rate (wheat = 1.0)")
+                .translation(Ashenwheat.MODID + "config.serverGrowthRateThunderGrass")
+                .defineInRange("growthRateThunderGrass", 0.5, 0.01, 100.0);
+        serverNeighborFactorThunderGrass = builder.comment("Thundergrass neighbor tolerance (wheat = 1.0), aka f_min")
+                .translation(Ashenwheat.MODID + "config.serverNeighborFactorThunderGrass")
+                .defineInRange("neighborFactorThunderGrass", 5.0, 1.0, 5.0);
+        builder.pop();
+        
 	} // end ServerConfig()
 
 } // end class

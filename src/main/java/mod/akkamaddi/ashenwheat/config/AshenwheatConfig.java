@@ -33,4 +33,9 @@ public final class AshenwheatConfig
     public static int relWeightOssidSeeds = 5;
     public static int relWeightThunderSeeds = 4;
 
+    public static float growthRateAshenWheat = 0.96F;  // compared to wheat = 1.0
+    public static float growthRateScintillaWheat = 0.83F; 
+    public static float growthRateOssidRoot = 0.89F;
+    public static float growthRateThunderGrass = 0.5F; // but doesn't mind having neighbors...
+    public static float neighborFactorThunderGrass = 5.0F; // wheat = 1.0F
 } // end class

@@ -29,7 +29,6 @@ public final class ModBlocks
     public static final DeferredRegister<Block> BLOCKS = 
             new DeferredRegister<>(ForgeRegistries.BLOCKS, Ashenwheat.MODID);
 
-    // TODO : initialize as generic blocks until we code the particulars.
     // Ashenwheat blocks
     public static final RegistryObject<ModCropsBlock> ash_wheat_crop = BLOCKS.register("ash_wheat_crop", 
             () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.RED_TERRACOTTA)

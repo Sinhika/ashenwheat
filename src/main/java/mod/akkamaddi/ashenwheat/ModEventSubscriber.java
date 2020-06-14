@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.config.ConfigHelper;
 import mod.akkamaddi.ashenwheat.config.ConfigHolder;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
@@ -21,6 +22,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 /**
@@ -33,6 +35,21 @@ public final class ModEventSubscriber
 {
 
 	private static final Logger LOGGER = LogManager.getLogger(Ashenwheat.MODID + " Mod Event Subscriber");
+
+	/**
+     * Everything should exist at this point, so configure as necessary.
+     * @param event
+     */
+    @SubscribeEvent
+    public static void onCommonSetup(final FMLCommonSetupEvent event)
+    {
+        ModBlocks.ash_wheat_crop.get().setFertility_factor(25.0F/AshenwheatConfig.growthRateAshenWheat);
+        ModBlocks.ossid_root_crop.get().setFertility_factor(25.0F/AshenwheatConfig.growthRateOssidRoot);
+        ModBlocks.scintilla_wheat_crop.get().setFertility_factor(25.0F/AshenwheatConfig.growthRateScintillaWheat);
+        ModBlocks.thunder_grass_crop.get().setFertility_factor(25.0F/AshenwheatConfig.growthRateThunderGrass);
+        ModBlocks.thunder_grass_crop.get().setMin_f(AshenwheatConfig.neighborFactorThunderGrass);
+        LOGGER.debug("Common setup done");
+    } // end onCommonSetup
 
 	/**
 	 * This method will be called by Forge when it is time for the mod to register its Items.
