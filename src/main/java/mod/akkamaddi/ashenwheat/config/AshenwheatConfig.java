@@ -20,7 +20,7 @@ public final class AshenwheatConfig
     public static boolean MakeThunderGrassSmoke;
 
 	// Server
-	public static boolean SeedsInChests = false;  // not yet implemented
+	public static boolean SeedsInChests = true;
 	
     public static boolean DropAshSeeds = true; 
     public static boolean DropScintillaSeeds = true;

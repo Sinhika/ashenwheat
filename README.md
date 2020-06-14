@@ -15,6 +15,7 @@ instead of hunting for it all the time.
 
 TODO List
 ---------
+- adjust growth rates, instead of using vanilla crop growth rate. (make use of CropGrow.Pre event?)
 - a vine that grows spider eyes.
 - something that grows ender pearls.
 - a RARE nether thing that provides ghast tears.
