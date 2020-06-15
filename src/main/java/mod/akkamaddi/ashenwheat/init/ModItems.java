@@ -32,10 +32,10 @@ public final class ModItems
     // Food values
     public static final Food ASHBREAD = (new Food.Builder()).hunger(4).saturation(0.5F).build();
     public static final Food ASHCOOKIE  = (new Food.Builder()).hunger(1).saturation(0.1F)
-            .effect(() -> new EffectInstance(Effects.REGENERATION, 2, 1), 1.0F).build();
+            .effect(new EffectInstance(Effects.REGENERATION, 2, 1), 1.0F).build();
     public static final Food SCINTILLABREAD = (new Food.Builder()).hunger(4).saturation(0.7F).build();
     public static final Food SCINTILLACOOKIE = (new Food.Builder()).hunger(1).saturation(0.1F)
-            .effect(() -> new EffectInstance(Effects.REGENERATION, 3, 1), 1.0F).build();
+            .effect(new EffectInstance(Effects.REGENERATION, 3, 1), 1.0F).build();
     
     // Ashwheat items
     public static final RegistryObject<CombustibleItem> ash_wheat_sheaf = ITEMS.register("ash_wheat_sheaf", 

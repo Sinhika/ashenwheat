@@ -7,7 +7,6 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShearsItem;
-import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
@@ -26,7 +25,7 @@ public class OssidRootBlock extends ModHayBlock
 
     @SuppressWarnings("deprecation")
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
+    public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
             Hand handIn, BlockRayTraceResult hit)
     {
         ItemStack itemstack = player.getHeldItem(handIn);
@@ -54,7 +53,7 @@ public class OssidRootBlock extends ModHayBlock
                     p_220282_1_.sendBreakAnimation(handIn);
                 });
             }
-            return ActionResultType.SUCCESS;
+            return true;
         }
         else
         {
