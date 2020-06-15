@@ -154,9 +154,24 @@ public class ModCropsBlock extends CropsBlock
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand)
     {
-        // TODO Auto-generated method stub
         super.tick(state, worldIn, pos, rand);
-    }
+        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's
+                                                   // light
+        if (worldIn.getLightSubtracted(pos, 0) >= 9)
+        {
+            int i = this.getAge(state);
+            if (i < this.getMaxAge())
+            {
+                float f = getModGrowthChance(this, worldIn, pos, min_f);
+                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,
+                        rand.nextInt((int) (fertility_factor / f ) + 1) == 0))
+                {
+                    worldIn.setBlockState(pos, this.withAge(i + 1), 2);
+                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+                }
+            } // end-if < max age
+        } // end-if light >= 9
+    } // end tick()
 
     /**
      * 
@@ -168,7 +183,7 @@ public class ModCropsBlock extends CropsBlock
     protected static float getModGrowthChance(Block blockIn, IBlockReader worldIn, BlockPos pos,
                                               float minf)
     {
-        float f = minf;
+        float f = 1.0F;
         BlockPos blockpos = pos.down();
 
         for (int i = -1; i <= 1; ++i)
@@ -219,7 +234,7 @@ public class ModCropsBlock extends CropsBlock
                 f /= 2.0F;
             }
         }
-
+        f = Math.max(f, minf);
         return f;
     } // getModGrowthChance()
     
