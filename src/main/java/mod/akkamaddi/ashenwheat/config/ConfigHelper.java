@@ -35,6 +35,12 @@ public final class ConfigHelper
 	    AshenwheatConfig.relWeightScintillaSeeds = ConfigHolder.SERVER.server_relWeightScintillaSeeds.get();
 	    AshenwheatConfig.relWeightOssidSeeds = ConfigHolder.SERVER.server_relWeightOssidSeeds.get();
 	    AshenwheatConfig.relWeightThunderSeeds = ConfigHolder.SERVER.server_relWeightThunderSeeds.get();
+	    
+	    AshenwheatConfig.growthRateAshenWheat = ConfigHolder.SERVER.serverGrowthRateAshenWheat.get().floatValue();
+	    AshenwheatConfig.growthRateScintillaWheat = ConfigHolder.SERVER.serverGrowthRateScintillaWheat.get().floatValue();
+	    AshenwheatConfig.growthRateOssidRoot = ConfigHolder.SERVER.serverGrowthRateOssidRoot.get().floatValue();
+	    AshenwheatConfig.growthRateThunderGrass = ConfigHolder.SERVER.serverGrowthRateThunderGrass.get().floatValue();
+	    AshenwheatConfig.neighborFactorThunderGrass = ConfigHolder.SERVER.serverNeighborFactorThunderGrass.get().floatValue();
 	}
 
 } // end-class
