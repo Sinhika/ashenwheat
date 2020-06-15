@@ -1,9 +1,0 @@
-{
-    "forge_marker": 1,
-    "variants": {
-        "normal": { "model": "ashenwheat:ashwheatbale" },   	
-        "axis=y": { "model": "ashenwheat:ashwheatbale" },
-        "axis=z": { "model": "ashenwheat:ashwheatbale_side" },
-        "axis=x": { "model": "ashenwheat:ashwheatbale_side", "y": 90 }
-    }    
-}

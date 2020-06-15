@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "ashenwheat:blocks/scintillawheatbale_top",
-        "side": "ashenwheat:blocks/scintillawheatbale_side"
-    }
-}
