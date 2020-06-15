@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"ashenwheat:ash_wheat_crop",
+		"ashenwheat:scintilla_wheat_crop",
+		"ashenwheat:ossid_root_crop",
+		"ashenwheat:thunder_grass_crop"
+	]
+}
