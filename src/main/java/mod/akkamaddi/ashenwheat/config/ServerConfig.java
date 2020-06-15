@@ -82,7 +82,7 @@ final class ServerConfig
                 .defineInRange("growthRateAshenwheat", 0.96, 0.01, 100.0);
         serverGrowthRateScintillaWheat = builder.comment("Scintilla growth rate (wheat = 1.0)")
                 .translation(Ashenwheat.MODID + "config.serverGrowthRateScintillaWheat")
-                .defineInRange("growthRateScintillaWheat", 0.83, 0.01, 100.0); 
+                .defineInRange("growthRateScintillaWheat", 0.79, 0.01, 100.0); 
         serverGrowthRateOssidRoot = builder.comment("Ossid root growth rate (wheat = 1.0)")
                 .translation(Ashenwheat.MODID + "config.serverGrowthRateOssidRoot")
                 .defineInRange("growthRateOssidRoot", 0.89, 0.01, 100.0);
@@ -91,7 +91,7 @@ final class ServerConfig
                 .defineInRange("growthRateThunderGrass", 0.5, 0.01, 100.0);
         serverNeighborFactorThunderGrass = builder.comment("Thundergrass neighbor tolerance (wheat = 1.0), aka f_min")
                 .translation(Ashenwheat.MODID + "config.serverNeighborFactorThunderGrass")
-                .defineInRange("neighborFactorThunderGrass", 5.0, 1.0, 5.0);
+                .defineInRange("neighborFactorThunderGrass", 5.0, 0.1, 6.0);
         builder.pop();
         
 	} // end ServerConfig()
