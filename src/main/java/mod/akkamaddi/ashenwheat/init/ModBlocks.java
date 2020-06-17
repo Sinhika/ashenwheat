@@ -48,7 +48,7 @@ public final class ModBlocks
     // Ossidroot blocks
     public static final RegistryObject<ModCropsBlock> ossid_root_crop = BLOCKS.register("ossid_root_crop", 
             () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.LIME_TERRACOTTA)
-                            .hardnessAndResistance(0.0F).sound(SoundType.WOOD)));
+                    .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<OssidRootBlock> ossid_root = BLOCKS.register("ossid_root", 
             () -> new OssidRootBlock(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
                             .hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
