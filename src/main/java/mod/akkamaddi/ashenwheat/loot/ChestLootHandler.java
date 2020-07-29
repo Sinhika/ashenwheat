@@ -1,10 +1,10 @@
 package mod.akkamaddi.ashenwheat.loot;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
+import net.minecraft.loot.LootEntry;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.TableLootEntry;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootEntry;
-import net.minecraft.world.storage.loot.LootPool;
-import net.minecraft.world.storage.loot.TableLootEntry;
 
 /**
  * Code that handles injecting seeds into chest loot pools.

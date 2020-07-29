@@ -1,11 +1,14 @@
 package mod.akkamaddi.ashenwheat.init;
 
+import java.util.function.ToIntFunction;
+
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
+import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -27,7 +30,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public final class ModBlocks
 {
     public static final DeferredRegister<Block> BLOCKS = 
-            new DeferredRegister<>(ForgeRegistries.BLOCKS, Ashenwheat.MODID);
+            DeferredRegister.create(ForgeRegistries.BLOCKS, Ashenwheat.MODID);
 
     // Ashenwheat blocks
     public static final RegistryObject<ModCropsBlock> ash_wheat_crop = BLOCKS.register("ash_wheat_crop", 
@@ -57,11 +60,16 @@ public final class ModBlocks
                             .hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
    public static final RegistryObject<CarvedOssidRoot> ossid_lantern = BLOCKS.register("ossid_lantern", 
             () -> new CarvedOssidRoot(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
-                            .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lightValue(15)));
+                            .hardnessAndResistance(1.0F).sound(SoundType.WOOD)
+                            .setLightLevel(it_glows(15))));
     
     // Thundergrass blocks
     public static final RegistryObject<ModCropsBlock> thunder_grass_crop = BLOCKS.register("thunder_grass_crop", 
             () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.CYAN)
                     .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.CROP)));
-    
+
+    private static ToIntFunction<BlockState> it_glows(int foo)
+    {
+        return (bar) -> { return foo; };
+    }
 } // end class

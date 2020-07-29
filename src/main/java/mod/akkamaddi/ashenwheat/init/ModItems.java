@@ -27,7 +27,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public final class ModItems
 {
     public static final DeferredRegister<Item> ITEMS = 
-            new DeferredRegister<>(ForgeRegistries.ITEMS, Ashenwheat.MODID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, Ashenwheat.MODID);
 
     // Food values
     public static final Food ASHBREAD = (new Food.Builder()).hunger(4).saturation(0.5F).build();
