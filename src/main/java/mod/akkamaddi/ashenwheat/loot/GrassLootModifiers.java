@@ -119,6 +119,12 @@ public class GrassLootModifiers
                 }
                 return new GrassLootModifier(ailootcondition, seeds);
             } // end read()
+
+            @Override
+            public JsonObject write(GrassLootModifier instance)
+            {
+                return makeConditions(instance.conditions);
+            }
         } // end-class Serializer
        
     } // end-class GrassLootModifer
