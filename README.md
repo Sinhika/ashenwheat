@@ -11,7 +11,7 @@ akkamaddi's Ashenwheat - a small farming mod, adding four utility crops:
 The goal is to make it easier to play on peaceful mode, or just farm stuff
 instead of hunting for it all the time.
 
-**Currently being ported to 1.15.2 and backported to 1.14.4**
+**Currently ported to 1.14.4 through 1.16.5**
 
 TODO List
 ---------
