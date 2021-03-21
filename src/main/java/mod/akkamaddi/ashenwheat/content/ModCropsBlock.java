@@ -17,8 +17,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 /**
  * Make one custom CropsBlock class for all the special crops in this mod.
  *

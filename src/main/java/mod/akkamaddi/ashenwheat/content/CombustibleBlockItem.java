@@ -6,8 +6,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-import net.minecraft.item.Item.Properties;
-
 public class CombustibleBlockItem extends BlockItem implements IForgeItem
 {
 

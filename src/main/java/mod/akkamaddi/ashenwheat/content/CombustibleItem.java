@@ -5,8 +5,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-import net.minecraft.item.Item.Properties;
-
 public class CombustibleItem extends Item implements IForgeItem
 {
 
