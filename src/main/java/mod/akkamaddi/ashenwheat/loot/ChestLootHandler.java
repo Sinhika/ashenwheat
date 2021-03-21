@@ -16,8 +16,8 @@ public final class ChestLootHandler
 {
     // lets figure out how to write a LootPool
     public static LootPool getInjectPool(String entryName) {
-        return LootPool.builder()
-                .addEntry(getInjectEntry(entryName, 1))
+        return LootPool.lootPool()
+                .add(getInjectEntry(entryName, 1))
                 .bonusRolls(0, 1)
                 .name("ashenwheat_inject")
                 .build();
@@ -25,8 +25,8 @@ public final class ChestLootHandler
 
     private static LootEntry.Builder<?> getInjectEntry(String name, int weight) {
         ResourceLocation table = new ResourceLocation(Ashenwheat.MODID, "inject/" + name);
-        return TableLootEntry.builder(table)
-                .weight(weight);
+        return TableLootEntry.lootTableReference(table)
+                .setWeight(weight);
     }
 
 } // end-class

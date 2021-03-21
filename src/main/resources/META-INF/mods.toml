@@ -12,7 +12,7 @@ license="LGPL v3.0" #mandatory
 [[mods]] #mandatory
 
 modId="ashenwheat" #mandatory
-version="${version}" #mandatory
+version="${file.jarVersion}" #mandatory
 displayName="akkamaddi's Ashenwheat" #mandatory
 updateJSONURL="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.16/update.json" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/akkamaddis-ashenwheat" #optional
@@ -33,7 +33,7 @@ Additional Credits: none yet.
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[36,)" #mandatory
+    versionRange="[36.1.0,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER

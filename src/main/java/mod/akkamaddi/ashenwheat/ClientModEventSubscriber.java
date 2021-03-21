@@ -28,13 +28,13 @@ public final class ClientModEventSubscriber
     public static void onFMLClientSetupEvent(final FMLClientSetupEvent event) 
     {
         RenderTypeLookup.setRenderLayer(ModBlocks.ash_wheat_crop.get(), 
-                (layer) -> layer == RenderType.getCutoutMipped());
+                (layer) -> layer == RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(ModBlocks.scintilla_wheat_crop.get(), 
-                (layer) -> layer == RenderType.getCutoutMipped());
+                (layer) -> layer == RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(ModBlocks.ossid_root_crop.get(), 
-                (layer) -> layer == RenderType.getCutoutMipped());
+                (layer) -> layer == RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(ModBlocks.thunder_grass_crop.get(), 
-                (layer) -> layer == RenderType.getCutoutMipped());
+                (layer) -> layer == RenderType.cutoutMipped());
     } // end onFMLClientSetupEvent()
     
 } // end class

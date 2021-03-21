@@ -34,39 +34,39 @@ public final class ModBlocks
 
     // Ashenwheat blocks
     public static final RegistryObject<ModCropsBlock> ash_wheat_crop = BLOCKS.register("ash_wheat_crop", 
-            () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.RED_TERRACOTTA)
-                    .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.CROP)));
+            () -> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_RED)
+                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
     public static final RegistryObject<ModHayBlock> ash_wheat_bale = BLOCKS.register("ash_wheat_bale", 
-            () -> new ModHayBlock(Block.Properties.create(Material.ORGANIC, MaterialColor.RED_TERRACOTTA)
-                            .hardnessAndResistance(0.5F).sound(SoundType.PLANT)));
+            () -> new ModHayBlock(Block.Properties.of(Material.GRASS, MaterialColor.TERRACOTTA_RED)
+                            .strength(0.5F).sound(SoundType.GRASS)));
     
     // Scintillawheat blocks
     public static final RegistryObject<ModCropsBlock> scintilla_wheat_crop = BLOCKS.register("scintilla_wheat_crop", 
-            () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.SAND)
-                    .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.CROP)));
+            () -> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.SAND)
+                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
     public static final RegistryObject<ModHayBlock> scintilla_wheat_bale = BLOCKS.register("scintilla_wheat_bale", 
-            () -> new ModHayBlock(Block.Properties.create(Material.ORGANIC, MaterialColor.SAND)
-                            .hardnessAndResistance(0.5F).sound(SoundType.PLANT)));
+            () -> new ModHayBlock(Block.Properties.of(Material.GRASS, MaterialColor.SAND)
+                            .strength(0.5F).sound(SoundType.GRASS)));
     
     // Ossidroot blocks
     public static final RegistryObject<ModCropsBlock> ossid_root_crop = BLOCKS.register("ossid_root_crop", 
-            () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.LIME_TERRACOTTA)
-                    .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.WOOD)));
+            () -> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_LIGHT_GREEN)
+                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<OssidRootBlock> ossid_root = BLOCKS.register("ossid_root", 
-            () -> new OssidRootBlock(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
-                            .hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
+            () -> new OssidRootBlock(Block.Properties.of(Material.VEGETABLE, MaterialColor.TERRACOTTA_LIGHT_GREEN)
+                            .strength(1.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<CarvedOssidRoot> carved_ossid_root = BLOCKS.register("carved_ossid_root", 
-            () -> new CarvedOssidRoot(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
-                            .hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
+            () -> new CarvedOssidRoot(Block.Properties.of(Material.VEGETABLE, MaterialColor.TERRACOTTA_LIGHT_GREEN)
+                            .strength(1.0F).sound(SoundType.WOOD)));
    public static final RegistryObject<CarvedOssidRoot> ossid_lantern = BLOCKS.register("ossid_lantern", 
-            () -> new CarvedOssidRoot(Block.Properties.create(Material.GOURD, MaterialColor.LIME_TERRACOTTA)
-                            .hardnessAndResistance(1.0F).sound(SoundType.WOOD)
-                            .setLightLevel(it_glows(15))));
+            () -> new CarvedOssidRoot(Block.Properties.of(Material.VEGETABLE, MaterialColor.TERRACOTTA_LIGHT_GREEN)
+                            .strength(1.0F).sound(SoundType.WOOD)
+                            .lightLevel(it_glows(15))));
     
     // Thundergrass blocks
     public static final RegistryObject<ModCropsBlock> thunder_grass_crop = BLOCKS.register("thunder_grass_crop", 
-            () -> new ModCropsBlock(Block.Properties.create(Material.PLANTS, MaterialColor.CYAN)
-                    .doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.CROP)));
+            () -> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_CYAN)
+                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
 
     private static ToIntFunction<BlockState> it_glows(int foo)
     {

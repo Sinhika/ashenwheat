@@ -112,7 +112,7 @@ public class GrassLootModifiers
             {
                 List<String> seeds = new ArrayList<String>();
                 
-                JsonArray seedlist = JSONUtils.getJsonArray(object, "seeds");
+                JsonArray seedlist = JSONUtils.getAsJsonArray(object, "seeds");
                 for (JsonElement je: seedlist)
                 {
                     seeds.add(je.getAsString());

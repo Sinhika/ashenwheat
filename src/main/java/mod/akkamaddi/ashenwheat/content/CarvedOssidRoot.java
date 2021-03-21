@@ -17,21 +17,23 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class CarvedOssidRoot extends HorizontalBlock
 {
-    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
 
     public CarvedOssidRoot(Properties builder)
     {
         super(builder);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
      }
 
-     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
      }
 
@@ -43,7 +45,7 @@ public class CarvedOssidRoot extends HorizontalBlock
     @Override
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand)
     {
-        if (! worldIn.isRemote) return;
+        if (! worldIn.isClientSide) return;
         if (AshenwheatConfig.MakeOssidLanternGloom 
             && ((stateIn.getBlock() == ModBlocks.carved_ossid_root.get())
                 || (stateIn.getBlock() == ModBlocks.ossid_lantern.get())))

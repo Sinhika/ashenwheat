@@ -17,6 +17,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 /**
  * Make one custom CropsBlock class for all the special crops in this mod.
  *
@@ -24,14 +26,14 @@ import net.minecraft.world.server.ServerWorld;
 public class ModCropsBlock extends CropsBlock
 {
     protected static final VoxelShape[] SHAPES = new VoxelShape[] {
-            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
-            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
-            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
-            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
-            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D),
-            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D),
-            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
-            Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D) };
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D) };
 
     protected float fertility_factor = 25.0F; // default for wheat.
     protected float min_f = 1.0F;             // default for wheat.
@@ -43,14 +45,14 @@ public class ModCropsBlock extends CropsBlock
     
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) 
     {
-        return SHAPES[state.get(this.getAgeProperty())];
+        return SHAPES[state.getValue(this.getAgeProperty())];
      }
 
     /**
      * Return the seed item for the corresponding block this actually is...
      */
     @Override
-    protected IItemProvider getSeedsItem()
+    protected IItemProvider getBaseSeedId()
     {
         if (this == ModBlocks.ash_wheat_crop.get())
         {
@@ -68,7 +70,7 @@ public class ModCropsBlock extends CropsBlock
         {
             return ModItems.thunder_seeds.get();
         }
-        return super.getSeedsItem();
+        return super.getBaseSeedId();
     } // getSeedsItems
 
     
@@ -99,7 +101,7 @@ public class ModCropsBlock extends CropsBlock
     @Override
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand)
     {
-        if (!worldIn.isRemote) return;
+        if (!worldIn.isClientSide) return;
 
         if (AshenwheatConfig.MakeAshenwheatFlame && (stateIn.getBlock() == ModBlocks.ash_wheat_crop.get()))
         {
@@ -156,7 +158,7 @@ public class ModCropsBlock extends CropsBlock
     {
         if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's
                                                    // light
-        if (worldIn.getLightSubtracted(pos, 0) >= 9)
+        if (worldIn.getRawBrightness(pos, 0) >= 9)
         {
             int i = this.getAge(state);
             if (i < this.getMaxAge())
@@ -165,7 +167,7 @@ public class ModCropsBlock extends CropsBlock
                 if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,
                         rand.nextInt((int) (fertility_factor / f ) + 1) == 0))
                 {
-                    worldIn.setBlockState(pos, this.withAge(i + 1), 2);
+                    worldIn.setBlock(pos, this.getStateForAge(i + 1), 2);
                     net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
                 }
             } // end-if < max age
@@ -183,19 +185,19 @@ public class ModCropsBlock extends CropsBlock
                                               float minf)
     {
         float f = 1.0F;
-        BlockPos blockpos = pos.down();
+        BlockPos blockpos = pos.below();
 
         for (int i = -1; i <= 1; ++i)
         {
             for (int j = -1; j <= 1; ++j)
             {
                 float f1 = 0.0F;
-                BlockState blockstate = worldIn.getBlockState(blockpos.add(i, 0, j));
-                if (blockstate.canSustainPlant(worldIn, blockpos.add(i, 0, j), net.minecraft.util.Direction.UP,
+                BlockState blockstate = worldIn.getBlockState(blockpos.offset(i, 0, j));
+                if (blockstate.canSustainPlant(worldIn, blockpos.offset(i, 0, j), net.minecraft.util.Direction.UP,
                         (net.minecraftforge.common.IPlantable) blockIn))
                 {
                     f1 = 1.0F;
-                    if (blockstate.isFertile(worldIn, blockpos.add(i, 0, j)))
+                    if (blockstate.isFertile(worldIn, blockpos.offset(i, 0, j)))
                     {
                         f1 = 3.0F;
                     }
