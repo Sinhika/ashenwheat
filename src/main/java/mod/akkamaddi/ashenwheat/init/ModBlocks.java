@@ -1,14 +1,12 @@
 package mod.akkamaddi.ashenwheat.init;
 
-import java.util.function.ToIntFunction;
-
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
+import mod.alexndr.simplecorelib.helpers.LightUtils;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -61,15 +59,11 @@ public final class ModBlocks
    public static final RegistryObject<CarvedOssidRoot> ossid_lantern = BLOCKS.register("ossid_lantern", 
             () -> new CarvedOssidRoot(Block.Properties.of(Material.VEGETABLE, MaterialColor.TERRACOTTA_LIGHT_GREEN)
                             .strength(1.0F).sound(SoundType.WOOD)
-                            .lightLevel(it_glows(15))));
+                            .lightLevel(LightUtils.setFixedLight(15))));
     
     // Thundergrass blocks
     public static final RegistryObject<ModCropsBlock> thunder_grass_crop = BLOCKS.register("thunder_grass_crop", 
             () -> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_CYAN)
                     .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
-
-    private static ToIntFunction<BlockState> it_glows(int foo)
-    {
-        return (bar) -> { return foo; };
-    }
+ 
 } // end class
