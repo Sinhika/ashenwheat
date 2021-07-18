@@ -42,6 +42,12 @@ Additional Credits: none yet.
 [[dependencies.ashenwheat]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5,]"
+    versionRange="[1.16.5,1.17.0)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.ashenwheat]]
+    modId="simplecorelib"
+    mandatory=true
+    versionRange="[1.16.5-2.0.8.4,1.16.5-2.0.9.0)"
     ordering="NONE"
     side="BOTH"
