@@ -4,6 +4,7 @@ import mod.akkamaddi.ashenwheat.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraftforge.common.extensions.IForgeItem;
 
 public class CombustibleBlockItem extends BlockItem implements IForgeItem
@@ -23,8 +24,13 @@ public class CombustibleBlockItem extends BlockItem implements IForgeItem
             return 2400;
         }
         
-        return super.getBurnTime(itemStack);
+        return -1;
     } // end getBurnTime
 
+    @Override
+    public int getBurnTime(ItemStack itemStack, IRecipeType<?> recipeType)
+    {
+        return this.getBurnTime(itemStack);
+    }
     
 } // end-class

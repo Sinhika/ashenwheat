@@ -1,5 +1,5 @@
 {
-	"__comment": "This table is injected as its own pool into minecraft:chests/simple_dungeon",
+	"__comment": "This table is injected as its own pool into minecraft:chests/village/village_*",
 	"pools": [
 		{
 			"name": "main",
