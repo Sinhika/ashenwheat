@@ -2,19 +2,21 @@ package mod.akkamaddi.ashenwheat.content;
 
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShearsItem;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.Level;
+
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class OssidRootBlock extends ModHayBlock
 {
@@ -26,8 +28,8 @@ public class OssidRootBlock extends ModHayBlock
 
     @SuppressWarnings("deprecation")
     @Override
-    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
-            Hand handIn, BlockRayTraceResult hit)
+    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player,
+            InteractionHand handIn, BlockHitResult hit)
     {
         ItemStack itemstack = player.getItemInHand(handIn);
         if (itemstack.getItem() instanceof ShearsItem)
@@ -38,7 +40,7 @@ public class OssidRootBlock extends ModHayBlock
                 Direction direction1 = direction.getAxis() == Direction.Axis.Y
                         ? player.getDirection().getOpposite()
                         : direction;
-                worldIn.playSound((PlayerEntity) null, pos, SoundEvents.PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F,
+                worldIn.playSound((Player) null, pos, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F,
                         1.0F);
                 worldIn.setBlock(pos,
                         ModBlocks.carved_ossid_root.get().defaultBlockState().setValue(CarvedOssidRoot.FACING, direction1), 11);
@@ -54,7 +56,7 @@ public class OssidRootBlock extends ModHayBlock
                     p_220282_1_.broadcastBreakEvent(handIn);
                 });
             }
-            return ActionResultType.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
         else
         {

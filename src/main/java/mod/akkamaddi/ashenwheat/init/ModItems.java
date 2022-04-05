@@ -4,11 +4,11 @@ import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.content.CombustibleBlockItem;
 import mod.akkamaddi.ashenwheat.content.CombustibleBlockNamedItem;
 import mod.akkamaddi.ashenwheat.content.CombustibleItem;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Food;
-import net.minecraft.item.Item;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -30,12 +30,12 @@ public final class ModItems
             DeferredRegister.create(ForgeRegistries.ITEMS, Ashenwheat.MODID);
 
     // Food values
-    public static final Food ASHBREAD = (new Food.Builder()).nutrition(4).saturationMod(0.5F).build();
-    public static final Food ASHCOOKIE  = (new Food.Builder()).nutrition(1).saturationMod(0.1F)
-            .effect(() -> new EffectInstance(Effects.REGENERATION, 2, 1), 1.0F).build();
-    public static final Food SCINTILLABREAD = (new Food.Builder()).nutrition(4).saturationMod(0.7F).build();
-    public static final Food SCINTILLACOOKIE = (new Food.Builder()).nutrition(1).saturationMod(0.1F)
-            .effect(() -> new EffectInstance(Effects.REGENERATION, 3, 1), 1.0F).build();
+    public static final FoodProperties ASHBREAD = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.5F).build();
+    public static final FoodProperties ASHCOOKIE  = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 2, 1), 1.0F).build();
+    public static final FoodProperties SCINTILLABREAD = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.7F).build();
+    public static final FoodProperties SCINTILLACOOKIE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 3, 1), 1.0F).build();
     
     // Ashwheat items
     public static final RegistryObject<CombustibleItem> ash_wheat_sheaf = ITEMS.register("ash_wheat_sheaf", 
@@ -55,8 +55,8 @@ public final class ModItems
             () -> new CombustibleItem(new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP).food(ASHCOOKIE)));
     
     // Scintilla Wheat items
-    public static final RegistryObject<BlockNamedItem> scintilla_seeds = ITEMS.register("scintilla_seeds", 
-            () -> new BlockNamedItem(ModBlocks.scintilla_wheat_crop.get(), 
+    public static final RegistryObject<ItemNameBlockItem> scintilla_seeds = ITEMS.register("scintilla_seeds", 
+            () -> new ItemNameBlockItem(ModBlocks.scintilla_wheat_crop.get(), 
                                      new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<Item> scintilla_wheat_sheaf = ITEMS.register("scintilla_wheat_sheaf", 
             () -> new Item(new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
@@ -70,15 +70,15 @@ public final class ModItems
     
     
     // Ossidroot items
-    public static final RegistryObject<BlockNamedItem> ossid_seeds = ITEMS.register("ossid_seeds", 
-            () -> new BlockNamedItem(ModBlocks.ossid_root_crop.get(), 
+    public static final RegistryObject<ItemNameBlockItem> ossid_seeds = ITEMS.register("ossid_seeds", 
+            () -> new ItemNameBlockItem(ModBlocks.ossid_root_crop.get(), 
                                      new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<Item> calcified_ash = ITEMS.register("calcified_ash", 
             () -> new Item(new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     
     // Thundergrass items
-    public static final RegistryObject<BlockNamedItem> thunder_seeds = ITEMS.register("thunder_seeds", 
-            () -> new BlockNamedItem(ModBlocks.thunder_grass_crop.get(), 
+    public static final RegistryObject<ItemNameBlockItem> thunder_seeds = ITEMS.register("thunder_seeds", 
+            () -> new ItemNameBlockItem(ModBlocks.thunder_grass_crop.get(), 
                                     new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<Item> unstable_soot = ITEMS.register("unstable_soot", 
             () -> new Item(new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));

@@ -2,7 +2,7 @@ package mod.akkamaddi.ashenwheat;
 
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -27,13 +27,13 @@ public final class ClientModEventSubscriber
     @SubscribeEvent
     public static void onFMLClientSetupEvent(final FMLClientSetupEvent event) 
     {
-        RenderTypeLookup.setRenderLayer(ModBlocks.ash_wheat_crop.get(), 
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ash_wheat_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(ModBlocks.scintilla_wheat_crop.get(), 
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.scintilla_wheat_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(ModBlocks.ossid_root_crop.get(), 
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ossid_root_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(ModBlocks.thunder_grass_crop.get(), 
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.thunder_grass_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
     } // end onFMLClientSetupEvent()
     

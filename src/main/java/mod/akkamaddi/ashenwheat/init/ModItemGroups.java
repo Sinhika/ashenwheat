@@ -5,8 +5,8 @@ import java.util.function.Supplier;
 import javax.annotation.Nonnull;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * This class holds all our ItemGroups (Formerly called CreativeTabs).
@@ -16,10 +16,10 @@ import net.minecraft.item.ItemStack;
  */
 public final class ModItemGroups
 {
-    public static final ItemGroup MOD_ITEM_GROUP = 
+    public static final CreativeModeTab MOD_ITEM_GROUP = 
             new ModItemGroup(Ashenwheat.MODID, () -> new ItemStack(ModItems.ash_wheat_sheaf.get()));
    
-    public static final class ModItemGroup extends ItemGroup 
+    public static final class ModItemGroup extends CreativeModeTab 
     {
         @Nonnull
         private final Supplier<ItemStack> iconSupplier;

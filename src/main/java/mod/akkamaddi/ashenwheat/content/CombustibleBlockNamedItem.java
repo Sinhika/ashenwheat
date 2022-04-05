@@ -1,13 +1,15 @@
 package mod.akkamaddi.ashenwheat.content;
 
 import mod.akkamaddi.ashenwheat.init.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class CombustibleBlockNamedItem extends BlockNamedItem implements IForgeItem
+import net.minecraft.world.item.Item.Properties;
+
+public class CombustibleBlockNamedItem extends ItemNameBlockItem implements IForgeItem
 {
 
     public CombustibleBlockNamedItem(Block blockIn, Properties properties)
@@ -25,7 +27,7 @@ public class CombustibleBlockNamedItem extends BlockNamedItem implements IForgeI
     }
 
     @Override
-    public int getBurnTime(ItemStack itemStack, IRecipeType<?> recipeType)
+    public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType)
     {
         return this.getBurnTime(itemStack);
     }

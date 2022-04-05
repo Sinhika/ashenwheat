@@ -10,14 +10,14 @@ import com.google.gson.JsonObject;
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModItems;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.conditions.ILootCondition;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedRandom;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.WeighedRandom;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,7 +25,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class GrassLootModifiers
 {
     
-    public static class SeedEntry extends WeightedRandom.Item
+    public static class SeedEntry extends WeighedRandom.WeighedRandomItem
     {
         public final Item seed_item;
         
@@ -40,7 +40,7 @@ public class GrassLootModifiers
     {
         private List<SeedEntry> dropped_seeds = new ArrayList<SeedEntry>();
         
-        public GrassLootModifier(ILootCondition[] conditionsIn,  List<String> seeds)
+        public GrassLootModifier(LootItemCondition[] conditionsIn,  List<String> seeds)
         {
             super(conditionsIn);
             
@@ -93,7 +93,7 @@ public class GrassLootModifiers
                 // if wheat_seeds, what is it REALLY?
                 if (stack.getItem() == Items.WHEAT_SEEDS) 
                 {
-                    SeedEntry se = WeightedRandom.getRandomItem(context.getRandom(), dropped_seeds);
+                    SeedEntry se = WeighedRandom.getRandomItem(context.getRandom(), dropped_seeds);
                     ItemStack new_stack = new ItemStack(se.seed_item, stack.getCount()); 
                     newLoot.add(new_stack);
                 }
@@ -108,11 +108,11 @@ public class GrassLootModifiers
         public static class Serializer extends GlobalLootModifierSerializer<GrassLootModifier>
         {
             @Override
-            public GrassLootModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition)
+            public GrassLootModifier read(ResourceLocation location, JsonObject object, LootItemCondition[] ailootcondition)
             {
                 List<String> seeds = new ArrayList<String>();
                 
-                JsonArray seedlist = JSONUtils.getAsJsonArray(object, "seeds");
+                JsonArray seedlist = GsonHelper.getAsJsonArray(object, "seeds");
                 for (JsonElement je: seedlist)
                 {
                     seeds.add(je.getAsString());
