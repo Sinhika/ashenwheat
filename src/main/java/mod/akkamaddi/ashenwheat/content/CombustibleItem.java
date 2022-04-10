@@ -17,7 +17,7 @@ public class CombustibleItem extends Item implements IForgeItem
     }
 
     @Override
-    public int getBurnTime(ItemStack itemStack)
+    public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType)
     {
         if (itemStack.getItem() == ModItems.ash_wheat_sheaf.get())
         {
@@ -32,12 +32,6 @@ public class CombustibleItem extends Item implements IForgeItem
             return 50;
         }
         return -1;
-    } // end getBurnTime
-
-    @Override
-    public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType)
-    {
-        return this.getBurnTime(itemStack);
     }
 
     

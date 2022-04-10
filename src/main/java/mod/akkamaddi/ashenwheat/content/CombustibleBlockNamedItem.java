@@ -18,18 +18,12 @@ public class CombustibleBlockNamedItem extends ItemNameBlockItem implements IFor
     }
 
     @Override
-    public int getBurnTime(ItemStack itemStack)
+    public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType)
     {
         if (itemStack.getItem() == ModItems.ash_seeds.get()) {
             return 25;
         }
         return -1;
-    }
-
-    @Override
-    public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType)
-    {
-        return this.getBurnTime(itemStack);
     }
 
     

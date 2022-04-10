@@ -10,14 +10,14 @@ import com.google.gson.JsonObject;
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModItems;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.WeighedRandom;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,26 +25,17 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class GrassLootModifiers
 {
     
-    public static class SeedEntry extends WeighedRandom.WeighedRandomItem
-    {
-        public final Item seed_item;
-        
-        public SeedEntry(Item seed_id, int itemWeightIn)
-        {
-            super(itemWeightIn);
-            seed_item = seed_id;
-        }
-    } // end-class SeedEntry
-
     public static class GrassLootModifier extends LootModifier
     {
-        private List<SeedEntry> dropped_seeds = new ArrayList<SeedEntry>();
+        private SimpleWeightedRandomList<Item> dropped_seeds;
         
         public GrassLootModifier(LootItemCondition[] conditionsIn,  List<String> seeds)
         {
             super(conditionsIn);
             
-            dropped_seeds.add(new SeedEntry(Items.WHEAT_SEEDS, AshenwheatConfig.relWeightWheatSeeds));
+            SimpleWeightedRandomList.Builder<Item> dropped_seeds_builder  = SimpleWeightedRandomList.<Item>builder();
+            
+            dropped_seeds_builder.add(Items.WHEAT_SEEDS, AshenwheatConfig.relWeightWheatSeeds);
             Ashenwheat.LOGGER.debug("GrassLootModifier: added minecraft:wheat_seeds");
             
             for (String s : seeds) 
@@ -52,32 +43,29 @@ public class GrassLootModifiers
                 Item seedItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(s));
                 if ((seedItem == ModItems.ash_seeds.get()) && AshenwheatConfig.DropAshSeeds)
                 {
-                    dropped_seeds.add(new SeedEntry(ModItems.ash_seeds.get(),
-                                                    AshenwheatConfig.relWeightAshSeeds));
+                    dropped_seeds_builder.add(ModItems.ash_seeds.get(), AshenwheatConfig.relWeightAshSeeds);
                     Ashenwheat.LOGGER.debug("GrassLootModifier: added ash_seeds");
                     continue;
                 }
                 if ((seedItem == ModItems.scintilla_seeds.get()) && AshenwheatConfig.DropScintillaSeeds)
                 {
-                    dropped_seeds.add(new SeedEntry(ModItems.scintilla_seeds.get(),
-                                                    AshenwheatConfig.relWeightScintillaSeeds));
+                    dropped_seeds_builder.add(ModItems.scintilla_seeds.get(), AshenwheatConfig.relWeightScintillaSeeds);
                     Ashenwheat.LOGGER.debug("GrassLootModifier: added scintilla_seeds");
                     continue;
                 }
                 if ((seedItem == ModItems.ossid_seeds.get()) && AshenwheatConfig.DropOssidSeeds)
                 {
-                    dropped_seeds.add(new SeedEntry(ModItems.ossid_seeds.get(),
-                                                    AshenwheatConfig.relWeightOssidSeeds));
+                    dropped_seeds_builder.add(ModItems.ossid_seeds.get(), AshenwheatConfig.relWeightOssidSeeds);
                     Ashenwheat.LOGGER.debug("GrassLootModifier: added ossid_seeds");
                     continue;
                 }
                 if ((seedItem == ModItems.thunder_seeds.get()) && AshenwheatConfig.DropThunderSeeds)
                 {
-                    dropped_seeds.add(new SeedEntry(ModItems.thunder_seeds.get(),
-                                      AshenwheatConfig.relWeightThunderSeeds));
+                    dropped_seeds_builder.add(ModItems.thunder_seeds.get(), AshenwheatConfig.relWeightThunderSeeds);
                     Ashenwheat.LOGGER.debug("GrassLootModifier: added thunder_seeds");
                 }
             } // end-for
+            dropped_seeds = dropped_seeds_builder.build();
         } // end-ctor
 
         /**
@@ -93,8 +81,8 @@ public class GrassLootModifiers
                 // if wheat_seeds, what is it REALLY?
                 if (stack.getItem() == Items.WHEAT_SEEDS) 
                 {
-                    SeedEntry se = WeighedRandom.getRandomItem(context.getRandom(), dropped_seeds);
-                    ItemStack new_stack = new ItemStack(se.seed_item, stack.getCount()); 
+                    Item seed_item = dropped_seeds.getRandomValue(context.getRandom()).get();
+                    ItemStack new_stack = new ItemStack(seed_item, stack.getCount()); 
                     newLoot.add(new_stack);
                 }
                 // anything else, pass through unaltered.

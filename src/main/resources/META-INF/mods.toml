@@ -5,7 +5,7 @@
 # Find more information on toml format here:  https://github.com/toml-lang/toml
 
 modLoader="javafml" #mandatory
-loaderVersion="[36,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion="[39,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 issueTrackerURL="https://github.com/Sinhika/ashenwheat/issues" #optional
 license="LGPL v3.0" #mandatory
 
@@ -14,7 +14,7 @@ license="LGPL v3.0" #mandatory
 modId="ashenwheat" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="akkamaddi's Ashenwheat" #mandatory
-updateJSONURL="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.16/update.json" #optional
+updateJSONURL="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.18/update.json" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/akkamaddis-ashenwheat" #optional
 logoFile="ashwheatsheaf.png" #optional
 credits="Thanks to akkamaddi for creating the original mod and to Sinhika for porting and maintaining it." #optional
@@ -33,7 +33,7 @@ Additional Credits: none yet.
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[36.1.0,)" #mandatory
+    versionRange="[39.1.0,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -42,12 +42,12 @@ Additional Credits: none yet.
 [[dependencies.ashenwheat]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5,1.17.0)"
+    versionRange="[1.18.1,1.18.2)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.ashenwheat]]
     modId="simplecorelib"
     mandatory=true
-    versionRange="[1.16.5-2.0.8.4,1.16.5-2.0.9.0)"
+    versionRange="[1.18.1-4.0.1.0,1.18.2-4.1.0.0)"
     ordering="NONE"
     side="BOTH"

@@ -19,7 +19,7 @@ public class CombustibleBlockItem extends BlockItem implements IForgeItem
     }
 
     @Override
-    public int getBurnTime(ItemStack itemStack)
+    public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType)
     {
         if (itemStack.getItem() == ModItems.ash_wheat_bale.get())
         {
@@ -27,12 +27,6 @@ public class CombustibleBlockItem extends BlockItem implements IForgeItem
         }
         
         return -1;
-    } // end getBurnTime
-
-    @Override
-    public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType)
-    {
-        return this.getBurnTime(itemStack);
     }
     
 } // end-class
