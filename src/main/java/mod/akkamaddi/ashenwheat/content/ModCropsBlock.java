@@ -6,7 +6,6 @@ import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.server.level.ServerLevel;
@@ -71,6 +70,8 @@ public class ModCropsBlock extends CropBlock
         {
             return ModItems.thunder_seeds.get();
         }
+        // TODO add flax seed.
+        // TODO add rotten seed.
         return super.getBaseSeedId();
     } // getSeedsItems
 
