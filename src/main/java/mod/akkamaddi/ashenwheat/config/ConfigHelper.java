@@ -19,7 +19,9 @@ public final class ConfigHelper
 	    AshenwheatConfig.MakeOssidLanternGloom = ConfigHolder.CLIENT.clientMakeOssidLanternGloom.get();
 	    AshenwheatConfig.MakeScintillaBalesScintillate = ConfigHolder.CLIENT.clientMakeScintillaBalesScintillate.get();
 	    AshenwheatConfig.MakeScintillawheatScintillate = ConfigHolder.CLIENT.clientMakeScintillawheatScintillate.get();
+	    AshenwheatConfig.MakeScintillationsSmaller = ConfigHolder.CLIENT.clientMakeScintillationsSmaller.get();
 	    AshenwheatConfig.MakeThunderGrassSmoke = ConfigHolder.CLIENT.clientMakeThunderGrassSmoke.get();
+	    AshenwheatConfig.MakeThunderGrassSmokeSmaller = ConfigHolder.CLIENT.clientMakeThunderGrassSmokeSmaller.get();
 	}
 
 	public static void bakeServer(final ModConfig config) 

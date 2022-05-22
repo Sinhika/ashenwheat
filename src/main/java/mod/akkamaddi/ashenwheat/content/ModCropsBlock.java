@@ -6,7 +6,9 @@ import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
@@ -131,7 +133,9 @@ public class ModCropsBlock extends CropBlock
             float f3 = (float) pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            worldIn.addParticle(ParticleTypes.INSTANT_EFFECT, (double) (f1 + f4), (double) (f2 + f4 + f5),
+            SimpleParticleType particle = 
+                    AshenwheatConfig.MakeScintillationsSmaller ? ParticleTypes.ENCHANT : ParticleTypes.INSTANT_EFFECT;
+            worldIn.addParticle(particle, (double) (f1 + f4), (double) (f2 + f4 + f5),
                     (double) (f3 + f5), 0.0D, 0.0D, 0.0D);
         }
         else if (AshenwheatConfig.MakeThunderGrassSmoke && (stateIn.getBlock() == ModBlocks.thunder_grass_crop.get()))
@@ -141,7 +145,9 @@ public class ModCropsBlock extends CropBlock
             float f3 = (float) pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            worldIn.addParticle(ParticleTypes.SMOKE, (double) (f1 + f4), (double) (f2 + f4 + f5), (double) (f3 + f5),
+            SimpleParticleType particle = 
+                    AshenwheatConfig.MakeThunderGrassSmokeSmaller ? ParticleTypes.ASH : ParticleTypes.SMOKE;
+            worldIn.addParticle(particle, (double) (f1 + f4), (double) (f2 + f4 + f5), (double) (f3 + f5),
                     0.0D, 0.0D, 0.0D);
 
         }

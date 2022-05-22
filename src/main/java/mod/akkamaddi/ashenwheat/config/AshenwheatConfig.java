@@ -15,9 +15,11 @@ public final class AshenwheatConfig
     public static boolean MakeAshenBalesFlame;
     public static boolean MakeScintillawheatScintillate;
     public static boolean MakeScintillaBalesScintillate;
+    public static boolean MakeScintillationsSmaller;
     public static boolean MakeOssidCropGloom;
     public static boolean MakeOssidLanternGloom;
     public static boolean MakeThunderGrassSmoke;
+    public static boolean MakeThunderGrassSmokeSmaller;
 
 	// Server
 	public static boolean SeedsInChests = true;

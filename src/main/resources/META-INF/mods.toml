@@ -17,8 +17,8 @@ displayName="akkamaddi's Ashenwheat" #mandatory
 updateJSONURL="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.18/update.json" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/akkamaddis-ashenwheat" #optional
 logoFile="ashwheatsheaf.png" #optional
-credits="Thanks to akkamaddi for creating the original mod and to Sinhika for porting and maintaining it." #optional
-authors="akkamaddi, Sinhika" #optional
+credits="Thanks to akkamaddi for creating the original Ashenwheat mod, to Wuppy29 for creating the original PeacefulPack mod and to Sinhika for porting and maintaining it."
+authors="akkamaddi, Sinhika, Wuppy29"
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 a small farming mod, adding four utility crops: Ashenwheat (a fuel, and can make charcoal), Ossidroot (can make Bonemeal), Thundergrass (can make gunpowder), and Scintillawheat (can make Glowstone Dust).

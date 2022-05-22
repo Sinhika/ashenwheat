@@ -15,9 +15,12 @@ final class ClientConfig
     final ForgeConfigSpec.BooleanValue clientMakeAshenBalesFlame;
     final ForgeConfigSpec.BooleanValue clientMakeScintillawheatScintillate;
     final ForgeConfigSpec.BooleanValue clientMakeScintillaBalesScintillate;
+    final ForgeConfigSpec.BooleanValue clientMakeScintillationsSmaller;
+    
     final ForgeConfigSpec.BooleanValue clientMakeOssidCropGloom;
     final ForgeConfigSpec.BooleanValue clientMakeOssidLanternGloom;
     final ForgeConfigSpec.BooleanValue clientMakeThunderGrassSmoke;
+    final ForgeConfigSpec.BooleanValue clientMakeThunderGrassSmokeSmaller;
     
     
 	ClientConfig(final ForgeConfigSpec.Builder builder) 
@@ -35,6 +38,9 @@ final class ClientConfig
         clientMakeScintillaBalesScintillate = builder.comment("Scintillating particles on Scintillawheat bales?")
                 .translation(Ashenwheat.MODID + "config.MakeScintillaBalesScintillate")
                 .define("MakeScintillaBalesScintillate", true);
+        clientMakeScintillationsSmaller = builder.comment("Like scintillations, but not quite so much?")
+                .translation(Ashenwheat.MODID + "config.MakeScintillationsSmaller")
+                .define("MakeScintillationsSmaller", false);
         clientMakeOssidCropGloom = builder.comment("Gloom particles on Ossidroot crop?")
                 .translation(Ashenwheat.MODID + "config.MakeOssidCropGloom")
                 .define("MakeOssidCropGloom", true);
@@ -44,6 +50,9 @@ final class ClientConfig
         clientMakeThunderGrassSmoke = builder.comment("")
                 .translation(Ashenwheat.MODID + "config.MakeThunderGrassSmoke")
                 .define("MakeThunderGrassSmoke", true);
+        clientMakeThunderGrassSmokeSmaller = builder.comment("Want smoke, but not that much?")
+                .translation(Ashenwheat.MODID + "config.MakeThunderGrassSmokeSmaller")
+                .define("MakeThunderGrassSmokeSmaller", false);
         builder.pop();
 	    
 	} // end ClientConfig()

@@ -11,7 +11,7 @@ akkamaddi's Ashenwheat - a small farming mod, adding four utility crops:
 The goal is to make it easier to play on peaceful mode, or just farm stuff
 instead of hunting for it all the time.
 
-**Currently ported to 1.14.4 through 1.16.5**
+**Currently ported to 1.14.4 through 1.18.2**
 
 TODO List
 ---------
@@ -22,6 +22,13 @@ TODO List
 - a RARE nether thing that provides ghast tears.
 - Blaze Tree - nether tree that provides blaze rods (GPL, ask Wuppy29 anyway).
 - flax - crop that yields string (may require loom use?).
+
+Note on Textures and Code from Wuppy29's Mods
+---------------------------------------------
+I discovered Wuppy29's old mods archived on GitHub at https://github.com/wuppy29/WuppyMods. The
+are accompanied by a GPL 3.0 License. I was unable to get in contact with Wuppy29 as of 2022 to
+request permission to use their ideas; however, licensing one's code under the GPL clearly
+indicates intent to share their code, etc.
 
 License
 -------

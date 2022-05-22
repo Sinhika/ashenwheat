@@ -6,6 +6,7 @@ import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.HayBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -59,7 +60,9 @@ public class ModHayBlock extends HayBlock
             float f4 = rand.nextFloat() * 2.0f;
             float f5 = rand.nextFloat() * 2.0f;
             float f6 = rand.nextFloat() * 2.0f;
-            worldIn.addParticle(ParticleTypes.INSTANT_EFFECT, 
+            SimpleParticleType particle = 
+                    AshenwheatConfig.MakeScintillationsSmaller ? ParticleTypes.ENCHANT : ParticleTypes.INSTANT_EFFECT;
+            worldIn.addParticle(particle, 
                                 (double)(f1 + f4), (double)(f2 + f5) , (double)(f3 + f6), 
                                 0.0D, 0.0D, 0.0D);
         }
