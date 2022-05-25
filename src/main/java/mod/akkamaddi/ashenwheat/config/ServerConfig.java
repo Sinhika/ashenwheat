@@ -30,6 +30,9 @@ final class ServerConfig
     final ForgeConfigSpec.BooleanValue serverEnablePeacefulPack;
     final ForgeConfigSpec.BooleanValue serverGenerateBlazeTrees;
     final ForgeConfigSpec.BooleanValue serverGenerateFlax;
+    final ForgeConfigSpec.BooleanValue serverGenerateRottenPlants;
+    final ForgeConfigSpec.BooleanValue serverGenerateEnderClams;
+    final ForgeConfigSpec.BooleanValue serverEnableSpiderEyeDrops;
     
 	ServerConfig(final ForgeConfigSpec.Builder builder) 
 	{	
@@ -102,12 +105,21 @@ final class ServerConfig
         
         // imports from Wuppy29's old Peaceful Pack mod.
         builder.push("Wuppy29's Peaceful Pack");
-        serverGenerateBlazeTrees = builder.comment("Generate Blaze Trees in the Nether")
+        serverGenerateBlazeTrees = builder.comment("Generate Blaze Trees in the Nether - NOT AVAILABLE YET")
                 .translation(Ashenwheat.MODID + "config.serverGenerateBlazeTrees")
-                .define("generateBlazeTrees", true);
-        serverGenerateFlax = builder.comment("Generate Flax in the Overworld")
+                .define("generateBlazeTrees", false);
+        serverGenerateFlax = builder.comment("Generate Flax in the Overworld - NOT AVAILABLE YET")
                 .translation(Ashenwheat.MODID + "config.serverGenerateFlax")
-                .define("generateFlax", true);
+                .define("generateFlax", false);
+        serverGenerateRottenPlants = builder.comment("Generate Rotten Plantes in caves - NOT AVAILABLE YET")
+                .translation(Ashenwheat.MODID + "config.serverGenerateRottenPlants")
+                .define("generateRottenPlants", false);
+        serverGenerateEnderClams = builder.comment("Generate Ender Clams in the ocean - NOT AVAILABLE YET")
+                .translation(Ashenwheat.MODID + "config.serverGenerateEnderClams")
+                .define("generateEnderClams", false);
+        serverEnableSpiderEyeDrops  = builder.comment("Enable spider eyes dropping from cobwebs - NOT AVAILABLE YET")
+                .translation(Ashenwheat.MODID + "config.serverEnableSpiderEyeDrops")
+                .define("enableSpiderEyeDrops", false);
         builder.pop();
 	} // end ServerConfig()
 

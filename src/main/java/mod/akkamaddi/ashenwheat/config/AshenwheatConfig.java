@@ -46,5 +46,8 @@ public final class AshenwheatConfig extends SimpleConfig
     public static boolean EnablePeacefulPack;
     public static boolean GenerateBlazeTrees;
     public static boolean GenerateFlax;
+    public static boolean GenerateRottenPlants;
+    public static boolean GenerateEnderClams;
+    public static boolean EnableSpiderEyeDrops;
     
 } // end class
