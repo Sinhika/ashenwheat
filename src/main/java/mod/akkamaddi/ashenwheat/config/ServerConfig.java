@@ -27,6 +27,9 @@ final class ServerConfig
     final ForgeConfigSpec.DoubleValue serverGrowthRateOssidRoot;
     final ForgeConfigSpec.DoubleValue serverGrowthRateThunderGrass;
     final ForgeConfigSpec.DoubleValue serverNeighborFactorThunderGrass;
+    final ForgeConfigSpec.BooleanValue serverEnablePeacefulPack;
+    final ForgeConfigSpec.BooleanValue serverGenerateBlazeTrees;
+    final ForgeConfigSpec.BooleanValue serverGenerateFlax;
     
 	ServerConfig(final ForgeConfigSpec.Builder builder) 
 	{	
@@ -34,6 +37,9 @@ final class ServerConfig
         serverSeedsInChests = builder.comment("Should seeds appear in some chests?" )
                 .translation(Ashenwheat.MODID + "config.seedsInChests")
                 .define("seedsInChests", true);
+        serverEnablePeacefulPack = builder.comment("Enable Wuppy29's PeacefulPack content")
+                .translation(Ashenwheat.MODID + "config.enablePeacefulPack")
+                .define("enablePeacefulPack", false);
         builder.pop();
         
         // due to beta feedback, default to true for everything except 
@@ -94,6 +100,15 @@ final class ServerConfig
                 .defineInRange("neighborFactorThunderGrass", 5.0, 0.1, 6.0);
         builder.pop();
         
+        // imports from Wuppy29's old Peaceful Pack mod.
+        builder.push("Wuppy29's Peaceful Pack");
+        serverGenerateBlazeTrees = builder.comment("Generate Blaze Trees in the Nether")
+                .translation(Ashenwheat.MODID + "config.serverGenerateBlazeTrees")
+                .define("generateBlazeTrees", true);
+        serverGenerateFlax = builder.comment("Generate Flax in the Overworld")
+                .translation(Ashenwheat.MODID + "config.serverGenerateFlax")
+                .define("generateFlax", true);
+        builder.pop();
 	} // end ServerConfig()
 
 } // end class

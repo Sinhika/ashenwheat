@@ -43,6 +43,10 @@ public final class ConfigHelper
 	    AshenwheatConfig.growthRateOssidRoot = ConfigHolder.SERVER.serverGrowthRateOssidRoot.get().floatValue();
 	    AshenwheatConfig.growthRateThunderGrass = ConfigHolder.SERVER.serverGrowthRateThunderGrass.get().floatValue();
 	    AshenwheatConfig.neighborFactorThunderGrass = ConfigHolder.SERVER.serverNeighborFactorThunderGrass.get().floatValue();
-	}
+	    
+	    AshenwheatConfig.EnablePeacefulPack = ConfigHolder.SERVER.serverEnablePeacefulPack.get();
+	    AshenwheatConfig.GenerateBlazeTrees = ConfigHolder.SERVER.serverGenerateBlazeTrees.get();
+	    AshenwheatConfig.GenerateFlax = ConfigHolder.SERVER.serverGenerateFlax.get();
+	} // end bakeServer()
 
 } // end-class

@@ -1,5 +1,7 @@
 package mod.akkamaddi.ashenwheat.config;
 
+import mod.alexndr.simplecorelib.api.config.SimpleConfig;
+
 /**
  * This holds the baked (runtime) values for our config.
  * These values should never be from changed outside this package.
@@ -8,7 +10,7 @@ package mod.akkamaddi.ashenwheat.config;
  *
  * @author Cadiboo
  */
-public final class AshenwheatConfig 
+public final class AshenwheatConfig extends SimpleConfig
 {
 	// Client
 	public static boolean MakeAshenwheatFlame;
@@ -40,4 +42,9 @@ public final class AshenwheatConfig
     public static float growthRateOssidRoot = 0.89F;
     public static float growthRateThunderGrass = 0.5F; // but doesn't mind having neighbors...
     public static float neighborFactorThunderGrass = 5.0F; // wheat = 1.0F
+    
+    public static boolean EnablePeacefulPack;
+    public static boolean GenerateBlazeTrees;
+    public static boolean GenerateFlax;
+    
 } // end class
