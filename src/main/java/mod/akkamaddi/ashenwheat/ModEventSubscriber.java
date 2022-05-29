@@ -1,7 +1,5 @@
 package mod.akkamaddi.ashenwheat;
 
-import javax.annotation.Nonnull;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,12 +9,9 @@ import mod.akkamaddi.ashenwheat.config.ConfigHolder;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItemGroups;
-import mod.akkamaddi.ashenwheat.loot.GrassLootModifiers;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -109,14 +104,5 @@ public final class ModEventSubscriber
 			LOGGER.debug("Baked server config");
 		}
 	} // end onModConfigEvent()
-
-    @SubscribeEvent
-    public static void onRegisterModifierSerializers(
-            @Nonnull final RegistryEvent.Register<GlobalLootModifierSerializer<?>> event)
-    {
-        event.getRegistry().register(
-                new GrassLootModifiers.GrassLootModifier.Serializer().setRegistryName(
-                        new ResourceLocation(Ashenwheat.MODID, "seeds_from_grass")));
-    } // end registerModifierSerializers
 
 } // end class

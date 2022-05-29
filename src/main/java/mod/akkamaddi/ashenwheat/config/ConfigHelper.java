@@ -50,6 +50,7 @@ public final class ConfigHelper
 	    AshenwheatConfig.GenerateRottenPlants = ConfigHolder.SERVER.serverGenerateRottenPlants.get();
 	    AshenwheatConfig.GenerateEnderClams = ConfigHolder.SERVER.serverGenerateEnderClams.get();
 	    AshenwheatConfig.EnableSpiderEyeDrops = ConfigHolder.SERVER.serverEnableSpiderEyeDrops.get();
+	    AshenwheatConfig.SpiderEyeDropChance = ConfigHolder.SERVER.serverSpiderEyeDropChance.get().floatValue();
 	} // end bakeServer()
 
 } // end-class

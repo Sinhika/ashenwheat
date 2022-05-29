@@ -33,6 +33,7 @@ final class ServerConfig
     final ForgeConfigSpec.BooleanValue serverGenerateRottenPlants;
     final ForgeConfigSpec.BooleanValue serverGenerateEnderClams;
     final ForgeConfigSpec.BooleanValue serverEnableSpiderEyeDrops;
+    final ForgeConfigSpec.DoubleValue serverSpiderEyeDropChance;
     
 	ServerConfig(final ForgeConfigSpec.Builder builder) 
 	{	
@@ -117,9 +118,12 @@ final class ServerConfig
         serverGenerateEnderClams = builder.comment("Generate Ender Clams in the ocean - NOT AVAILABLE YET")
                 .translation(Ashenwheat.MODID + "config.serverGenerateEnderClams")
                 .define("generateEnderClams", false);
-        serverEnableSpiderEyeDrops  = builder.comment("Enable spider eyes dropping from cobwebs - NOT AVAILABLE YET")
+        serverEnableSpiderEyeDrops  = builder.comment("Enable spider eyes dropping from cobwebs")
                 .translation(Ashenwheat.MODID + "config.serverEnableSpiderEyeDrops")
                 .define("enableSpiderEyeDrops", false);
+        serverSpiderEyeDropChance = builder.comment("Chance that spider eyes will drop from cobwebs")
+                .translation(Ashenwheat.MODID + ".config.serverSpiderEyeDropChance")
+                .defineInRange("spiderEyeDropChance", 0.50D, 0.0D, 1.00D);
         builder.pop();
 	} // end ServerConfig()
 

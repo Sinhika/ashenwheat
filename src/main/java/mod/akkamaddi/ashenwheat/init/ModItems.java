@@ -83,4 +83,8 @@ public final class ModItems
     public static final RegistryObject<Item> unstable_soot = ITEMS.register("unstable_soot", 
             () -> new Item(new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     
+    // TODO Blaze Tree items
+    // TODO Flax items
+    // TODO Rotten Plant items
+    // TODO possible future Ender Clam items
 } // end class

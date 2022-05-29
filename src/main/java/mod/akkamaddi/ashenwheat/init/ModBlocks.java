@@ -80,6 +80,7 @@ public final class ModBlocks
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, (a ) -> {
                 return a.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MaterialColor.COLOR_YELLOW : MaterialColor.PODZOL;
             }).strength(2.0F).sound(SoundType.WOOD)));
+    
     // blaze WOOD - a block covered in bark on all sides.
     public static final RegistryObject<RotatedPillarBlock> blaze_wood = BLOCKS.register("blaze_wood",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.PODZOL)
@@ -88,10 +89,20 @@ public final class ModBlocks
     public static final RegistryObject<RotatedPillarBlock> stripped_blaze_log = BLOCKS.register("stripped_blaze_log", 
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_YELLOW)
                     .strength(2.0F).sound(SoundType.WOOD)));
+    // stripped blaze wood - ??
+    public static final RegistryObject<RotatedPillarBlock> stripped_blaze_wood = BLOCKS.register("stripped_blaze_wood", 
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_YELLOW)
+                    .strength(2.0F).sound(SoundType.WOOD)));
+    
     // sapling
     public static final RegistryObject<SaplingBlock> blaze_sapling_block = BLOCKS.register("blaze_sapling_block", 
             () -> new SaplingBlock(new BlazeTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission()
                     .randomTicks().instabreak().sound(SoundType.GRASS)));
+    
+    // blaze PLANKS
+    public static final RegistryObject<Block> blaze_planks = BLOCKS.register("blaze_planks", 
+            () -> new Block(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_YELLOW)
+                    .strength(2.0F,3.0F).sound(SoundType.WOOD)));
     
     // Flax (crop) blocks
     public static final RegistryObject<ModCropsBlock> flax_crop = BLOCKS.register("flax_crop", 

@@ -49,5 +49,6 @@ public final class AshenwheatConfig extends SimpleConfig
     public static boolean GenerateRottenPlants;
     public static boolean GenerateEnderClams;
     public static boolean EnableSpiderEyeDrops;
+    public static float SpiderEyeDropChance = 1.0F;
     
 } // end class
