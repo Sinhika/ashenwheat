@@ -84,6 +84,7 @@ public final class ModItems
             () -> new Item(new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     
     // TODO Blaze Tree items
+    public static final RegistryObject<> 
     // TODO Flax items
     // TODO Rotten Plant items
     // TODO possible future Ender Clam items
