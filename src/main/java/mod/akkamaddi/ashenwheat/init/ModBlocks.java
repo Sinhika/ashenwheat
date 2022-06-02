@@ -9,6 +9,7 @@ import mod.alexndr.simplecorelib.api.helpers.LightUtils;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -109,8 +110,18 @@ public final class ModBlocks
             ()-> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE)
                     .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
            
-    // TODO Rotten Plant (crop) blocks
-    // TODO Enderclam blocks
-    // TODO Buried Remains blocks
+    // Rotten Plant (crop) blocks
+    public static final RegistryObject<ModCropsBlock> rotten_crop = BLOCKS.register("rotten_crop", 
+            ()-> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BROWN)
+                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
     
+    // Enderclam blocks
+    public static final RegistryObject<Block> ender_clam = BLOCKS.register("ender_clam", 
+            () -> new Block(BlockBehaviour.Properties.of(Material.SHULKER_SHELL, MaterialColor.COLOR_CYAN)
+                    .strength(3.0F).sound(SoundType.CORAL_BLOCK)));
+    
+    // Buried Remains blocks
+    public static final RegistryObject<OreBlock> buried_remains = BLOCKS.register("buried_remains",
+            ()->new OreBlock(Block.Properties.of(Material.DIRT, MaterialColor.TERRACOTTA_RED)
+                    .strength(1.0F).sound(SoundType.SLIME_BLOCK)));
 } // end class
