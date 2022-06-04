@@ -84,7 +84,7 @@ public final class ModItems
             () -> new Item(new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     
     //  Flax items
-    public static final RegistryObject<ItemNameBlockItem> flax_seeds = ITEMS.register("flax_seeds",
+    public static final RegistryObject<ItemNameBlockItem> flax_seed = ITEMS.register("flax_seed",
             () -> new ItemNameBlockItem(ModBlocks.flax_crop.get(), new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     public static final RegistryObject<Item> flax_fibre = ITEMS.register("flax_fibre", 
             () -> new Item(new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));

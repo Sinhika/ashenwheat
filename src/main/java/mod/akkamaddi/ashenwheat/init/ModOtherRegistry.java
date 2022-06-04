@@ -7,6 +7,7 @@ import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.ForgeRegistries.Keys;
 
 /**
  * This is where we put other registries that don't fit under the usual categories.
@@ -18,7 +19,7 @@ public final class ModOtherRegistry
     
     // GlobalLootModifiers registry
     public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_SERIALIZERS = 
-            DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS.get(), Ashenwheat.MODID);
+            DeferredRegister.create(Keys.LOOT_MODIFIER_SERIALIZERS, Ashenwheat.MODID);
     
     public static final RegistryObject<GlobalLootModifierSerializer<?>> seeds_from_grass = 
             LOOT_SERIALIZERS.register( "seeds_from_grass", () -> new GrassLootModifiers.GrassLootModifier.Serializer());

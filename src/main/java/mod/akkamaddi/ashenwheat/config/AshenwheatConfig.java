@@ -12,6 +12,8 @@ import mod.alexndr.simplecorelib.api.config.SimpleConfig;
  */
 public final class AshenwheatConfig extends SimpleConfig
 {
+    public static AshenwheatConfig INSTANCE = new AshenwheatConfig();
+    
 	// Client
 	public static boolean MakeAshenwheatFlame;
     public static boolean MakeAshenBalesFlame;
