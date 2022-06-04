@@ -35,6 +35,9 @@ public final class ClientModEventSubscriber
                 (layer) -> layer == RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.thunder_grass_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.rotten_crop.get(), 
+                (layer) -> layer == RenderType.cutoutMipped());
+        
     } // end onFMLClientSetupEvent()
     
 } // end class

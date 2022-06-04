@@ -5,9 +5,8 @@ import mod.akkamaddi.ashenwheat.loot.CobwebLootModifiers;
 import mod.akkamaddi.ashenwheat.loot.GrassLootModifiers;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries.Keys;
+import net.minecraftforge.registries.RegistryObject;
 
 /**
  * This is where we put other registries that don't fit under the usual categories.

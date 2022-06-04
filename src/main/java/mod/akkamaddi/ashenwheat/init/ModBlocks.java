@@ -5,6 +5,7 @@ import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
+import mod.akkamaddi.ashenwheat.content.RottenPlantBlock;
 import mod.alexndr.simplecorelib.api.helpers.LightUtils;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
@@ -111,9 +112,9 @@ public final class ModBlocks
                     .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
            
     // Rotten Plant (crop) blocks
-    public static final RegistryObject<ModCropsBlock> rotten_crop = BLOCKS.register("rotten_crop", 
-            ()-> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BROWN)
-                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
+    public static final RegistryObject<RottenPlantBlock> rotten_crop = BLOCKS.register("rotten_crop", 
+            ()-> new RottenPlantBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BROWN)
+                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.GRASS)));
     
     // Enderclam blocks
     public static final RegistryObject<Block> ender_clam = BLOCKS.register("ender_clam", 

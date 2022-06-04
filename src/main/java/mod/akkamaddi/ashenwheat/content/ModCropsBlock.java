@@ -70,8 +70,10 @@ public class ModCropsBlock extends CropBlock
         {
             return ModItems.thunder_seeds.get();
         }
-        // TODO add flax seed.
-        // TODO add rotten seed.
+        else if (this == ModBlocks.flax_crop.get())
+        {
+            return ModItems.flax_seed.get();
+        }
         return super.getBaseSeedId();
     } // getSeedsItems
 
@@ -158,7 +160,9 @@ public class ModCropsBlock extends CropBlock
         }
     } // end animateTick()
 
-    
+    /**
+     * randomTick(), formerly just tick(), is the server-side tick that controls crop growth, etc.
+     */
     @SuppressWarnings("deprecation")
     @Override
     public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand)
@@ -167,20 +171,34 @@ public class ModCropsBlock extends CropBlock
                                                    // light
         if (worldIn.getRawBrightness(pos, 0) >= 9)
         {
-            int i = this.getAge(state);
-            if (i < this.getMaxAge())
-            {
-                float f = getModGrowthChance(this, worldIn, pos, min_f);
-                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,
-                        rand.nextInt((int) (fertility_factor / f ) + 1) == 0))
-                {
-                    worldIn.setBlock(pos, this.getStateForAge(i + 1), 2);
-                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
-                }
-            } // end-if < max age
+            standardGrowthTick(state, worldIn, pos, rand);
         } // end-if light >= 9
-    } // end tick()
+        // else do nothing because super.randomTick() calls the vanilla growth algorithm.
+    } // end randomTick()
 
+    /**
+     * Called by randomTick(); contains growth calculation common to different options in randomTick();
+     * @param state
+     * @param worldIn
+     * @param pos
+     * @param rand
+     */
+    protected void standardGrowthTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand)
+    {
+        int i = this.getAge(state);
+        if (i < this.getMaxAge())
+        {
+            float f = getModGrowthChance(this, worldIn, pos, min_f);
+            if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,
+                    rand.nextInt((int) (fertility_factor / f ) + 1) == 0))
+            {
+                worldIn.setBlock(pos, this.getStateForAge(i + 1), 2);
+                net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+            }
+        } // end-if < max age
+    } // end standardGrowthTick()
+    
+    
     /**
      * 
      * @param blockIn
