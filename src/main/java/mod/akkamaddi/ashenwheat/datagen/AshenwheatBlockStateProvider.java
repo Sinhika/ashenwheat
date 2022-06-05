@@ -50,9 +50,9 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
             rp_models.add(this.models().crop("rottenplant_0" + ii, new ResourceLocation(Ashenwheat.MODID, "block/rottenplant_0" + ii)));
         } // end-for
         this.getVariantBuilder(ModBlocks.rotten_crop.get())
-                .partialState().with(RottenPlantBlock.AGE, 0).addModels(new ConfiguredModel(rp_models.get(0)))
-                .partialState().with(RottenPlantBlock.AGE, 1).addModels(new ConfiguredModel(rp_models.get(0)))
-                .partialState().with(RottenPlantBlock.AGE, 2).addModels(new ConfiguredModel(rp_models.get(1)));
+                .partialState().with(RottenPlantBlock.ROTTEN_AGE, 0).addModels(new ConfiguredModel(rp_models.get(0)))
+                .partialState().with(RottenPlantBlock.ROTTEN_AGE, 1).addModels(new ConfiguredModel(rp_models.get(0)))
+                .partialState().with(RottenPlantBlock.ROTTEN_AGE, 2).addModels(new ConfiguredModel(rp_models.get(1)));
         
         // TODO flax
     } // end registerCropBlocks

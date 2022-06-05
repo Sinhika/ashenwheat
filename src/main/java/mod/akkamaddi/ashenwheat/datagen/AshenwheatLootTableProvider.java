@@ -58,10 +58,10 @@ public class AshenwheatLootTableProvider extends BlockLootTableProvider
                     .withPool(createCropDrops(cropBlock, primary_drop, max_primary, seed_item, max_seeds, max_age)));
     } // end CropDropTable()
     
-    protected static LootPool.Builder createCropDrops(Block cb, Item primary_drop, int max_primary, 
+    protected static LootPool.Builder createCropDrops(ModCropsBlock cb, Item primary_drop, int max_primary, 
                                                       ItemNameBlockItem seed_item, int max_seeds, int max_age)
     {
-        IntegerProperty prop = (cb instanceof RottenPlantBlock) ? RottenPlantBlock.AGE : CropBlock.AGE;
+        IntegerProperty prop = cb.getAgeProperty();
         
          LootPoolEntryContainer.Builder<?> builder = LootItem.lootTableItem(primary_drop)
                  .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, max_primary)))

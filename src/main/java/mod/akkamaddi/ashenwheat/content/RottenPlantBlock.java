@@ -10,6 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -19,10 +20,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class RottenPlantBlock extends ModCropsBlock
 {
-    @SuppressWarnings("hiding")
-    public static final int MAX_AGE = 2;
-    @SuppressWarnings("hiding")
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_2;
+    public static final int ROTTEN_MAX_AGE = 2;
+    public static final IntegerProperty ROTTEN_AGE = BlockStateProperties.AGE_2;
     
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] { 
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
@@ -32,8 +31,6 @@ public class RottenPlantBlock extends ModCropsBlock
     public RottenPlantBlock(Properties builder)
     {
         super(builder);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
-
     }
 
     @Override
@@ -45,9 +42,15 @@ public class RottenPlantBlock extends ModCropsBlock
     @Override
     public int getMaxAge()
     {
-        return RottenPlantBlock.MAX_AGE;
+        return RottenPlantBlock.ROTTEN_MAX_AGE;
     }
 
+
+    @Override
+    public IntegerProperty getAgeProperty()
+    {
+        return RottenPlantBlock.ROTTEN_AGE;
+    }
 
     @Override
     public PlantType getPlantType(BlockGetter level, BlockPos pos)
@@ -78,5 +81,10 @@ public class RottenPlantBlock extends ModCropsBlock
         return ModItems.rotten_seeds.get();
     }
     
-    
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) 
+    {
+        pBuilder.add(ROTTEN_AGE);
+    }
+
 } // end-class

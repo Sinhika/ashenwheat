@@ -14,3 +14,4 @@ build.number
 bin/
 .gradle/
 .*.swp
+src/generated/resources/.cache/
