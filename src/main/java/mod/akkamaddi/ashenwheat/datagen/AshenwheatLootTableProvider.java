@@ -8,7 +8,6 @@ import java.util.function.Supplier;
 import com.mojang.datafixers.util.Pair;
 
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
-import mod.akkamaddi.ashenwheat.content.RottenPlantBlock;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
 import mod.alexndr.simplecorelib.api.datagen.BlockLootTableProvider;
@@ -18,8 +17,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
