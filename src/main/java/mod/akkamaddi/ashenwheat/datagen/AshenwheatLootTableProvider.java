@@ -44,6 +44,7 @@ public class AshenwheatLootTableProvider extends BlockLootTableProvider
         tables.clear();
         specialDropTable(ModBlocks.buried_remains.get(), Items.ROTTEN_FLESH);
         cropDropTable(ModBlocks.rotten_crop.get(), Items.ROTTEN_FLESH, 1, ModItems.rotten_seeds.get(), 1, 2);
+        cropDropTable(ModBlocks.flax_crop.get(), ModItems.flax_fibre.get(), 3, ModItems.flax_seed.get(), 2, 7);
         return tables;
     }
 

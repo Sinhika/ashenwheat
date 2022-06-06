@@ -47,6 +47,7 @@ public final class ConfigHelper
 	    AshenwheatConfig.EnablePeacefulPack = ConfigHolder.SERVER.serverEnablePeacefulPack.get();
 	    AshenwheatConfig.GenerateBlazeTrees = ConfigHolder.SERVER.serverGenerateBlazeTrees.get();
 	    AshenwheatConfig.GenerateFlax = ConfigHolder.SERVER.serverGenerateFlax.get();
+	    AshenwheatConfig.INSTANCE.putFlag("flax_recipes_enabled", AshenwheatConfig.GenerateFlax);
 	    AshenwheatConfig.GenerateRottenPlants = ConfigHolder.SERVER.serverGenerateRottenPlants.get();
 	    AshenwheatConfig.GenerateEnderClams = ConfigHolder.SERVER.serverGenerateEnderClams.get();
 	    AshenwheatConfig.EnableSpiderEyeDrops = ConfigHolder.SERVER.serverEnableSpiderEyeDrops.get();

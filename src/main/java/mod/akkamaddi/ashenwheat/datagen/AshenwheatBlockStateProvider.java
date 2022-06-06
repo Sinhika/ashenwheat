@@ -9,6 +9,7 @@ import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.alexndr.simplecorelib.api.datagen.SimpleBlockStateProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -55,6 +56,21 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
                 .partialState().with(RottenPlantBlock.ROTTEN_AGE, 2).addModels(new ConfiguredModel(rp_models.get(1)));
         
         // TODO flax
+        List<ModelFile> flax_models = new ArrayList<ModelFile>(3);
+        for (int ii=0; ii < 3; ii++)
+        {
+            flax_models.add(this.models().crop("flax_0" + ii, new ResourceLocation(Ashenwheat.MODID, "block/flax_0" + ii)));
+        } // end-for
+        this.getVariantBuilder(ModBlocks.flax_crop.get())
+            .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(flax_models.get(0)))
+            .partialState().with(CropBlock.AGE, 1).addModels(new ConfiguredModel(flax_models.get(0)))
+            .partialState().with(CropBlock.AGE, 2).addModels(new ConfiguredModel(flax_models.get(0)))
+            .partialState().with(CropBlock.AGE, 3).addModels(new ConfiguredModel(flax_models.get(1)))
+            .partialState().with(CropBlock.AGE, 4).addModels(new ConfiguredModel(flax_models.get(1)))
+            .partialState().with(CropBlock.AGE, 5).addModels(new ConfiguredModel(flax_models.get(1)))
+            .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(flax_models.get(1)))
+            .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(flax_models.get(2)));
+
     } // end registerCropBlocks
     
  

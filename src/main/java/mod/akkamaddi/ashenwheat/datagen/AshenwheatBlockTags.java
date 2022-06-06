@@ -56,6 +56,8 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.flax_crop.get())
             .add(ModBlocks.ossid_root_crop.get())
             .add(ModBlocks.scintilla_wheat_crop.get())
-            .add(ModBlocks.thunder_grass_crop.get());
+            .add(ModBlocks.thunder_grass_crop.get())
+            .add(ModBlocks.rotten_crop.get())
+            .add(ModBlocks.flax_crop.get());
     }
 } // end class
