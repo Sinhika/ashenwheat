@@ -3,9 +3,7 @@ package mod.akkamaddi.ashenwheat.content;
 import java.util.Random;
 
 import mod.akkamaddi.ashenwheat.init.ModItems;
-import mod.alexndr.simplecorelib.api.helpers.TagUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
@@ -18,9 +16,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class RottenPlantBlock extends ModCropsBlock
 {
@@ -35,6 +31,7 @@ public class RottenPlantBlock extends ModCropsBlock
     public RottenPlantBlock(Properties builder)
     {
         super(builder);
+        this.registerDefaultState(this.stateDefinition.any().setValue(ROTTEN_AGE, Integer.valueOf(0)));
     }
 
     @Override
@@ -73,17 +70,12 @@ public class RottenPlantBlock extends ModCropsBlock
     @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos)
     {
-        if (pState.is(BlockTags.BASE_STONE_OVERWORLD)) {
+        BlockPos blockpos = pPos.below();
+        BlockState blockstate = pLevel.getBlockState(blockpos);
+        if (blockstate.is(BlockTags.BASE_STONE_OVERWORLD)) {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing,
-            IPlantable plantable)
-    {
-        return this.mayPlaceOn(state, world, pos);
     }
 
     @Override

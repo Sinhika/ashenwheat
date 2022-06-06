@@ -52,11 +52,13 @@ public class AshenwheatLootTableProvider extends BlockLootTableProvider
     {
         blockTable(cropBlock, 
                 LootTable.lootTable()
-                    .withPool(createCropDrops(cropBlock, primary_drop, max_primary, seed_item, max_seeds, max_age)));
+                    .withPool(createCropDrops(cropBlock, primary_drop, max_primary, seed_item, max_age))
+                    .withPool(createSeedDrops(cropBlock, seed_item, max_seeds, max_age)));
     } // end CropDropTable()
     
+     
     protected static LootPool.Builder createCropDrops(ModCropsBlock cb, Item primary_drop, int max_primary, 
-                                                      ItemNameBlockItem seed_item, int max_seeds, int max_age)
+                                                      ItemNameBlockItem seed_item, int max_age)
     {
         IntegerProperty prop = cb.getAgeProperty();
         
@@ -68,14 +70,23 @@ public class AshenwheatLootTableProvider extends BlockLootTableProvider
                                  .hasProperty(prop, max_age)))
                  .otherwise(LootItem.lootTableItem(seed_item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))));
          
-         LootPoolEntryContainer.Builder<?> builder2 = LootItem.lootTableItem(seed_item)
-                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, max_seeds)))
-                 .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(cb)
-                         .setProperties(StatePropertiesPredicate.Builder.properties()
-                                 .hasProperty(prop, max_age)));
-                 
-         return LootPool.lootPool().add(builder).add(builder2);
+         return LootPool.lootPool().add(builder);
          
     } // end createCropDrops()
+    
+    protected static LootPool.Builder createSeedDrops(ModCropsBlock cb, ItemNameBlockItem seed_item, int max_seeds, int max_age)
+    {
+        IntegerProperty prop = cb.getAgeProperty();
+       LootPoolEntryContainer.Builder<?> builder2 = LootItem.lootTableItem(seed_item)
+                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, max_seeds)))
+                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(cb)
+                        .setProperties(StatePropertiesPredicate.Builder.properties()
+                                .hasProperty(prop, max_age)));
+                
+        return LootPool.lootPool().add(builder2);
+        
+    } // createSeedDrops()
+    
+
     
 } // end class
