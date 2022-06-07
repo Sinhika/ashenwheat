@@ -33,6 +33,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         
         registerTreeBlocks();
         registerCropBlocks();
+        registerMisc();
     } // end registerStatesAndModels
 
     // TODO tree blocks
@@ -41,7 +42,19 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         
     } // end registerTreeBlocks
     
-    // TODO crop blocks
+    // Ender clam
+    private void registerMisc()
+    {
+        ModelFile enderclam_model = this.models().orientableWithBottom("ender_clam", 
+                new ResourceLocation(Ashenwheat.MODID, "block/ender_clam_side"), 
+                new ResourceLocation(Ashenwheat.MODID, "block/ender_clam_front"), 
+                new ResourceLocation(Ashenwheat.MODID, "block/ender_clam_bottom"),
+                new ResourceLocation(Ashenwheat.MODID, "block/ender_clam_top"));
+        this.horizontalBlock(ModBlocks.ender_clam.get(), enderclam_model);
+        this.itemModels().withExistingParent("ender_clam", new ResourceLocation(Ashenwheat.MODID, "block/ender_clam"));
+    }
+    
+    // crop blocks
     private void registerCropBlocks()
     {
         // rotten plant/crop

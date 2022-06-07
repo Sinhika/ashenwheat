@@ -2,6 +2,7 @@ package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
+import mod.akkamaddi.ashenwheat.content.EnderClamBlock;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
@@ -117,8 +118,8 @@ public final class ModBlocks
                     .noCollission().randomTicks().strength(0.0F).sound(SoundType.GRASS)));
     
     // Enderclam blocks
-    public static final RegistryObject<Block> ender_clam = BLOCKS.register("ender_clam", 
-            () -> new Block(BlockBehaviour.Properties.of(Material.SHULKER_SHELL, MaterialColor.COLOR_CYAN)
+    public static final RegistryObject<EnderClamBlock> ender_clam = BLOCKS.register("ender_clam", 
+            () -> new EnderClamBlock(BlockBehaviour.Properties.of(Material.SHULKER_SHELL, MaterialColor.COLOR_CYAN)
                     .strength(3.0F).sound(SoundType.CORAL_BLOCK)));
     
     // Buried Remains blocks
