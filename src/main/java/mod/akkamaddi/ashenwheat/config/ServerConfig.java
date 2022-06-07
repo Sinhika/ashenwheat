@@ -22,6 +22,8 @@ final class ServerConfig
     final ForgeConfigSpec.IntValue server_relWeightScintillaSeeds;
     final ForgeConfigSpec.IntValue server_relWeightOssidSeeds;
     final ForgeConfigSpec.IntValue server_relWeightThunderSeeds;
+    final ForgeConfigSpec.IntValue server_relWeightFlaxSeeds;
+    final ForgeConfigSpec.IntValue server_relWeightRottenSeeds;
     final ForgeConfigSpec.DoubleValue serverGrowthRateAshenWheat;
     final ForgeConfigSpec.DoubleValue serverGrowthRateScintillaWheat; 
     final ForgeConfigSpec.DoubleValue serverGrowthRateOssidRoot;
@@ -112,9 +114,15 @@ final class ServerConfig
         serverGenerateFlax = builder.comment("Generate Flax in the Overworld - NOT AVAILABLE YET")
                 .translation(Ashenwheat.MODID + "config.serverGenerateFlax")
                 .define("generateFlax", false);
+        server_relWeightFlaxSeeds = builder.comment("Relative weight of flax seeds in grass drops")
+                .translation(Ashenwheat.MODID + "config.server_relWeightFlaxSeed")
+                .defineInRange("relWeightFlaxSeeds", 4, 0, 100);
         serverGenerateRottenPlants = builder.comment("Generate Rotten Plantes in caves - NOT AVAILABLE YET")
                 .translation(Ashenwheat.MODID + "config.serverGenerateRottenPlants")
                 .define("generateRottenPlants", false);
+        server_relWeightRottenSeeds = builder.comment("Relative weight of rotten seeds in grass drops")
+                .translation(Ashenwheat.MODID + "config.server_relWeightRottenSeeds")
+                .defineInRange("relWeightRottenSeeds", 2, 0, 100);
         serverGenerateEnderClams = builder.comment("Generate Ender Clams in the ocean - NOT AVAILABLE YET")
                 .translation(Ashenwheat.MODID + "config.serverGenerateEnderClams")
                 .define("generateEnderClams", false);
