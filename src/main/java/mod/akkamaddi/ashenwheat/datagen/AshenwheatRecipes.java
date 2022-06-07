@@ -122,6 +122,11 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
             .unlockedBy("has_item", has(ModItems.cloth.get()))
             .save(consumer, "ashenwheat:white_wool_from_cloth");
             
+        ShapelessRecipeBuilder.shapeless(Items.BOOK)
+            .requires(Items.PAPER, 3)
+            .requires(ModItems.cloth.get())
+            .unlockedBy("has_item", has(ModItems.cloth.get()))
+            .save(consumer, "ashenwheat:book_from_cloth");
     } // end regiserMiscRecipes()
 
     @Override
