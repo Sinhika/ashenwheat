@@ -120,7 +120,7 @@ public final class ModBlocks
     // Enderclam blocks
     public static final RegistryObject<EnderClamBlock> ender_clam = BLOCKS.register("ender_clam", 
             () -> new EnderClamBlock(BlockBehaviour.Properties.of(Material.SHULKER_SHELL, MaterialColor.COLOR_CYAN)
-                    .strength(3.0F).sound(SoundType.CORAL_BLOCK)));
+                    .strength(3.0F).sound(SoundType.CORAL_BLOCK).requiresCorrectToolForDrops()));
     
     // Buried Remains blocks
     public static final RegistryObject<OreBlock> buried_remains = BLOCKS.register("buried_remains",
