@@ -38,19 +38,21 @@ public final class AshenwheatConfig extends SimpleConfig
     public static int relWeightScintillaSeeds = 3;
     public static int relWeightOssidSeeds = 5;
     public static int relWeightThunderSeeds = 4;
-
+    public static int relWeightFlaxSeeds = 4;
+    public static int relWeightRottenSeed = 2;
+    
     public static float growthRateAshenWheat = 0.96F;  // compared to wheat = 1.0
     public static float growthRateScintillaWheat = 0.83F; 
     public static float growthRateOssidRoot = 0.89F;
     public static float growthRateThunderGrass = 0.5F; // but doesn't mind having neighbors...
     public static float neighborFactorThunderGrass = 5.0F; // wheat = 1.0F
     
-    public static boolean EnablePeacefulPack;
-    public static boolean GenerateBlazeTrees;
-    public static boolean GenerateFlax;
-    public static boolean GenerateRottenPlants;
-    public static boolean GenerateEnderClams;
-    public static boolean EnableSpiderEyeDrops;
+    public static boolean EnablePeacefulPack = false;
+    public static boolean GenerateBlazeTrees = false;
+    public static boolean GenerateFlax = false;
+    public static boolean GenerateRottenPlants = false;
+    public static boolean GenerateEnderClams = false;
+    public static boolean EnableSpiderEyeDrops = false;
     public static float SpiderEyeDropChance = 1.0F;
     
 } // end class

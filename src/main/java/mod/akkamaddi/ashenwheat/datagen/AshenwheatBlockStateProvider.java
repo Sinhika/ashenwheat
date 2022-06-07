@@ -39,7 +39,20 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
     // TODO tree blocks
     private void registerTreeBlocks()
     {
+        // blaze_leaves
+        ModelFile leaves = this.models().cubeAll("blaze_leaves", new ResourceLocation(Ashenwheat.MODID, "block/blaze_leaves"));
+        this.simpleBlock(ModBlocks.blaze_leaves.get(), new ConfiguredModel(leaves));
+        this.itemModels().withExistingParent("blaze_leaves", new ResourceLocation(Ashenwheat.MODID, "block/blaze_leaves"));
+
+        // blaze log
+        this.logBlock(ModBlocks.blaze_log.get());
+        this.itemModels().withExistingParent("blaze_log", new ResourceLocation(Ashenwheat.MODID, "block/blaze_log"));
         
+        // blaze_wood - a block covered in bark on all sides.
+        // stripped_blaze_log - a log with no bark.
+        // stripped_blaze_wood 
+        // blaze_planks
+        // blaze_sapling
     } // end registerTreeBlocks
     
     // Ender clam

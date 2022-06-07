@@ -98,7 +98,7 @@ public final class ModBlocks
                     .strength(2.0F).sound(SoundType.WOOD)));
     
     // sapling
-    public static final RegistryObject<SaplingBlock> blaze_sapling_block = BLOCKS.register("blaze_sapling_block", 
+    public static final RegistryObject<SaplingBlock> blaze_sapling = BLOCKS.register("blaze_sapling", 
             () -> new SaplingBlock(new BlazeTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission()
                     .randomTicks().instabreak().sound(SoundType.GRASS)));
     
