@@ -7,15 +7,21 @@ import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModItems;
 import mod.alexndr.simplecorelib.api.datagen.ISimpleConditionBuilder;
 import mod.alexndr.simplecorelib.api.datagen.RecipeSetBuilder;
+import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class AshenwheatRecipes extends RecipeProvider implements IConditionBuilder, ISimpleConditionBuilder
 {
@@ -35,11 +41,63 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
         registerArmorRecipes(consumer);
     }
 
+    /**
+     * Setbuilder.buildSimpleArmorSet() isn't set up to handle vanilla armor outputs, so we 
+     * cut & paste the contents and adapt it. 
+     *        setbuilder.buildSimpleArmorSet(consumer, Ingredient.of(ModItems.cloth.get()), "leather",
+     *          has(ModItems.cloth.get()), flag("flax_recipes_enabled"));
+     *
+     * @param consumer
+     */
     private void registerArmorRecipes(Consumer<FinishedRecipe> consumer)
     {
-        setbuilder.buildSimpleArmorSet(consumer, Ingredient.of(ModItems.cloth.get()), "leather",
-                has(ModItems.cloth.get()), flag("flax_recipes_enabled"));
-    }
+        CriterionTriggerInstance criterion = has(ModItems.cloth.get());
+        Ingredient item = Ingredient.of(ModItems.cloth.get());
+        
+        ResourceLocation helmet_name = new ResourceLocation("minecraft", "leather_helmet");
+        ResourceLocation chestplate_name = new ResourceLocation("minecraft", "leather_chestplate");
+        ResourceLocation leggings_name = new ResourceLocation("minecraft", "leather_leggings");
+        ResourceLocation boots_name = new ResourceLocation("minecraft", "leather_boots");
+        
+        ResourceLocation helmet_recipe = new ResourceLocation(Ashenwheat.MODID, helmet_name.getPath() + "_from_cloth");
+        ResourceLocation chestplate_recipe = new ResourceLocation(Ashenwheat.MODID, chestplate_name.getPath() + "_from_cloth");
+        ResourceLocation leggings_recipe = new ResourceLocation(Ashenwheat.MODID, leggings_name.getPath() + "_from_cloth");
+        ResourceLocation boots_recipe = new ResourceLocation(Ashenwheat.MODID, boots_name.getPath() + "_from_cloth");
+        
+        Item helmet = ForgeRegistries.ITEMS.getValue(helmet_name);
+        Item chestplate = ForgeRegistries.ITEMS.getValue(chestplate_name);
+        Item leggings = ForgeRegistries.ITEMS.getValue(leggings_name);
+        Item boots = ForgeRegistries.ITEMS.getValue(boots_name);
+
+        ShapedRecipeBuilder.shaped(helmet)
+        .define('S', item)
+        .pattern("SSS")
+        .pattern("S S")
+        .pattern("   ")
+        .unlockedBy("has_item", criterion)
+        .save(consumer, helmet_recipe);
+    ShapedRecipeBuilder.shaped(chestplate)
+        .define('S',item)
+        .pattern("S S")
+        .pattern("SSS")
+        .pattern("SSS")
+        .unlockedBy("has_item", criterion)
+        .save(consumer, chestplate_recipe);
+    ShapedRecipeBuilder.shaped(leggings)
+        .define('S', item)
+        .pattern("SSS")
+        .pattern("S S")
+        .pattern("S S")
+        .unlockedBy("has_item", criterion)
+        .save(consumer, leggings_recipe);
+    ShapedRecipeBuilder.shaped(boots)
+        .define('S', item)
+        .pattern("   ")
+        .pattern("S S")
+        .pattern("S S")
+        .unlockedBy("has_item", criterion)
+        .save(consumer, boots_recipe);
+    } // end registerArmorRecipes()
     
     private void regiserMiscRecipes(Consumer<FinishedRecipe> consumer)
     {

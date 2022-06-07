@@ -38,6 +38,8 @@ public final class ClientModEventSubscriber
                 (layer) -> layer == RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.rotten_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.flax_crop.get(), 
+                (layer) -> layer == RenderType.cutoutMipped());
         
     } // end onFMLClientSetupEvent()
     
