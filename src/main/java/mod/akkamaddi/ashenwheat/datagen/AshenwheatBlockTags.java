@@ -59,7 +59,7 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.blaze_leaves.get());
         
         this.tag(TagUtils.modBlockTag("minecraft", "saplings"))
-            .add(ModBlocks.blaze_sapling_block.get());
+            .add(ModBlocks.blaze_sapling.get());
         
         this.tag(TagUtils.modBlockTag("minecraft", "logs"))
             .addTag(TagUtils.modBlockTag(Ashenwheat.MODID, "blaze_logs"));
