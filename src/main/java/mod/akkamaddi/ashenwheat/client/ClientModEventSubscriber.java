@@ -42,6 +42,8 @@ public final class ClientModEventSubscriber
                 (layer) -> layer == RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.blaze_leaves.get(),
                 (layer) -> layer == RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.blaze_sapling.get(),
+                (layer) -> layer == RenderType.cutoutMipped());
     } // end onFMLClientSetupEvent()
     
 } // end class

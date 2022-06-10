@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
+import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
 import mod.alexndr.simplecorelib.api.datagen.ISimpleConditionBuilder;
 import mod.alexndr.simplecorelib.api.datagen.RecipeSetBuilder;
@@ -39,8 +40,21 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
     {
         regiserMiscRecipes(consumer);
         registerArmorRecipes(consumer);
+        registerWoodRecipes(consumer);
     }
 
+    private void registerWoodRecipes(Consumer<FinishedRecipe> consumer)
+    {
+        // log -> planks
+        ShapelessRecipeBuilder.shapeless(ModBlocks.blaze_planks.get(), 4)
+            .requires(ModBlocks.blaze_log.get())
+            .unlockedBy("has_item", has(ModBlocks.blaze_log.get()))
+            .save(consumer);
+                    
+        // TODO
+    } // end registerWoodRecipes
+    
+    
     /**
      * Setbuilder.buildSimpleArmorSet() isn't set up to handle vanilla armor outputs, so we 
      * cut & paste the contents and adapt it. 
@@ -70,33 +84,33 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
         Item boots = ForgeRegistries.ITEMS.getValue(boots_name);
 
         ShapedRecipeBuilder.shaped(helmet)
-        .define('S', item)
-        .pattern("SSS")
-        .pattern("S S")
-        .pattern("   ")
-        .unlockedBy("has_item", criterion)
-        .save(consumer, helmet_recipe);
-    ShapedRecipeBuilder.shaped(chestplate)
-        .define('S',item)
-        .pattern("S S")
-        .pattern("SSS")
-        .pattern("SSS")
-        .unlockedBy("has_item", criterion)
-        .save(consumer, chestplate_recipe);
-    ShapedRecipeBuilder.shaped(leggings)
-        .define('S', item)
-        .pattern("SSS")
-        .pattern("S S")
-        .pattern("S S")
-        .unlockedBy("has_item", criterion)
-        .save(consumer, leggings_recipe);
-    ShapedRecipeBuilder.shaped(boots)
-        .define('S', item)
-        .pattern("   ")
-        .pattern("S S")
-        .pattern("S S")
-        .unlockedBy("has_item", criterion)
-        .save(consumer, boots_recipe);
+            .define('S', item)
+            .pattern("SSS")
+            .pattern("S S")
+            .pattern("   ")
+            .unlockedBy("has_item", criterion)
+            .save(consumer, helmet_recipe);
+        ShapedRecipeBuilder.shaped(chestplate)
+            .define('S',item)
+            .pattern("S S")
+            .pattern("SSS")
+            .pattern("SSS")
+            .unlockedBy("has_item", criterion)
+            .save(consumer, chestplate_recipe);
+        ShapedRecipeBuilder.shaped(leggings)
+            .define('S', item)
+            .pattern("SSS")
+            .pattern("S S")
+            .pattern("S S")
+            .unlockedBy("has_item", criterion)
+            .save(consumer, leggings_recipe);
+        ShapedRecipeBuilder.shaped(boots)
+            .define('S', item)
+            .pattern("   ")
+            .pattern("S S")
+            .pattern("S S")
+            .unlockedBy("has_item", criterion)
+            .save(consumer, boots_recipe);
     } // end registerArmorRecipes()
     
     private void regiserMiscRecipes(Consumer<FinishedRecipe> consumer)

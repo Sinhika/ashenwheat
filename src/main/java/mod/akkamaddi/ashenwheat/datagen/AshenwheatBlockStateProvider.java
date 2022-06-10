@@ -59,9 +59,9 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         this.itemModels().withExistingParent("stripped_blaze_wood", modLoc("block/stripped_blaze_wood"));
         
         // blaze_planks
-        ModelFile planks = this.models().cubeAll("blaze_tree_planks", modLoc("block/blaze_tree_planks"));
+        ModelFile planks = this.models().cubeAll("blaze_planks", modLoc("block/blaze_planks"));
         this.simpleBlock(ModBlocks.blaze_planks.get(), planks);
-        this.itemModels().withExistingParent("blaze_tree_planks", modLoc("block/blaze_tree_planks"));
+        this.itemModels().withExistingParent("blaze_planks", modLoc("block/blaze_planks"));
         
         // blaze_sapling
         ModelFile sapling = this.models().cross("blaze_sapling", modLoc("block/blaze_sapling"));

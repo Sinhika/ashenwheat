@@ -42,10 +42,16 @@ public class AshenwheatLootTableProvider extends BlockLootTableProvider
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> getTables()
     {
         tables.clear();
+        standardDropTable(ModBlocks.blaze_log.get());
+        standardDropTable(ModBlocks.blaze_planks.get());
+        standardDropTable(ModBlocks.blaze_wood.get());
+        standardDropTable(ModBlocks.stripped_blaze_log.get());
+        standardDropTable(ModBlocks.stripped_blaze_wood.get());
         specialDropTable(ModBlocks.buried_remains.get(), Items.ROTTEN_FLESH);
         specialDropTable(ModBlocks.ender_clam.get(), Items.ENDER_PEARL);
         cropDropTable(ModBlocks.rotten_crop.get(), Items.ROTTEN_FLESH, 1, ModItems.rotten_seeds.get(), 1, 2);
         cropDropTable(ModBlocks.flax_crop.get(), ModItems.flax_fibre.get(), 3, ModItems.flax_seed.get(), 2, 7);
+        // TODO loot for blaze_leaves.
         return tables;
     }
 
