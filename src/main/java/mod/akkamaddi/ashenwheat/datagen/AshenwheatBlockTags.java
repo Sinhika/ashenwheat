@@ -149,7 +149,7 @@ public class AshenwheatBlockTags extends MiningBlockTags
             TagsProvider.TagAppender<Block> netherite = this.tag(TagUtils.forgeBlockTag("needs_netherite_tool"));
             netherite_blocks.stream().forEach(b -> netherite.add(b));
         }
-    } // end registerAxeableTags()
+    } // end registerShovelableTags()
     
     
 } // end class

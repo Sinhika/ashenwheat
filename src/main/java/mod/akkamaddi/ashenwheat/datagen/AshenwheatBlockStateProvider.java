@@ -8,7 +8,6 @@ import mod.akkamaddi.ashenwheat.content.RottenPlantBlock;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.alexndr.simplecorelib.api.datagen.SimpleBlockStateProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -26,9 +25,8 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
     protected void registerStatesAndModels()
     {
         // simple models & blockstates
-        ModelFile buriedRemainsModel = this.models().cubeAll("buried_remains", 
-                                            new ResourceLocation(Ashenwheat.MODID, "block/remains"));
-        this.itemModels().withExistingParent("buried_remains", new ResourceLocation(Ashenwheat.MODID, "block/buried_remains"));
+        ModelFile buriedRemainsModel = this.models().cubeAll("buried_remains", modLoc("block/remains"));
+        this.itemModels().withExistingParent("buried_remains", modLoc("block/buried_remains"));
         this.simpleBlock(ModBlocks.buried_remains.get(), new ConfiguredModel(buriedRemainsModel));
         
         registerTreeBlocks();
@@ -36,35 +34,51 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         registerMisc();
     } // end registerStatesAndModels
 
-    // TODO tree blocks
+    // tree blocks
     private void registerTreeBlocks()
     {
         // blaze_leaves
-        ModelFile leaves = this.models().cubeAll("blaze_leaves", new ResourceLocation(Ashenwheat.MODID, "block/blaze_leaves"));
-        this.simpleBlock(ModBlocks.blaze_leaves.get(), new ConfiguredModel(leaves));
-        this.itemModels().withExistingParent("blaze_leaves", new ResourceLocation(Ashenwheat.MODID, "block/blaze_leaves"));
+        ModelFile leaves = this.models().cubeAll("blaze_leaves", modLoc("block/blaze_leaves"));
+        this.simpleBlock(ModBlocks.blaze_leaves.get(), leaves);
+        this.itemModels().withExistingParent("blaze_leaves", modLoc("block/blaze_leaves"));
 
         // blaze log
         this.logBlock(ModBlocks.blaze_log.get());
-        this.itemModels().withExistingParent("blaze_log", new ResourceLocation(Ashenwheat.MODID, "block/blaze_log"));
+        this.itemModels().withExistingParent("blaze_log", modLoc("block/blaze_log"));
         
         // blaze_wood - a block covered in bark on all sides.
+        this.axisBlock(ModBlocks.blaze_wood.get(), modLoc("block/blaze_log"), modLoc("block/blaze_log"));
+        this.itemModels().withExistingParent("blaze_wood", modLoc("block/blaze_wood"));
+       
         // stripped_blaze_log - a log with no bark.
+        this.logBlock(ModBlocks.stripped_blaze_log.get());
+        this.itemModels().withExistingParent("stripped_blaze_log", modLoc("block/stripped_blaze_log"));
+        
         // stripped_blaze_wood 
+        this.axisBlock(ModBlocks.stripped_blaze_wood.get(), modLoc("block/stripped_blaze_log"), modLoc("block/stripped_blaze_log"));
+        this.itemModels().withExistingParent("stripped_blaze_wood", modLoc("block/stripped_blaze_wood"));
+        
         // blaze_planks
+        ModelFile planks = this.models().cubeAll("blaze_tree_planks", modLoc("block/blaze_tree_planks"));
+        this.simpleBlock(ModBlocks.blaze_planks.get(), planks);
+        this.itemModels().withExistingParent("blaze_tree_planks", modLoc("block/blaze_tree_planks"));
+        
         // blaze_sapling
+        ModelFile sapling = this.models().cross("blaze_sapling", modLoc("block/blaze_sapling"));
+        this.simpleBlock(ModBlocks.blaze_sapling.get(), sapling);
+        // sapling item model handled elsewhere.
     } // end registerTreeBlocks
     
     // Ender clam
     private void registerMisc()
     {
         ModelFile enderclam_model = this.models().orientableWithBottom("ender_clam", 
-                new ResourceLocation(Ashenwheat.MODID, "block/ender_clam_side"), 
-                new ResourceLocation(Ashenwheat.MODID, "block/ender_clam_front"), 
-                new ResourceLocation(Ashenwheat.MODID, "block/ender_clam_bottom"),
-                new ResourceLocation(Ashenwheat.MODID, "block/ender_clam_top"));
+                modLoc("block/ender_clam_side"), 
+                modLoc("block/ender_clam_front"), 
+                modLoc("block/ender_clam_bottom"),
+                modLoc("block/ender_clam_top"));
         this.horizontalBlock(ModBlocks.ender_clam.get(), enderclam_model);
-        this.itemModels().withExistingParent("ender_clam", new ResourceLocation(Ashenwheat.MODID, "block/ender_clam"));
+        this.itemModels().withExistingParent("ender_clam", modLoc("block/ender_clam"));
     }
     
     // crop blocks
@@ -74,7 +88,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         List<ModelFile> rp_models = new ArrayList<ModelFile>(2);
         for (int ii=0; ii < 2; ii ++)
         {
-            rp_models.add(this.models().crop("rottenplant_0" + ii, new ResourceLocation(Ashenwheat.MODID, "block/rottenplant_0" + ii)));
+            rp_models.add(this.models().crop("rottenplant_0" + ii, modLoc("block/rottenplant_0" + ii)));
         } // end-for
         this.getVariantBuilder(ModBlocks.rotten_crop.get())
                 .partialState().with(RottenPlantBlock.ROTTEN_AGE, 0).addModels(new ConfiguredModel(rp_models.get(0)))
@@ -85,7 +99,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         List<ModelFile> flax_models = new ArrayList<ModelFile>(3);
         for (int ii=0; ii < 3; ii++)
         {
-            flax_models.add(this.models().crop("flax_0" + ii, new ResourceLocation(Ashenwheat.MODID, "block/flax_0" + ii)));
+            flax_models.add(this.models().crop("flax_0" + ii, modLoc("block/flax_0" + ii)));
         } // end-for
         this.getVariantBuilder(ModBlocks.flax_crop.get())
             .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(flax_models.get(0)))
