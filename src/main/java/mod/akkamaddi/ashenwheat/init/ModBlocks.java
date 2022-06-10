@@ -1,6 +1,8 @@
 package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
+import mod.akkamaddi.ashenwheat.content.BlazeLogBlock;
+import mod.akkamaddi.ashenwheat.content.BlazeWoodBlock;
 import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
 import mod.akkamaddi.ashenwheat.content.EnderClamBlock;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
@@ -79,14 +81,14 @@ public final class ModBlocks
             () -> new LeavesBlock(Block.Properties.of(Material.LEAVES, MaterialColor.COLOR_YELLOW).strength(0.2F).randomTicks()
                     .noOcclusion().sound(SoundType.GRASS).isSuffocating((a,b,c)->{return false;}).isViewBlocking((a,b,c)->{return false;})            
                     .lightLevel(LightUtils.setFixedLight(10))));
-    public static final RegistryObject<RotatedPillarBlock> blaze_log = BLOCKS.register("blaze_log", 
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, (a ) -> {
+    public static final RegistryObject<BlazeLogBlock> blaze_log = BLOCKS.register("blaze_log", 
+            () -> new BlazeLogBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, (a ) -> {
                 return a.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MaterialColor.COLOR_YELLOW : MaterialColor.PODZOL;
             }).strength(2.0F).sound(SoundType.WOOD)));
     
     // blaze WOOD - a block covered in bark on all sides.
-    public static final RegistryObject<RotatedPillarBlock> blaze_wood = BLOCKS.register("blaze_wood",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.PODZOL)
+    public static final RegistryObject<BlazeWoodBlock> blaze_wood = BLOCKS.register("blaze_wood",
+            () -> new BlazeWoodBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.PODZOL)
                     .strength(2.0F).sound(SoundType.WOOD)));
     // stripped blaze log - a log with no bark.
     public static final RegistryObject<RotatedPillarBlock> stripped_blaze_log = BLOCKS.register("stripped_blaze_log", 
