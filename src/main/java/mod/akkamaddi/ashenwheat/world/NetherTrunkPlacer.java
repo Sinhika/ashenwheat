@@ -1,4 +1,4 @@
-package mod.akkamaddi.ashenwheat.init;
+package mod.akkamaddi.ashenwheat.world;
 
 import java.util.List;
 import java.util.Random;

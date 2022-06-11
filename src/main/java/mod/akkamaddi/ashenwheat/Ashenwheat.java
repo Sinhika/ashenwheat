@@ -31,6 +31,8 @@ public final class Ashenwheat
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModFeatures.CONFIGURED_FEATURES.register(modEventBus);
+        ModFeatures.PLACED_FEATURES.register(modEventBus);
+        
         ModOtherRegistry.LOOT_SERIALIZERS.register(modEventBus);
         
         // Register Configs (Does not need to be after Deferred Registers)

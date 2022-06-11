@@ -1,7 +1,8 @@
-package mod.akkamaddi.ashenwheat.init;
+package mod.akkamaddi.ashenwheat.world;
 
 import java.util.Random;
 
+import mod.akkamaddi.ashenwheat.init.ModFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;

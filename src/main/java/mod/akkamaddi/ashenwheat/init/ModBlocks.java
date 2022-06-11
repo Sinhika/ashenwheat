@@ -10,6 +10,7 @@ import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
 import mod.akkamaddi.ashenwheat.content.RottenPlantBlock;
+import mod.akkamaddi.ashenwheat.world.BlazeTreeGrower;
 import mod.alexndr.simplecorelib.api.helpers.LightUtils;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
