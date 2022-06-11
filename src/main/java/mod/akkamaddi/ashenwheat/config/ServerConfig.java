@@ -108,7 +108,7 @@ final class ServerConfig
         
         // imports from Wuppy29's old Peaceful Pack mod.
         builder.push("Wuppy29's Peaceful Pack");
-        serverGenerateBlazeTrees = builder.comment("Generate Blaze Trees in the Nether - NOT AVAILABLE YET")
+        serverGenerateBlazeTrees = builder.comment("Generate Blaze Trees in the Nether")
                 .translation(Ashenwheat.MODID + "config.serverGenerateBlazeTrees")
                 .define("generateBlazeTrees", false);
         serverGenerateFlax = builder.comment("Generate Flax in the Overworld - NOT AVAILABLE YET")

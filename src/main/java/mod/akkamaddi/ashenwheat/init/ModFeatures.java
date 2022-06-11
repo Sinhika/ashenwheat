@@ -18,8 +18,10 @@ import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSi
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.CountOnEveryLayerPlacement;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -53,7 +55,8 @@ public class ModFeatures
      // equivalent of a VegetationPlacements or NetherPlacements entry.
      public static RegistryObject<PlacedFeature> TREES_BLAZEWOOD = 
              PLACED_FEATURES.register("trees_blazewood", 
-                     ()->createPlacedVegetationFeature(BLAZE_TREES.getHolder().get(), List.of(CountOnEveryLayerPlacement.of(5))));
+                     ()->createPlacedVegetationFeature(BLAZE_TREES.getHolder().get(), 
+                             List.of( CountOnEveryLayerPlacement.of(4))));
 
     
      /** STATIC HELPER METHODS **/

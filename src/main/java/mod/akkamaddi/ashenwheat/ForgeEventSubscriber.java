@@ -34,7 +34,7 @@ public final class ForgeEventSubscriber
     {
         if (evt.getCategory() == Biome.BiomeCategory.NETHER)
         {
-            if (AshenwheatConfig.GenerateBlazeTrees)
+            if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateBlazeTrees)
             {
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.TREES_BLAZEWOOD.getHolder().get());
             }
