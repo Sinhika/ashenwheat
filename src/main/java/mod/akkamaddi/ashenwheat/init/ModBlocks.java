@@ -75,7 +75,27 @@ public final class ModBlocks
     public static final RegistryObject<ModCropsBlock> thunder_grass_crop = BLOCKS.register("thunder_grass_crop", 
             () -> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_CYAN)
                     .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
- 
+
+    // Flax (crop) blocks
+    public static final RegistryObject<ModCropsBlock> flax_crop = BLOCKS.register("flax_crop", 
+            ()-> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE)
+                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
+           
+    // Rotten Plant (crop) blocks
+    public static final RegistryObject<RottenPlantBlock> rotten_crop = BLOCKS.register("rotten_crop", 
+            ()-> new RottenPlantBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BROWN)
+                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.GRASS)));
+    
+    // Enderclam blocks
+    public static final RegistryObject<EnderClamBlock> ender_clam = BLOCKS.register("ender_clam", 
+            () -> new EnderClamBlock(BlockBehaviour.Properties.of(Material.SHULKER_SHELL, MaterialColor.COLOR_CYAN)
+                    .strength(3.0F).sound(SoundType.CORAL_BLOCK).requiresCorrectToolForDrops()));
+    
+    // Buried Remains blocks
+    public static final RegistryObject<OreBlock> buried_remains = BLOCKS.register("buried_remains",
+            ()->new OreBlock(Block.Properties.of(Material.DIRT, MaterialColor.TERRACOTTA_RED)
+                    .strength(1.0F).sound(SoundType.SLIME_BLOCK)));
+
     // Blaze Tree blocks
     public static final RegistryObject<LeavesBlock> blaze_leaves = BLOCKS.register("blaze_leaves", 
             () -> new LeavesBlock(Block.Properties.of(Material.LEAVES, MaterialColor.COLOR_YELLOW).strength(0.2F).randomTicks()
@@ -109,23 +129,11 @@ public final class ModBlocks
             () -> new Block(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_YELLOW)
                     .strength(2.0F,3.0F).sound(SoundType.WOOD)));
     
-    // Flax (crop) blocks
-    public static final RegistryObject<ModCropsBlock> flax_crop = BLOCKS.register("flax_crop", 
-            ()-> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE)
-                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
-           
-    // Rotten Plant (crop) blocks
-    public static final RegistryObject<RottenPlantBlock> rotten_crop = BLOCKS.register("rotten_crop", 
-            ()-> new RottenPlantBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BROWN)
-                    .noCollission().randomTicks().strength(0.0F).sound(SoundType.GRASS)));
+    // blaze plank Aesthetic blocks
+    // TODO blazewood stairs
+    // TODO blazewood slabs
+    // TODO blazewood pressure plate
+    // TODO blazewood fence
+    // TODO blazewood door
     
-    // Enderclam blocks
-    public static final RegistryObject<EnderClamBlock> ender_clam = BLOCKS.register("ender_clam", 
-            () -> new EnderClamBlock(BlockBehaviour.Properties.of(Material.SHULKER_SHELL, MaterialColor.COLOR_CYAN)
-                    .strength(3.0F).sound(SoundType.CORAL_BLOCK).requiresCorrectToolForDrops()));
-    
-    // Buried Remains blocks
-    public static final RegistryObject<OreBlock> buried_remains = BLOCKS.register("buried_remains",
-            ()->new OreBlock(Block.Properties.of(Material.DIRT, MaterialColor.TERRACOTTA_RED)
-                    .strength(1.0F).sound(SoundType.SLIME_BLOCK)));
 } // end class

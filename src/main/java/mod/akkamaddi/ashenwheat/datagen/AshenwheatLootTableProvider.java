@@ -47,6 +47,7 @@ public class AshenwheatLootTableProvider extends BlockLootTableProvider
         standardDropTable(ModBlocks.blaze_wood.get());
         standardDropTable(ModBlocks.stripped_blaze_log.get());
         standardDropTable(ModBlocks.stripped_blaze_wood.get());
+        standardDropTable(ModBlocks.blaze_sapling.get());
         specialDropTable(ModBlocks.buried_remains.get(), Items.ROTTEN_FLESH);
         specialDropTable(ModBlocks.ender_clam.get(), Items.ENDER_PEARL);
         cropDropTable(ModBlocks.rotten_crop.get(), Items.ROTTEN_FLESH, 1, ModItems.rotten_seeds.get(), 1, 2);
