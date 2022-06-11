@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import mod.akkamaddi.ashenwheat.config.ConfigHolder;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
+import mod.akkamaddi.ashenwheat.init.ModFeatures;
 import mod.akkamaddi.ashenwheat.init.ModItems;
 import mod.akkamaddi.ashenwheat.init.ModOtherRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -29,7 +30,7 @@ public final class Ashenwheat
         // Register Deferred Registers (Does not need to be before Configs)
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
-        // TODO ModFeatures
+        ModFeatures.CONFIGURED_FEATURES.register(modEventBus);
         ModOtherRegistry.LOOT_SERIALIZERS.register(modEventBus);
         
         // Register Configs (Does not need to be after Deferred Registers)

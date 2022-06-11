@@ -12,8 +12,7 @@ public class BlazeTreeGrower extends AbstractTreeGrower
     @Override
     protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random pRandom, boolean pLargeHive)
     {
-        // TODO Auto-generated method stub
-        return null;
+        return ModFeatures.BLAZE_TREE.getHolder().get();
     }
 
 } // end class

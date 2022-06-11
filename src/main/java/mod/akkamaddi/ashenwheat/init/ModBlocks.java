@@ -2,6 +2,7 @@ package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.content.BlazeLogBlock;
+import mod.akkamaddi.ashenwheat.content.BlazeSaplingBlock;
 import mod.akkamaddi.ashenwheat.content.BlazeWoodBlock;
 import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
 import mod.akkamaddi.ashenwheat.content.EnderClamBlock;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -100,8 +100,8 @@ public final class ModBlocks
                     .strength(2.0F).sound(SoundType.WOOD)));
     
     // sapling
-    public static final RegistryObject<SaplingBlock> blaze_sapling = BLOCKS.register("blaze_sapling", 
-            () -> new SaplingBlock(new BlazeTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission()
+    public static final RegistryObject<BlazeSaplingBlock> blaze_sapling = BLOCKS.register("blaze_sapling", 
+            () -> new BlazeSaplingBlock(new BlazeTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission()
                     .randomTicks().instabreak().sound(SoundType.GRASS)));
     
     // blaze PLANKS
