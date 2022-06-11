@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenwheat:stripped_blaze_log"
+    }
+  ],
+  "result": {
+    "item": "ashenwheat:blaze_planks",
+    "count": 4
+  }
+}

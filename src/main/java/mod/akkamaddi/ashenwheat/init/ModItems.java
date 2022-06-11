@@ -95,5 +95,7 @@ public final class ModItems
     public static final RegistryObject<ItemNameBlockItem> rotten_seeds = ITEMS.register("rotten_seeds",
             () -> new ItemNameBlockItem(ModBlocks.rotten_crop.get(), new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP)));
     
-    // TODO possible future Ender Clam items
+    // TODO blaze wood items
+    // blazewood boat
+    
 } // end class

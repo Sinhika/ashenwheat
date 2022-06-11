@@ -129,11 +129,13 @@ public final class ModBlocks
             () -> new Block(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_YELLOW)
                     .strength(2.0F,3.0F).sound(SoundType.WOOD)));
     
-    // blaze plank Aesthetic blocks
+    // blazewood plank Aesthetic blocks
     // TODO blazewood stairs
     // TODO blazewood slabs
     // TODO blazewood pressure plate
     // TODO blazewood fence
     // TODO blazewood door
-    
-} // end class
+    // TODO blazewood sign
+    // TODO blazewood button
+    // TODO blazewood trapdoor
+ } // end class

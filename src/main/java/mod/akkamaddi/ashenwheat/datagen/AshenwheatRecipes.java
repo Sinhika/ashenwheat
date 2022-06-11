@@ -51,6 +51,41 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
             .unlockedBy("has_item", has(ModBlocks.blaze_log.get()))
             .save(consumer);
                     
+        // wood -> planks
+        ShapelessRecipeBuilder.shapeless(ModBlocks.blaze_planks.get(), 4)
+            .requires(ModBlocks.blaze_wood.get())
+            .unlockedBy("has_item", has(ModBlocks.blaze_wood.get()))
+            .save(consumer, "ashenwheat:blaze_planks_from_wood");
+        
+        // stripped wood -> planks
+        ShapelessRecipeBuilder.shapeless(ModBlocks.blaze_planks.get(), 4)
+            .requires(ModBlocks.stripped_blaze_wood.get())
+            .unlockedBy("has_item", has(ModBlocks.stripped_blaze_wood.get()))
+            .save(consumer, "ashenwheat:blaze_planks_from_stripped_wood");
+    
+        // stripped log -> planks
+        ShapelessRecipeBuilder.shapeless(ModBlocks.blaze_planks.get(), 4)
+            .requires(ModBlocks.stripped_blaze_log.get())
+            .unlockedBy("has_item", has(ModBlocks.stripped_blaze_log.get()))
+            .save(consumer, "ashenwheat:blaze_planks_from_stripped_log");
+        
+        // stripped log -> stripped wood
+        ShapedRecipeBuilder.shaped(ModBlocks.stripped_blaze_wood.get(), 3)
+            .define('S', ModBlocks.stripped_blaze_log.get())
+            .pattern("SS")
+            .pattern("SS")
+            .unlockedBy("has_item", has(ModBlocks.stripped_blaze_log.get()))
+            .save(consumer);
+        
+        // log -> wood
+        ShapedRecipeBuilder.shaped(ModBlocks.blaze_wood.get(), 3)
+            .define('S', ModBlocks.blaze_log.get())
+            .pattern("SS")
+            .pattern("SS")
+            .unlockedBy("has_item", has(ModBlocks.blaze_log.get()))
+            .save(consumer);
+        
+        
         // TODO
     } // end registerWoodRecipes
     
