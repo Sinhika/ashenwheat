@@ -10,7 +10,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -30,11 +29,11 @@ public class ModFeatures
     } // end createBlazeTree()
     
     private static TreeConfiguration.TreeConfigurationBuilder createStraightBlobTree(Block pLogBlock, Block pLeafBlock,
-            int pBaseHeight, int p_195150_, int p_195151_, int p_195152_)
+            int pBaseHeight, int pHeightRandA, int pHeightRandB, int pRadius)
     {
         return new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(pLogBlock),
-                new StraightTrunkPlacer(pBaseHeight, p_195150_, p_195151_), BlockStateProvider.simple(pLeafBlock),
-                new BlobFoliagePlacer(ConstantInt.of(p_195152_), ConstantInt.of(0), 3),
+                new NetherTrunkPlacer(pBaseHeight, pHeightRandA, pHeightRandB), BlockStateProvider.simple(pLeafBlock),
+                new BlobFoliagePlacer(ConstantInt.of(pRadius), ConstantInt.of(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1));
     }
 
