@@ -6,6 +6,7 @@ import mod.akkamaddi.ashenwheat.content.BlazeSaplingBlock;
 import mod.akkamaddi.ashenwheat.content.BlazeWoodBlock;
 import mod.akkamaddi.ashenwheat.content.CarvedOssidRoot;
 import mod.akkamaddi.ashenwheat.content.EnderClamBlock;
+import mod.akkamaddi.ashenwheat.content.FlaxCropBlock;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
@@ -78,8 +79,8 @@ public final class ModBlocks
                     .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
 
     // Flax (crop) blocks
-    public static final RegistryObject<ModCropsBlock> flax_crop = BLOCKS.register("flax_crop", 
-            ()-> new ModCropsBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE)
+    public static final RegistryObject<FlaxCropBlock> flax_crop = BLOCKS.register("flax_crop", 
+            ()-> new FlaxCropBlock(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE)
                     .noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
            
     // Rotten Plant (crop) blocks

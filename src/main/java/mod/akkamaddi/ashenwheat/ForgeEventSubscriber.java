@@ -24,8 +24,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 @EventBusSubscriber(modid = Ashenwheat.MODID, bus = EventBusSubscriber.Bus.FORGE)
 public final class ForgeEventSubscriber
 {
-    @SuppressWarnings("unused")
-    private static final Logger LOGGER = LogManager.getLogger(Ashenwheat.MODID + " Forge Event Subscriber");
+     private static final Logger LOGGER = LogManager.getLogger(Ashenwheat.MODID + " Forge Event Subscriber");
     private static final WheatInjectionLookup lootLookupMap = new WheatInjectionLookup();
 
     /**
@@ -48,6 +47,7 @@ public final class ForgeEventSubscriber
         {
             if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateFlax)
             {
+                LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_FLAX_COMMON" );
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_FLAX_COMMON.getHolder().get());
             }           
         }
