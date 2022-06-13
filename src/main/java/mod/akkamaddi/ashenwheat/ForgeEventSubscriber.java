@@ -1,5 +1,7 @@
 package mod.akkamaddi.ashenwheat;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -32,6 +34,9 @@ public final class ForgeEventSubscriber
     @SubscribeEvent(priority=EventPriority.HIGH)
     public static void onBiomeLoading(BiomeLoadingEvent evt)
     {
+        List<Biome.BiomeCategory> flax_biome_cats = 
+                List.of(Biome.BiomeCategory.PLAINS, Biome.BiomeCategory.RIVER, Biome.BiomeCategory.SAVANNA, Biome.BiomeCategory.SWAMP);
+        
         if (evt.getCategory() == Biome.BiomeCategory.NETHER)
         {
             if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateBlazeTrees)
@@ -39,6 +44,13 @@ public final class ForgeEventSubscriber
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.TREES_BLAZEWOOD.getHolder().get());
             }
         } // end NETHER
+        else if (flax_biome_cats.contains(evt.getCategory()))
+        {
+            if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateFlax)
+            {
+                evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_FLAX_COMMON.getHolder().get());
+            }           
+        }
     } // end onBiomeLoading()
 
     /**

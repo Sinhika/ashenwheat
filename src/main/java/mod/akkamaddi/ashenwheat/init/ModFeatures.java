@@ -6,18 +6,23 @@ import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.world.NetherTrunkPlacer;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.placement.CountOnEveryLayerPlacement;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
@@ -35,7 +40,16 @@ public class ModFeatures
     public static RegistryObject<ConfiguredFeature<TreeConfiguration, ?>> BLAZE_TREE = 
             CONFIGURED_FEATURES.register("blaze_tree", () -> new ConfiguredFeature<>(Feature.TREE, createBlazeTree().build()));
     
-           
+    public static RegistryObject<ConfiguredFeature<RandomPatchConfiguration,?>> PATCH_FLAX =
+            CONFIGURED_FEATURES.register("patch_flax", 
+                    ()-> new ConfiguredFeature<>(Feature.RANDOM_PATCH, 
+                            FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, 
+                                    new SimpleBlockConfiguration(BlockStateProvider.simple(
+                                            ModBlocks.flax_crop.get().defaultBlockState().setValue(CropBlock.AGE, 
+                                                                                            Integer.valueOf(CropBlock.MAX_AGE)))),
+                                    List.of(Blocks.GRASS_BLOCK, Blocks.DIRT))));
+    
+
     /** PlacedFeature registry */
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
             DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, Ashenwheat.MODID);
@@ -55,9 +69,16 @@ public class ModFeatures
      // equivalent of a VegetationPlacements or NetherPlacements entry.
      public static RegistryObject<PlacedFeature> TREES_BLAZEWOOD = 
              PLACED_FEATURES.register("trees_blazewood", 
-                     ()->createPlacedVegetationFeature(BLAZE_TREES.getHolder().get(), 
-                             List.of( CountOnEveryLayerPlacement.of(4))));
+                     ()->createPlacedVegetationFeature(BLAZE_TREES.getHolder().get(),
+                             List.of(CountPlacement.of(30), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE)));
+//                             List.of( CountOnEveryLayerPlacement.of(1))));
 
+     public static RegistryObject<PlacedFeature> PATCH_FLAX_COMMON = 
+             PLACED_FEATURES.register("patch_flax_common", 
+                     ()->createPlacedPatchFeature(PATCH_FLAX.getHolder().get(), 
+                             List.of(RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), 
+                                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE)));
+                     
     
      /** STATIC HELPER METHODS **/
     /**
@@ -66,6 +87,12 @@ public class ModFeatures
      * @param placements
      * @return
      */
+    public static PlacedFeature createPlacedPatchFeature( Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> cf, 
+            List<PlacementModifier> pMod)
+    {
+        return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
+    }
+
     public static PlacedFeature createPlacedTreeFeature( Holder<ConfiguredFeature<TreeConfiguration, ?>> cf, 
             List<PlacementModifier> pMod)
     {
