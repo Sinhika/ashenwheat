@@ -43,13 +43,21 @@ public final class ForgeEventSubscriber
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.TREES_BLAZEWOOD.getHolder().get());
             }
         } // end NETHER
-        else if (flax_biome_cats.contains(evt.getCategory()))
+        if (flax_biome_cats.contains(evt.getCategory()))
         {
             if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateFlax)
             {
                 LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_FLAX_COMMON" );
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_FLAX_COMMON.getHolder().get());
             }           
+        }
+        if ((evt.getCategory() != Biome.BiomeCategory.NETHER) && (evt.getCategory() != Biome.BiomeCategory.THEEND))
+        {
+            if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateRottenPlants)
+            {
+                LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_ROTTEN_PLANT_NORMAL" );
+                evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_ROTTEN_PLANT_NORMAL.getHolder().get());
+            }
         }
     } // end onBiomeLoading()
 

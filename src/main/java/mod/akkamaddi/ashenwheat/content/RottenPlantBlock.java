@@ -72,7 +72,8 @@ public class RottenPlantBlock extends ModCropsBlock
     {
         BlockPos blockpos = pPos.below();
         BlockState blockstate = pLevel.getBlockState(blockpos);
-        if (blockstate.is(BlockTags.BASE_STONE_OVERWORLD)) {
+        if (blockstate.is(BlockTags.BASE_STONE_OVERWORLD) && (pLevel.getRawBrightness(pPos, 0) < 13)) 
+        {
             return true;
         }
         return false;
