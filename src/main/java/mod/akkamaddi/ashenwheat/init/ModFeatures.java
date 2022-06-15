@@ -2,26 +2,24 @@ package mod.akkamaddi.ashenwheat.init;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
-
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableList.Builder;
-
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import mod.akkamaddi.ashenwheat.content.RottenPlantBlock;
 import mod.akkamaddi.ashenwheat.world.NetherTrunkPlacer;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.GlowLichenConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
@@ -29,12 +27,12 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.placement.SurfaceRelativeThresholdFilter;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -59,14 +57,20 @@ public class ModFeatures
                                                                                             Integer.valueOf(CropBlock.MAX_AGE)))),
                                     List.of(Blocks.GRASS_BLOCK, Blocks.DIRT))));
     
-    public static RegistryObject<ConfiguredFeature<RandomPatchConfiguration,?>> PATCH_ROTTEN_PLANT = 
+    @SuppressWarnings("deprecation")
+    public static RegistryObject<ConfiguredFeature<GlowLichenConfiguration,?>> PATCH_ROTTEN_PLANT = 
             CONFIGURED_FEATURES.register("patch_rotten_plant",
-                    ()-> new ConfiguredFeature<>(Feature.RANDOM_PATCH, 
-                            FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, 
-                                    new SimpleBlockConfiguration(BlockStateProvider.simple(
-                                            ModBlocks.rotten_crop.get().defaultBlockState().setValue(RottenPlantBlock.ROTTEN_AGE, 
-                                                    Integer.valueOf(RottenPlantBlock.ROTTEN_MAX_AGE)))),
-                                        ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList())));
+                    ()->new ConfiguredFeature<>(Feature.GLOW_LICHEN,
+                            new GlowLichenConfiguration(20, true, false, false, 0.5F, 
+                                          HolderSet.direct(Block::builtInRegistryHolder, 
+                                                  ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList()))));
+    
+//                    ()-> new ConfiguredFeature<>(Feature.RANDOM_PATCH, 
+//                            FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, 
+//                                    new SimpleBlockConfiguration(BlockStateProvider.simple(
+//                                            ModBlocks.rotten_crop.get().defaultBlockState().setValue(RottenPlantBlock.ROTTEN_AGE, 
+//                                                    Integer.valueOf(RottenPlantBlock.ROTTEN_MAX_AGE)))),
+//                                        ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList())));
     
 
     /** PLACED_FEATURES REGISTRY */
@@ -100,8 +104,13 @@ public class ModFeatures
                      
      public static RegistryObject<PlacedFeature> PATCH_ROTTEN_PLANT_NORMAL = 
              PLACED_FEATURES.register("patch_rotten_plant_normal",
-                     ()->createPlacedPatchFeature(PATCH_ROTTEN_PLANT.getHolder().get(),
-                             getCaveGrowthPlacement(256, (PlacementModifier) null)));
+                     ()->createPlacedCaveFeature(PATCH_ROTTEN_PLANT.getHolder().get(),
+                             List.of(
+                                     CountPlacement.of(UniformInt.of(104, 157)), 
+                                     PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, 
+                                     InSquarePlacement.spread(), 
+                                     SurfaceRelativeThresholdFilter.of(Heightmap.Types.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13)
+                                     )));
              
      
      /** STATIC HELPER METHODS **/
@@ -117,6 +126,12 @@ public class ModFeatures
         return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
     }
 
+    public static PlacedFeature createPlacedCaveFeature(Holder<ConfiguredFeature<GlowLichenConfiguration, ?>> cf,
+            List<PlacementModifier> pMod)
+    {
+        return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));   
+    }
+
     public static PlacedFeature createPlacedTreeFeature( Holder<ConfiguredFeature<TreeConfiguration, ?>> cf, 
             List<PlacementModifier> pMod)
     {
@@ -129,23 +144,6 @@ public class ModFeatures
          return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
      }
     
-     private static List<PlacementModifier> getCaveGrowthPlacement(int rarityFactor, @Nullable PlacementModifier placeMod)
-     {
-         Builder<PlacementModifier> builder = ImmutableList.builder();
-         if (placeMod != null)
-         {
-             builder.add(placeMod);
-         }
-
-         if (rarityFactor != 0)
-         {
-             builder.add(RarityFilter.onAverageOnceEvery(rarityFactor));
-         }
-
-         builder.add(InSquarePlacement.spread());
-         builder.add(PlacementUtils.HEIGHTMAP);
-         return builder.build();
-     } // end getCaveGrowthPlacement()
      
     private static TreeConfiguration.TreeConfigurationBuilder createBlazeTree()
     {
