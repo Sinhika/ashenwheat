@@ -70,6 +70,7 @@ public class ModFeatures
                             List.of(OreConfiguration.target(DIRT_TARGET, ModBlocks.buried_remains.get().defaultBlockState())),
                             AshenwheatConfig.buried_remains_cfg));
 
+    // TODO fix this. Feature.GLOW_LICHEN is hard-coded to use glow lichen blocks. Need a different feature.
     @SuppressWarnings("deprecation")
     public static RegistryObject<ConfiguredFeature<GlowLichenConfiguration,?>> PATCH_ROTTEN_PLANT = 
             CONFIGURED_FEATURES.register("patch_rotten_plant",
