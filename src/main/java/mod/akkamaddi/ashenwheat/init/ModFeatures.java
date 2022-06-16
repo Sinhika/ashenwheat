@@ -3,7 +3,9 @@ package mod.akkamaddi.ashenwheat.init;
 import java.util.List;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
+import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.world.NetherTrunkPlacer;
+import mod.alexndr.simplecorelib.api.helpers.OreGenUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
@@ -20,6 +22,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.GlowLichenConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
@@ -33,12 +36,16 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceRelativeThresholdFilter;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModFeatures
 {
+    public static RuleTest DIRT_TARGET =  new TagMatchTest(BlockTags.DIRT);
+
     /** CONFIGURED_FEATURES REGISTRY */
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
             DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Ashenwheat.MODID);
@@ -57,6 +64,12 @@ public class ModFeatures
                                                                                             Integer.valueOf(CropBlock.MAX_AGE)))),
                                     List.of(Blocks.GRASS_BLOCK, Blocks.DIRT))));
     
+    public static RegistryObject<ConfiguredFeature<OreConfiguration, ?>> ORE_BURIED_REMAINS =
+            CONFIGURED_FEATURES.register("ore_buried_remains", 
+                    () -> OreGenUtils.createConfiguredOreFeature(
+                            List.of(OreConfiguration.target(DIRT_TARGET, ModBlocks.buried_remains.get().defaultBlockState())),
+                            AshenwheatConfig.buried_remains_cfg));
+
     @SuppressWarnings("deprecation")
     public static RegistryObject<ConfiguredFeature<GlowLichenConfiguration,?>> PATCH_ROTTEN_PLANT = 
             CONFIGURED_FEATURES.register("patch_rotten_plant",
@@ -112,7 +125,11 @@ public class ModFeatures
                                      SurfaceRelativeThresholdFilter.of(Heightmap.Types.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13)
                                      )));
              
-     
+     public static RegistryObject<PlacedFeature> BURIAL = 
+             PLACED_FEATURES.register("burial", 
+                     ()-> OreGenUtils.createPlacedOreFeature(ORE_BURIED_REMAINS.getHolder().get(), 
+                             AshenwheatConfig.buried_remains_cfg));
+
      /** STATIC HELPER METHODS **/
     /**
      * Factory function that supplies a PlacedFeature for a RegistryObject.

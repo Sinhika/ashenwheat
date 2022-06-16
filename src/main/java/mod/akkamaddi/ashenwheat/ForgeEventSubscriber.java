@@ -1,16 +1,9 @@
 package mod.akkamaddi.ashenwheat;
 
-import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
-import mod.akkamaddi.ashenwheat.init.ModFeatures;
 import mod.akkamaddi.ashenwheat.loot.WheatInjectionLookup;
+import mod.akkamaddi.ashenwheat.world.WorldGeneration;
 import mod.alexndr.simplecorelib.api.helpers.LootUtils;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -24,7 +17,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 @EventBusSubscriber(modid = Ashenwheat.MODID, bus = EventBusSubscriber.Bus.FORGE)
 public final class ForgeEventSubscriber
 {
-     private static final Logger LOGGER = LogManager.getLogger(Ashenwheat.MODID + " Forge Event Subscriber");
     private static final WheatInjectionLookup lootLookupMap = new WheatInjectionLookup();
 
     /**
@@ -33,31 +25,8 @@ public final class ForgeEventSubscriber
     @SubscribeEvent(priority=EventPriority.HIGH)
     public static void onBiomeLoading(BiomeLoadingEvent evt)
     {
-        List<Biome.BiomeCategory> flax_biome_cats = 
-                List.of(Biome.BiomeCategory.PLAINS, Biome.BiomeCategory.RIVER, Biome.BiomeCategory.SAVANNA, Biome.BiomeCategory.SWAMP);
-        
-        if (evt.getCategory() == Biome.BiomeCategory.NETHER)
-        {
-            if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateBlazeTrees)
-            {
-                evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.TREES_BLAZEWOOD.getHolder().get());
-            }
-        } // end NETHER
-        if (flax_biome_cats.contains(evt.getCategory()))
-        {
-            if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateFlax)
-            {
-                LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_FLAX_COMMON" );
-                evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_FLAX_COMMON.getHolder().get());
-            }           
-        }
-        if ((evt.getCategory() != Biome.BiomeCategory.NETHER) && (evt.getCategory() != Biome.BiomeCategory.THEEND))
-        {
-            if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.GenerateRottenPlants)
-            {
-                LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_ROTTEN_PLANT_NORMAL" );
-                evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_ROTTEN_PLANT_NORMAL.getHolder().get());
-            }
+        if (AshenwheatConfig.EnablePeacefulPack) {
+            WorldGeneration.generateOverworldFeatures(evt);
         }
     } // end onBiomeLoading()
 
