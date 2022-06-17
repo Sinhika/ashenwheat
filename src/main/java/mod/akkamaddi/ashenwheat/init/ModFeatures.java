@@ -37,7 +37,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceRelativeThresholdFilter;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -45,8 +44,6 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModFeatures
 {
-    public static RuleTest DIRT_TARGET =  new TagMatchTest(BlockTags.DIRT);
-
     
     /** FEATURES REGISTRY */
     public static final DeferredRegister<Feature<?>> MOD_FEATURES =
@@ -77,7 +74,7 @@ public class ModFeatures
     public static RegistryObject<ConfiguredFeature<OreConfiguration, ?>> ORE_BURIED_REMAINS =
             CONFIGURED_FEATURES.register("ore_buried_remains", 
                     () -> OreGenUtils.createConfiguredOreFeature(
-                            List.of(OreConfiguration.target(DIRT_TARGET, ModBlocks.buried_remains.get().defaultBlockState())),
+                            List.of(OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), ModBlocks.buried_remains.get().defaultBlockState())),
                             AshenwheatConfig.buried_remains_cfg));
 
     @SuppressWarnings("deprecation")

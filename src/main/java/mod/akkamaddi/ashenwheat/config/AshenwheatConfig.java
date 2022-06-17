@@ -55,12 +55,13 @@ public final class AshenwheatConfig extends SimpleConfig
     public static boolean GenerateFlax = false;
     public static boolean GenerateRottenPlants = false;
     public static boolean GenerateEnderClams = false;
+    public static boolean GenerateBuriedRemains = false;
     public static boolean EnableSpiderEyeDrops = false;
     public static float SpiderEyeDropChance = 1.0F;
     
     public static Lazy<ModOreConfig> buried_remains_cfg = 
             Lazy.of( ()->new ModOreConfig(ModOreConfig.UNIFORM, 2, 
-                    10, true, 
+                    100, true, 
                     VerticalAnchor.absolute(64), 
                     VerticalAnchor.absolute(128)));
 } // end class

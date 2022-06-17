@@ -50,6 +50,7 @@ public final class ConfigHelper
 	    AshenwheatConfig.GenerateFlax = ConfigHolder.SERVER.serverGenerateFlax.get();
 	    AshenwheatConfig.GenerateRottenPlants = ConfigHolder.SERVER.serverGenerateRottenPlants.get();
 	    AshenwheatConfig.GenerateEnderClams = ConfigHolder.SERVER.serverGenerateEnderClams.get();
+        AshenwheatConfig.GenerateBuriedRemains = ConfigHolder.SERVER.serverGenerateBuriedRemains.get();
 	    AshenwheatConfig.EnableSpiderEyeDrops = ConfigHolder.SERVER.serverEnableSpiderEyeDrops.get();
 	    AshenwheatConfig.SpiderEyeDropChance = ConfigHolder.SERVER.serverSpiderEyeDropChance.get().floatValue();
 	    

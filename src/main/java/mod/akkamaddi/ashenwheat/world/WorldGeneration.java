@@ -43,7 +43,11 @@ public class WorldGeneration
                 LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_ROTTEN_PLANT_NORMAL" );
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_ROTTEN_PLANT_NORMAL.getHolder().get());
             }
-            evt.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, ModFeatures.BURIAL.getHolder().get());
+            if (AshenwheatConfig.GenerateBuriedRemains)
+            {
+                LOGGER.debug("onBiomeLoading: attempt to addFeature BURIAL" );
+                evt.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, ModFeatures.BURIAL.getHolder().get());
+            }
         } // end-if any overworld
         
     } // end generateOverworldFeatures
