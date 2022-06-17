@@ -62,6 +62,6 @@ public final class AshenwheatConfig extends SimpleConfig
     public static Lazy<ModOreConfig> buried_remains_cfg = 
             Lazy.of( ()->new ModOreConfig(ModOreConfig.UNIFORM, 2, 
                     100, true, 
-                    VerticalAnchor.absolute(64), 
+                    VerticalAnchor.absolute(10), 
                     VerticalAnchor.absolute(128)));
 } // end class

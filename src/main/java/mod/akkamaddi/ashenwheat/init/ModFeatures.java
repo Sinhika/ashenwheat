@@ -74,16 +74,19 @@ public class ModFeatures
     public static RegistryObject<ConfiguredFeature<OreConfiguration, ?>> ORE_BURIED_REMAINS =
             CONFIGURED_FEATURES.register("ore_buried_remains", 
                     () -> OreGenUtils.createConfiguredOreFeature(
-                            List.of(OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), ModBlocks.buried_remains.get().defaultBlockState())),
+                            List.of(OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), 
+                                    ModBlocks.buried_remains.get().defaultBlockState())),
                             AshenwheatConfig.buried_remains_cfg));
 
     @SuppressWarnings("deprecation")
     public static RegistryObject<ConfiguredFeature<GlowLichenConfiguration,?>> PATCH_ROTTEN_PLANT = 
     CONFIGURED_FEATURES.register("patch_rotten_plant",
             ()->new ConfiguredFeature<>(ROTTEN_PLANT_FEATURE.get(),
-                    new GlowLichenConfiguration(20, true, false, false, 0.5F, 
+                    new GlowLichenConfiguration(20, true, false, false, 1.0F, 
                                   HolderSet.direct(Block::builtInRegistryHolder, 
-                                          ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList()))));
+                                          List.of(Blocks.STONE, Blocks.DEEPSLATE, Blocks.DIORITE, Blocks.GRANITE, Blocks.ANDESITE,
+                                                  Blocks.TUFF, Blocks.SMOOTH_BASALT)))));
+                              //            ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList()))));
     
 //                    ()-> new ConfiguredFeature<>(Feature.RANDOM_PATCH, 
 //                            FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, 
@@ -126,10 +129,10 @@ public class ModFeatures
              PLACED_FEATURES.register("patch_rotten_plant_normal",
                      ()->createPlacedCaveFeature(PATCH_ROTTEN_PLANT.getHolder().get(),
                              List.of(
-                                     CountPlacement.of(UniformInt.of(104, 157)), 
+                                     CountPlacement.of(UniformInt.of(104, 228)), 
                                      PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, 
                                      InSquarePlacement.spread(), 
-                                     SurfaceRelativeThresholdFilter.of(Heightmap.Types.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13)
+                                     SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE_WG, Integer.MIN_VALUE, -10)
                                      )));
              
      public static RegistryObject<PlacedFeature> BURIAL = 
