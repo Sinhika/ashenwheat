@@ -76,9 +76,9 @@ public class ModFeatures
                                     List.of(Blocks.GRASS_BLOCK, Blocks.DIRT))));
     
     public static RegistryObject<ConfiguredFeature<CountConfiguration, ?>> ENDER_CLAM =
-            CONFIGURED_FEATURES.register("ENDER_CLAM", 
+            CONFIGURED_FEATURES.register("ender_clam", 
                     () -> new ConfiguredFeature<>(ENDER_CLAM_FEATURE.get(),
-                            new CountConfiguration(20)));
+                            new CountConfiguration(3)));
     
     public static RegistryObject<ConfiguredFeature<OreConfiguration, ?>> ORE_BURIED_REMAINS =
             CONFIGURED_FEATURES.register("ore_buried_remains", 
@@ -141,13 +141,13 @@ public class ModFeatures
                              CountPlacement.of(UniformInt.of(5, 20)), 
                              PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, 
                              InSquarePlacement.spread(), 
-                             SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE_WG, -10, 0)
+                             SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE_WG, -20, 0)
                              )));
 
      public static RegistryObject<PlacedFeature> ENDER_CLAMS_OCEAN = 
              PLACED_FEATURES.register("ender_clams_ocean", 
                      ()->createPlacedCountFeature(ENDER_CLAM.getHolder().get(),
-                             List.of(RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), 
+                             List.of(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), 
                                      PlacementUtils.HEIGHTMAP_TOP_SOLID)));
      
 
