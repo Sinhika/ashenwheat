@@ -5,6 +5,7 @@ import java.util.List;
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.world.CavePlantFeature;
+import mod.akkamaddi.ashenwheat.world.EnderClamFeature;
 import mod.akkamaddi.ashenwheat.world.NetherTrunkPlacer;
 import mod.alexndr.simplecorelib.api.helpers.OreGenUtils;
 import net.minecraft.core.Holder;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.CountConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.GlowLichenConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
@@ -39,7 +41,6 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceRelativeThresholdFilter;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModFeatures
@@ -50,9 +51,12 @@ public class ModFeatures
             DeferredRegister.create(Registry.FEATURE_REGISTRY, Ashenwheat.MODID);
             
     public static RegistryObject<Feature<GlowLichenConfiguration>> ROTTEN_PLANT_FEATURE =
-            MOD_FEATURES.register("rotten_plant", ()->new CavePlantFeature(GlowLichenConfiguration.CODEC, ModBlocks.rotten_crop.get()));
+            MOD_FEATURES.register("rotten_plant_feature", ()->new CavePlantFeature(GlowLichenConfiguration.CODEC, ModBlocks.rotten_crop.get()));
                     
- 
+    public static RegistryObject<Feature<CountConfiguration>> ENDER_CLAM_FEATURE =
+            MOD_FEATURES.register("ender_clam_feature", ()->new EnderClamFeature(CountConfiguration.CODEC)); 
+    
+            
     /** CONFIGURED_FEATURES REGISTRY */
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
             DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Ashenwheat.MODID);
@@ -71,13 +75,17 @@ public class ModFeatures
                                                                                             Integer.valueOf(CropBlock.MAX_AGE)))),
                                     List.of(Blocks.GRASS_BLOCK, Blocks.DIRT))));
     
+    public static RegistryObject<ConfiguredFeature<CountConfiguration, ?>> ENDER_CLAM =
+            CONFIGURED_FEATURES.register("ENDER_CLAM", 
+                    () -> new ConfiguredFeature<>(ENDER_CLAM_FEATURE.get(),
+                            new CountConfiguration(20)));
     
     public static RegistryObject<ConfiguredFeature<OreConfiguration, ?>> ORE_BURIED_REMAINS =
             CONFIGURED_FEATURES.register("ore_buried_remains", 
                     () -> OreGenUtils.createConfiguredOreFeature(
                             List.of(OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), 
                                     ModBlocks.buried_remains.get().defaultBlockState())),
-                            AshenwheatConfig.buried_remains_cfg));
+                                    AshenwheatConfig.buried_remains_cfg));
 
     @SuppressWarnings("deprecation")
     public static RegistryObject<ConfiguredFeature<GlowLichenConfiguration,?>> PATCH_ROTTEN_PLANT = 
@@ -87,15 +95,6 @@ public class ModFeatures
                                   HolderSet.direct(Block::builtInRegistryHolder, 
                                           List.of(Blocks.STONE, Blocks.DEEPSLATE, Blocks.DIORITE, Blocks.GRANITE, Blocks.ANDESITE,
                                                   Blocks.TUFF, Blocks.SMOOTH_BASALT)))));
-                              //            ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList()))));
-    
-//                    ()-> new ConfiguredFeature<>(Feature.RANDOM_PATCH, 
-//                            FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, 
-//                                    new SimpleBlockConfiguration(BlockStateProvider.simple(
-//                                            ModBlocks.rotten_crop.get().defaultBlockState().setValue(RottenPlantBlock.ROTTEN_AGE, 
-//                                                    Integer.valueOf(RottenPlantBlock.ROTTEN_MAX_AGE)))),
-//                                        ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList())));
-    
 
     /** PLACED_FEATURES REGISTRY */
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
@@ -118,7 +117,6 @@ public class ModFeatures
              PLACED_FEATURES.register("trees_blazewood", 
                      ()->createPlacedVegetationFeature(BLAZE_TREES.getHolder().get(),
                              List.of(CountPlacement.of(30), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE)));
-//                             List.of( CountOnEveryLayerPlacement.of(1))));
 
      public static RegistryObject<PlacedFeature> PATCH_FLAX_COMMON = 
              PLACED_FEATURES.register("patch_flax_common", 
@@ -138,8 +136,20 @@ public class ModFeatures
              
      public static RegistryObject<PlacedFeature> BURIAL = 
              PLACED_FEATURES.register("burial", 
-                     ()-> OreGenUtils.createPlacedOreFeature(ORE_BURIED_REMAINS.getHolder().get(), 
-                             AshenwheatConfig.buried_remains_cfg));
+                     ()-> createPlacedOreFeature(ORE_BURIED_REMAINS.getHolder().get(), 
+                     List.of(
+                             CountPlacement.of(UniformInt.of(5, 20)), 
+                             PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, 
+                             InSquarePlacement.spread(), 
+                             SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE_WG, -10, 0)
+                             )));
+
+     public static RegistryObject<PlacedFeature> ENDER_CLAMS_OCEAN = 
+             PLACED_FEATURES.register("ender_clams_ocean", 
+                     ()->createPlacedCountFeature(ENDER_CLAM.getHolder().get(),
+                             List.of(RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), 
+                                     PlacementUtils.HEIGHTMAP_TOP_SOLID)));
+     
 
      /** STATIC HELPER METHODS **/
     /**
@@ -148,7 +158,13 @@ public class ModFeatures
      * @param placements
      * @return
      */
-    public static PlacedFeature createPlacedPatchFeature( Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> cf, 
+     public static PlacedFeature createPlacedCountFeature( Holder<ConfiguredFeature<CountConfiguration, ?>> cf, 
+             List<PlacementModifier> pMod)
+     {
+         return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
+     }
+
+     public static PlacedFeature createPlacedPatchFeature( Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> cf, 
             List<PlacementModifier> pMod)
     {
         return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
@@ -172,6 +188,12 @@ public class ModFeatures
          return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
      }
     
+     public static PlacedFeature createPlacedOreFeature(Holder<ConfiguredFeature<OreConfiguration, ?>> cf,
+             List<PlacementModifier> pMod)
+     {
+         return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
+     }
+
      
     private static TreeConfiguration.TreeConfigurationBuilder createBlazeTree()
     {
