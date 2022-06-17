@@ -71,6 +71,7 @@ public class ModFeatures
                                                                                             Integer.valueOf(CropBlock.MAX_AGE)))),
                                     List.of(Blocks.GRASS_BLOCK, Blocks.DIRT))));
     
+    
     public static RegistryObject<ConfiguredFeature<OreConfiguration, ?>> ORE_BURIED_REMAINS =
             CONFIGURED_FEATURES.register("ore_buried_remains", 
                     () -> OreGenUtils.createConfiguredOreFeature(
