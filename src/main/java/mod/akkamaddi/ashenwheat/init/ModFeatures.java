@@ -4,6 +4,7 @@ import java.util.List;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
+import mod.akkamaddi.ashenwheat.world.CavePlantFeature;
 import mod.akkamaddi.ashenwheat.world.NetherTrunkPlacer;
 import mod.alexndr.simplecorelib.api.helpers.OreGenUtils;
 import net.minecraft.core.Holder;
@@ -46,6 +47,15 @@ public class ModFeatures
 {
     public static RuleTest DIRT_TARGET =  new TagMatchTest(BlockTags.DIRT);
 
+    
+    /** FEATURES REGISTRY */
+    public static final DeferredRegister<Feature<?>> MOD_FEATURES =
+            DeferredRegister.create(Registry.FEATURE_REGISTRY, Ashenwheat.MODID);
+            
+    public static RegistryObject<Feature<GlowLichenConfiguration>> ROTTEN_PLANT_FEATURE =
+            MOD_FEATURES.register("rotten_plant", ()->new CavePlantFeature(GlowLichenConfiguration.CODEC, ModBlocks.rotten_crop.get()));
+                    
+ 
     /** CONFIGURED_FEATURES REGISTRY */
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
             DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Ashenwheat.MODID);
@@ -70,14 +80,13 @@ public class ModFeatures
                             List.of(OreConfiguration.target(DIRT_TARGET, ModBlocks.buried_remains.get().defaultBlockState())),
                             AshenwheatConfig.buried_remains_cfg));
 
-    // TODO fix this. Feature.GLOW_LICHEN is hard-coded to use glow lichen blocks. Need a different feature.
     @SuppressWarnings("deprecation")
     public static RegistryObject<ConfiguredFeature<GlowLichenConfiguration,?>> PATCH_ROTTEN_PLANT = 
-            CONFIGURED_FEATURES.register("patch_rotten_plant",
-                    ()->new ConfiguredFeature<>(Feature.GLOW_LICHEN,
-                            new GlowLichenConfiguration(20, true, false, false, 0.5F, 
-                                          HolderSet.direct(Block::builtInRegistryHolder, 
-                                                  ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList()))));
+    CONFIGURED_FEATURES.register("patch_rotten_plant",
+            ()->new ConfiguredFeature<>(ROTTEN_PLANT_FEATURE.get(),
+                    new GlowLichenConfiguration(20, true, false, false, 0.5F, 
+                                  HolderSet.direct(Block::builtInRegistryHolder, 
+                                          ForgeRegistries.BLOCKS.tags().getTag(BlockTags.BASE_STONE_OVERWORLD).stream().toList()))));
     
 //                    ()-> new ConfiguredFeature<>(Feature.RANDOM_PATCH, 
 //                            FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, 

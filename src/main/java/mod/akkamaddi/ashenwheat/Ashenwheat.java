@@ -30,6 +30,7 @@ public final class Ashenwheat
         // Register Deferred Registers (Does not need to be before Configs)
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+        ModFeatures.MOD_FEATURES.register(modEventBus);
         ModFeatures.CONFIGURED_FEATURES.register(modEventBus);
         ModFeatures.PLACED_FEATURES.register(modEventBus);
         
