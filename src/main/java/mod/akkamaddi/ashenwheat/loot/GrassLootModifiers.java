@@ -66,12 +66,12 @@ public class GrassLootModifiers
                 }
                 if (AshenwheatConfig.EnablePeacefulPack)
                 {
-                    if ((seedItem == ModItems.flax_seed.get()) &&  AshenwheatConfig.GenerateFlax)
+                    if ((seedItem == ModItems.flax_seed.get()) &&  AshenwheatConfig.DropFlaxSeed)
                     {
                         dropped_seeds_builder.add(ModItems.flax_seed.get(), AshenwheatConfig.relWeightFlaxSeeds);
                         Ashenwheat.LOGGER.debug("GrassLootModifier: added flax_seed");
                     }
-                    if ((seedItem == ModItems.rotten_seeds.get()) &&  AshenwheatConfig.GenerateRottenPlants)
+                    if ((seedItem == ModItems.rotten_seeds.get()) &&  AshenwheatConfig.DropRottenSeeds)
                     {
                         dropped_seeds_builder.add(ModItems.rotten_seeds.get(), AshenwheatConfig.relWeightRottenSeed);
                         Ashenwheat.LOGGER.debug("GrassLootModifier: added rotten_seeds");

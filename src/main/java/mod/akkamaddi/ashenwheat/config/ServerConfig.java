@@ -146,7 +146,7 @@ final class ServerConfig
                 .define("generateRottenPlants", false);
         server_relWeightRottenSeeds = builder.comment("Relative weight of rotten seeds in grass drops")
                 .translation(Ashenwheat.MODID + "config.server_relWeightRottenSeeds")
-                .defineInRange("relWeightRottenSeeds", 2, 0, 100);
+                .defineInRange("relWeightRottenSeeds", 1, 0, 100);
         builder.pop();
         builder.push("Spider Eyes");
         serverEnableSpiderEyeDrops  = builder.comment("Enable spider eyes dropping from cobwebs")
