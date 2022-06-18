@@ -46,25 +46,25 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
     private void registerWoodRecipes(Consumer<FinishedRecipe> consumer)
     {
         // log -> planks
-        ShapelessRecipeBuilder.shapeless(ModBlocks.blaze_planks.get(), 4)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.blazewood_planks.get(), 4)
             .requires(ModBlocks.blaze_log.get())
             .unlockedBy("has_item", has(ModBlocks.blaze_log.get()))
             .save(consumer);
                     
         // wood -> planks
-        ShapelessRecipeBuilder.shapeless(ModBlocks.blaze_planks.get(), 4)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.blazewood_planks.get(), 4)
             .requires(ModBlocks.blaze_wood.get())
             .unlockedBy("has_item", has(ModBlocks.blaze_wood.get()))
             .save(consumer, "ashenwheat:blaze_planks_from_wood");
         
         // stripped wood -> planks
-        ShapelessRecipeBuilder.shapeless(ModBlocks.blaze_planks.get(), 4)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.blazewood_planks.get(), 4)
             .requires(ModBlocks.stripped_blaze_wood.get())
             .unlockedBy("has_item", has(ModBlocks.stripped_blaze_wood.get()))
             .save(consumer, "ashenwheat:blaze_planks_from_stripped_wood");
     
         // stripped log -> planks
-        ShapelessRecipeBuilder.shapeless(ModBlocks.blaze_planks.get(), 4)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.blazewood_planks.get(), 4)
             .requires(ModBlocks.stripped_blaze_log.get())
             .unlockedBy("has_item", has(ModBlocks.stripped_blaze_log.get()))
             .save(consumer, "ashenwheat:blaze_planks_from_stripped_log");
@@ -85,8 +85,27 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
             .unlockedBy("has_item", has(ModBlocks.blaze_log.get()))
             .save(consumer);
         
-        
-        // TODO
+        // stairs
+        ShapedRecipeBuilder.shaped(ModBlocks.blazewood_stairs.get(), 4)
+            .define('S', ModBlocks.blazewood_planks.get())
+            .pattern("S  ")
+            .pattern("SS ")
+            .pattern("SSS")
+            .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
+            .save(consumer);
+
+        // slab
+        ShapedRecipeBuilder.shaped(ModBlocks.blazewood_slab.get(), 6)
+            .define('S', ModBlocks.blazewood_planks.get())
+            .pattern("   ")
+            .pattern("   ")
+            .pattern("SSS")
+            .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
+            .save(consumer);
+
+        // pressure plates.
+        this.setbuilder.buildSimplePressurePlate(consumer, Ingredient.of(ModBlocks.blazewood_planks.get()), 
+                ModBlocks.blazewood_pressure_plate.get(), has(ModBlocks.blazewood_planks.get()));
     } // end registerWoodRecipes
     
     

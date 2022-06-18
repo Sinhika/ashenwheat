@@ -12,13 +12,16 @@ import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import mod.akkamaddi.ashenwheat.content.OssidRootBlock;
 import mod.akkamaddi.ashenwheat.content.RottenPlantBlock;
 import mod.akkamaddi.ashenwheat.world.BlazeTreeGrower;
+import mod.alexndr.simplecorelib.api.content.MultifunctionPressurePlateBlock;
 import mod.alexndr.simplecorelib.api.helpers.LightUtils;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -127,17 +130,29 @@ public final class ModBlocks
                     .randomTicks().instabreak().sound(SoundType.GRASS)));
     
     // blaze PLANKS
-    public static final RegistryObject<Block> blaze_planks = BLOCKS.register("blaze_planks", 
+    public static final RegistryObject<Block> blazewood_planks = BLOCKS.register("blazewood_planks", 
             () -> new Block(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_YELLOW)
                     .strength(2.0F,3.0F).sound(SoundType.WOOD)));
     
     // blazewood plank Aesthetic blocks
-    // TODO blazewood stairs
-    // TODO blazewood slabs
-    // TODO blazewood pressure plate
-    // TODO blazewood fence
-    // TODO blazewood door
-    // TODO blazewood sign
+    // blazewood stairs
+    public static final RegistryObject<StairBlock> blazewood_stairs = BLOCKS.register("blazewood_stairs", 
+            () -> new StairBlock( () -> blazewood_planks.get().defaultBlockState(),  Block.Properties.copy(blazewood_planks.get())));
+    
+    // blazewood slabs
+    public static final RegistryObject<SlabBlock> blazewood_slab = BLOCKS.register("blazewood_slab", 
+            () -> new SlabBlock(Block.Properties.copy(blazewood_planks.get())));
+    
+    // blazewood pressure plate
+    public static final RegistryObject<MultifunctionPressurePlateBlock> blazewood_pressure_plate = BLOCKS.register("blazewood_pressure_plate", 
+            () -> new MultifunctionPressurePlateBlock(15, MultifunctionPressurePlateBlock.Sensitivity.EVERYTHING, 20,
+                    Block.Properties.of(Material.WOOD, MaterialColor.WOOD)
+                    .noCollission().strength(0.5F).sound(SoundType.WOOD)));
+            
     // TODO blazewood button
+    
+    // TODO blazewood fence
+    // TODO blazewood sign
+    // TODO blazewood door
     // TODO blazewood trapdoor
  } // end class

@@ -26,8 +26,17 @@ public class AshenwheatBlockTags extends MiningBlockTags
          super.addTags();
          registerMiscTags();
          registerLogTags();
+         registerDoorsSlabsAndStairs();
     }
 
+    
+    private void registerDoorsSlabsAndStairs()
+    {
+        this.tag(TagUtils.modBlockTag("minecraft","stairs"))
+            .add(ModBlocks.blazewood_stairs.get());
+        this.tag(TagUtils.modBlockTag("minecraft","slabs"))
+            .add(ModBlocks.blazewood_slab.get());
+    }
     
     @Override
     protected void registerMiningTags()
@@ -53,7 +62,7 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.stripped_blaze_log.get());
         
         this.tag(TagUtils.modBlockTag("minecraft", "planks"))
-            .add(ModBlocks.blaze_planks.get());
+            .add(ModBlocks.blazewood_planks.get());
         
         this.tag(TagUtils.modBlockTag("minecraft", "leaves"))
             .add(ModBlocks.blaze_leaves.get());
@@ -76,6 +85,9 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.thunder_grass_crop.get())
             .add(ModBlocks.rotten_crop.get())
             .add(ModBlocks.flax_crop.get());
+        
+        this.tag(TagUtils.modBlockTag("minecraft", "pressure_plates"))
+            .add(ModBlocks.blazewood_pressure_plate.get());
     } // end registerMiscTags()
     
     

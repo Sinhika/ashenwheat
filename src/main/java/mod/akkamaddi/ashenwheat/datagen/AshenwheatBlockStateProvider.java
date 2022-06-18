@@ -59,14 +59,30 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         this.itemModels().withExistingParent("stripped_blaze_wood", modLoc("block/stripped_blaze_wood"));
         
         // blaze_planks
-        ModelFile planks = this.models().cubeAll("blaze_planks", modLoc("block/blaze_planks"));
-        this.simpleBlock(ModBlocks.blaze_planks.get(), planks);
-        this.itemModels().withExistingParent("blaze_planks", modLoc("block/blaze_planks"));
+        ModelFile planks = this.models().cubeAll("blazewood_planks", modLoc("block/blaze_planks"));
+        this.simpleBlock(ModBlocks.blazewood_planks.get(), planks);
+        this.itemModels().withExistingParent("blazewood_planks", modLoc("block/blazewood_planks"));
         
         // blaze_sapling
         ModelFile sapling = this.models().cross("blaze_sapling", modLoc("block/blaze_sapling"));
         this.simpleBlock(ModBlocks.blaze_sapling.get(), sapling);
         // sapling item model handled elsewhere.
+        
+        // blazewood_pressure_plate
+        ModelFile blazewoodPlateModel = this.models().pressurePlate("blazewood_plate",
+                modLoc("block/blaze_planks"));
+        ModelFile blazewoodPlateModel_down = this.models().pressurePlateDown("blazewood_plate_down",
+                modLoc("block/blaze_planks"));
+        this.itemModels().withExistingParent("blazewood_plate", modLoc("block/blazewood_plate"));
+        this.buildWeightedPressurePlateBlockState(ModBlocks.blazewood_pressure_plate.get(), 
+                blazewoodPlateModel, blazewoodPlateModel_down);
+        
+        // blazewood_slab
+        this.slabBlock(ModBlocks.blazewood_slab.get(), modLoc("block/blazewood_planks"), modLoc("block/blaze_planks"));
+        
+        // blazewood_stairs
+        this.stairsBlock(ModBlocks.blazewood_stairs.get(), modLoc("block/blaze_planks"));
+        
     } // end registerTreeBlocks
     
     // Ender clam
@@ -95,7 +111,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
                 .partialState().with(RottenPlantBlock.ROTTEN_AGE, 1).addModels(new ConfiguredModel(rp_models.get(0)))
                 .partialState().with(RottenPlantBlock.ROTTEN_AGE, 2).addModels(new ConfiguredModel(rp_models.get(1)));
         
-        // TODO flax
+        // flax
         List<ModelFile> flax_models = new ArrayList<ModelFile>(3);
         for (int ii=0; ii < 3; ii++)
         {

@@ -20,6 +20,15 @@ public class AshenwheatItemTags extends MiningItemTags
     {
         super.addTags();
         registerLogTags();
+        registerDoorsSlabsAndStairs();
+    }
+
+    private void registerDoorsSlabsAndStairs()
+    {
+        this.tag(TagUtils.modTag("minecraft","stairs"))
+            .add(ModBlocks.blazewood_stairs.get().asItem());
+        this.tag(TagUtils.modTag("minecraft","slabs"))
+            .add(ModBlocks.blazewood_slab.get().asItem());
     }
 
     protected void registerLogTags()
@@ -36,7 +45,7 @@ public class AshenwheatItemTags extends MiningItemTags
             .add(ModBlocks.stripped_blaze_log.get().asItem());
         
         this.tag(TagUtils.modTag("minecraft", "planks"))
-            .add(ModBlocks.blaze_planks.get().asItem());
+            .add(ModBlocks.blazewood_planks.get().asItem());
         
         this.tag(TagUtils.modTag("minecraft", "leaves"))
             .add(ModBlocks.blaze_leaves.get().asItem());
