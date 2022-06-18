@@ -69,19 +69,21 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         // sapling item model handled elsewhere.
         
         // blazewood_pressure_plate
-        ModelFile blazewoodPlateModel = this.models().pressurePlate("blazewood_plate",
+        ModelFile blazewoodPlateModel = this.models().pressurePlate("blazewood_pressure_plate",
                 modLoc("block/blaze_planks"));
-        ModelFile blazewoodPlateModel_down = this.models().pressurePlateDown("blazewood_plate_down",
+        ModelFile blazewoodPlateModel_down = this.models().pressurePlateDown("blazewood_pressure_plate_down",
                 modLoc("block/blaze_planks"));
-        this.itemModels().withExistingParent("blazewood_plate", modLoc("block/blazewood_plate"));
         this.buildWeightedPressurePlateBlockState(ModBlocks.blazewood_pressure_plate.get(), 
                 blazewoodPlateModel, blazewoodPlateModel_down);
+        this.itemModels().withExistingParent("blazewood_pressure_plate", modLoc("block/blazewood_pressure_plate"));
         
         // blazewood_slab
         this.slabBlock(ModBlocks.blazewood_slab.get(), modLoc("block/blazewood_planks"), modLoc("block/blaze_planks"));
+        this.itemModels().withExistingParent("blazewood_slab", modLoc("block/blazewood_slab"));
         
         // blazewood_stairs
         this.stairsBlock(ModBlocks.blazewood_stairs.get(), modLoc("block/blaze_planks"));
+        this.itemModels().withExistingParent("blazewood_stairs", modLoc("block/blazewood_stairs"));
         
     } // end registerTreeBlocks
     

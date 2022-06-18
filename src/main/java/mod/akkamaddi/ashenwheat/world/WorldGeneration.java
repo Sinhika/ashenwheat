@@ -35,7 +35,7 @@ public class WorldGeneration
         {
             if (AshenwheatConfig.GenerateFlax)
             {
-                LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_FLAX_COMMON" );
+                //LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_FLAX_COMMON" );
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_FLAX_COMMON.getHolder().get());
             }           
         } // end-if flax biomes
@@ -45,12 +45,12 @@ public class WorldGeneration
         {
             if (AshenwheatConfig.GenerateRottenPlants)
             {
-                LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_ROTTEN_PLANT_NORMAL" );
+                //LOGGER.debug("onBiomeLoading: attempt to addFeature PATCH_ROTTEN_PLANT_NORMAL" );
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.PATCH_ROTTEN_PLANT_NORMAL.getHolder().get());
             }
             if (AshenwheatConfig.GenerateBuriedRemains)
             {
-                LOGGER.debug("onBiomeLoading: attempt to addFeature BURIAL" );
+                //LOGGER.debug("onBiomeLoading: attempt to addFeature BURIAL" );
                 evt.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, ModFeatures.BURIAL.getHolder().get());
             }
         } // end-if any overworld
@@ -60,7 +60,7 @@ public class WorldGeneration
         {
             if (AshenwheatConfig.GenerateEnderClams)
             {
-                LOGGER.debug("onBiomeLoading: attempt to addFeature ENDER_CLAMS_ALL" );
+                // LOGGER.debug("onBiomeLoading: attempt to addFeature ENDER_CLAMS_ALL" );
                 evt.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.ENDER_CLAMS_OCEAN.getHolder().get());
             }
         } // end-if ocean

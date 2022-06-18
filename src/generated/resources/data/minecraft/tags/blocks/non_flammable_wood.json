@@ -3,6 +3,10 @@
   "values": [
     "ashenwheat:blaze_log",
     "ashenwheat:blaze_wood",
-    "ashenwheat:stripped_blaze_log"
+    "ashenwheat:stripped_blaze_log",
+    "ashenwheat:blazewood_planks",
+    "ashenwheat:blazewood_slab",
+    "ashenwheat:blazewood_stairs",
+    "ashenwheat:blazewood_pressure_plate"
   ]
 }

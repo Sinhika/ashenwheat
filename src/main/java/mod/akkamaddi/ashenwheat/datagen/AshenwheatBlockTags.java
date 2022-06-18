@@ -34,7 +34,12 @@ public class AshenwheatBlockTags extends MiningBlockTags
     {
         this.tag(TagUtils.modBlockTag("minecraft","stairs"))
             .add(ModBlocks.blazewood_stairs.get());
+        this.tag(TagUtils.modBlockTag("minecraft", "wooden_stairs"))
+            .add(ModBlocks.blazewood_stairs.get());
+        
         this.tag(TagUtils.modBlockTag("minecraft","slabs"))
+            .add(ModBlocks.blazewood_slab.get());
+        this.tag(TagUtils.modBlockTag("minecraft","wooden_slabs"))
             .add(ModBlocks.blazewood_slab.get());
     }
     
@@ -59,7 +64,11 @@ public class AshenwheatBlockTags extends MiningBlockTags
         this.tag(TagUtils.modBlockTag("minecraft", "non_flammable_wood"))
             .add(ModBlocks.blaze_log.get())
             .add(ModBlocks.blaze_wood.get())
-            .add(ModBlocks.stripped_blaze_log.get());
+            .add(ModBlocks.stripped_blaze_log.get())
+            .add(ModBlocks.blazewood_planks.get())
+            .add(ModBlocks.blazewood_slab.get())
+            .add(ModBlocks.blazewood_stairs.get())
+            .add(ModBlocks.blazewood_pressure_plate.get());
         
         this.tag(TagUtils.modBlockTag("minecraft", "planks"))
             .add(ModBlocks.blazewood_planks.get());
@@ -87,6 +96,8 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.flax_crop.get());
         
         this.tag(TagUtils.modBlockTag("minecraft", "pressure_plates"))
+            .add(ModBlocks.blazewood_pressure_plate.get());
+        this.tag(TagUtils.modBlockTag("minecraft", "wooden_pressure_plates"))
             .add(ModBlocks.blazewood_pressure_plate.get());
     } // end registerMiscTags()
     
