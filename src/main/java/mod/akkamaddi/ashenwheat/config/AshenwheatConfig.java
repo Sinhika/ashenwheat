@@ -35,6 +35,8 @@ public final class AshenwheatConfig extends SimpleConfig
     public static boolean DropScintillaSeeds = true;
     public static boolean DropOssidSeeds = true;
     public static boolean DropThunderSeeds = true;
+    public static boolean DropRottenSeeds = false;
+    public static boolean DropFlaxSeed = false;
     
     public static int relWeightWheatSeeds = 10;
     public static int relWeightAshSeeds = 8;

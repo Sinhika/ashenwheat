@@ -22,17 +22,22 @@ final class ServerConfig
     final ForgeConfigSpec.IntValue server_relWeightScintillaSeeds;
     final ForgeConfigSpec.IntValue server_relWeightOssidSeeds;
     final ForgeConfigSpec.IntValue server_relWeightThunderSeeds;
-    final ForgeConfigSpec.IntValue server_relWeightFlaxSeeds;
-    final ForgeConfigSpec.IntValue server_relWeightRottenSeeds;
     final ForgeConfigSpec.DoubleValue serverGrowthRateAshenWheat;
     final ForgeConfigSpec.DoubleValue serverGrowthRateScintillaWheat; 
     final ForgeConfigSpec.DoubleValue serverGrowthRateOssidRoot;
     final ForgeConfigSpec.DoubleValue serverGrowthRateThunderGrass;
     final ForgeConfigSpec.DoubleValue serverNeighborFactorThunderGrass;
+    
     final ForgeConfigSpec.BooleanValue serverEnablePeacefulPack;
     final ForgeConfigSpec.BooleanValue serverGenerateBlazeTrees;
+    final ForgeConfigSpec.BooleanValue serverDropFlaxSeed;
     final ForgeConfigSpec.BooleanValue serverGenerateFlax;
+    final ForgeConfigSpec.IntValue server_relWeightFlaxSeeds;
+    final ForgeConfigSpec.BooleanValue serverEnableFlaxRecipes;
+    
+    final ForgeConfigSpec.BooleanValue serverDropRottenSeeds;
     final ForgeConfigSpec.BooleanValue serverGenerateRottenPlants;
+    final ForgeConfigSpec.IntValue server_relWeightRottenSeeds;
     final ForgeConfigSpec.BooleanValue serverGenerateEnderClams;
     final ForgeConfigSpec.BooleanValue serverGenerateBuriedRemains;
     final ForgeConfigSpec.BooleanValue serverEnableSpiderEyeDrops;
@@ -112,30 +117,45 @@ final class ServerConfig
         serverGenerateBlazeTrees = builder.comment("Generate Blaze Trees in the Nether")
                 .translation(Ashenwheat.MODID + "config.serverGenerateBlazeTrees")
                 .define("generateBlazeTrees", false);
-        serverGenerateFlax = builder.comment("Generate Flax in the Overworld")
-                .translation(Ashenwheat.MODID + "config.serverGenerateFlax")
-                .define("generateFlax", false);
+        serverGenerateEnderClams = builder.comment("Generate Ender Clams in the ocean")
+                .translation(Ashenwheat.MODID + "config.serverGenerateEnderClams")
+                .define("generateEnderClams", false);
+        serverGenerateBuriedRemains = builder.comment("Generate Buried Remains underground")
+                .translation(Ashenwheat.MODID + "config.serverGenerateBuriedRemains")
+                .define("generateBuriedRemains", false);
+        builder.push("Flax");
+        serverEnableFlaxRecipes = builder.comment("Enable flax recipes")
+                .translation(Ashenwheat.MODID + "config.serverEnableFlaxRecipes")
+                .define("enableFlaxRecipes", true);
+        serverDropFlaxSeed = builder.comment("Should flax seed drop from breaking grass?")
+                .translation(Ashenwheat.MODID + "config.serverDropFlaxSeed")
+                .define("dropFlaxSeed", false);
         server_relWeightFlaxSeeds = builder.comment("Relative weight of flax seeds in grass drops")
                 .translation(Ashenwheat.MODID + "config.server_relWeightFlaxSeed")
                 .defineInRange("relWeightFlaxSeeds", 4, 0, 100);
+        serverGenerateFlax = builder.comment("Generate Flax in the Overworld")
+                .translation(Ashenwheat.MODID + "config.serverGenerateFlax")
+                .define("generateFlax", false);
+        builder.pop();
+        builder.push("Rotten Plant");
+        serverDropRottenSeeds = builder.comment("Should rotten seed drop from breaking grass?")
+                .translation(Ashenwheat.MODID + "config.serverDropRottenSeeds")
+                .define("dropRottenSeeds", false);
         serverGenerateRottenPlants = builder.comment("Generate Rotten Plantes in caves")
                 .translation(Ashenwheat.MODID + "config.serverGenerateRottenPlants")
                 .define("generateRottenPlants", false);
         server_relWeightRottenSeeds = builder.comment("Relative weight of rotten seeds in grass drops")
                 .translation(Ashenwheat.MODID + "config.server_relWeightRottenSeeds")
                 .defineInRange("relWeightRottenSeeds", 2, 0, 100);
-        serverGenerateEnderClams = builder.comment("Generate Ender Clams in the ocean - NOT AVAILABLE YET")
-                .translation(Ashenwheat.MODID + "config.serverGenerateEnderClams")
-                .define("generateEnderClams", false);
-        serverGenerateBuriedRemains = builder.comment("Generate Buried Remains underground")
-                .translation(Ashenwheat.MODID + "config.serverGenerateBuriedRemains")
-                .define("generateBuriedRemains", false);
+        builder.pop();
+        builder.push("Spider Eyes");
         serverEnableSpiderEyeDrops  = builder.comment("Enable spider eyes dropping from cobwebs")
                 .translation(Ashenwheat.MODID + "config.serverEnableSpiderEyeDrops")
                 .define("enableSpiderEyeDrops", false);
         serverSpiderEyeDropChance = builder.comment("Chance that spider eyes will drop from cobwebs")
                 .translation(Ashenwheat.MODID + ".config.serverSpiderEyeDropChance")
                 .defineInRange("spiderEyeDropChance", 0.50D, 0.0D, 1.00D);
+        builder.pop();
         builder.pop();
 	} // end ServerConfig()
 

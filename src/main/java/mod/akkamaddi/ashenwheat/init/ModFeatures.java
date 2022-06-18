@@ -138,10 +138,10 @@ public class ModFeatures
              PLACED_FEATURES.register("burial", 
                      ()-> createPlacedOreFeature(ORE_BURIED_REMAINS.getHolder().get(), 
                      List.of(
-                             CountPlacement.of(UniformInt.of(5, 20)), 
+                             CountPlacement.of(UniformInt.of(105, 120)), 
                              PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, 
                              InSquarePlacement.spread(), 
-                             SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE_WG, -20, 0)
+                             SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE, -20, 0)
                              )));
 
      public static RegistryObject<PlacedFeature> ENDER_CLAMS_OCEAN = 
