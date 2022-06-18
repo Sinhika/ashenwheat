@@ -3,11 +3,10 @@ package mod.akkamaddi.ashenwheat.init;
 import java.util.List;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.world.CavePlantFeature;
 import mod.akkamaddi.ashenwheat.world.EnderClamFeature;
 import mod.akkamaddi.ashenwheat.world.NetherTrunkPlacer;
-import mod.alexndr.simplecorelib.api.helpers.OreGenUtils;
+import mod.akkamaddi.ashenwheat.world.ShallowGraveFeature;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
@@ -28,6 +27,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.GlowLichenConfi
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.ReplaceBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
@@ -56,6 +56,9 @@ public class ModFeatures
     public static RegistryObject<Feature<CountConfiguration>> ENDER_CLAM_FEATURE =
             MOD_FEATURES.register("ender_clam_feature", ()->new EnderClamFeature(CountConfiguration.CODEC)); 
     
+    public static RegistryObject<Feature<ReplaceBlockConfiguration>> BURIED_REMAINS_FEATURE =
+            MOD_FEATURES.register("buried_remains_feature", ()->new ShallowGraveFeature(ReplaceBlockConfiguration.CODEC));
+    
             
     /** CONFIGURED_FEATURES REGISTRY */
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
@@ -80,12 +83,11 @@ public class ModFeatures
                     () -> new ConfiguredFeature<>(ENDER_CLAM_FEATURE.get(),
                             new CountConfiguration(3)));
     
-    public static RegistryObject<ConfiguredFeature<OreConfiguration, ?>> ORE_BURIED_REMAINS =
+    public static RegistryObject<ConfiguredFeature<ReplaceBlockConfiguration, ?>> ORE_BURIED_REMAINS =
             CONFIGURED_FEATURES.register("ore_buried_remains", 
-                    () -> OreGenUtils.createConfiguredOreFeature(
-                            List.of(OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), 
-                                    ModBlocks.buried_remains.get().defaultBlockState())),
-                                    AshenwheatConfig.buried_remains_cfg));
+                    () -> new ConfiguredFeature<>(BURIED_REMAINS_FEATURE.get(), 
+                            new ReplaceBlockConfiguration( List.of(OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), 
+                                                          ModBlocks.buried_remains.get().defaultBlockState())))));
 
     @SuppressWarnings("deprecation")
     public static RegistryObject<ConfiguredFeature<GlowLichenConfiguration,?>> PATCH_ROTTEN_PLANT = 
@@ -136,12 +138,12 @@ public class ModFeatures
              
      public static RegistryObject<PlacedFeature> BURIAL = 
              PLACED_FEATURES.register("burial", 
-                     ()-> createPlacedOreFeature(ORE_BURIED_REMAINS.getHolder().get(), 
+                     ()-> createReplaceBlockFeature(ORE_BURIED_REMAINS.getHolder().get(), 
                      List.of(
-                             CountPlacement.of(UniformInt.of(105, 120)), 
+                             RarityFilter.onAverageOnceEvery(3), 
                              PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, 
                              InSquarePlacement.spread(), 
-                             SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE, -20, 0)
+                             SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE, -20, 20)
                              )));
 
      public static RegistryObject<PlacedFeature> ENDER_CLAMS_OCEAN = 
@@ -188,7 +190,7 @@ public class ModFeatures
          return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
      }
     
-     public static PlacedFeature createPlacedOreFeature(Holder<ConfiguredFeature<OreConfiguration, ?>> cf,
+     public static PlacedFeature createReplaceBlockFeature(Holder<ConfiguredFeature<ReplaceBlockConfiguration, ?>> cf,
              List<PlacementModifier> pMod)
      {
          return new PlacedFeature(Holder.hackyErase(cf), List.copyOf(pMod));
