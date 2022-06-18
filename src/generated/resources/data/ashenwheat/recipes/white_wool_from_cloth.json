@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenwheat:cloth"
+    },
+    {
+      "item": "ashenwheat:cloth"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_wool"
+  }
+}

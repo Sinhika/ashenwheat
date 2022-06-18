@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "ashenwheat:block/blaze_sapling"
+  }
+}

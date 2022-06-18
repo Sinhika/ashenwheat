@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "SS ",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "ashenwheat:blazewood_planks"
+    }
+  },
+  "result": {
+    "item": "ashenwheat:blazewood_pressure_plate"
+  }
+}
