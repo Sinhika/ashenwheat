@@ -4,51 +4,56 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
+import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.ReplaceBlockFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.ReplaceBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.CountConfiguration;
 
-public class ShallowGraveFeature extends ReplaceBlockFeature
+public class ShallowGraveFeature extends Feature<CountConfiguration>
 {
 
-    public ShallowGraveFeature(Codec<ReplaceBlockConfiguration> codec)
+    public ShallowGraveFeature(Codec<CountConfiguration> codec)
     {
         super(codec);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<ReplaceBlockConfiguration> pContext)
+    public boolean place(FeaturePlaceContext<CountConfiguration> pContext)
     {
+        int ii = 0;
+        Random random = pContext.random();
         WorldGenLevel level = pContext.level();
         BlockPos blockpos = pContext.origin();
-        ReplaceBlockConfiguration replaceblockconfiguration = pContext.config();
-        Random rand = pContext.random();
-        
-        for (int ii=0; ii < 32; ii++)
+        int jj = pContext.config().count().sample(random);
+
+        for(int kk = 0; kk < jj; ++kk) 
         {
-            int jj = (blockpos.getX() + rand.nextInt(6)) - rand.nextInt(6); 
-            int kk = (blockpos.getY() + rand.nextInt(4)) - rand.nextInt(4); 
-            int mm = (blockpos.getZ() + rand.nextInt(6)) - rand.nextInt(6); 
-            BlockPos bpos_target = new BlockPos(jj, kk, mm);
-            BlockState bstate = level.getBlockState(bpos_target);
-            BlockState bstate_up = level.getBlockState(new BlockPos(jj, kk+1, mm));
-         
-            for(OreConfiguration.TargetBlockState targetState : replaceblockconfiguration.targetStates)
-            {
-                if (targetState.target.test(bstate, rand) && bstate_up.getBlock() == Blocks.GRASS_BLOCK) 
-                {
-                    level.setBlock(bpos_target, targetState.state, 2);
-                    break;
-                }
-            } // end-for
-            
+           int mm = random.nextInt(8) - random.nextInt(8);
+           int i1 = random.nextInt(8) - random.nextInt(8);
+           int j1 = level.getHeight(Heightmap.Types.WORLD_SURFACE, blockpos.getX() + mm, blockpos.getZ() + i1);
+           BlockPos blockpos1 = new BlockPos(blockpos.getX() + mm, j1-1, blockpos.getZ() + i1);
+           BlockState blockstate = ModBlocks.buried_remains.get().defaultBlockState();
+           // TODO check underpos for dirt.
+           BlockPos underpos = blockpos1.below();
+           if (level.getBlockState(blockpos1).is(Blocks.GRASS_BLOCK))// && bstate_down.is(BlockTags.DIRT)) 
+           {
+               BlockPos adjpos = blockpos1.east();  // TODO change to underpos.below()
+               
+               level.setBlock(blockpos1, blockstate, 2);  // TODO change to underpos
+               if (level.getBlockState(adjpos).is(Blocks.GRASS_BLOCK))  // TODO change to dirt check
+               {
+                   level.setBlock(adjpos, blockstate, 2);
+               }
+              ++ii;
+           }
         } // end-for
-        return true;
+        return ii > 0;
     } // end place.
 
     

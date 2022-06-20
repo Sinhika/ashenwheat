@@ -12,7 +12,6 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
@@ -24,7 +23,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.CountConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.GlowLichenConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.ReplaceBlockConfiguration;
@@ -39,7 +37,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceRelativeThresholdFilter;
-import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -56,8 +53,8 @@ public class ModFeatures
     public static RegistryObject<Feature<CountConfiguration>> ENDER_CLAM_FEATURE =
             MOD_FEATURES.register("ender_clam_feature", ()->new EnderClamFeature(CountConfiguration.CODEC)); 
     
-    public static RegistryObject<Feature<ReplaceBlockConfiguration>> BURIED_REMAINS_FEATURE =
-            MOD_FEATURES.register("buried_remains_feature", ()->new ShallowGraveFeature(ReplaceBlockConfiguration.CODEC));
+    public static RegistryObject<Feature<CountConfiguration>> SHALLOW_GRAVE_FEATURE =
+            MOD_FEATURES.register("buried_remains_feature", ()->new ShallowGraveFeature(CountConfiguration.CODEC));
     
             
     /** CONFIGURED_FEATURES REGISTRY */
@@ -83,11 +80,10 @@ public class ModFeatures
                     () -> new ConfiguredFeature<>(ENDER_CLAM_FEATURE.get(),
                             new CountConfiguration(3)));
     
-    public static RegistryObject<ConfiguredFeature<ReplaceBlockConfiguration, ?>> ORE_BURIED_REMAINS =
+    public static RegistryObject<ConfiguredFeature<CountConfiguration, ?>> ORE_BURIED_REMAINS =
             CONFIGURED_FEATURES.register("ore_buried_remains", 
-                    () -> new ConfiguredFeature<>(BURIED_REMAINS_FEATURE.get(), 
-                            new ReplaceBlockConfiguration( List.of(OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), 
-                                                          ModBlocks.buried_remains.get().defaultBlockState())))));
+                    () -> new ConfiguredFeature<>(SHALLOW_GRAVE_FEATURE.get(), 
+                            new CountConfiguration(1)));
 
     @SuppressWarnings("deprecation")
     public static RegistryObject<ConfiguredFeature<GlowLichenConfiguration,?>> PATCH_ROTTEN_PLANT = 
@@ -138,12 +134,11 @@ public class ModFeatures
              
      public static RegistryObject<PlacedFeature> BURIAL = 
              PLACED_FEATURES.register("burial", 
-                     ()-> createReplaceBlockFeature(ORE_BURIED_REMAINS.getHolder().get(), 
+                     ()-> createPlacedCountFeature(ORE_BURIED_REMAINS.getHolder().get(), 
                      List.of(
                              RarityFilter.onAverageOnceEvery(3), 
-                             PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, 
-                             InSquarePlacement.spread(), 
-                             SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE, -20, 20)
+                             PlacementUtils.HEIGHTMAP_WORLD_SURFACE, 
+                             InSquarePlacement.spread() 
                              )));
 
      public static RegistryObject<PlacedFeature> ENDER_CLAMS_OCEAN = 
