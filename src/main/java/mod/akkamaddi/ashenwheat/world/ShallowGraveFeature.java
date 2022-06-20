@@ -39,14 +39,13 @@ public class ShallowGraveFeature extends Feature<CountConfiguration>
            int j1 = level.getHeight(Heightmap.Types.WORLD_SURFACE, blockpos.getX() + mm, blockpos.getZ() + i1);
            BlockPos blockpos1 = new BlockPos(blockpos.getX() + mm, j1-1, blockpos.getZ() + i1);
            BlockState blockstate = ModBlocks.buried_remains.get().defaultBlockState();
-           // TODO check underpos for dirt.
            BlockPos underpos = blockpos1.below();
-           if (level.getBlockState(blockpos1).is(Blocks.GRASS_BLOCK))// && bstate_down.is(BlockTags.DIRT)) 
+           if (level.getBlockState(blockpos1).is(Blocks.GRASS_BLOCK) && level.getBlockState(underpos).is(BlockTags.DIRT)) 
            {
-               BlockPos adjpos = blockpos1.east();  // TODO change to underpos.below()
+               BlockPos adjpos = underpos.east();
                
-               level.setBlock(blockpos1, blockstate, 2);  // TODO change to underpos
-               if (level.getBlockState(adjpos).is(Blocks.GRASS_BLOCK))  // TODO change to dirt check
+               level.setBlock(underpos, blockstate, 2); 
+               if (level.getBlockState(adjpos).is(BlockTags.DIRT))
                {
                    level.setBlock(adjpos, blockstate, 2);
                }
