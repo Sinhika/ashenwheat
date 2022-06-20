@@ -1,15 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###"
+    "W#W",
+    "W#W"
   ],
   "key": {
-    "#": {
+    "W": {
       "item": "ashenwheat:blazewood_planks"
+    },
+    "#": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "ashenwheat:blazewood_slab",
-    "count": 6
+    "item": "ashenwheat:blazewood_fence",
+    "count": 3
   }
 }

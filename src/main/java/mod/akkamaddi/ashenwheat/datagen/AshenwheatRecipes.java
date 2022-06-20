@@ -86,26 +86,34 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
             .save(consumer);
         
         // stairs
-        ShapedRecipeBuilder.shaped(ModBlocks.blazewood_stairs.get(), 4)
-            .define('S', ModBlocks.blazewood_planks.get())
-            .pattern("S  ")
-            .pattern("SS ")
-            .pattern("SSS")
+        AshenwheatRecipes.stairBuilder(ModBlocks.blazewood_stairs.get(), Ingredient.of(ModBlocks.blazewood_planks.get()))
             .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
             .save(consumer);
 
         // slab
-        ShapedRecipeBuilder.shaped(ModBlocks.blazewood_slab.get(), 6)
-            .define('S', ModBlocks.blazewood_planks.get())
-            .pattern("   ")
-            .pattern("   ")
-            .pattern("SSS")
+        AshenwheatRecipes.slabBuilder(ModBlocks.blazewood_slab.get(),  Ingredient.of(ModBlocks.blazewood_planks.get()))
             .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
             .save(consumer);
-
+        
         // pressure plates.
         this.setbuilder.buildSimplePressurePlate(consumer, Ingredient.of(ModBlocks.blazewood_planks.get()), 
                 ModBlocks.blazewood_pressure_plate.get(), has(ModBlocks.blazewood_planks.get()));
+        
+        // button
+        AshenwheatRecipes.buttonBuilder(ModBlocks.blazewood_button.get(), Ingredient.of(ModBlocks.blazewood_planks.get()))
+            .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
+            .save(consumer);
+            
+        // fence gate
+        AshenwheatRecipes.fenceGateBuilder(ModBlocks.blazewood_fence_gate.get(), Ingredient.of(ModBlocks.blazewood_planks.get()))
+            .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
+            .save(consumer);
+        
+        // fence
+        AshenwheatRecipes.fenceBuilder(ModBlocks.blazewood_fence.get(), Ingredient.of(ModBlocks.blazewood_planks.get()))
+            .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
+            .save(consumer);
+
     } // end registerWoodRecipes
     
     

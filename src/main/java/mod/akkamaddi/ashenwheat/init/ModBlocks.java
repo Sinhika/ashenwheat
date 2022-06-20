@@ -16,12 +16,15 @@ import mod.alexndr.simplecorelib.api.content.MultifunctionPressurePlateBlock;
 import mod.alexndr.simplecorelib.api.helpers.LightUtils;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WoodButtonBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -149,9 +152,20 @@ public final class ModBlocks
                     Block.Properties.of(Material.WOOD, MaterialColor.WOOD)
                     .noCollission().strength(0.5F).sound(SoundType.WOOD)));
             
-    // TODO blazewood button
+    // blazewood button
+    public static final RegistryObject<WoodButtonBlock> blazewood_button = BLOCKS.register("blazewood_button", 
+            () -> new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+            
+    // blazewood fence
+    public static final RegistryObject<FenceBlock> blazewood_fence = BLOCKS.register("blazewood_fence", 
+            () -> new FenceBlock(Block.Properties.of(Material.WOOD, ModBlocks.blazewood_planks.get().defaultMaterialColor())
+                    .strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+       
+    // blazewood fence gate
+    public static final RegistryObject<FenceGateBlock> blazewood_fence_gate = BLOCKS.register("blazewood_fence_gate", 
+            () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, ModBlocks.blazewood_planks.get().defaultMaterialColor())
+                    .strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     
-    // TODO blazewood fence
     // TODO blazewood sign
     // TODO blazewood door
     // TODO blazewood trapdoor

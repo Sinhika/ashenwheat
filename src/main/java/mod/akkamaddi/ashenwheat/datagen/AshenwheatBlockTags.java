@@ -9,7 +9,9 @@ import mod.alexndr.simplecorelib.api.datagen.MiningBlockTags;
 import mod.alexndr.simplecorelib.api.helpers.TagUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class AshenwheatBlockTags extends MiningBlockTags
@@ -26,22 +28,49 @@ public class AshenwheatBlockTags extends MiningBlockTags
          super.addTags();
          registerMiscTags();
          registerLogTags();
-         registerDoorsSlabsAndStairs();
+         registerPlankBlockTags();
     }
 
     
-    private void registerDoorsSlabsAndStairs()
+    private void registerPlankBlockTags()
     {
-        this.tag(TagUtils.modBlockTag("minecraft","stairs"))
+        this.tag(BlockTags.WOODEN_STAIRS)
             .add(ModBlocks.blazewood_stairs.get());
-        this.tag(TagUtils.modBlockTag("minecraft", "wooden_stairs"))
+        this.tag(BlockTags.STAIRS)
             .add(ModBlocks.blazewood_stairs.get());
         
-        this.tag(TagUtils.modBlockTag("minecraft","slabs"))
+        this.tag(BlockTags.WOODEN_SLABS)
             .add(ModBlocks.blazewood_slab.get());
-        this.tag(TagUtils.modBlockTag("minecraft","wooden_slabs"))
+        this.tag(BlockTags.SLABS)
             .add(ModBlocks.blazewood_slab.get());
-    }
+        
+        this.tag(BlockTags.WOODEN_PRESSURE_PLATES)
+            .add(ModBlocks.blazewood_pressure_plate.get());
+        this.tag(BlockTags.PRESSURE_PLATES)
+            .add(ModBlocks.blazewood_pressure_plate.get());
+        
+        this.tag(BlockTags.WOODEN_BUTTONS)
+            .add(ModBlocks.blazewood_button.get());
+        this.tag(BlockTags.BUTTONS)
+            .add(ModBlocks.blazewood_button.get());
+        
+        
+        this.tag(Tags.Blocks.FENCES_WOODEN)
+            .add(ModBlocks.blazewood_fence.get());
+        this.tag(BlockTags.WOODEN_FENCES)
+            .add(ModBlocks.blazewood_fence.get());
+        this.tag(Tags.Blocks.FENCES)
+            .add(ModBlocks.blazewood_fence.get());
+        this.tag(BlockTags.FENCES)
+            .add(ModBlocks.blazewood_fence.get());
+        
+        this.tag(Tags.Blocks.FENCE_GATES_WOODEN)
+            .add(ModBlocks.blazewood_fence_gate.get());
+        this.tag(Tags.Blocks.FENCE_GATES)
+            .add(ModBlocks.blazewood_fence_gate.get());
+        this.tag(BlockTags.FENCE_GATES)
+            .add(ModBlocks.blazewood_fence_gate.get());
+    } // end registerPlankBlockTags()
     
     @Override
     protected void registerMiningTags()
@@ -95,10 +124,6 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.rotten_crop.get())
             .add(ModBlocks.flax_crop.get());
         
-        this.tag(TagUtils.modBlockTag("minecraft", "pressure_plates"))
-            .add(ModBlocks.blazewood_pressure_plate.get());
-        this.tag(TagUtils.modBlockTag("minecraft", "wooden_pressure_plates"))
-            .add(ModBlocks.blazewood_pressure_plate.get());
     } // end registerMiscTags()
     
     

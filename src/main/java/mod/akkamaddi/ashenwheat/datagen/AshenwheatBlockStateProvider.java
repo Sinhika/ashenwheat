@@ -85,6 +85,23 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         this.stairsBlock(ModBlocks.blazewood_stairs.get(), modLoc("block/blaze_planks"));
         this.itemModels().withExistingParent("blazewood_stairs", modLoc("block/blazewood_stairs"));
         
+        // blazewood_button
+        ModelFile blazewood_button_model = this.models().button("blazewood_button", modLoc("block/blaze_planks"));
+        ModelFile blazewood_button_pressed = this.models().buttonPressed("blazewood_button_pressed", modLoc("block/blaze_planks"));
+        this.buttonBlock(ModBlocks.blazewood_button.get(), blazewood_button_model, blazewood_button_pressed);
+        this.models().buttonInventory("blazewood_button_inventory", modLoc("block/blaze_planks"));
+        this.itemModels().withExistingParent("blazewood_button", modLoc("block/blazewood_button_inventory"));
+        
+        // blazewood_fence
+        this.fenceBlock(ModBlocks.blazewood_fence.get(), modLoc("block/blaze_planks"));
+        this.models().fenceInventory("blazewood_fence_inventory", modLoc("block/blaze_planks"));
+        this.itemModels().withExistingParent("blazewood_fence", modLoc("block/blazewood_fence_inventory"));
+        
+        
+        // blazewood_fence_gate
+        this.fenceGateBlock(ModBlocks.blazewood_fence_gate.get(), modLoc("block/blaze_planks"));
+        this.itemModels().withExistingParent("blazewood_fence_gate", modLoc("block/blazewood_fence_gate"));
+        
     } // end registerTreeBlocks
     
     // Ender clam

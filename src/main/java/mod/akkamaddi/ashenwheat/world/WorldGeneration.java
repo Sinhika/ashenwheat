@@ -14,6 +14,7 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class WorldGeneration
 {
+    @SuppressWarnings("unused")
     private static final Logger LOGGER = LogManager.getLogger(Ashenwheat.MODID + " Forge Event Subscriber");
 
     public static void generateOverworldFeatures(BiomeLoadingEvent evt)

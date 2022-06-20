@@ -43,16 +43,19 @@ public class AshenwheatLootTableProvider extends BlockLootTableProvider
     {
         tables.clear();
         standardDropTable(ModBlocks.blaze_log.get());
-        standardDropTable(ModBlocks.blazewood_planks.get());
         standardDropTable(ModBlocks.blaze_wood.get());
         standardDropTable(ModBlocks.stripped_blaze_log.get());
         standardDropTable(ModBlocks.stripped_blaze_wood.get());
         standardDropTable(ModBlocks.blaze_sapling.get());
         specialDropTable(ModBlocks.buried_remains.get(), Items.ROTTEN_FLESH);
         specialDropTable(ModBlocks.ender_clam.get(), Items.ENDER_PEARL);
+        standardDropTable(ModBlocks.blazewood_planks.get());
         slabDropTable(ModBlocks.blazewood_slab.get());
         standardDropTable(ModBlocks.blazewood_stairs.get());
         standardDropTable(ModBlocks.blazewood_pressure_plate.get());
+        standardDropTable(ModBlocks.blazewood_button.get());
+        standardDropTable(ModBlocks.blazewood_fence.get());
+        standardDropTable(ModBlocks.blazewood_fence_gate.get());
         cropDropTable(ModBlocks.rotten_crop.get(), Items.ROTTEN_FLESH, 1, ModItems.rotten_seeds.get(), 1, 2);
         cropDropTable(ModBlocks.flax_crop.get(), ModItems.flax_fibre.get(), 3, ModItems.flax_seed.get(), 2, 7);
         // TODO loot for blaze_leaves.
