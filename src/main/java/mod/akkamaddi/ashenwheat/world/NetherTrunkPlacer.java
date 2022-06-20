@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
 public class NetherTrunkPlacer extends TrunkPlacer
 {
+    @SuppressWarnings("hiding")
     public static final Codec<NetherTrunkPlacer> CODEC = RecordCodecBuilder.create((p_70261_) -> {
         return trunkPlacerParts(p_70261_).apply(p_70261_, NetherTrunkPlacer::new);
      });

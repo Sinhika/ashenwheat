@@ -25,7 +25,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class AshenwheatRecipes extends RecipeProvider implements IConditionBuilder, ISimpleConditionBuilder
 {
-    @SuppressWarnings("unused")
     private RecipeSetBuilder setbuilder;
 
     public AshenwheatRecipes(DataGenerator pGenerator)
