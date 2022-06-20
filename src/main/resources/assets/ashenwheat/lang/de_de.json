@@ -1,0 +1,14 @@
+{
+    "block.ashenwheat.flax_crop" : "Flachs",
+    "block.ashenwheat.rottenplant" : "Verrottete Pflanze",
+   	"block.ashenwheat.blaze_log" : "Lohrn Stamm",
+    "block.ashenwheat.blaze_sapling" : "Lohren",
+   	"block.ashenwheat.blaze_leaves" : "Lohrn Blätter",
+   	"block.ashenwheat.ender_clam" : "Enderperlen Ding",
+   	"block.ashenwheat.buried_remains" : "Rückstände",
+    "item.ashenwheat.flax_fibre" : "Flachsgewebe",
+    "item.ashenwheat.flax_seed" : "Flachssamen",
+    "item.ashenwheat.cloth" : "Stoff",
+    "item.ashenwheat.rotten_seeds" : "Verottete Samen",
+    "item.ashenwheat.blaze_sapling" : "Lohren"
+}

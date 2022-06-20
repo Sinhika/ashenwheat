@@ -1,0 +1,14 @@
+{
+    "block.ashenwheat.flax_crop" : "Linho",
+    "block.ashenwheat.rottenplant" : "Planta Murcha",
+   	"block.ashenwheat.blaze_log" : "Tronco Ardentes",
+    "block.ashenwheat.blaze_sapling" : "Rebento Ardente",
+   	"block.ashenwheat.blaze_leaves" : "Folhas Ardentes",
+   	"block.ashenwheat.ender_clam" : "Mexilhão do Fim",
+   	"block.ashenwheat.buried_remains" : "Restos Enterrados",
+    "item.ashenwheat.flax_fibre" : "Fibra de Linho",
+    "item.ashenwheat.flax_seed" : "Semente de Linho",
+    "item.ashenwheat.cloth" : "Tecido",
+    "item.ashenwheat.rotten_seeds" : "Semente Podre",
+    "item.ashenwheat.blaze_sapling" : "Rebento Ardente"
+}

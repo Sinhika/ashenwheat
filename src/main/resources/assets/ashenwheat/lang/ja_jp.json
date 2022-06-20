@@ -1,0 +1,14 @@
+{
+    "block.ashenwheat.flax_crop" : "麻",
+    "block.ashenwheat.rottenplant" : "陳腐な工場",
+   	"block.ashenwheat.blaze_log" : "ブレイズロッド",
+    "block.ashenwheat.blaze_sapling" : "ブレイズの若木",
+   	"block.ashenwheat.blaze_leaves" : "ブレイズリーバ",
+   	"block.ashenwheat.ender_clam" : "エンダークリーム",
+   	"block.ashenwheat.buried_remains" : "遺体",
+    "item.ashenwheat.flax_fibre" : "麻繊維",
+    "item.ashenwheat.flax_seed" : "麻の種",
+    "item.ashenwheat.cloth" : "布",
+    "item.ashenwheat.rotten_seeds" : "腐った種",
+    "item.ashenwheat.blaze_sapling" : "ブレイズの若木"
+}

@@ -1,0 +1,14 @@
+{
+    "block.ashenwheat.flax_crop" : "Linho",
+    "block.ashenwheat.rottenplant" : "Planta Podre",
+   	"block.ashenwheat.blaze_log" : "Tora de Blaze",
+    "block.ashenwheat.blaze_sapling" : "Muda de Blaze",
+   	"block.ashenwheat.blaze_leaves" : "Folhas de Blaze",
+   	"block.ashenwheat.ender_clam" : "Molusco de Ender",
+   	"block.ashenwheat.buried_remains" : "Restos Enterrados",
+    "item.ashenwheat.flax_fibre" : "Fibra de Linho",
+    "item.ashenwheat.flax_seed" : "Semente de Linho",
+    "item.ashenwheat.cloth" : "Tecido",
+    "item.ashenwheat.rotten_seeds" : "Semente Podre",
+    "item.ashenwheat.blaze_sapling" : "Muda de Blaze"
+}

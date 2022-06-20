@@ -1,0 +1,14 @@
+{
+    "block.ashenwheat.flax_crop" : "Vlas",
+    "block.ashenwheat.rottenplant" : "Verrotte Plant",
+   	"block.ashenwheat.blaze_log" : "Blaze Hout",
+    "block.ashenwheat.blaze_sapling" : "Blaze Kiemplant",
+   	"block.ashenwheat.blaze_leaves" : "Blaze Bladeren",
+   	"block.ashenwheat.ender_clam" : "Ender Oester",
+   	"block.ashenwheat.buried_remains" : "Begraven Restanten",
+    "item.ashenwheat.flax_fibre" : "Vlas Vezel",
+    "item.ashenwheat.flax_seed" : "Vlas Zaad",
+    "item.ashenwheat.cloth" : "Doek",
+    "item.ashenwheat.rotten_seeds" : "Verrot Zaad",
+    "item.ashenwheat.blaze_sapling" : "Blaze Kiemplant"
+}

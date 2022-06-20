@@ -1,0 +1,14 @@
+{
+    "block.ashenwheat.flax_crop" : "Lino",
+    "block.ashenwheat.rottenplant" : "Pianta marcia",
+   	"block.ashenwheat.blaze_log" : "Legno infuocato",
+    "block.ashenwheat.blaze_sapling" : "Arberello infuocato",
+   	"block.ashenwheat.blaze_leaves" : "Foglie infuocate",
+   	"block.ashenwheat.ender_clam" : "Mollusco dell'end",
+   	"block.ashenwheat.buried_remains" : "Resti sepolti",
+    "item.ashenwheat.flax_fibre" : "Fibra di lino",
+    "item.ashenwheat.flax_seed" : "Seme di lino",
+    "item.ashenwheat.cloth" : "Vestito",
+    "item.ashenwheat.rotten_seeds" : "Seme marcio",
+    "item.ashenwheat.blaze_sapling" : "Arberello infuocato"
+}

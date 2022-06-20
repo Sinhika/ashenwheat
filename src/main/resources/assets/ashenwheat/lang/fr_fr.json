@@ -1,0 +1,14 @@
+{
+    "block.ashenwheat.flax_crop" : "Lin",
+    "block.ashenwheat.rottenplant" : "Plante pourrie",
+   	"block.ashenwheat.blaze_log" : "Bûche de blaze",
+    "block.ashenwheat.blaze_sapling" : "Pousse de blaze",
+   	"block.ashenwheat.blaze_leaves" : "Feuilles de blaze",
+   	"block.ashenwheat.ender_clam" : "Palourde du néant",
+   	"block.ashenwheat.buried_remains" : "Vestiges enfouis",
+    "item.ashenwheat.flax_fibre" : "Fibre de lin",
+    "item.ashenwheat.flax_seed" : "Graine de lin",
+    "item.ashenwheat.cloth" : "Habits",
+    "item.ashenwheat.rotten_seeds" : "Graine pourries",
+    "item.ashenwheat.blaze_sapling" : "Pousse de blaze"
+}

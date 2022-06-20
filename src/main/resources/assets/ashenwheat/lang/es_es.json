@@ -1,0 +1,14 @@
+{
+    "block.ashenwheat.flax_crop" : "Lino",
+    "block.ashenwheat.rottenplant" : "Planta Podrida",
+   	"block.ashenwheat.blaze_log" : "Leño en llamas",
+    "block.ashenwheat.blaze_sapling" : "Retoño en llamas",
+   	"block.ashenwheat.blaze_leaves" : "Hojas en llamas",
+   	"block.ashenwheat.ender_clam" : "Almeja Ender",
+   	"block.ashenwheat.buried_remains" : "Restos Enterrados",
+    "item.ashenwheat.flax_fibre" : "Fibra de lino",
+    "item.ashenwheat.flax_seed" : "Semilla de lino",
+    "item.ashenwheat.cloth" : "Cuero",
+    "item.ashenwheat.rotten_seeds" : "Semillas podridas",
+    "item.ashenwheat.blaze_sapling" : "Retoño en llamas"
+}
