@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenwheat:blazewood_planks"
+    }
+  ],
+  "result": {
+    "item": "ashenwheat:blazewood_button"
+  }
+}

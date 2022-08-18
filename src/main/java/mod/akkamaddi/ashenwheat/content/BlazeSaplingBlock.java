@@ -9,8 +9,6 @@ import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.PlantType;
 
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-
 public class BlazeSaplingBlock extends SaplingBlock
 {
 

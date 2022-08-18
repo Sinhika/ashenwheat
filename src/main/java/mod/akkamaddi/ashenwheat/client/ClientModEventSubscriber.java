@@ -28,22 +28,22 @@ public final class ClientModEventSubscriber
     @SubscribeEvent
     public static void onFMLClientSetupEvent(final FMLClientSetupEvent event) 
     {
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ash_wheat_crop.get(), 
-                (layer) -> layer == RenderType.cutoutMipped());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ash_wheat_crop.get(), 
+//                (layer) -> layer == RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.scintilla_wheat_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ossid_root_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.thunder_grass_crop.get(), 
                 (layer) -> layer == RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.rotten_crop.get(), 
-                (layer) -> layer == RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.flax_crop.get(), 
-                (layer) -> layer == RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.blaze_leaves.get(),
-                (layer) -> layer == RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.blaze_sapling.get(),
-                (layer) -> layer == RenderType.cutoutMipped());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.rotten_crop.get(), 
+//                (layer) -> layer == RenderType.cutoutMipped());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.flax_crop.get(), 
+//                (layer) -> layer == RenderType.cutoutMipped());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.blaze_leaves.get(),
+//                (layer) -> layer == RenderType.cutoutMipped());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.blaze_sapling.get(),
+//                (layer) -> layer == RenderType.cutoutMipped());
     } // end onFMLClientSetupEvent()
     
 } // end class

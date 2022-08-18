@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "ashenwheat:stripped_blaze_log"
+    }
+  },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "result": {
+    "count": 3,
+    "item": "ashenwheat:stripped_blaze_wood"
+  }
+}

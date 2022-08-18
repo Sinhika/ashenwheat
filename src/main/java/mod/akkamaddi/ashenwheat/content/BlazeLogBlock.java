@@ -7,8 +7,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-
 public class BlazeLogBlock extends RotatedPillarBlock
 {
 

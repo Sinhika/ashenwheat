@@ -1,8 +1,6 @@
 package mod.akkamaddi.ashenwheat.config;
 
 import mod.alexndr.simplecorelib.api.config.SimpleConfig;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraftforge.common.util.Lazy;
 
 /**
  * This holds the baked (runtime) values for our config.

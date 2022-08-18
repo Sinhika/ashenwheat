@@ -38,7 +38,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
     private void registerTreeBlocks()
     {
         // blaze_leaves
-        ModelFile leaves = this.models().cubeAll("blaze_leaves", modLoc("block/blaze_leaves"));
+        ModelFile leaves = this.models().cubeAll("blaze_leaves", modLoc("block/blaze_leaves")).renderType("cutout_mipped");
         this.simpleBlock(ModBlocks.blaze_leaves.get(), leaves);
         this.itemModels().withExistingParent("blaze_leaves", modLoc("block/blaze_leaves"));
 
@@ -64,7 +64,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         this.itemModels().withExistingParent("blazewood_planks", modLoc("block/blazewood_planks"));
         
         // blaze_sapling
-        ModelFile sapling = this.models().cross("blaze_sapling", modLoc("block/blaze_sapling"));
+        ModelFile sapling = this.models().cross("blaze_sapling", modLoc("block/blaze_sapling")).renderType("cutout_mipped");
         this.simpleBlock(ModBlocks.blaze_sapling.get(), sapling);
         // sapling item model handled elsewhere.
         
@@ -123,7 +123,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         List<ModelFile> rp_models = new ArrayList<ModelFile>(2);
         for (int ii=0; ii < 2; ii ++)
         {
-            rp_models.add(this.models().crop("rottenplant_0" + ii, modLoc("block/rottenplant_0" + ii)));
+            rp_models.add(this.models().crop("rottenplant_0" + ii, modLoc("block/rottenplant_0" + ii)).renderType("cutout_mipped"));
         } // end-for
         this.getVariantBuilder(ModBlocks.rotten_crop.get())
                 .partialState().with(RottenPlantBlock.ROTTEN_AGE, 0).addModels(new ConfiguredModel(rp_models.get(0)))
@@ -134,7 +134,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         List<ModelFile> flax_models = new ArrayList<ModelFile>(3);
         for (int ii=0; ii < 3; ii++)
         {
-            flax_models.add(this.models().crop("flax_0" + ii, modLoc("block/flax_0" + ii)));
+            flax_models.add(this.models().crop("flax_0" + ii, modLoc("block/flax_0" + ii)).renderType("cutout_mipped"));
         } // end-for
         this.getVariantBuilder(ModBlocks.flax_crop.get())
             .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(flax_models.get(0)))
@@ -146,6 +146,23 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
             .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(flax_models.get(1)))
             .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(flax_models.get(2)));
 
+        // ashenwheat
+        List<ModelFile> ashwheat_models = new ArrayList<ModelFile>(8);
+        for (int ii=0; ii<8; ii++)
+        {
+            ashwheat_models.add(this.models().crop("ashwheatcrop_0" + ii, 
+                                                    modLoc("block/ashwheatcrop_0" + ii)).renderType("cutout_mipped"));
+        } // end-for 
+        this.getVariantBuilder(ModBlocks.ash_wheat_crop.get())
+            .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(ashwheat_models.get(0)))
+            .partialState().with(CropBlock.AGE, 1).addModels(new ConfiguredModel(ashwheat_models.get(1)))
+            .partialState().with(CropBlock.AGE, 2).addModels(new ConfiguredModel(ashwheat_models.get(2)))
+            .partialState().with(CropBlock.AGE, 3).addModels(new ConfiguredModel(ashwheat_models.get(3)))
+            .partialState().with(CropBlock.AGE, 4).addModels(new ConfiguredModel(ashwheat_models.get(4)))
+            .partialState().with(CropBlock.AGE, 5).addModels(new ConfiguredModel(ashwheat_models.get(5)))
+            .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(ashwheat_models.get(6)))
+            .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(ashwheat_models.get(7)));
+        
     } // end registerCropBlocks
     
  
