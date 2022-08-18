@@ -18,6 +18,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.PlantType;
 
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+
 public class RottenPlantBlock extends ModCropsBlock
 {
     public static final int ROTTEN_MAX_AGE = 2;

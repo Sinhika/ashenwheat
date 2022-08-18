@@ -18,7 +18,7 @@ public final class ModOtherRegistry
     
     // GlobalLootModifiers registry
     public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_SERIALIZERS = 
-            DeferredRegister.create(Keys.LOOT_MODIFIER_SERIALIZERS, Ashenwheat.MODID);
+            DeferredRegister.create(Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, Ashenwheat.MODID);
     
     public static final RegistryObject<GlobalLootModifierSerializer<?>> seeds_from_grass = 
             LOOT_SERIALIZERS.register( "seeds_from_grass", () -> new GrassLootModifiers.GrassLootModifier.Serializer());
