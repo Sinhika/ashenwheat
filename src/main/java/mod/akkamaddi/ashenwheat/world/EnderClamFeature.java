@@ -1,11 +1,10 @@
 package mod.akkamaddi.ashenwheat.world;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
 
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,7 +25,7 @@ public class EnderClamFeature extends Feature<CountConfiguration>
     public boolean place(FeaturePlaceContext<CountConfiguration> pContext)
     {
         int i = 0;
-        Random random = pContext.random();
+        RandomSource random = pContext.random();
         WorldGenLevel worldgenlevel = pContext.level();
         BlockPos blockpos = pContext.origin();
         int j = pContext.config().count().sample(random);

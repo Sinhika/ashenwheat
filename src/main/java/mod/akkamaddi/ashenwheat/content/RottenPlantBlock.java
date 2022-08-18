@@ -1,11 +1,10 @@
 package mod.akkamaddi.ashenwheat.content;
 
-import java.util.Random;
-
 import mod.akkamaddi.ashenwheat.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.LevelReader;
@@ -17,8 +16,6 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.PlantType;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class RottenPlantBlock extends ModCropsBlock
 {
@@ -82,7 +79,7 @@ public class RottenPlantBlock extends ModCropsBlock
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand)
+    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand)
     {
         // rotten plant only grows in darkness on stone, but uses standard fertility formula.
         if (worldIn.getRawBrightness(pos, 0) < 2)

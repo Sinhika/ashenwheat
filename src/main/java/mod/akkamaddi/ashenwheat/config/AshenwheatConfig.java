@@ -1,6 +1,5 @@
 package mod.akkamaddi.ashenwheat.config;
 
-import mod.alexndr.simplecorelib.api.config.ModOreConfig;
 import mod.alexndr.simplecorelib.api.config.SimpleConfig;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraftforge.common.util.Lazy;
@@ -61,9 +60,9 @@ public final class AshenwheatConfig extends SimpleConfig
     public static boolean EnableSpiderEyeDrops = false;
     public static float SpiderEyeDropChance = 1.0F;
     
-    public static Lazy<ModOreConfig> buried_remains_cfg = 
-            Lazy.of( ()->new ModOreConfig(ModOreConfig.UNIFORM, 2, 
-                    100, true, 
-                    VerticalAnchor.absolute(10), 
-                    VerticalAnchor.absolute(128)));
+//    public static Lazy<ModOreConfig> buried_remains_cfg = 
+//            Lazy.of( ()->new ModOreConfig(ModOreConfig.UNIFORM, 2, 
+//                    100, true, 
+//                    VerticalAnchor.absolute(10), 
+//                    VerticalAnchor.absolute(128)));
 } // end class

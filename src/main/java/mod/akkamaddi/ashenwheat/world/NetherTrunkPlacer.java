@@ -1,7 +1,6 @@
 package mod.akkamaddi.ashenwheat.world;
 
 import java.util.List;
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 import com.google.common.collect.ImmutableList;
@@ -9,6 +8,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -37,7 +37,7 @@ public class NetherTrunkPlacer extends TrunkPlacer
 
     @Override
     public List<FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel,
-            BiConsumer<BlockPos, BlockState> pBlockSetter, Random pRandom, int pFreeTreeHeight, BlockPos pPos,
+            BiConsumer<BlockPos, BlockState> pBlockSetter, RandomSource pRandom, int pFreeTreeHeight, BlockPos pPos,
             TreeConfiguration pConfig)
     {
         for(int i = 0; i < pFreeTreeHeight; ++i) 

@@ -13,18 +13,13 @@ public class AshenwheatDataGenerator
     public static void gatherData(GatherDataEvent event)
     {
         DataGenerator gen = event.getGenerator();
-        if (event.includeServer())
-        {
-            gen.addProvider(new AshenwheatBlockTags(gen, event.getExistingFileHelper()));
-            gen.addProvider(new AshenwheatItemTags(gen, event.getExistingFileHelper()));
-            gen.addProvider(new AshenwheatLootTableProvider(gen));
-            gen.addProvider(new AshenwheatRecipes(gen));
-        }
-        if (event.includeClient())
-        {
-            gen.addProvider(new AshenwheatBlockStateProvider(gen, event.getExistingFileHelper()));
-            gen.addProvider(new AshenwheatItemModelProvider(gen, event.getExistingFileHelper()));
-        }
+        gen.addProvider(event.includeServer(), new AshenwheatBlockTags(gen, event.getExistingFileHelper()));
+        gen.addProvider(event.includeServer(), new AshenwheatItemTags(gen, event.getExistingFileHelper()));
+        gen.addProvider(event.includeServer(), new AshenwheatLootTableProvider(gen));
+        gen.addProvider(event.includeServer(), new AshenwheatRecipes(gen));
+
+        gen.addProvider(event.includeClient(), new AshenwheatBlockStateProvider(gen, event.getExistingFileHelper()));
+        gen.addProvider(event.includeClient(), new AshenwheatItemModelProvider(gen, event.getExistingFileHelper()));
     } // end gatherData()
 
 } // end class

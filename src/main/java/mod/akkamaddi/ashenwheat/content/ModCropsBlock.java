@@ -1,7 +1,5 @@
 package mod.akkamaddi.ashenwheat.content;
 
-import java.util.Random;
-
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
@@ -9,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
@@ -17,8 +16,6 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 /**
  * Make one custom CropsBlock class for all the special crops in this mod.
@@ -105,7 +102,7 @@ public class ModCropsBlock extends CropBlock
      * config allows.
      */
     @Override
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
         if (!worldIn.isClientSide) return;
 
@@ -167,7 +164,7 @@ public class ModCropsBlock extends CropBlock
      */
     @SuppressWarnings("deprecation")
     @Override
-    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand)
+    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand)
     {
         if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's
                                                    // light
@@ -185,7 +182,7 @@ public class ModCropsBlock extends CropBlock
      * @param pos
      * @param rand
      */
-    protected void standardGrowthTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand)
+    protected void standardGrowthTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand)
     {
         int i = this.getAge(state);
         if (i < this.getMaxAge())

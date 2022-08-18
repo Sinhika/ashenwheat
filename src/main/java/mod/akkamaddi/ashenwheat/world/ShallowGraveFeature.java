@@ -1,12 +1,11 @@
 package mod.akkamaddi.ashenwheat.world;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
 
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,7 +26,7 @@ public class ShallowGraveFeature extends Feature<CountConfiguration>
     public boolean place(FeaturePlaceContext<CountConfiguration> pContext)
     {
         int ii = 0;
-        Random random = pContext.random();
+        RandomSource random = pContext.random();
         WorldGenLevel level = pContext.level();
         BlockPos blockpos = pContext.origin();
         int jj = pContext.config().count().sample(random);

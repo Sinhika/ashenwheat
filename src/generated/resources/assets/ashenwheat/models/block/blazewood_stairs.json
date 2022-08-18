@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "side": "ashenwheat:block/blaze_planks",
-    "bottom": "ashenwheat:block/blaze_planks",
-    "top": "ashenwheat:block/blaze_planks"
-  }
-}

@@ -1,12 +1,11 @@
 package mod.akkamaddi.ashenwheat.content;
 
-import java.util.Random;
-
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -15,8 +14,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class CarvedOssidRoot extends HorizontalDirectionalBlock
 {
@@ -42,7 +39,7 @@ public class CarvedOssidRoot extends HorizontalDirectionalBlock
      }
      
     @Override
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
         if (! worldIn.isClientSide) return;
         if (AshenwheatConfig.MakeOssidLanternGloom 
