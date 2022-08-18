@@ -34,7 +34,7 @@ public final class Ashenwheat
         ModFeatures.CONFIGURED_FEATURES.register(modEventBus);
         ModFeatures.PLACED_FEATURES.register(modEventBus);
         
-        ModOtherRegistry.LOOT_SERIALIZERS.register(modEventBus);
+        ModOtherRegistry.GLM.register(modEventBus);
         
         // Register Configs (Does not need to be after Deferred Registers)
         modLoadingContext.registerConfig(ModConfig.Type.CLIENT, ConfigHolder.CLIENT_SPEC);

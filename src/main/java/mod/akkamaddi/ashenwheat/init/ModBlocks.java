@@ -16,10 +16,10 @@ import mod.alexndr.simplecorelib.api.content.MultifunctionPressurePlateBlock;
 import mod.alexndr.simplecorelib.api.helpers.LightUtils;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -100,8 +100,8 @@ public final class ModBlocks
                     .strength(3.0F).sound(SoundType.CORAL_BLOCK).requiresCorrectToolForDrops()));
     
     // Buried Remains blocks
-    public static final RegistryObject<OreBlock> buried_remains = BLOCKS.register("buried_remains",
-            ()->new OreBlock(Block.Properties.of(Material.DIRT, MaterialColor.TERRACOTTA_RED)
+    public static final RegistryObject<DropExperienceBlock> buried_remains = BLOCKS.register("buried_remains",
+            ()->new DropExperienceBlock(Block.Properties.of(Material.DIRT, MaterialColor.TERRACOTTA_RED)
                     .strength(1.0F).sound(SoundType.SLIME_BLOCK)));
 
     // Blaze Tree blocks

@@ -1,11 +1,13 @@
 package mod.akkamaddi.ashenwheat.init;
 
+import com.mojang.serialization.Codec;
+
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import mod.akkamaddi.ashenwheat.loot.CobwebLootModifiers;
-import mod.akkamaddi.ashenwheat.loot.GrassLootModifiers;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import mod.akkamaddi.ashenwheat.loot.CobwebLootModifiers.CobwebLootModifier;
+import mod.akkamaddi.ashenwheat.loot.GrassLootModifiers.GrassLootModifier;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries.Keys;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
@@ -17,13 +19,13 @@ public final class ModOtherRegistry
 {
     
     // GlobalLootModifiers registry
-    public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_SERIALIZERS = 
-            DeferredRegister.create(Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, Ashenwheat.MODID);
+    public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> GLM = 
+            DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, Ashenwheat.MODID);
     
-    public static final RegistryObject<GlobalLootModifierSerializer<?>> seeds_from_grass = 
-            LOOT_SERIALIZERS.register( "seeds_from_grass", () -> new GrassLootModifiers.GrassLootModifier.Serializer());
+    public static final RegistryObject<Codec<GrassLootModifier>> seeds_from_grass = 
+            GLM.register( "seeds_from_grass", GrassLootModifier.CODEC);
             
-    public static final RegistryObject<GlobalLootModifierSerializer<?>> spider_eyes_from_cobweb =
-            LOOT_SERIALIZERS.register( "spider_eyes_from_cobweb", () -> new CobwebLootModifiers.CobwebLootModifier.Serializer());
+    public static final RegistryObject<Codec<CobwebLootModifier>> spider_eyes_from_cobweb =
+            GLM.register( "spider_eyes_from_cobweb", CobwebLootModifier.CODEC);
     
 } // end class

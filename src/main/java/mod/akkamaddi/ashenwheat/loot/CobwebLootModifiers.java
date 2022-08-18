@@ -1,23 +1,29 @@
 package mod.akkamaddi.ashenwheat.loot;
 
-import java.util.List;
+import java.util.function.Supplier;
 
-import com.google.gson.JsonObject;
+import org.jetbrains.annotations.NotNull;
 
+import com.google.common.base.Suppliers;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 
 public class CobwebLootModifiers
 {
     public static class CobwebLootModifier extends LootModifier
     {
-       
+        public static final Supplier<Codec<CobwebLootModifier>> CODEC =
+                Suppliers.memoize(() -> RecordCodecBuilder.create( inst -> codecStart(inst).apply(inst, CobwebLootModifier::new)));
+                        
         protected CobwebLootModifier(LootItemCondition[] conditionsIn)
         {
             super(conditionsIn);
@@ -28,7 +34,8 @@ public class CobwebLootModifiers
          * add spider eye to loot list.
          */
         @Override
-        protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context)
+        protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot,
+                LootContext context)
         {
             if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.EnableSpiderEyeDrops)
             {
@@ -39,25 +46,12 @@ public class CobwebLootModifiers
             }
             return generatedLoot;
         }
-        
-        public static class Serializer extends GlobalLootModifierSerializer<CobwebLootModifier>
+
+        @Override
+        public Codec<? extends IGlobalLootModifier> codec()
         {
-
-            // we don't really do anyting special here.
-            @Override
-            public CobwebLootModifier read(ResourceLocation location, JsonObject object,
-                    LootItemCondition[] ailootcondition)
-            {
-                return new CobwebLootModifier(ailootcondition);
-            }
-
-            // again, don't do anything special here.
-            @Override
-            public JsonObject write(CobwebLootModifier instance)
-            {
-                return makeConditions(instance.conditions);
-            }
-            
-        } // end-class CobwebLootModifier$Serializer
+            return CODEC.get();
+        }
+        
     } // end-class CobwebLootModifier
 } // end class CobwebLootModifiers

@@ -9,16 +9,17 @@ import mod.akkamaddi.ashenwheat.config.ConfigHolder;
 import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItemGroups;
+import net.minecraft.core.Registry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
@@ -51,28 +52,30 @@ public final class ModEventSubscriber
 	 * This method will be called by Forge when it is time for the mod to register its Items.
 	 * This method will always be called after the Block registry method.
 	 */
-	@SubscribeEvent
-	public static void onRegisterItems(final RegistryEvent.Register<Item> event) 
-	{
-		final IForgeRegistry<Item> registry = event.getRegistry();
-		// Automatically register BlockItems for all our Blocks
-		ModBlocks.BLOCKS.getEntries().stream()
-				.map(RegistryObject::get)
-				// You can do extra filtering here if you don't want some blocks to have an BlockItem automatically registered for them
-				.filter(block -> needsItemBlock(block))
-				// Register the BlockItem for the block
-				.forEach(block -> {
-					// Make the properties, and make it so that the item will be on our ItemGroup (CreativeTab)
-					final Item.Properties properties = new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP);
-					// Create the new BlockItem with the block and it's properties
-					final BlockItem blockItem = new BlockItem(block, properties);
-					// Set the new BlockItem's registry name to the block's registry name
-					blockItem.setRegistryName(block.getRegistryName());
-					// Register the BlockItem
-					registry.register(blockItem);
-				});
-		LOGGER.debug("Registered BlockItems");
-	}
+    @SubscribeEvent
+    public static void onRegisterItems(final RegisterEvent event) 
+    {
+        if (event.getRegistryKey() == Registry.ITEM_REGISTRY)
+        {
+         // Automatically register BlockItems for all our Blocks
+        ModBlocks.BLOCKS.getEntries().stream()
+                .map(RegistryObject::get)
+                // You can do extra filtering here if you don't want some blocks to have an BlockItem automatically registered for them
+                .filter(block -> needsItemBlock(block))
+                // Register the BlockItem for the block
+                .forEach(block -> {
+                    // Make the properties, and make it so that the item will be on our ItemGroup (CreativeTab)
+                    final Item.Properties properties = new Item.Properties().tab(ModItemGroups.MOD_ITEM_GROUP);
+                    // Create the new BlockItem with the block and it's properties
+                    final BlockItem blockItem = new BlockItem(block, properties);
+                    // Register the BlockItem
+                    event.register(Registry.ITEM_REGISTRY,  helper -> {
+                        helper.register(ForgeRegistries.BLOCKS.getKey(block), blockItem);
+                    });
+                });
+        LOGGER.debug("Registered BlockItems");
+        }
+    }
 
     private static boolean needsItemBlock(Block block)
     {
