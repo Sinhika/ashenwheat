@@ -1,9 +1,6 @@
 package mod.akkamaddi.ashenwheat.client;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import mod.akkamaddi.ashenwheat.init.ModBlocks;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -30,12 +27,12 @@ public final class ClientModEventSubscriber
     {
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ash_wheat_crop.get(), 
 //                (layer) -> layer == RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.scintilla_wheat_crop.get(), 
-                (layer) -> layer == RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ossid_root_crop.get(), 
-                (layer) -> layer == RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.thunder_grass_crop.get(), 
-                (layer) -> layer == RenderType.cutoutMipped());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.scintilla_wheat_crop.get(), 
+//                (layer) -> layer == RenderType.cutoutMipped());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ossid_root_crop.get(), 
+//                (layer) -> layer == RenderType.cutoutMipped());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.thunder_grass_crop.get(), 
+//                (layer) -> layer == RenderType.cutoutMipped());
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.rotten_crop.get(), 
 //                (layer) -> layer == RenderType.cutoutMipped());
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.flax_crop.get(), 

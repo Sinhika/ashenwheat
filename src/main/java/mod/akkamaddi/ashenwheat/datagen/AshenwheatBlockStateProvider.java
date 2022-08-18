@@ -162,7 +162,59 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
             .partialState().with(CropBlock.AGE, 5).addModels(new ConfiguredModel(ashwheat_models.get(5)))
             .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(ashwheat_models.get(6)))
             .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(ashwheat_models.get(7)));
+
+        // scintilla wheat
+        List<ModelFile> sw_models = new ArrayList<ModelFile>(8);
+        for (int ii=0; ii<8; ii++)
+        {
+            sw_models.add(this.models().crop("scintillawheatcrop_0" + ii, 
+                                                    modLoc("block/scintillawheatcrop_0" + ii)).renderType("cutout_mipped"));
+        } // end-for 
+        this.getVariantBuilder(ModBlocks.scintilla_wheat_crop.get())
+            .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(sw_models.get(0)))
+            .partialState().with(CropBlock.AGE, 1).addModels(new ConfiguredModel(sw_models.get(1)))
+            .partialState().with(CropBlock.AGE, 2).addModels(new ConfiguredModel(sw_models.get(2)))
+            .partialState().with(CropBlock.AGE, 3).addModels(new ConfiguredModel(sw_models.get(3)))
+            .partialState().with(CropBlock.AGE, 4).addModels(new ConfiguredModel(sw_models.get(4)))
+            .partialState().with(CropBlock.AGE, 5).addModels(new ConfiguredModel(sw_models.get(5)))
+            .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(sw_models.get(6)))
+            .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(sw_models.get(7)));
+
+        // ossid root crop
+        List<ModelFile> or_models = new ArrayList<ModelFile>(8);
+        for (int ii=0; ii<8; ii++)
+        {
+            or_models.add(this.models().crop("ossidvine_0" + ii, 
+                                                    modLoc("block/ossidvine_0" + ii)).renderType("cutout_mipped"));
+        } // end-for 
+        this.getVariantBuilder(ModBlocks.ossid_root_crop.get())
+            .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(or_models.get(0)))
+            .partialState().with(CropBlock.AGE, 1).addModels(new ConfiguredModel(or_models.get(1)))
+            .partialState().with(CropBlock.AGE, 2).addModels(new ConfiguredModel(or_models.get(2)))
+            .partialState().with(CropBlock.AGE, 3).addModels(new ConfiguredModel(or_models.get(3)))
+            .partialState().with(CropBlock.AGE, 4).addModels(new ConfiguredModel(or_models.get(4)))
+            .partialState().with(CropBlock.AGE, 5).addModels(new ConfiguredModel(or_models.get(5)))
+            .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(or_models.get(6)))
+            .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(or_models.get(7)));
         
+        // thundergrass crop
+        List<ModelFile> tg_models = new ArrayList<ModelFile>(8);
+        for (int ii=0; ii<8; ii++)
+        {
+            tg_models.add(this.models().crop("thundergrass_0" + ii, 
+                                                    modLoc("block/thundergrass_0" + ii)).renderType("cutout_mipped"));
+        } // end-for 
+        this.getVariantBuilder(ModBlocks.thunder_grass_crop.get())
+            .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(or_models.get(0)))
+            .partialState().with(CropBlock.AGE, 1).addModels(new ConfiguredModel(or_models.get(1)))
+            .partialState().with(CropBlock.AGE, 2).addModels(new ConfiguredModel(or_models.get(2)))
+            .partialState().with(CropBlock.AGE, 3).addModels(new ConfiguredModel(or_models.get(3)))
+            .partialState().with(CropBlock.AGE, 4).addModels(new ConfiguredModel(or_models.get(4)))
+            .partialState().with(CropBlock.AGE, 5).addModels(new ConfiguredModel(or_models.get(5)))
+            .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(or_models.get(6)))
+            .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(or_models.get(7)));
+        
+       
     } // end registerCropBlocks
     
  
