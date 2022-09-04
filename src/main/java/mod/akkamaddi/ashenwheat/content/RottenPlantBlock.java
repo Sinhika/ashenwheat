@@ -82,7 +82,7 @@ public class RottenPlantBlock extends ModCropsBlock
     public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand)
     {
         // rotten plant only grows in darkness on stone, but uses standard fertility formula.
-        if (worldIn.getRawBrightness(pos, 0) < 2)
+        if (worldIn.getRawBrightness(pos, 0) <= 2)
         {
             standardGrowthTick(state, worldIn, pos, rand);
         }
