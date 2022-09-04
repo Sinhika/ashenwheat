@@ -71,19 +71,16 @@ public class GrassLootModifiers
                     dropped_seeds_builder.add(ModItems.thunder_seeds.get(), AshenwheatConfig.relWeightThunderSeeds);
                     Ashenwheat.LOGGER.debug("GrassLootModifier: added thunder_seeds");
                 }
-                if (AshenwheatConfig.EnablePeacefulPack)
+                if ((seedItem == ModItems.flax_seed.get()) &&  AshenwheatConfig.DropFlaxSeed)
                 {
-                    if ((seedItem == ModItems.flax_seed.get()) &&  AshenwheatConfig.DropFlaxSeed)
-                    {
-                        dropped_seeds_builder.add(ModItems.flax_seed.get(), AshenwheatConfig.relWeightFlaxSeeds);
-                        Ashenwheat.LOGGER.debug("GrassLootModifier: added flax_seed");
-                    }
-                    if ((seedItem == ModItems.rotten_seeds.get()) &&  AshenwheatConfig.DropRottenSeeds)
-                    {
-                        dropped_seeds_builder.add(ModItems.rotten_seeds.get(), AshenwheatConfig.relWeightRottenSeed);
-                        Ashenwheat.LOGGER.debug("GrassLootModifier: added rotten_seeds");
-                    }
-               }
+                    dropped_seeds_builder.add(ModItems.flax_seed.get(), AshenwheatConfig.relWeightFlaxSeeds);
+                    Ashenwheat.LOGGER.debug("GrassLootModifier: added flax_seed");
+                }
+                if ((seedItem == ModItems.rotten_seeds.get()) &&  AshenwheatConfig.DropRottenSeeds)
+                {
+                    dropped_seeds_builder.add(ModItems.rotten_seeds.get(), AshenwheatConfig.relWeightRottenSeed);
+                    Ashenwheat.LOGGER.debug("GrassLootModifier: added rotten_seeds");
+                }
             } // end-for
             dropped_seeds = dropped_seeds_builder.build();
         } // end-ctor

@@ -37,7 +37,7 @@ public class CobwebLootModifiers
         protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot,
                 LootContext context)
         {
-            if (AshenwheatConfig.EnablePeacefulPack && AshenwheatConfig.EnableSpiderEyeDrops)
+            if (AshenwheatConfig.EnableSpiderEyeDrops)
             {
                 if (context.getRandom().nextFloat() < AshenwheatConfig.SpiderEyeDropChance) 
                 {

@@ -49,12 +49,12 @@ public final class AshenwheatConfig extends SimpleConfig
     public static float growthRateThunderGrass = 0.5F; // but doesn't mind having neighbors...
     public static float neighborFactorThunderGrass = 5.0F; // wheat = 1.0F
     
-    public static boolean EnablePeacefulPack = false;
-    public static boolean GenerateBlazeTrees = false;
-    public static boolean GenerateFlax = false;
-    public static boolean GenerateRottenPlants = false;
-    public static boolean GenerateEnderClams = false;
-    public static boolean GenerateBuriedRemains = false;
+//    public static boolean EnablePeacefulPack = false;
+//    public static boolean GenerateBlazeTrees = false;
+//    public static boolean GenerateFlax = false;
+//    public static boolean GenerateRottenPlants = false;
+//    public static boolean GenerateEnderClams = false;
+//    public static boolean GenerateBuriedRemains = false;
     public static boolean EnableSpiderEyeDrops = false;
     public static float SpiderEyeDropChance = 1.0F;
     

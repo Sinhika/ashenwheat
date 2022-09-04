@@ -2,11 +2,13 @@ package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.world.NetherTrunkPlacer;
+import mod.akkamaddi.ashenwheat.world.ShallowGraveFeature;
 import net.minecraft.core.Registry;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.CountConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
@@ -22,8 +24,8 @@ public class ModFeatures
     public static final DeferredRegister<Feature<?>> MOD_FEATURES =
             DeferredRegister.create(Registry.FEATURE_REGISTRY, Ashenwheat.MODID);
             
-//    public static RegistryObject<Feature<CountConfiguration>> SHALLOW_GRAVE_FEATURE =
-//            MOD_FEATURES.register("buried_remains_feature", ()->new ShallowGraveFeature(CountConfiguration.CODEC));
+    public static RegistryObject<Feature<CountConfiguration>> SHALLOW_GRAVE_FEATURE =
+            MOD_FEATURES.register("shallow_grave_feature", ()->new ShallowGraveFeature(CountConfiguration.CODEC));
     
             
     /** CONFIGURED_FEATURES REGISTRY */
