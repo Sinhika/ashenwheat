@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+  	"#minecraft:is_river",
+  	"#minecraft:is_savanna",
+  	"minecraft:swamp",
+  	"minecraft:plains"
+  	],
+  "features": "ashenwheat:patch_flax_common",
+  "step": "vegetal_decoration"
+}

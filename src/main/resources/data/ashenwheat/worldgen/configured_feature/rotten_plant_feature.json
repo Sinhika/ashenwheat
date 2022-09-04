@@ -31,6 +31,15 @@
 									-1,
 									0
 								]
+							},
+							{
+								"type": "minecraft:would_survive",
+								"state": {
+									"Name": "ashenwheat:rotten_crop",
+									"Properties": {
+										"age": "0"
+									}
+								}
 							}
 						]
 					}
