@@ -29,22 +29,16 @@ public class ModFeatures
     
             
     /** CONFIGURED_FEATURES REGISTRY */
-    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
-            DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Ashenwheat.MODID);
+//    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
+//            DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Ashenwheat.MODID);
     
     // TreeConfiguration - equivalent of a TreeFeatures entry.
-    public static RegistryObject<ConfiguredFeature<TreeConfiguration, ?>> BLAZE_TREE = 
-            CONFIGURED_FEATURES.register("blaze_tree", () -> new ConfiguredFeature<>(Feature.TREE, createBlazeTree().build()));
-//    
-//    public static RegistryObject<ConfiguredFeature<CountConfiguration, ?>> ORE_BURIED_REMAINS =
-//            CONFIGURED_FEATURES.register("ore_buried_remains", 
-//                    () -> new ConfiguredFeature<>(SHALLOW_GRAVE_FEATURE.get(), 
-//                            new CountConfiguration(1)));
-//
+//    public static RegistryObject<ConfiguredFeature<TreeConfiguration, ?>> BLAZE_TREE = 
+//            CONFIGURED_FEATURES.register("blaze_tree", () -> new ConfiguredFeature<>(Feature.TREE, createBlazeTree().build()));
 
     /** PLACED_FEATURES REGISTRY */
-    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
-            DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, Ashenwheat.MODID);
+//    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
+//            DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, Ashenwheat.MODID);
     
 //    // PlacedTreeFeature.
 //     public static RegistryObject<PlacedFeature> BLAZE_TREE_CHECKED = 
@@ -63,26 +57,6 @@ public class ModFeatures
 //             PLACED_FEATURES.register("trees_blazewood", 
 //                     ()->createPlacedVegetationFeature(BLAZE_TREES.getHolder().get(),
 //                             List.of(CountPlacement.of(30), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE)));
-//
-//     public static RegistryObject<PlacedFeature> PATCH_ROTTEN_PLANT_NORMAL = 
-//             PLACED_FEATURES.register("patch_rotten_plant_normal",
-//                     ()->createPlacedCaveFeature(PATCH_ROTTEN_PLANT.getHolder().get(),
-//                             List.of(
-//                                     CountPlacement.of(UniformInt.of(104, 228)), 
-//                                     PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, 
-//                                     InSquarePlacement.spread(), 
-//                                     SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE_WG, Integer.MIN_VALUE, -10)
-//                                     )));
-//             
-//     public static RegistryObject<PlacedFeature> BURIAL = 
-//             PLACED_FEATURES.register("burial", 
-//                     ()-> createPlacedCountFeature(ORE_BURIED_REMAINS.getHolder().get(), 
-//                     List.of(
-//                             RarityFilter.onAverageOnceEvery(3), 
-//                             PlacementUtils.HEIGHTMAP_WORLD_SURFACE, 
-//                             InSquarePlacement.spread() 
-//                             )));
-//
      
 
      /** STATIC HELPER METHODS **/
@@ -129,18 +103,18 @@ public class ModFeatures
 //     }
 //
 //     
-    private static TreeConfiguration.TreeConfigurationBuilder createBlazeTree()
-    {
-        return ModFeatures.createStraightBlobTree(ModBlocks.blaze_log.get(), ModBlocks.blaze_leaves.get(), 4, 2, 0, 2).ignoreVines();
-    } // end createBlazeTree()
-    
-    private static TreeConfiguration.TreeConfigurationBuilder createStraightBlobTree(Block pLogBlock, Block pLeafBlock,
-            int pBaseHeight, int pHeightRandA, int pHeightRandB, int pRadius)
-    {
-        return new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(pLogBlock),
-                new NetherTrunkPlacer(pBaseHeight, pHeightRandA, pHeightRandB), BlockStateProvider.simple(pLeafBlock),
-                new BlobFoliagePlacer(ConstantInt.of(pRadius), ConstantInt.of(0), 3),
-                new TwoLayersFeatureSize(1, 0, 1));
-    }
+//    private static TreeConfiguration.TreeConfigurationBuilder createBlazeTree()
+//    {
+//        return ModFeatures.createStraightBlobTree(ModBlocks.blaze_log.get(), ModBlocks.blaze_leaves.get(), 4, 2, 0, 2).ignoreVines();
+//    } // end createBlazeTree()
+//    
+//    private static TreeConfiguration.TreeConfigurationBuilder createStraightBlobTree(Block pLogBlock, Block pLeafBlock,
+//            int pBaseHeight, int pHeightRandA, int pHeightRandB, int pRadius)
+//    {
+//        return new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(pLogBlock),
+//                new NetherTrunkPlacer(pBaseHeight, pHeightRandA, pHeightRandB), BlockStateProvider.simple(pLeafBlock),
+//                new BlobFoliagePlacer(ConstantInt.of(pRadius), ConstantInt.of(0), 3),
+//                new TwoLayersFeatureSize(1, 0, 1));
+//    }
 
 } // end class
