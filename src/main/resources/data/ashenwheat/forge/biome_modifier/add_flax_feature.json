@@ -9,7 +9,8 @@
   	"minecraft:plains",
   	"minecraft:sunflower_plains",
   	"minecraft:ocean",
-  	"minecraft:warm_ocean"
+  	"minecraft:warm_ocean",
+  	"minecraft:sparse_jungle"
   	],
   "features": "ashenwheat:patch_flax_common",
   "step": "vegetal_decoration"

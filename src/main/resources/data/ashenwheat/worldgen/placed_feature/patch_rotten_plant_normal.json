@@ -1,6 +1,10 @@
 {
 	"feature": "ashenwheat:rotten_plant_feature",
 	"placement": [
+	   {
+	      "type": "minecraft:rarity_filter",
+	      "chance": 8
+	   },
 		{
 			"type": "minecraft:count",
 			"count": 125
@@ -23,7 +27,7 @@
 		{
 			"type": "minecraft:surface_relative_threshold_filter",
 			"heightmap": "WORLD_SURFACE",
-			"max_inclusive": -5
+			"max_inclusive": -10
 		},
 		{
 			"type": "minecraft:biome"
