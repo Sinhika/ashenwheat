@@ -45,14 +45,8 @@ public final class ConfigHelper
 	    AshenwheatConfig.growthRateThunderGrass = ConfigHolder.SERVER.serverGrowthRateThunderGrass.get().floatValue();
 	    AshenwheatConfig.neighborFactorThunderGrass = ConfigHolder.SERVER.serverNeighborFactorThunderGrass.get().floatValue();
 	    
-//	    AshenwheatConfig.EnablePeacefulPack = ConfigHolder.SERVER.serverEnablePeacefulPack.get();
-//	    AshenwheatConfig.GenerateBlazeTrees = ConfigHolder.SERVER.serverGenerateBlazeTrees.get();
 	    AshenwheatConfig.DropFlaxSeed = ConfigHolder.SERVER.serverDropFlaxSeed.get();
-//	    AshenwheatConfig.GenerateFlax = ConfigHolder.SERVER.serverGenerateFlax.get();
 	    AshenwheatConfig.DropRottenSeeds = ConfigHolder.SERVER.serverDropRottenSeeds.get();
-//	    AshenwheatConfig.GenerateRottenPlants = ConfigHolder.SERVER.serverGenerateRottenPlants.get();
-//	    AshenwheatConfig.GenerateEnderClams = ConfigHolder.SERVER.serverGenerateEnderClams.get();
-//        AshenwheatConfig.GenerateBuriedRemains = ConfigHolder.SERVER.serverGenerateBuriedRemains.get();
 	    AshenwheatConfig.EnableSpiderEyeDrops = ConfigHolder.SERVER.serverEnableSpiderEyeDrops.get();
 	    AshenwheatConfig.SpiderEyeDropChance = ConfigHolder.SERVER.serverSpiderEyeDropChance.get().floatValue();
 	    

@@ -28,18 +28,12 @@ final class ServerConfig
     final ForgeConfigSpec.DoubleValue serverGrowthRateThunderGrass;
     final ForgeConfigSpec.DoubleValue serverNeighborFactorThunderGrass;
     
-//    final ForgeConfigSpec.BooleanValue serverEnablePeacefulPack;
-//    final ForgeConfigSpec.BooleanValue serverGenerateBlazeTrees;
     final ForgeConfigSpec.BooleanValue serverDropFlaxSeed;
-//    final ForgeConfigSpec.BooleanValue serverGenerateFlax;
     final ForgeConfigSpec.IntValue server_relWeightFlaxSeeds;
     final ForgeConfigSpec.BooleanValue serverEnableFlaxRecipes;
     
     final ForgeConfigSpec.BooleanValue serverDropRottenSeeds;
-//    final ForgeConfigSpec.BooleanValue serverGenerateRottenPlants;
     final ForgeConfigSpec.IntValue server_relWeightRottenSeeds;
-//    final ForgeConfigSpec.BooleanValue serverGenerateEnderClams;
-//    final ForgeConfigSpec.BooleanValue serverGenerateBuriedRemains;
     final ForgeConfigSpec.BooleanValue serverEnableSpiderEyeDrops;
     final ForgeConfigSpec.DoubleValue serverSpiderEyeDropChance;
     
@@ -49,9 +43,6 @@ final class ServerConfig
         serverSeedsInChests = builder.comment("Should seeds appear in some chests?" )
                 .translation(Ashenwheat.MODID + "config.seedsInChests")
                 .define("seedsInChests", true);
-//        serverEnablePeacefulPack = builder.comment("Enable Wuppy29's PeacefulPack content")
-//                .translation(Ashenwheat.MODID + "config.enablePeacefulPack")
-//                .define("enablePeacefulPack", false);
         builder.pop();
         
         // due to beta feedback, default to true for everything except 
@@ -114,15 +105,6 @@ final class ServerConfig
         
         // imports from Wuppy29's old Peaceful Pack mod.
         builder.push("Wuppy29's Peaceful Pack");
-//        serverGenerateBlazeTrees = builder.comment("Generate Blaze Trees in the Nether")
-//                .translation(Ashenwheat.MODID + "config.serverGenerateBlazeTrees")
-//                .define("generateBlazeTrees", true);
-//        serverGenerateEnderClams = builder.comment("Generate Ender Clams in the ocean")
-//                .translation(Ashenwheat.MODID + "config.serverGenerateEnderClams")
-//                .define("generateEnderClams", true);
-//        serverGenerateBuriedRemains = builder.comment("Generate Buried Remains underground")
-//                .translation(Ashenwheat.MODID + "config.serverGenerateBuriedRemains")
-//                .define("generateBuriedRemains", true);
         builder.push("Flax");
         serverEnableFlaxRecipes = builder.comment("Enable flax recipes")
                 .translation(Ashenwheat.MODID + "config.serverEnableFlaxRecipes")
@@ -133,17 +115,11 @@ final class ServerConfig
         server_relWeightFlaxSeeds = builder.comment("Relative weight of flax seeds in grass drops")
                 .translation(Ashenwheat.MODID + "config.server_relWeightFlaxSeed")
                 .defineInRange("relWeightFlaxSeeds", 4, 0, 100);
-//        serverGenerateFlax = builder.comment("Generate Flax in the Overworld")
-//                .translation(Ashenwheat.MODID + "config.serverGenerateFlax")
-//                .define("generateFlax", true);
         builder.pop();
         builder.push("Rotten Plant");
         serverDropRottenSeeds = builder.comment("Should rotten seed drop from breaking grass?")
                 .translation(Ashenwheat.MODID + "config.serverDropRottenSeeds")
                 .define("dropRottenSeeds", false);
-//        serverGenerateRottenPlants = builder.comment("Generate Rotten Plantes in caves")
-//                .translation(Ashenwheat.MODID + "config.serverGenerateRottenPlants")
-//                .define("generateRottenPlants", true);
         server_relWeightRottenSeeds = builder.comment("Relative weight of rotten seeds in grass drops")
                 .translation(Ashenwheat.MODID + "config.server_relWeightRottenSeeds")
                 .defineInRange("relWeightRottenSeeds", 1, 0, 100);
