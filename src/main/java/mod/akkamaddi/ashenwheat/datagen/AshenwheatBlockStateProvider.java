@@ -205,14 +205,14 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
                                                     modLoc("block/thundergrass_0" + ii)).renderType("cutout_mipped"));
         } // end-for 
         this.getVariantBuilder(ModBlocks.thunder_grass_crop.get())
-            .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(or_models.get(0)))
-            .partialState().with(CropBlock.AGE, 1).addModels(new ConfiguredModel(or_models.get(1)))
-            .partialState().with(CropBlock.AGE, 2).addModels(new ConfiguredModel(or_models.get(2)))
-            .partialState().with(CropBlock.AGE, 3).addModels(new ConfiguredModel(or_models.get(3)))
-            .partialState().with(CropBlock.AGE, 4).addModels(new ConfiguredModel(or_models.get(4)))
-            .partialState().with(CropBlock.AGE, 5).addModels(new ConfiguredModel(or_models.get(5)))
-            .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(or_models.get(6)))
-            .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(or_models.get(7)));
+            .partialState().with(CropBlock.AGE, 0).addModels(new ConfiguredModel(tg_models.get(0)))
+            .partialState().with(CropBlock.AGE, 1).addModels(new ConfiguredModel(tg_models.get(1)))
+            .partialState().with(CropBlock.AGE, 2).addModels(new ConfiguredModel(tg_models.get(2)))
+            .partialState().with(CropBlock.AGE, 3).addModels(new ConfiguredModel(tg_models.get(3)))
+            .partialState().with(CropBlock.AGE, 4).addModels(new ConfiguredModel(tg_models.get(4)))
+            .partialState().with(CropBlock.AGE, 5).addModels(new ConfiguredModel(tg_models.get(5)))
+            .partialState().with(CropBlock.AGE, 6).addModels(new ConfiguredModel(tg_models.get(6)))
+            .partialState().with(CropBlock.AGE, 7).addModels(new ConfiguredModel(tg_models.get(7)));
         
        
     } // end registerCropBlocks

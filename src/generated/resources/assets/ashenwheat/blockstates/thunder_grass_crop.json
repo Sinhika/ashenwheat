@@ -1,28 +1,28 @@
 {
   "variants": {
     "age=0": {
-      "model": "ashenwheat:block/ossidvine_00"
+      "model": "ashenwheat:block/thundergrass_00"
     },
     "age=1": {
-      "model": "ashenwheat:block/ossidvine_01"
+      "model": "ashenwheat:block/thundergrass_01"
     },
     "age=2": {
-      "model": "ashenwheat:block/ossidvine_02"
+      "model": "ashenwheat:block/thundergrass_02"
     },
     "age=3": {
-      "model": "ashenwheat:block/ossidvine_03"
+      "model": "ashenwheat:block/thundergrass_03"
     },
     "age=4": {
-      "model": "ashenwheat:block/ossidvine_04"
+      "model": "ashenwheat:block/thundergrass_04"
     },
     "age=5": {
-      "model": "ashenwheat:block/ossidvine_05"
+      "model": "ashenwheat:block/thundergrass_05"
     },
     "age=6": {
-      "model": "ashenwheat:block/ossidvine_06"
+      "model": "ashenwheat:block/thundergrass_06"
     },
     "age=7": {
-      "model": "ashenwheat:block/ossidvine_07"
+      "model": "ashenwheat:block/thundergrass_07"
     }
   }
 }
