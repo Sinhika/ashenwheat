@@ -5,49 +5,40 @@
 # Find more information on toml format here:  https://github.com/toml-lang/toml
 
 modLoader="javafml" #mandatory
-loaderVersion="[43,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion="${loader_version_range}" #mandatory
+license="${mod_license}"
 issueTrackerURL="https://github.com/Sinhika/ashenwheat/issues" #optional
-license="LGPL v3.0" #mandatory
 
 [[mods]] #mandatory
 
-modId="ashenwheat" #mandatory
-version="${file.jarVersion}" #mandatory
-displayName="akkamaddi's Ashenwheat" #mandatory
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+
 updateJSONURL="https://raw.githubusercontent.com/Sinhika/ashenwheat/1.19/update.json" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/akkamaddis-ashenwheat" #optional
 logoFile="ashwheatsheaf.png" #optional
 credits="Thanks to akkamaddi for creating the original Ashenwheat mod, to Wuppy29 for creating the original PeacefulPack mod and to Sinhika for porting and maintaining it."
-authors="akkamaddi, Sinhika, Wuppy29"
-# The description text for the mod (multi line!) (#mandatory)
-description='''
-a small farming mod, adding four utility crops: Ashenwheat (a fuel, and can make charcoal), Ossidroot (can make Bonemeal), Thundergrass (can make gunpowder), and Scintillawheat (can make Glowstone Dust).
+authors="${mod_authors}"
+description='''${mod_description}'''
 
-Additional Credits: none yet.
-'''
-
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.ashenwheat]] #optional
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="[43.1.0,)" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
     ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
-[[dependencies.ashenwheat]]
+
+[[dependencies.${mod_id}]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2, 1.19.3)"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.ashenwheat]]
+
+[[dependencies.${mod_id}]]
     modId="simplecorelib"
     mandatory=true
-    versionRange="[1.19.2-5.1.0.2, 1.19.2-5.2.0.0)"
+    versionRange="[1.20.1-6.0.0.0, 1.20.1-6.1.0.0)"
     ordering="NONE"
     side="BOTH"
