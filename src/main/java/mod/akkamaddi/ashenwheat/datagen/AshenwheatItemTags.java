@@ -1,26 +1,31 @@
 package mod.akkamaddi.ashenwheat.datagen;
 
+import java.util.concurrent.CompletableFuture;
+
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.alexndr.simplecorelib.api.datagen.MiningItemTags;
 import mod.alexndr.simplecorelib.api.helpers.TagUtils;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class AshenwheatItemTags extends MiningItemTags
 {
 
-    public AshenwheatItemTags(DataGenerator gen,  ExistingFileHelper existingFileHelper)
+    public AshenwheatItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, 
+			CompletableFuture<TagLookup<Block>> blockTagProvider, ExistingFileHelper existingFileHelper)
     {
-        super(gen, new AshenwheatBlockTags(gen, existingFileHelper), Ashenwheat.MODID, existingFileHelper);
+        super(output, lookupProvider, blockTagProvider, Ashenwheat.MODID, existingFileHelper);
     }
 
     @Override
-    protected void addTags()
+    protected void addTags(HolderLookup.Provider lookupProvider)
     {
-        super.addTags();
+        super.addTags(lookupProvider);
         registerLogTags();
         registerWoodPlankItems();
     }

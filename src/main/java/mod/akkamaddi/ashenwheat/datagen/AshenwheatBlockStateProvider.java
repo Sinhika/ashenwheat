@@ -7,7 +7,7 @@ import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.content.RottenPlantBlock;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.alexndr.simplecorelib.api.datagen.SimpleBlockStateProvider;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -16,9 +16,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
 {
 
-    public AshenwheatBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper)
+    public AshenwheatBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper)
     {
-        super(gen, Ashenwheat.MODID, exFileHelper);
+        super(output, Ashenwheat.MODID, exFileHelper);
     }
 
     @Override

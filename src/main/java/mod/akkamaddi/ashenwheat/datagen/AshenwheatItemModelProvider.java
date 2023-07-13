@@ -1,16 +1,16 @@
 package mod.akkamaddi.ashenwheat.datagen;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class AshenwheatItemModelProvider extends ItemModelProvider
 {
 
-    public AshenwheatItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper)
+    public AshenwheatItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper)
     {
-        super(generator, Ashenwheat.MODID, existingFileHelper);
+        super(output, Ashenwheat.MODID, existingFileHelper);
     }
 
     @Override
