@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import mod.akkamaddi.ashenwheat.config.ConfigHolder;
+import mod.akkamaddi.ashenwheat.init.CreativeTabs;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModFeatures;
 import mod.akkamaddi.ashenwheat.init.ModItems;
@@ -30,6 +31,7 @@ public final class Ashenwheat
         // Register Deferred Registers (Does not need to be before Configs)
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+        CreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModFeatures.MOD_FEATURES.register(modEventBus);
         ModOtherRegistry.GLM.register(modEventBus);
         
