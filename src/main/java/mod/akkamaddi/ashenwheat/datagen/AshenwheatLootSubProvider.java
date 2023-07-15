@@ -23,8 +23,9 @@ public class AshenwheatLootSubProvider extends SimpleBlockLootSubProvider
 		this.dropSelf(ModBlocks.stripped_blaze_log.get());
 		this.dropSelf(ModBlocks.stripped_blaze_wood.get());
 		this.dropSelf(ModBlocks.blaze_sapling.get());
-		this.dropOther(ModBlocks.buried_remains.get(), Items.ROTTEN_FLESH);
-		this.dropOther(ModBlocks.ender_clam.get(), Items.ENDER_PEARL);
+		this.dropMultiItemsWithFortune(ModBlocks.buried_remains.get(), Items.ROTTEN_FLESH, 1, 3);
+		this.dropMultiItemsWithFortune(ModBlocks.ender_clam.get(), Items.ENDER_PEARL, 1, 1);
+		
 		this.dropSelf(ModBlocks.blazewood_planks.get());
 		this.dropSelf(ModBlocks.blazewood_stairs.get());
 		this.dropSelf(ModBlocks.blazewood_pressure_plate.get());

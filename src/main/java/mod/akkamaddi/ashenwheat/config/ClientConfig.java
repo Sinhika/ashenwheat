@@ -47,7 +47,7 @@ final class ClientConfig
         clientMakeOssidLanternGloom = builder.comment("Gloom particles on Ossidroots, Carved Ossidroots, and Ossidroot Lanterns?")
                 .translation(Ashenwheat.MODID + "config.MakeOssidLanternGloom")
                 .define("MakeOssidLanternGloom", true);
-        clientMakeThunderGrassSmoke = builder.comment("")
+        clientMakeThunderGrassSmoke = builder.comment("Should thundergrass smoke?")
                 .translation(Ashenwheat.MODID + "config.MakeThunderGrassSmoke")
                 .define("MakeThunderGrassSmoke", true);
         clientMakeThunderGrassSmokeSmaller = builder.comment("Want smoke, but not that much?")
