@@ -40,7 +40,7 @@ public class AshenwheatLootSubProvider extends SimpleBlockLootSubProvider
 		
 		this.dropSlab(ModBlocks.blazewood_slab.get());
 		this.dropCrops(ModBlocks.rotten_crop.get(), Items.ROTTEN_FLESH, ModItems.rotten_seeds.get(), 2);
-		this.dropCrops(ModBlocks.flax_crop.get(), ModItems.flax_fibre.get(), ModItems.rotten_seeds.get(), 7);
+		this.dropCrops(ModBlocks.flax_crop.get(), ModItems.flax_fibre.get(), ModItems.flax_seed.get(), 7);
 		this.dropCrops(ModBlocks.thunder_grass_crop.get(), ModItems.thunder_seeds.get(), ModItems.thunder_seeds.get(), 7);
 		this.dropCrops(ModBlocks.scintilla_wheat_crop.get(), ModItems.scintilla_wheat_sheaf.get(), ModItems.scintilla_seeds.get(), 7);
 		this.dropCrops(ModBlocks.ash_wheat_crop.get(), ModItems.ash_wheat_sheaf.get(), ModItems.ash_seeds.get(), 7);
