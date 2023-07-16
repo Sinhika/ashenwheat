@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "ashenwheat:blazewood_planks"
+    }
+  ],
+  "result": {
+    "item": "ashenwheat:blazewood_button"
+  }
+}

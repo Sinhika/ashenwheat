@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "ashenwheat:block/blaze_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "ashenwheat:block/blaze_wood"
+    },
+    "axis=z": {
+      "model": "ashenwheat:block/blaze_wood_horizontal",
+      "x": 90
+    }
+  }
+}
