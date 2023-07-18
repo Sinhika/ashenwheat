@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_deep_ocean",
+  "biomes": "#minecraft:is_ocean",
   "features": "ashenwheat:ender_clams_ocean",
   "step": "vegetal_decoration"
 }
