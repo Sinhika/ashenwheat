@@ -11,6 +11,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -91,32 +92,23 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.stripped_blaze_log.get())
             .add(ModBlocks.stripped_blaze_wood.get());
         
-        this.tag(TagUtils.modBlockTag("minecraft", "non_flammable_wood"))
-            .add(ModBlocks.blaze_log.get())
-            .add(ModBlocks.blaze_wood.get())
-            .add(ModBlocks.stripped_blaze_log.get())
-            .add(ModBlocks.blazewood_planks.get())
-            .add(ModBlocks.blazewood_slab.get())
-            .add(ModBlocks.blazewood_stairs.get())
-            .add(ModBlocks.blazewood_pressure_plate.get());
-        
-        this.tag(TagUtils.modBlockTag("minecraft", "planks"))
+        this.tag(BlockTags.PLANKS)
             .add(ModBlocks.blazewood_planks.get());
-        
-        this.tag(TagUtils.modBlockTag("minecraft", "leaves"))
+
+        this.tag(BlockTags.LEAVES)
             .add(ModBlocks.blaze_leaves.get());
         
-        this.tag(TagUtils.modBlockTag("minecraft", "saplings"))
+        this.tag(BlockTags.SAPLINGS)
             .add(ModBlocks.blaze_sapling.get());
-        
-        this.tag(TagUtils.modBlockTag("minecraft", "logs"))
+
+        this.tag(BlockTags.LOGS)
             .addTag(TagUtils.modBlockTag(Ashenwheat.MODID, "blaze_logs"));
    
    } // end registerLogTags()
     
     protected void registerMiscTags()
     {
-        this.tag(TagUtils.modBlockTag("minecraft", "crops"))
+        this.tag(BlockTags.CROPS)
             .add(ModBlocks.ash_wheat_crop.get())
             .add(ModBlocks.flax_crop.get())
             .add(ModBlocks.ossid_root_crop.get())
@@ -124,7 +116,15 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.thunder_grass_crop.get())
             .add(ModBlocks.rotten_crop.get())
             .add(ModBlocks.flax_crop.get());
-        
+
+        this.tag(BlockTags.MAINTAINS_FARMLAND)
+	        .add(ModBlocks.ash_wheat_crop.get())
+	        .add(ModBlocks.flax_crop.get())
+	        .add(ModBlocks.ossid_root_crop.get())
+	        .add(ModBlocks.scintilla_wheat_crop.get())
+	        .add(ModBlocks.thunder_grass_crop.get())
+	        .add(ModBlocks.flax_crop.get());
+
     } // end registerMiscTags()
     
 } // end class

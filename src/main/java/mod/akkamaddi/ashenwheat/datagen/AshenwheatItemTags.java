@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
+import mod.akkamaddi.ashenwheat.init.ModItems;
 import mod.alexndr.simplecorelib.api.datagen.MiningItemTags;
 import mod.alexndr.simplecorelib.api.helpers.TagUtils;
 import net.minecraft.core.HolderLookup;
@@ -28,8 +29,17 @@ public class AshenwheatItemTags extends MiningItemTags
         super.addTags(lookupProvider);
         registerLogTags();
         registerWoodPlankItems();
+        registerMisc();
     }
 
+    private void registerMisc()
+    {
+    	this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+    		.add(ModItems.ash_seeds.get())
+    		.add(ModItems.scintilla_seeds.get())
+    		.add(ModItems.flax_seed.get());
+    }
+    
     private void registerWoodPlankItems()
     {
         this.tag(ItemTags.WOODEN_STAIRS).add(ModBlocks.blazewood_stairs.get().asItem());
@@ -58,21 +68,21 @@ public class AshenwheatItemTags extends MiningItemTags
             .add(ModBlocks.stripped_blaze_log.get().asItem())
             .add(ModBlocks.stripped_blaze_wood.get().asItem());
         
-        this.tag(TagUtils.modTag("minecraft", "non_flammable_wood"))
+        this.tag(ItemTags.NON_FLAMMABLE_WOOD)
             .add(ModBlocks.blaze_log.get().asItem())
             .add(ModBlocks.blaze_wood.get().asItem())
             .add(ModBlocks.stripped_blaze_log.get().asItem());
         
-        this.tag(TagUtils.modTag("minecraft", "planks"))
+        this.tag(ItemTags.PLANKS)
             .add(ModBlocks.blazewood_planks.get().asItem());
         
-        this.tag(TagUtils.modTag("minecraft", "leaves"))
+        this.tag(ItemTags.LEAVES)
             .add(ModBlocks.blaze_leaves.get().asItem());
         
-        this.tag(TagUtils.modTag("minecraft", "saplings"))
+        this.tag(ItemTags.SAPLINGS)
             .add(ModBlocks.blaze_sapling.get().asItem());
         
-        this.tag(TagUtils.modTag("minecraft", "logs"))
+        this.tag(ItemTags.LOGS)
             .addTag(TagUtils.modTag(Ashenwheat.MODID, "blaze_logs"));
    
    } // end registerLogTags()
