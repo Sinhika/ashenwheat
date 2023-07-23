@@ -139,6 +139,7 @@ tasks.named('processResources', ProcessResources).configure {
             mod_authors: mod_authors, 
             mod_description: mod_description,
             simplecore_range: simplecore_range,
+            pack_format_number: pack_format_number,
     ]
     inputs.properties replaceProperties
 
