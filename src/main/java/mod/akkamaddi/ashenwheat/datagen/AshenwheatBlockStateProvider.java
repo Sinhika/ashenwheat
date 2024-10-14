@@ -9,9 +9,9 @@ import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.alexndr.simplecorelib.api.datagen.SimpleBlockStateProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.CropBlock;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
 {
@@ -38,7 +38,8 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
     private void registerTreeBlocks()
     {
         // blaze_leaves
-        ModelFile leaves = this.models().cubeAll("blaze_leaves", modLoc("block/blaze_leaves")).renderType("cutout_mipped");
+        ModelFile leaves = this.models().singleTexture("blaze_leaves", mcLoc("block/leaves"), "all", 
+        		modLoc("block/blaze_leaves")).renderType("cutout_mipped");
         this.simpleBlock(ModBlocks.blaze_leaves.get(), leaves);
         this.itemModels().withExistingParent("blaze_leaves", modLoc("block/blaze_leaves"));
 
@@ -64,7 +65,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         this.itemModels().withExistingParent("blazewood_planks", modLoc("block/blazewood_planks"));
         
         // blaze_sapling
-        ModelFile sapling = this.models().cross("blaze_sapling", modLoc("block/blaze_sapling")).renderType("cutout_mipped");
+        ModelFile sapling = this.models().cross("blaze_sapling", modLoc("block/blaze_sapling")).renderType("cutout");
         this.simpleBlock(ModBlocks.blaze_sapling.get(), sapling);
         // sapling item model handled elsewhere.
         

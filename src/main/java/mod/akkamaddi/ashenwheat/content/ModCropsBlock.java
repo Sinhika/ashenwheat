@@ -188,11 +188,11 @@ public class ModCropsBlock extends CropBlock
         if (i < this.getMaxAge())
         {
             float f = getModGrowthChance(this, worldIn, pos, min_f);
-            if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,
+            if (net.neoforged.neoforge.common.CommonHooks.onCropsGrowPre(worldIn, pos, state,
                     rand.nextInt((int) (fertility_factor / f ) + 1) == 0))
             {
                 worldIn.setBlock(pos, this.getStateForAge(i + 1), 2);
-                net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+                net.neoforged.neoforge.common.CommonHooks.onCropsGrowPost(worldIn, pos, state);
             }
         } // end-if < max age
     } // end standardGrowthTick()
@@ -218,7 +218,7 @@ public class ModCropsBlock extends CropBlock
                 float f1 = 0.0F;
                 BlockState blockstate = worldIn.getBlockState(blockpos.offset(i, 0, j));
                 if (blockstate.canSustainPlant(worldIn, blockpos.offset(i, 0, j), net.minecraft.core.Direction.UP,
-                        (net.minecraftforge.common.IPlantable) blockIn))
+                        (net.neoforged.neoforge.common.IPlantable) blockIn))
                 {
                     f1 = 1.0F;
                     if (blockstate.isFertile(worldIn, blockpos.offset(i, 0, j)))

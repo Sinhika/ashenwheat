@@ -5,9 +5,9 @@ import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.extensions.IForgeItem;
+import net.neoforged.neoforge.common.extensions.IItemExtension;
 
-public class CombustibleBlockNamedItem extends ItemNameBlockItem implements IForgeItem
+public class CombustibleBlockNamedItem extends ItemNameBlockItem implements IItemExtension
 {
 
     public CombustibleBlockNamedItem(Block blockIn, Properties properties)

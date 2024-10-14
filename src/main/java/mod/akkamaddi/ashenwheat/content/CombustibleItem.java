@@ -4,9 +4,9 @@ import mod.akkamaddi.ashenwheat.init.ModItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.common.extensions.IForgeItem;
+import net.neoforged.neoforge.common.extensions.IItemExtension;
 
-public class CombustibleItem extends Item implements IForgeItem
+public class CombustibleItem extends Item implements IItemExtension
 {
 
     public CombustibleItem(Properties properties)

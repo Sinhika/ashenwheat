@@ -1,7 +1,7 @@
 package mod.akkamaddi.ashenwheat.config;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.NeoForgeConfigSpec;
 
 /**
  * For configuration settings that change the behaviour of code on the LOGICAL CLIENT.
@@ -11,19 +11,19 @@ import net.minecraftforge.common.ForgeConfigSpec;
  */
 final class ClientConfig 
 {
-    final ForgeConfigSpec.BooleanValue clientMakeAshenwheatFlame;
-    final ForgeConfigSpec.BooleanValue clientMakeAshenBalesFlame;
-    final ForgeConfigSpec.BooleanValue clientMakeScintillawheatScintillate;
-    final ForgeConfigSpec.BooleanValue clientMakeScintillaBalesScintillate;
-    final ForgeConfigSpec.BooleanValue clientMakeScintillationsSmaller;
+    final NeoForgeConfigSpec.BooleanValue clientMakeAshenwheatFlame;
+    final NeoForgeConfigSpec.BooleanValue clientMakeAshenBalesFlame;
+    final NeoForgeConfigSpec.BooleanValue clientMakeScintillawheatScintillate;
+    final NeoForgeConfigSpec.BooleanValue clientMakeScintillaBalesScintillate;
+    final NeoForgeConfigSpec.BooleanValue clientMakeScintillationsSmaller;
     
-    final ForgeConfigSpec.BooleanValue clientMakeOssidCropGloom;
-    final ForgeConfigSpec.BooleanValue clientMakeOssidLanternGloom;
-    final ForgeConfigSpec.BooleanValue clientMakeThunderGrassSmoke;
-    final ForgeConfigSpec.BooleanValue clientMakeThunderGrassSmokeSmaller;
+    final NeoForgeConfigSpec.BooleanValue clientMakeOssidCropGloom;
+    final NeoForgeConfigSpec.BooleanValue clientMakeOssidLanternGloom;
+    final NeoForgeConfigSpec.BooleanValue clientMakeThunderGrassSmoke;
+    final NeoForgeConfigSpec.BooleanValue clientMakeThunderGrassSmokeSmaller;
     
     
-	ClientConfig(final ForgeConfigSpec.Builder builder) 
+	ClientConfig(final NeoForgeConfigSpec.Builder builder) 
 	{
         builder.push("Particle Effects");
         clientMakeAshenwheatFlame = builder.comment("Flame particles on Ashenwheat crop?")

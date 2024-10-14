@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.PlantType;
+import net.neoforged.neoforge.common.PlantType;
 
 public class BlazeSaplingBlock extends SaplingBlock
 {
@@ -20,7 +20,7 @@ public class BlazeSaplingBlock extends SaplingBlock
     @Override
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos)
     {
-        return pState.is(Blocks.NETHERRACK) || pState.is(net.minecraftforge.common.Tags.Blocks.ORES_IN_GROUND_NETHERRACK);
+        return pState.is(Blocks.NETHERRACK) || pState.is(net.neoforged.neoforge.common.Tags.Blocks.ORES_IN_GROUND_NETHERRACK);
     }
 
     @Override

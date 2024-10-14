@@ -5,10 +5,10 @@ import com.mojang.serialization.Codec;
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.loot.CobwebLootModifiers.CobwebLootModifier;
 import mod.akkamaddi.ashenwheat.loot.GrassLootModifiers.GrassLootModifier;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.RegistryObject;
 
 /**
  * This is where we put other registries that don't fit under the usual categories.

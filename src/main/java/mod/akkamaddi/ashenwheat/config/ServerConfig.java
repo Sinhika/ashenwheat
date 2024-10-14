@@ -1,7 +1,7 @@
 package mod.akkamaddi.ashenwheat.config;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.NeoForgeConfigSpec;
 
 /**
  * For configuration settings that change the behaviour of code on the LOGICAL SERVER.
@@ -12,32 +12,32 @@ import net.minecraftforge.common.ForgeConfigSpec;
 final class ServerConfig 
 {
 
-    final ForgeConfigSpec.BooleanValue serverSeedsInChests;
-    final ForgeConfigSpec.BooleanValue serverDropAshSeeds;
-    final ForgeConfigSpec.BooleanValue serverDropScintillaSeeds;
-    final ForgeConfigSpec.BooleanValue serverDropOssidSeeds;
-    final ForgeConfigSpec.BooleanValue serverDropThunderSeeds;
-    final ForgeConfigSpec.IntValue server_relWeightWheatSeeds;
-    final ForgeConfigSpec.IntValue server_relWeightAshSeeds;
-    final ForgeConfigSpec.IntValue server_relWeightScintillaSeeds;
-    final ForgeConfigSpec.IntValue server_relWeightOssidSeeds;
-    final ForgeConfigSpec.IntValue server_relWeightThunderSeeds;
-    final ForgeConfigSpec.DoubleValue serverGrowthRateAshenWheat;
-    final ForgeConfigSpec.DoubleValue serverGrowthRateScintillaWheat; 
-    final ForgeConfigSpec.DoubleValue serverGrowthRateOssidRoot;
-    final ForgeConfigSpec.DoubleValue serverGrowthRateThunderGrass;
-    final ForgeConfigSpec.DoubleValue serverNeighborFactorThunderGrass;
+    final NeoForgeConfigSpec.BooleanValue serverSeedsInChests;
+    final NeoForgeConfigSpec.BooleanValue serverDropAshSeeds;
+    final NeoForgeConfigSpec.BooleanValue serverDropScintillaSeeds;
+    final NeoForgeConfigSpec.BooleanValue serverDropOssidSeeds;
+    final NeoForgeConfigSpec.BooleanValue serverDropThunderSeeds;
+    final NeoForgeConfigSpec.IntValue server_relWeightWheatSeeds;
+    final NeoForgeConfigSpec.IntValue server_relWeightAshSeeds;
+    final NeoForgeConfigSpec.IntValue server_relWeightScintillaSeeds;
+    final NeoForgeConfigSpec.IntValue server_relWeightOssidSeeds;
+    final NeoForgeConfigSpec.IntValue server_relWeightThunderSeeds;
+    final NeoForgeConfigSpec.DoubleValue serverGrowthRateAshenWheat;
+    final NeoForgeConfigSpec.DoubleValue serverGrowthRateScintillaWheat; 
+    final NeoForgeConfigSpec.DoubleValue serverGrowthRateOssidRoot;
+    final NeoForgeConfigSpec.DoubleValue serverGrowthRateThunderGrass;
+    final NeoForgeConfigSpec.DoubleValue serverNeighborFactorThunderGrass;
     
-    final ForgeConfigSpec.BooleanValue serverDropFlaxSeed;
-    final ForgeConfigSpec.IntValue server_relWeightFlaxSeeds;
-    final ForgeConfigSpec.BooleanValue serverEnableFlaxRecipes;
+    final NeoForgeConfigSpec.BooleanValue serverDropFlaxSeed;
+    final NeoForgeConfigSpec.IntValue server_relWeightFlaxSeeds;
+    final NeoForgeConfigSpec.BooleanValue serverEnableFlaxRecipes;
     
-    final ForgeConfigSpec.BooleanValue serverDropRottenSeeds;
-    final ForgeConfigSpec.IntValue server_relWeightRottenSeeds;
-    final ForgeConfigSpec.BooleanValue serverEnableSpiderEyeDrops;
-    final ForgeConfigSpec.DoubleValue serverSpiderEyeDropChance;
+    final NeoForgeConfigSpec.BooleanValue serverDropRottenSeeds;
+    final NeoForgeConfigSpec.IntValue server_relWeightRottenSeeds;
+    final NeoForgeConfigSpec.BooleanValue serverEnableSpiderEyeDrops;
+    final NeoForgeConfigSpec.DoubleValue serverSpiderEyeDropChance;
     
-	ServerConfig(final ForgeConfigSpec.Builder builder) 
+	ServerConfig(final NeoForgeConfigSpec.Builder builder) 
 	{	
         builder.push("General");
         serverSeedsInChests = builder.comment("Should seeds appear in some chests?" )
