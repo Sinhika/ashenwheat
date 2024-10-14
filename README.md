@@ -11,17 +11,17 @@ akkamaddi's Ashenwheat - a small farming mod, adding four utility crops:
 The goal is to make it easier to play on peaceful mode, or just farm stuff
 instead of hunting for it all the time.
 
-**Currently ported to 1.14.4 through 1.18.2**
+**Currently ported to 1.14.4 through 1.20.6**
 
 TODO List
 ---------
 - add random chance for injected loot, instead of 100% guaranteed.
 - adjust growth rates, instead of using vanilla crop growth rate. (make use of CropGrow.Pre event?)
 - a vine that grows spider eyes.
-- something that grows ender pearls.
-- a RARE nether thing that provides ghast tears.
-- Blaze Tree - nether tree that provides blaze rods (GPL, ask Wuppy29 anyway).
-- flax - crop that yields string (may require loom use?).
+- <s>something that grows ender pearls.</s>
+- <s>a RARE nether thing that provides ghast tears.</s> - handled in Netherrocks mod.
+- <s>Blaze Tree - nether tree that provides blaze rods (GPL, ask Wuppy29 anyway).</s>
+- <s>flax - crop that yields string (may require loom use?).</s>
 
 Note on Textures and Code from Wuppy29's Mods
 ---------------------------------------------

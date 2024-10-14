@@ -1,37 +1,29 @@
 package mod.akkamaddi.ashenwheat;
 
-import java.util.List;
-
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
-import mod.akkamaddi.ashenwheat.loot.WheatInjectionLookup;
-import mod.alexndr.simplecorelib.api.helpers.LootUtils;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades.ItemListing;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod.EventBusSubscriber;
 import net.neoforged.neoforge.common.BasicItemListing;
-import net.neoforged.neoforge.event.LootTableLoadEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
+
+import java.util.List;
 
 /**
  * Subscribe to events from the FORGE EventBus that should be handled on both
  * PHYSICAL sides in this class
  */
-@EventBusSubscriber(modid = Ashenwheat.MODID, bus = EventBusSubscriber.Bus.FORGE)
 public final class ForgeEventSubscriber
 {
-    private static final WheatInjectionLookup lootLookupMap = new WheatInjectionLookup();
+//    private static final WheatInjectionLookup lootLookupMap = new WheatInjectionLookup();
 
     /**
      * Intercept villager trades list and modify it.
      */
-    @SubscribeEvent
     public static void onVillagerTrades(VillagerTradesEvent evt)
     {
         if (evt.getType() == VillagerProfession.FARMER)
@@ -60,7 +52,6 @@ public final class ForgeEventSubscriber
     /**
      * intercept wandering trader trades list and modify it.
      */
-    @SubscribeEvent
     public static void onWandererTrades(WandererTradesEvent evt)
     {
         List<ItemListing> trades = evt.getGenericTrades();
@@ -79,17 +70,17 @@ public final class ForgeEventSubscriber
         
     } // end onWandererTrades
     
-    /**
-     * add mods seeds to loot tables. Code heavily based on Botania's LootHandler, which
-     * neatly solves the problem when I couldn't figure it out.
-     */
-    @SubscribeEvent
-    public static void LootLoad(final LootTableLoadEvent event)
-    {
-        if (AshenwheatConfig.SeedsInChests) 
-        {
-            LootUtils.LootLoadHandler(Ashenwheat.MODID, event, lootLookupMap);
-        } // end-if SeedsInChest
-    } // end LootLoad()
+//    /**
+//     * add mods seeds to loot tables. Code heavily based on Botania's LootHandler, which
+//     * neatly solves the problem when I couldn't figure it out.
+//     */
+//    @SubscribeEvent
+//    public static void LootLoad(final LootTableLoadEvent event)
+//    {
+//        if (AshenwheatConfig.SeedsInChests)
+//        {
+//            LootUtils.LootLoadHandler(Ashenwheat.MODID, event, lootLookupMap);
+//        } // end-if SeedsInChest
+//    } // end LootLoad()
     
 } // end class
