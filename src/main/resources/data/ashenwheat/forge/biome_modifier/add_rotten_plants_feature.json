@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
-  "features": "ashenwheat:patch_rotten_plant_normal",
-  "step": "vegetal_decoration"
-}

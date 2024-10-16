@@ -2,6 +2,7 @@
 	"replace" : false,
 	"entries" : [
 		"ashenwheat:seeds_from_grass",
-		"ashenwheat:spider_eyes_from_cobweb"
+		"ashenwheat:spider_eyes_from_cobweb",
+		"ashenwheat:chest_loot"
 	]
 }

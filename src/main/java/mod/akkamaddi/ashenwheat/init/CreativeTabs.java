@@ -5,8 +5,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.RegistryObject;
 
 /**
  * This class holds all our ItemGroups (Formerly called CreativeTabs).
@@ -20,18 +20,19 @@ public final class CreativeTabs
 	public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = 
 			DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Ashenwheat.MODID);
 	
-	public static final RegistryObject<CreativeModeTab> SIMPLECORE_TAB = CREATIVE_MODE_TABS.register("ashenwheat_tab",
+	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ASHENWHEAT_TAB
+			= CREATIVE_MODE_TABS.register("ashenwheat_tab",
 			() -> CreativeModeTab.builder()
 				.title(Component.translatable("item_group." + Ashenwheat.MODID + ".ashenwheat_tab"))
 				.icon(() -> new ItemStack(ModItems.ash_wheat_sheaf.get()))
 				.displayItems((parameters, output) -> {
 					output.acceptAll(ModBlocks.BLOCKS.getEntries().stream()
-										.map(RegistryObject::get)
+										.map(DeferredHolder::get)
 										.map(b -> (new ItemStack(b.asItem())))
 										.toList()
 										);
 					output.acceptAll(ModItems.ITEMS.getEntries().stream()
-							.map(RegistryObject::get)
+							.map(DeferredHolder::get)
 							.map(b -> (new ItemStack(b)))
 							.toList()
 							);

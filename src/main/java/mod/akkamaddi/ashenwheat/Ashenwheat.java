@@ -26,7 +26,7 @@ public final class Ashenwheat
         ModItems.ITEMS.register(modEventBus);
         CreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModFeatures.MOD_FEATURES.register(modEventBus);
-        ModOtherRegistry.GLM.register(modEventBus);
+        ModCodecs.GLM.register(modEventBus);
 
         // register event listeners
         modEventBus.addListener(AshenwheatConfig::onLoad);

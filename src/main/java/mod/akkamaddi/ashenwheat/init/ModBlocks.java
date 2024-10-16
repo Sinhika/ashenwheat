@@ -2,7 +2,6 @@ package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.content.*;
-import mod.akkamaddi.ashenwheat.world.BlazeTreeGrower;
 import mod.alexndr.simplecorelib.api.content.block.MultifunctionPressurePlateBlock;
 import mod.alexndr.simplecorelib.api.helpers.LightUtils;
 import net.minecraft.core.Direction;
@@ -115,7 +114,7 @@ public final class ModBlocks
     
     // sapling
     public static final DeferredBlock<BlazeSaplingBlock> blaze_sapling = BLOCKS.register("blaze_sapling", 
-            () -> new BlazeSaplingBlock(new BlazeTreeGrower(), BlockBehaviour.Properties.of().noCollission()
+            () -> new BlazeSaplingBlock(ModFeatures.BLAZE_TREE_GROWER, BlockBehaviour.Properties.of().noCollission()
                     .randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
     
     // blaze PLANKS

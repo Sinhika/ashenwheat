@@ -1,18 +1,13 @@
 package mod.akkamaddi.ashenwheat.loot;
 
-import java.util.List;
-import java.util.function.Supplier;
-
-import org.jetbrains.annotations.NotNull;
-
-import com.google.common.base.Suppliers;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
+import mod.akkamaddi.ashenwheat.init.ModCodecs;
 import mod.akkamaddi.ashenwheat.init.ModItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +16,9 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
-import net.neoforged.neoforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class GrassLootModifiers
 {
@@ -31,10 +28,11 @@ public class GrassLootModifiers
         private SimpleWeightedRandomList<Item> dropped_seeds;
         private final List<Item> seeds;
         
-        public static final Supplier<Codec<GrassLootModifier>> CODEC =
-                Suppliers.memoize(() -> RecordCodecBuilder.create( inst -> codecStart(inst).and(
-                        ForgeRegistries.ITEMS.getCodec().listOf().fieldOf("seeds").forGetter(m -> m.seeds)
-                    ).apply(inst, GrassLootModifier::new)));
+        public static final MapCodec<GrassLootModifier> CODEC =
+                RecordCodecBuilder.mapCodec( inst -> LootModifier.codecStart(inst)
+                        .and( BuiltInRegistries.ITEM.byNameCodec().listOf().fieldOf("seeds")
+                                      .forGetter(m -> m.seeds)
+                    ).apply(inst, GrassLootModifier::new));
         
         public GrassLootModifier(LootItemCondition[] conditionsIn,  List<Item> seeds)
         {
@@ -86,9 +84,9 @@ public class GrassLootModifiers
         } // end-ctor
 
         @Override
-        public Codec<? extends IGlobalLootModifier> codec()
+        public MapCodec<? extends IGlobalLootModifier> codec()
         {
-            return CODEC.get();
+            return ModCodecs.seeds_from_grass.get();
         }
 
 

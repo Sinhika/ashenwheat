@@ -2,6 +2,8 @@ package mod.akkamaddi.ashenwheat.loot;
 
 import java.util.function.Supplier;
 
+import com.mojang.serialization.MapCodec;
+import mod.akkamaddi.ashenwheat.init.ModCodecs;
 import org.jetbrains.annotations.NotNull;
 
 import com.google.common.base.Suppliers;
@@ -21,8 +23,8 @@ public class CobwebLootModifiers
 {
     public static class CobwebLootModifier extends LootModifier
     {
-        public static final Supplier<Codec<CobwebLootModifier>> CODEC =
-                Suppliers.memoize(() -> RecordCodecBuilder.create( inst -> codecStart(inst).apply(inst, CobwebLootModifier::new)));
+        public static final MapCodec<CobwebLootModifier> CODEC =
+               RecordCodecBuilder.mapCodec( inst -> LootModifier.codecStart(inst).apply(inst, CobwebLootModifier::new));
                         
         protected CobwebLootModifier(LootItemCondition[] conditionsIn)
         {
@@ -48,9 +50,9 @@ public class CobwebLootModifiers
         }
 
         @Override
-        public Codec<? extends IGlobalLootModifier> codec()
+        public MapCodec<? extends IGlobalLootModifier> codec()
         {
-            return CODEC.get();
+            return ModCodecs.spider_eyes_from_cobweb.get();
         }
         
     } // end-class CobwebLootModifier

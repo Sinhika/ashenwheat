@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:is_nether",
-  "features": "ashenwheat:trees_blazewood",
-  "step": "vegetal_decoration"
-}
