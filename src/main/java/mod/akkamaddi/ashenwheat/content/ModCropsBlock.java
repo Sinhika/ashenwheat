@@ -1,5 +1,6 @@
 package mod.akkamaddi.ashenwheat.content;
 
+import mod.akkamaddi.ashenwheat.config.AshenwheatClientConfig;
 import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
@@ -106,7 +107,7 @@ public class ModCropsBlock extends CropBlock
     {
         if (!worldIn.isClientSide) return;
 
-        if (AshenwheatConfig.MakeAshenwheatFlame && (stateIn.getBlock() == ModBlocks.ash_wheat_crop.get()))
+        if (AshenwheatClientConfig.MakeAshenwheatFlame && (stateIn.getBlock() == ModBlocks.ash_wheat_crop.get()))
         {
             float f1 = (float) pos.getX() + 0.5F;
             float f2 = (float) pos.getY() + 0.3F;
@@ -116,7 +117,7 @@ public class ModCropsBlock extends CropBlock
             worldIn.addParticle(ParticleTypes.FLAME, (double) (f1 + f4), (double) (f2 + f4 + f5), (double) (f3 + f5),
                     0.0D, 0.0D, 0.0D);
         }
-        else if (AshenwheatConfig.MakeOssidCropGloom && (stateIn.getBlock() == ModBlocks.ossid_root_crop.get()))
+        else if (AshenwheatClientConfig.MakeOssidCropGloom && (stateIn.getBlock() == ModBlocks.ossid_root_crop.get()))
         {
             float f1 = (float) pos.getX() + 0.5F;
             float f2 = (float) pos.getY() + 0.3F;
@@ -127,7 +128,7 @@ public class ModCropsBlock extends CropBlock
                     0.0D, 0.0D, 0.0D);
 
         }
-        else if (AshenwheatConfig.MakeScintillawheatScintillate
+        else if (AshenwheatClientConfig.MakeScintillawheatScintillate
                 && (stateIn.getBlock() == ModBlocks.scintilla_wheat_crop.get()))
         {
             float f1 = (float) pos.getX() + 0.5F;
@@ -135,20 +136,20 @@ public class ModCropsBlock extends CropBlock
             float f3 = (float) pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            SimpleParticleType particle = 
-                    AshenwheatConfig.MakeScintillationsSmaller ? ParticleTypes.ENCHANT : ParticleTypes.INSTANT_EFFECT;
+            SimpleParticleType particle =
+                    AshenwheatClientConfig.MakeScintillationsSmaller ? ParticleTypes.ENCHANT : ParticleTypes.INSTANT_EFFECT;
             worldIn.addParticle(particle, (double) (f1 + f4), (double) (f2 + f4 + f5),
                     (double) (f3 + f5), 0.0D, 0.0D, 0.0D);
         }
-        else if (AshenwheatConfig.MakeThunderGrassSmoke && (stateIn.getBlock() == ModBlocks.thunder_grass_crop.get()))
+        else if (AshenwheatClientConfig.MakeThunderGrassSmoke && (stateIn.getBlock() == ModBlocks.thunder_grass_crop.get()))
         {
             float f1 = (float) pos.getX() + 0.5F;
             float f2 = (float) pos.getY() + 0.3F;
             float f3 = (float) pos.getZ() + 0.5F;
             float f4 = rand.nextFloat() * 0.6F - 0.3F;
             float f5 = rand.nextFloat() * -0.6F - -0.3F;
-            SimpleParticleType particle = 
-                    AshenwheatConfig.MakeThunderGrassSmokeSmaller ? ParticleTypes.ASH : ParticleTypes.SMOKE;
+            SimpleParticleType particle =
+                    AshenwheatClientConfig.MakeThunderGrassSmokeSmaller ? ParticleTypes.ASH : ParticleTypes.SMOKE;
             worldIn.addParticle(particle, (double) (f1 + f4), (double) (f2 + f4 + f5), (double) (f3 + f5),
                     0.0D, 0.0D, 0.0D);
 

@@ -26,7 +26,7 @@ public class OssidRootBlock extends ModHayBlock
 
     @SuppressWarnings("deprecation")
     @Override
-    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player,
+    public InteractionResult useItemOn(BlockState state, Level worldIn, BlockPos pos, Player player,
             InteractionHand handIn, BlockHitResult hit)
     {
         ItemStack itemstack = player.getItemInHand(handIn);
@@ -58,7 +58,7 @@ public class OssidRootBlock extends ModHayBlock
         }
         else
         {
-            return super.use(state, worldIn, pos, player, handIn, hit);
+            return super.useItemOn(state, worldIn, pos, player, handIn, hit);
         }
     } // end onBlockActivated()
 

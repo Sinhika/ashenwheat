@@ -1,6 +1,6 @@
 package mod.akkamaddi.ashenwheat.content;
 
-import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
+import mod.akkamaddi.ashenwheat.config.AshenwheatClientConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -23,7 +23,7 @@ public class ModHayBlock extends HayBlock
     {
         if (! worldIn.isClientSide) return;
         
-        if (AshenwheatConfig.MakeAshenBalesFlame && (stateIn.getBlock() == ModBlocks.ash_wheat_bale.get()))
+        if (AshenwheatClientConfig.MakeAshenBalesFlame && (stateIn.getBlock() == ModBlocks.ash_wheat_bale.get()))
         {
             float f1 = (float)pos.getX() - 0.5F;
             float f2 = (float)pos.getY() - 0.5F;
@@ -36,7 +36,7 @@ public class ModHayBlock extends HayBlock
             worldIn.addParticle(ParticleTypes.FLAME, (double) ((f1 + 0.3) + (f6 * 0.7)),
                     (double) ((f2 + 0.3) + (f4 * 0.7)), (double) ((f3 + 0.3) + (f5 * 0.7)), 0.0D, 0.0D, 0.0D);
         }
-        else if ( AshenwheatConfig.MakeOssidLanternGloom
+        else if ( AshenwheatClientConfig.MakeOssidLanternGloom
            &&  (stateIn.getBlock() == ModBlocks.ossid_root.get()))
         {
             float f1 = (float) pos.getX() - 0.5F;
@@ -50,7 +50,7 @@ public class ModHayBlock extends HayBlock
             worldIn.addParticle(ParticleTypes.UNDERWATER, (double) ((f1 + 0.3) + (f6 * 0.7)),
                     (double) ((f2 + 0.3) + (f4 * 0.7)), (double) ((f3 + 0.3) + (f5 * 0.7)), 0.0D, 0.0D, 0.0D);
         }
-        else if (AshenwheatConfig.MakeScintillaBalesScintillate 
+        else if (AshenwheatClientConfig.MakeScintillaBalesScintillate
                 && (stateIn.getBlock() == ModBlocks.scintilla_wheat_bale.get()))
         {
             float f1 = (float)pos.getX() - 0.5F;
@@ -59,8 +59,8 @@ public class ModHayBlock extends HayBlock
             float f4 = rand.nextFloat() * 2.0f;
             float f5 = rand.nextFloat() * 2.0f;
             float f6 = rand.nextFloat() * 2.0f;
-            SimpleParticleType particle = 
-                    AshenwheatConfig.MakeScintillationsSmaller ? ParticleTypes.ENCHANT : ParticleTypes.INSTANT_EFFECT;
+            SimpleParticleType particle =
+                    AshenwheatClientConfig.MakeScintillationsSmaller ? ParticleTypes.ENCHANT : ParticleTypes.INSTANT_EFFECT;
             worldIn.addParticle(particle, 
                                 (double)(f1 + f4), (double)(f2 + f5) , (double)(f3 + f6), 
                                 0.0D, 0.0D, 0.0D);

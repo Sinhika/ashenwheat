@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_underground",
+  "features": "ashenwheat:patch_rotten_plant_caveish",
+  "step": "vegetal_decoration"
+}

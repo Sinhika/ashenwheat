@@ -1,6 +1,7 @@
 package mod.akkamaddi.ashenwheat.content;
 
-import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
+import com.mojang.serialization.MapCodec;
+import mod.akkamaddi.ashenwheat.config.AshenwheatClientConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,10 +18,17 @@ import net.minecraft.world.level.block.state.StateDefinition;
 
 public class CarvedOssidRoot extends HorizontalDirectionalBlock
 {
+    public static final MapCodec<CarvedOssidRoot> CODEC = simpleCodec(CarvedOssidRoot::new);
+
     public CarvedOssidRoot(Properties builder)
     {
         super(builder);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+    }
+
+    @Override protected MapCodec<? extends HorizontalDirectionalBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override
@@ -42,7 +50,7 @@ public class CarvedOssidRoot extends HorizontalDirectionalBlock
     public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
         if (! worldIn.isClientSide) return;
-        if (AshenwheatConfig.MakeOssidLanternGloom 
+        if (AshenwheatClientConfig.MakeOssidLanternGloom
             && ((stateIn.getBlock() == ModBlocks.carved_ossid_root.get())
                 || (stateIn.getBlock() == ModBlocks.ossid_lantern.get())))
         {

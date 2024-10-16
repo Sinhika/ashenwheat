@@ -1,13 +1,11 @@
 package mod.akkamaddi.ashenwheat.world;
 
 import com.mojang.serialization.Codec;
-
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -39,7 +37,8 @@ public class ShallowGraveFeature extends Feature<CountConfiguration>
            BlockPos blockpos1 = new BlockPos(blockpos.getX() + mm, j1-1, blockpos.getZ() + i1);
            BlockState blockstate = ModBlocks.buried_remains.get().defaultBlockState();
            BlockPos underpos = blockpos1.below();
-           if (level.getBlockState(blockpos1).is(Blocks.GRASS_BLOCK) && level.getBlockState(underpos).is(BlockTags.DIRT)) 
+           if (level.getBlockState(blockpos1).is(BlockTags.WOLVES_SPAWNABLE_ON)
+                        && level.getBlockState(underpos).is(BlockTags.DIRT))
            {
                BlockPos adjpos = underpos.east();
                
