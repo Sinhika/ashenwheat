@@ -1,51 +1,44 @@
 package mod.akkamaddi.ashenwheat.datagen;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
-import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
-import mod.alexndr.simplecorelib.api.datagen.ISimpleConditionBuilder;
-import mod.alexndr.simplecorelib.api.datagen.RecipeSetBuilder;
-import net.minecraft.advancements.CriterionTriggerInstance;
+import mod.alexndr.simplecorelib.api.datagen.SimpleRecipeProvider;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.neoforge.common.crafting.conditions.ICondition;
-import net.neoforged.neoforge.common.crafting.conditions.IConditionBuilder;
-import net.neoforged.neoforge.registries.ForgeRegistries;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
-public class AshenwheatRecipes extends RecipeProvider implements IConditionBuilder, ISimpleConditionBuilder
+public class AshenwheatRecipes extends SimpleRecipeProvider
 {
-    private RecipeSetBuilder setbuilder;
 
-    public AshenwheatRecipes(PackOutput pOutput)
+    public AshenwheatRecipes(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> lookupProvider)
     {
-        super(pOutput);
-        setbuilder = new RecipeSetBuilder(Ashenwheat.MODID);
-    }
-
-    @Override
-    public ICondition flag(String arg0)
-    {
-         return impl_flag(Ashenwheat.MODID, AshenwheatConfig.INSTANCE, arg0);
+        super(pOutput, lookupProvider, Ashenwheat.MODID);
     }
 
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer)
+    protected void buildRecipes(RecipeOutput consumer)
     {
         regiserMiscRecipes(consumer);
         registerArmorRecipes(consumer);
         registerWoodRecipes(consumer);
     }
 
-    private void registerWoodRecipes(Consumer<FinishedRecipe> consumer)
+    private void registerWoodRecipes(RecipeOutput consumer)
     {
         // log -> planks
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.blazewood_planks.get(), 4)
@@ -98,7 +91,7 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
             .save(consumer);
         
         // pressure plates.
-        this.setbuilder.buildSimplePressurePlate(consumer, Ingredient.of(ModBlocks.blazewood_planks.get()), 
+        this.buildSimplePressurePlate(consumer, Ingredient.of(ModBlocks.blazewood_planks.get()),
                 ModBlocks.blazewood_pressure_plate.get(), has(ModBlocks.blazewood_planks.get()));
         
         // button
@@ -127,9 +120,9 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
      *
      * @param consumer
      */
-    private void registerArmorRecipes(Consumer<FinishedRecipe> consumer)
+    private void registerArmorRecipes(RecipeOutput consumer)
     {
-        CriterionTriggerInstance criterion = has(ModItems.cloth.get());
+        Criterion<InventoryChangeTrigger.TriggerInstance> criterion = has(ModItems.cloth.get());
         Ingredient item = Ingredient.of(ModItems.cloth.get());
         
         ResourceLocation helmet_name = new ResourceLocation("minecraft", "leather_helmet");
@@ -142,10 +135,10 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
         ResourceLocation leggings_recipe = new ResourceLocation(Ashenwheat.MODID, leggings_name.getPath() + "_from_cloth");
         ResourceLocation boots_recipe = new ResourceLocation(Ashenwheat.MODID, boots_name.getPath() + "_from_cloth");
         
-        Item helmet = ForgeRegistries.ITEMS.getValue(helmet_name);
-        Item chestplate = ForgeRegistries.ITEMS.getValue(chestplate_name);
-        Item leggings = ForgeRegistries.ITEMS.getValue(leggings_name);
-        Item boots = ForgeRegistries.ITEMS.getValue(boots_name);
+        Item helmet = BuiltInRegistries.ITEM.get(helmet_name);
+        Item chestplate = BuiltInRegistries.ITEM.get(chestplate_name);
+        Item leggings = BuiltInRegistries.ITEM.get(leggings_name);
+        Item boots = BuiltInRegistries.ITEM.get(boots_name);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, helmet)
             .define('S', item)
@@ -177,7 +170,7 @@ public class AshenwheatRecipes extends RecipeProvider implements IConditionBuild
             .save(consumer, boots_recipe);
     } // end registerArmorRecipes()
     
-    private void regiserMiscRecipes(Consumer<FinishedRecipe> consumer)
+    private void regiserMiscRecipes(RecipeOutput consumer)
     {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING)
             .requires(ModItems.flax_fibre.get(), 2)

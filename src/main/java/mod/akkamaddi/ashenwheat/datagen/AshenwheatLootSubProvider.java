@@ -75,7 +75,7 @@ public class AshenwheatLootSubProvider extends SimpleBlockLootSubProvider
 		return this.createLeavesDrops(pOakLeavesBlock, pSaplingBlock, pChances)
 				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH)
 						.add(this.applyExplosionCondition(pOakLeavesBlock, LootItem.lootTableItem(Items.BLAZE_ROD))
-								.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F,
+								.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, 0.005F,
 										0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
 	}
 
