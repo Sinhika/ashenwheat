@@ -6,15 +6,19 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.common.ToolActions;
 
 public class OssidRootBlock extends ModHayBlock
 {
@@ -24,13 +28,11 @@ public class OssidRootBlock extends ModHayBlock
         super(properties);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
-    public InteractionResult useItemOn(BlockState state, Level worldIn, BlockPos pos, Player player,
-            InteractionHand handIn, BlockHitResult hit)
+    public ItemInteractionResult useItemOn(ItemStack itemstack, BlockState state, Level worldIn, BlockPos pos,
+                                           Player player, InteractionHand handIn, BlockHitResult hit)
     {
-        ItemStack itemstack = player.getItemInHand(handIn);
-        if (itemstack.getItem() instanceof ShearsItem)
+        if (itemstack.canPerformAction(ToolActions.SHEARS_CARVE))
         {
             if (!worldIn.isClientSide)
             {
@@ -50,15 +52,19 @@ public class OssidRootBlock extends ModHayBlock
                 itementity.setDeltaMovement(0.05D * (double) direction1.getStepX() + worldIn.random.nextDouble() * 0.02D,
                         0.05D, 0.05D * (double) direction1.getStepZ() + worldIn.random.nextDouble() * 0.02D);
                 worldIn.addFreshEntity(itementity);
-                itemstack.hurtAndBreak(1, player, (p_220282_1_) -> {
-                    p_220282_1_.broadcastBreakEvent(handIn);
-                });
+                itemstack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(handIn));
+                worldIn.gameEvent(player, GameEvent.SHEAR, pos);
+                player.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
+                return ItemInteractionResult.sidedSuccess(worldIn.isClientSide);
             }
-            return InteractionResult.SUCCESS;
+            else
+            {
+                return ItemInteractionResult.sidedSuccess(worldIn.isClientSide);
+            }
         }
         else
         {
-            return super.useItemOn(state, worldIn, pos, player, handIn, hit);
+            return super.useItemOn(itemstack, state, worldIn, pos, player, handIn, hit);
         }
     } // end onBlockActivated()
 

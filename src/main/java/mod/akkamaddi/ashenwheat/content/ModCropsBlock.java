@@ -1,7 +1,6 @@
 package mod.akkamaddi.ashenwheat.content;
 
 import mod.akkamaddi.ashenwheat.config.AshenwheatClientConfig;
-import mod.akkamaddi.ashenwheat.config.AshenwheatConfig;
 import mod.akkamaddi.ashenwheat.init.ModBlocks;
 import mod.akkamaddi.ashenwheat.init.ModItems;
 import net.minecraft.core.BlockPos;
@@ -17,6 +16,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.CommonHooks;
 
 /**
  * Make one custom CropsBlock class for all the special crops in this mod.
@@ -163,7 +163,6 @@ public class ModCropsBlock extends CropBlock
     /**
      * randomTick(), formerly just tick(), is the server-side tick that controls crop growth, etc.
      */
-    @SuppressWarnings("deprecation")
     @Override
     public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand)
     {
@@ -189,11 +188,11 @@ public class ModCropsBlock extends CropBlock
         if (i < this.getMaxAge())
         {
             float f = getModGrowthChance(this, worldIn, pos, min_f);
-            if (net.neoforged.neoforge.common.CommonHooks.onCropsGrowPre(worldIn, pos, state,
-                    rand.nextInt((int) (fertility_factor / f ) + 1) == 0))
+            if (CommonHooks.canCropGrow(worldIn, pos, state,
+                    rand.nextInt((int) (fertility_factor / f) + 1) == 0))
             {
                 worldIn.setBlock(pos, this.getStateForAge(i + 1), 2);
-                net.neoforged.neoforge.common.CommonHooks.onCropsGrowPost(worldIn, pos, state);
+                CommonHooks.fireCropGrowPost(worldIn, pos, state);
             }
         } // end-if < max age
     } // end standardGrowthTick()
