@@ -19,7 +19,8 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
-public class AshenwheatLootSubProvider extends SimpleBlockLootSubProvider {
+public class AshenwheatLootSubProvider extends SimpleBlockLootSubProvider
+{
 
 	@Override
 	protected void generate() {

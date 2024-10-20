@@ -32,7 +32,12 @@ public class AshenwheatBlockTags extends MiningBlockTags
          registerPlankBlockTags();
     }
 
-    
+    @Override protected void registerOreTags()
+    {
+
+    }
+
+
     private void registerPlankBlockTags()
     {
         this.tag(BlockTags.WOODEN_STAIRS)

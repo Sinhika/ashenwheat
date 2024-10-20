@@ -11,11 +11,13 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-@EventBusSubscriber(modid=Ashenwheat.MODID, bus=EventBusSubscriber.Bus.MOD)
+import static net.neoforged.fml.common.EventBusSubscriber.Bus.MOD;
+
+@EventBusSubscriber(modid=Ashenwheat.MODID, bus=MOD)
 public class AshenwheatDataGenerator
 {
     @SubscribeEvent
@@ -31,8 +33,10 @@ public class AshenwheatDataGenerator
         gen.addProvider(event.includeServer(), blockTags);
         gen.addProvider(event.includeServer(), new AshenwheatItemTags(packOutput, lookupProvider, blockTags.contentsGetter(), 
         		existingFileHelper));
-        gen.addProvider(event.includeServer(), new SimpleLootTableProvider(packOutput, List.of(
-        		new LootTableProvider.SubProviderEntry(AshenwheatLootSubProvider::new, LootContextParamSets.BLOCK))));
+        gen.addProvider(event.includeServer(), new SimpleLootTableProvider(packOutput,
+                List.of(
+        		    new LootTableProvider.SubProviderEntry(AshenwheatLootSubProvider::new,LootContextParamSets.BLOCK)
+                ), lookupProvider));
         
         gen.addProvider(event.includeServer(), new AshenwheatRecipes(packOutput));
 
