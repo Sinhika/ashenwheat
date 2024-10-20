@@ -2,12 +2,17 @@ package mod.akkamaddi.ashenwheat.datagen;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.loot.AshenwheatChestLootModifier;
+import mod.akkamaddi.ashenwheat.loot.CobwebLootModifiers;
 import mod.alexndr.simplecorelib.api.datagen.SimpleLootModifierProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -39,5 +44,13 @@ public class AshenwheatLootModifierProvider extends SimpleLootModifierProvider
         AddDungeonAliases(AshenwheatLootInjectorProvider.SIMPLE_DUNGEON);
         AddVillageHouseAliases(AshenwheatLootInjectorProvider.VILLAGE_HOUSE);
         this.add(BuiltInLootTables.BURIED_TREASURE, AshenwheatLootInjectorProvider.SIMPLE_DUNGEON);
+
+        add("spider_eyes_from_cobweb", new CobwebLootModifiers.CobwebLootModifier(
+                new LootItemCondition[]{
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(
+                                Blocks.COBWEB).build()
+                }
+        ));
+
     }
 } // end class

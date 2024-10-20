@@ -25,8 +25,8 @@ public class CobwebLootModifiers
     {
         public static final MapCodec<CobwebLootModifier> CODEC =
                RecordCodecBuilder.mapCodec( inst -> LootModifier.codecStart(inst).apply(inst, CobwebLootModifier::new));
-                        
-        protected CobwebLootModifier(LootItemCondition[] conditionsIn)
+
+        public CobwebLootModifier(LootItemCondition[] conditionsIn)
         {
             super(conditionsIn);
         }

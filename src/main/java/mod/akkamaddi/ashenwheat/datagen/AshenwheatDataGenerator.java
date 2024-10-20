@@ -33,12 +33,16 @@ public class AshenwheatDataGenerator
         gen.addProvider(event.includeServer(), blockTags);
         gen.addProvider(event.includeServer(), new AshenwheatItemTags(packOutput, lookupProvider, blockTags.contentsGetter(), 
         		existingFileHelper));
+
         gen.addProvider(event.includeServer(), new SimpleLootTableProvider(packOutput,
                 List.of(
-        		    new LootTableProvider.SubProviderEntry(AshenwheatLootSubProvider::new,LootContextParamSets.BLOCK)
+        		    new LootTableProvider.SubProviderEntry(AshenwheatLootSubProvider::new, LootContextParamSets.BLOCK),
+                    new LootTableProvider.SubProviderEntry(AshenwheatLootInjectorProvider::new, LootContextParamSets.CHEST)
                 ), lookupProvider));
-        
-        gen.addProvider(event.includeServer(), new AshenwheatRecipes(packOutput));
+
+        gen.addProvider(event.includeServer(), new AshenwheatLootModifierProvider(packOutput, lookupProvider));
+
+        gen.addProvider(event.includeServer(), new AshenwheatRecipes(packOutput, lookupProvider));
 
         // client datagen
         gen.addProvider(event.includeClient(), new AshenwheatBlockStateProvider(packOutput, event.getExistingFileHelper()));
