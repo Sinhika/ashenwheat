@@ -1,19 +1,22 @@
 package mod.akkamaddi.ashenwheat.datagen;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
+import mod.akkamaddi.ashenwheat.init.ModItems;
 import mod.akkamaddi.ashenwheat.loot.AshenwheatChestLootModifier;
 import mod.akkamaddi.ashenwheat.loot.CobwebLootModifiers;
+import mod.akkamaddi.ashenwheat.loot.GrassLootModifiers;
 import mod.alexndr.simplecorelib.api.datagen.SimpleLootModifierProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.predicates.AnyOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class AshenwheatLootModifierProvider extends SimpleLootModifierProvider
@@ -52,5 +55,17 @@ public class AshenwheatLootModifierProvider extends SimpleLootModifierProvider
                 }
         ));
 
+        add("seeds_from_grass", new GrassLootModifiers.GrassLootModifier(
+                new LootItemCondition[]{
+                        AnyOfCondition.anyOf(
+                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.SHORT_GRASS),
+                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS),
+                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.FERN),
+                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.LARGE_FERN)
+                        ).build()
+                },
+                List.of(ModItems.ash_seeds.get(), ModItems.scintilla_seeds.get(), ModItems.flax_seed.get(),
+                        ModItems.rotten_seeds.get(), ModItems.ossid_seeds.get(), ModItems.thunder_seeds.get())
+        ));
     }
 } // end class
