@@ -1,5 +1,5 @@
 {
-  "type": "forge:add_features",
+  "type": "neoforge:add_features",
   "biomes": "#minecraft:is_ocean",
   "features": "ashenwheat:ender_clams_ocean",
   "step": "vegetal_decoration"
