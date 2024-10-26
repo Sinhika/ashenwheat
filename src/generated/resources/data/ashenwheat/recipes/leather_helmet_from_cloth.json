@@ -12,7 +12,7 @@
     "   "
   ],
   "result": {
-    "item": "minecraft:leather_helmet"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "minecraft:leather_helmet"
+  }
 }

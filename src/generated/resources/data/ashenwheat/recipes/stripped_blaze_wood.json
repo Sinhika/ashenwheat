@@ -12,7 +12,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "ashenwheat:stripped_blaze_wood"
-  },
-  "show_notification": true
+    "id": "ashenwheat:stripped_blaze_wood"
+  }
 }

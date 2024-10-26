@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "ashenwheat:blazewood_stairs"
-  },
-  "show_notification": true
+    "id": "ashenwheat:blazewood_stairs"
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "ashenwheat:chest_loot",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/desert_pyramid"
+    }
+  ],
+  "lootTable": "ashenwheat:chest/desert_pyramid"
+}

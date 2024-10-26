@@ -15,7 +15,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "ashenwheat:blazewood_fence"
-  },
-  "show_notification": true
+    "id": "ashenwheat:blazewood_fence"
+  }
 }

@@ -14,7 +14,7 @@
     "#W#"
   ],
   "result": {
-    "item": "ashenwheat:blazewood_fence_gate"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "ashenwheat:blazewood_fence_gate"
+  }
 }

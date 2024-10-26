@@ -12,7 +12,7 @@
     "S S"
   ],
   "result": {
-    "item": "minecraft:leather_boots"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "minecraft:leather_boots"
+  }
 }

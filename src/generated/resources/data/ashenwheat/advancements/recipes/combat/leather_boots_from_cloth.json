@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "ashenwheat:cloth"
-            ]
+            "items": "ashenwheat:cloth"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_item",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_item"
     ]
   ],
   "rewards": {
     "recipes": [
       "ashenwheat:leather_boots_from_cloth"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
