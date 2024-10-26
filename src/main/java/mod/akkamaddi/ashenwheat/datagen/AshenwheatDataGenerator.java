@@ -41,7 +41,7 @@ public class AshenwheatDataGenerator
                 ), lookupProvider));
 
         gen.addProvider(event.includeServer(), new AshenwheatLootModifierProvider(packOutput, lookupProvider));
-
+        gen.addProvider(event.includeServer(), new AshenwheatDataMapProvider(packOutput, lookupProvider));
         gen.addProvider(event.includeServer(), new AshenwheatRecipes(packOutput, lookupProvider));
 
         // client datagen
