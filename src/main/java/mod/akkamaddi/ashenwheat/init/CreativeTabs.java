@@ -1,10 +1,13 @@
 package mod.akkamaddi.ashenwheat.init;
 
 import mod.akkamaddi.ashenwheat.Ashenwheat;
+import mod.akkamaddi.ashenwheat.content.ModCropsBlock;
+import mod.akkamaddi.ashenwheat.content.ModHayBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -28,6 +31,7 @@ public final class CreativeTabs
 				.displayItems((parameters, output) -> {
 					output.acceptAll(ModBlocks.BLOCKS.getEntries().stream()
 										.map(DeferredHolder::get)
+									.filter(b -> noHasNamedBlockItem(b))
 										.map(b -> (new ItemStack(b.asItem())))
 										.toList()
 										);
@@ -38,4 +42,8 @@ public final class CreativeTabs
 							);
 				}).build());
 
+	private static boolean noHasNamedBlockItem(Block block)
+	{
+		return ! (block instanceof ModCropsBlock || block instanceof ModHayBlock);
+	}
 } // end class ModItemGroups
