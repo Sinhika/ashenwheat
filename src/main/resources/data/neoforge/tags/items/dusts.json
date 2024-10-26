@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:dusts/soot",
-		"#forge:dusts/ash"
+		"#neoforge:dusts/soot",
+		"#neoforge:dusts/ash"
 	]
 }

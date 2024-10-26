@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "ashenwheat:ash_wheat_sheaf"
+    }
+  },
+  "pattern": [
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ashenwheat:ash_bread"
+  }
+}

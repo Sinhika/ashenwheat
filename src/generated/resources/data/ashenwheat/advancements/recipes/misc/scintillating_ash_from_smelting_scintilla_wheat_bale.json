@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_scintilla_wheat_bale": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ashenwheat:scintilla_wheat_bale"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ashenwheat:scintillating_ash_from_smelting_scintilla_wheat_bale"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_scintilla_wheat_bale"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ashenwheat:scintillating_ash_from_smelting_scintilla_wheat_bale"
+    ]
+  }
+}

@@ -19,6 +19,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class AshenwheatRecipes extends SimpleRecipeProvider
@@ -36,6 +37,50 @@ public class AshenwheatRecipes extends SimpleRecipeProvider
         regiserMiscRecipes(consumer);
         registerArmorRecipes(consumer);
         registerWoodRecipes(consumer);
+        registerSmeltingRecipes(consumer);
+        registerFoodRecipes(consumer);
+    }
+
+    private void registerFoodRecipes(RecipeOutput consumer)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.ash_bread.get())
+                .define('A', ModItems.ash_wheat_sheaf.get())
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ModItems.ash_wheat_sheaf.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.scintilla_bread.get())
+                .define('A', ModItems.scintilla_wheat_sheaf.get())
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ModItems.scintilla_wheat_sheaf.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.ash_cookie.get())
+                .define('C', Items.COCOA_BEANS)
+                .define('W', ModItems.ash_wheat_sheaf.get())
+                .pattern("WCW")
+                .unlockedBy("has_item", has(ModItems.ash_wheat_sheaf.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.scintilla_cookie.get())
+                .define('C', Items.COCOA_BEANS)
+                .define('W', ModItems.scintilla_wheat_sheaf.get())
+                .pattern("WCW")
+                .unlockedBy("has_item", has(ModItems.scintilla_wheat_sheaf.get()))
+                .save(consumer);
+    } // end registerFoodRecipes()
+
+
+    private void registerSmeltingRecipes(RecipeOutput consumer)
+    {
+        modOreSmelting(consumer, List.of(ModBlocks.ossid_root.asItem()), RecipeCategory.MISC,
+                ModItems.calcified_ash.get(), 0.4F, 200, null);
+        modOreSmelting(consumer, List.of(ModBlocks.scintilla_wheat_bale.asItem()), RecipeCategory.MISC,
+                ModItems.scintillating_ash.get(), 0.5F, 200, null);
+        modOreSmelting(consumer, List.of(ModItems.ash_bread.get()), RecipeCategory.MISC,
+                Items.CHARCOAL, 0.5F, 200, null);
+        modOreSmelting(consumer, List.of(ModItems.thunder_seeds.get()), RecipeCategory.MISC,
+                ModItems.unstable_soot.get(), 0.4F, 200, null);
     }
 
     private void registerWoodRecipes(RecipeOutput consumer)
@@ -198,6 +243,85 @@ public class AshenwheatRecipes extends SimpleRecipeProvider
             .requires(ModItems.cloth.get())
             .unlockedBy("has_item", has(ModItems.cloth.get()))
             .save(consumer, "ashenwheat:book_from_cloth");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BLACK_DYE)
+                .define('A', ModItems.unstable_soot.get())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy("has_item", has(ModItems.unstable_soot.get()))
+                .save(consumer, "ashenwheat:black_dye_from_soot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BONE_MEAL)
+                .define('A', ModItems.calcified_ash.get())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy("has_item", has(ModItems.calcified_ash.get()))
+                .save(consumer, "ashenwheat:bonemeal_from_ash");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.GLOWSTONE)
+                .define('A', ModItems.scintillating_ash.get())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy("has_item", has(ModItems.scintillating_ash.get()))
+                .save(consumer, "ashenwheat:glowstone_from_ash");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.GUNPOWDER)
+                .define('A', ModItems.unstable_soot.get())
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ModItems.unstable_soot.get()))
+                .save(consumer, "ashenwheat:gunpowder_from_soot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ossid_lantern.asItem())
+                .define('A', ModBlocks.carved_ossid_root.asItem())
+                .define('T', Items.TORCH)
+                .pattern("A")
+                .pattern("T")
+                .unlockedBy("has_item", has(ModBlocks.carved_ossid_root.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ash_seeds.get(), 2)
+                .requires(ModItems.ash_wheat_sheaf.get())
+                .unlockedBy("has_item", has(ModItems.ash_wheat_sheaf.get()))
+                .save(consumer, "ashenwheat:ash_seeds_from_ash_wheat");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ossid_seeds.get(), 4)
+                .requires(ModBlocks.ossid_root.asItem())
+                .unlockedBy("has_item", has(ModBlocks.ossid_root.asItem()))
+                .save(consumer, "ashenwheat:ossid_seeds_from_root");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.scintilla_seeds.get(), 2)
+                .requires(ModItems.scintilla_wheat_sheaf.get())
+                .unlockedBy("has_item", has(ModItems.scintilla_wheat_sheaf.get()))
+                .save(consumer, "ashenwheat:scintilla_seeds_from_scintilla_wheat");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ash_wheat_bale.asItem())
+                .define('A', ModItems.ash_wheat_sheaf.get())
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ModItems.ash_wheat_sheaf.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.scintilla_wheat_bale.asItem())
+                .define('A', ModItems.scintilla_wheat_sheaf.get())
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ModItems.scintilla_wheat_sheaf.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.scintilla_wheat_sheaf.get(), 9)
+                .requires(ModBlocks.scintilla_wheat_bale.asItem())
+                .unlockedBy("has_item", has(ModBlocks.scintilla_wheat_bale.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ash_wheat_sheaf.get(), 9)
+                .requires(ModBlocks.ash_wheat_bale.asItem())
+                .unlockedBy("has_item", has(ModBlocks.ash_wheat_bale.get()))
+                .save(consumer);
+
     } // end regiserMiscRecipes()
 
 } // end class

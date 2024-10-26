@@ -6,6 +6,7 @@
     "minecraft:river",
     "minecraft:swamp",
     "minecraft:sparse_jungle",
+    "minecraft:meadow",
     "#c:is_savanna",
     "#c:is_plains"
     ]

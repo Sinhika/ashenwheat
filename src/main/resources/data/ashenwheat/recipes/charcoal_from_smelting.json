@@ -1,9 +1,0 @@
-{
-    "cookingtime": 200,
-    "experience": 0.5,
-    "ingredient": {
-        "item": "ashenwheat:ash_bread"
-    },
-    "result": "minecraft:charcoal",
-    "type": "minecraft:smelting"
-}

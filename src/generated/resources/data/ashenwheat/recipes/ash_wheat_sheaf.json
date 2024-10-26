@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ashenwheat:ash_wheat_bale"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "ashenwheat:ash_wheat_sheaf"
+  }
+}
