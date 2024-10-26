@@ -44,6 +44,6 @@ public final class CreativeTabs
 
 	private static boolean noHasNamedBlockItem(Block block)
 	{
-		return ! (block instanceof ModCropsBlock || block instanceof ModHayBlock);
+		return ! (block instanceof ModCropsBlock || block == ModBlocks.ash_wheat_bale.get());
 	}
 } // end class ModItemGroups
