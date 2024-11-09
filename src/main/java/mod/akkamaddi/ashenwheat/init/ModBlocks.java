@@ -151,8 +151,9 @@ public final class ModBlocks
     public static final DeferredBlock<FenceGateBlock> blazewood_fence_gate = BLOCKS.register("blazewood_fence_gate", 
             () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.of().mapColor(ModBlocks.blazewood_planks.get().defaultMapColor())
                     .strength(2.0F, 3.0F).sound(SoundType.WOOD)));
-    
+
     // TODO blazewood sign
     // TODO blazewood door
     // TODO blazewood trapdoor
+
  } // end class

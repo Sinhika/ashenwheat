@@ -23,10 +23,13 @@
    	"block.ashenwheat.blazewood_fence" : "Blazewood Fence",
    	"block.ashenwheat.blazewood_fence_gate" : "Blazewood Fence Gate",
    	"block.ashenwheat.blazewood_door" : "Blazewood Door",
-   	"block.ashenwheat.blazewood_sign" : "Blazewood Sign",
    	"block.ashenwheat.blazewood_button" : "Blazewood Button",
    	"block.ashenwheat.blazewood_trapdoor" : "Blazewood Trapdoor",
-    "block.ashenwheat.blaze_sapling" : "Blaze Sapling",
+  "block.ashenwheat.blazewood_sign" : "Blazewood Sign",
+  "block.ashenwheat.blazewood_hanging_sign" : "Blazewood Hanging Sign",
+  "block.ashenwheat.blazewood_wall_sign" : "Blazewood Wall Sign",
+  "block.ashenwheat.blazewood_wall_hanging_sign" : "Blazewood Wall Hanging Sign",
+  "block.ashenwheat.blaze_sapling" : "Blaze Sapling",
    	"block.ashenwheat.blaze_leaves" : "Blaze Leaves",
    	"block.ashenwheat.ender_clam" : "Ender Clam",
    	"block.ashenwheat.buried_remains" : "Buried Remains",
@@ -47,5 +50,9 @@
     "item.ashenwheat.flax_seed" : "Flax Seed",
     "item.ashenwheat.cloth" : "Cloth",
     "item.ashenwheat.rotten_seeds" : "Rotten Seed",
-    "item.ashenwheat.blaze_sapling" : "Blaze Sapling"
+    "item.ashenwheat.blaze_sapling" : "Blaze Sapling",
+    "item.ashenwheat.blazewood_boat" : "Blazewood Boat",
+    "item.ashenwheat.blazewood_chest_boat" : "Blazewood Chest Boat",
+    "item.ashenwheat.blazewood_sign" : "Blazewood Sign",
+    "item.ashenwheat.blazewood_hanging_sign" : "Blazewood Hanging Sign"
 }
