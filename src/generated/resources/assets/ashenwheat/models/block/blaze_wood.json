@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "ashenwheat:block/blaze_log",
+    "side": "ashenwheat:block/blaze_log"
+  }
+}

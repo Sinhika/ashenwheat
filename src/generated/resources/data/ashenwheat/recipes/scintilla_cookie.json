@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:cocoa_beans"
+    },
+    "W": {
+      "item": "ashenwheat:scintilla_wheat_sheaf"
+    }
+  },
+  "pattern": [
+    "WCW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ashenwheat:scintilla_cookie"
+  }
+}

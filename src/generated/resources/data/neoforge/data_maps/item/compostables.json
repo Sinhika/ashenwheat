@@ -1,0 +1,58 @@
+{
+  "values": {
+    "ashenwheat:ash_bread": {
+      "chance": 0.85
+    },
+    "ashenwheat:ash_cookie": {
+      "chance": 0.85
+    },
+    "ashenwheat:ash_seeds": {
+      "chance": 0.3
+    },
+    "ashenwheat:ash_wheat_bale": {
+      "chance": 0.85
+    },
+    "ashenwheat:ash_wheat_sheaf": {
+      "chance": 0.65
+    },
+    "ashenwheat:blaze_leaves": {
+      "chance": 0.3
+    },
+    "ashenwheat:blaze_sapling": {
+      "chance": 0.3
+    },
+    "ashenwheat:carved_ossid_root": {
+      "chance": 0.65
+    },
+    "ashenwheat:flax_seed": {
+      "chance": 0.3
+    },
+    "ashenwheat:ossid_root": {
+      "chance": 0.65
+    },
+    "ashenwheat:ossid_seeds": {
+      "chance": 0.3
+    },
+    "ashenwheat:rotten_seeds": {
+      "chance": 0.3
+    },
+    "ashenwheat:scintilla_bread": {
+      "chance": 0.85
+    },
+    "ashenwheat:scintilla_cookie": {
+      "chance": 0.85
+    },
+    "ashenwheat:scintilla_seeds": {
+      "chance": 0.3
+    },
+    "ashenwheat:scintilla_wheat_bale": {
+      "chance": 0.85
+    },
+    "ashenwheat:scintilla_wheat_sheaf": {
+      "chance": 0.65
+    },
+    "ashenwheat:thunder_seeds": {
+      "chance": 0.3
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ashenwheat:carved_ossid_root"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ashenwheat:blocks/carved_ossid_root"
+}
