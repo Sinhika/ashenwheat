@@ -110,7 +110,7 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
 
         // blazewood_trapdoor
         this.trapdoorBlock(ModBlocks.blazewood_trapdoor.get(), modLoc("block/blazewood_trapdoor"), true);
-        this.itemModels().basicItem(ModBlocks.blazewood_trapdoor.asItem());
+        this.itemModels().withExistingParent("blazewood_trapdoor", modLoc("block/blazewood_trapdoor"));
 
     } // end registerTreeBlocks
     
