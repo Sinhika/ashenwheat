@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "ashenwheat:block/blaze_planks",
-    "side": "ashenwheat:block/blaze_planks",
-    "top": "ashenwheat:block/blaze_planks"
-  }
-}

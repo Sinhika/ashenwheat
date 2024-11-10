@@ -4,11 +4,13 @@ import mod.akkamaddi.ashenwheat.Ashenwheat;
 import mod.akkamaddi.ashenwheat.content.*;
 import mod.alexndr.simplecorelib.api.content.block.MultifunctionPressurePlateBlock;
 import mod.alexndr.simplecorelib.api.helpers.LightUtils;
+import mod.alexndr.simplecorelib.api.helpers.PropertyUtils;
 import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -152,8 +154,19 @@ public final class ModBlocks
             () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.of().mapColor(ModBlocks.blazewood_planks.get().defaultMapColor())
                     .strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
-    // TODO blazewood sign
-    // TODO blazewood door
-    // TODO blazewood trapdoor
+    // blazewood door
+    public static DeferredBlock<DoorBlock> blazewood_door = BLOCKS.register("blazewood_door",
+            () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW)
+                    .requiresCorrectToolForDrops().strength(2.0F).noOcclusion().pushReaction(PushReaction.DESTROY)));
+
+    // blazewood trapdoor
+    public static DeferredBlock<TrapDoorBlock> blazewood_trapdoor = BLOCKS.register("blazewood_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD)
+                    .instrument(NoteBlockInstrument.BASS)
+                    .strength(3.0F)
+                    .noOcclusion()
+                    .isValidSpawn(PropertyUtils::never)));
+
+    // TODO blazewood sign(s)
 
  } // end class

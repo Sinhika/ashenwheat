@@ -1,9 +1,0 @@
-{
-  "type": "ashenwheat:spider_eyes_from_cobweb",
-  "conditions": [
-    {
-      "block": "minecraft:cobweb",
-      "condition": "minecraft:block_state_property"
-    }
-  ]
-}

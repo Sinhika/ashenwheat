@@ -102,7 +102,16 @@ public class AshenwheatBlockStateProvider extends SimpleBlockStateProvider
         // blazewood_fence_gate
         this.fenceGateBlock(ModBlocks.blazewood_fence_gate.get(), modLoc("block/blaze_planks"));
         this.itemModels().withExistingParent("blazewood_fence_gate", modLoc("block/blazewood_fence_gate"));
-        
+
+        // blazewood_door
+        this.doorBlockWithRenderType(ModBlocks.blazewood_door.get(), modLoc("block/blazewood_door_bottom"),
+                modLoc("block/blazewood_door_top"), "cutout");
+        this.itemModels().basicItem(ModBlocks.blazewood_door.asItem());
+
+        // blazewood_trapdoor
+        this.trapdoorBlock(ModBlocks.blazewood_trapdoor.get(), modLoc("block/blazewood_trapdoor"), true);
+        this.itemModels().basicItem(ModBlocks.blazewood_trapdoor.asItem());
+
     } // end registerTreeBlocks
     
     // Ender clam

@@ -154,6 +154,24 @@ public class AshenwheatRecipes extends SimpleRecipeProvider
             .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
             .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.blazewood_door.get(), 3)
+                .define('S', ModBlocks.blazewood_planks.get())
+                .pattern(" SS")
+                .pattern(" SS")
+                .pattern(" SS")
+                .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,
+                        ModBlocks.blazewood_trapdoor.get(), 2)
+                .define('S', ModBlocks.blazewood_planks.get())
+                .pattern("   ")
+                .pattern("SSS")
+                .pattern("SSS")
+                .unlockedBy("has_item", has(ModBlocks.blazewood_planks.get()))
+                .save(consumer);
+
     } // end registerWoodRecipes
     
     

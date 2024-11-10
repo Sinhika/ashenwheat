@@ -57,6 +57,8 @@ public class AshenwheatLootSubProvider extends SimpleBlockLootSubProvider
 		this.add(ModBlocks.blaze_leaves.get(), 
 				createBlazeLeavesDrops(ModBlocks.blaze_leaves.get(), ModBlocks.blaze_sapling.get(), 
 										NORMAL_LEAVES_SAPLING_CHANCES));
+		doorDropTable(ModBlocks.blazewood_door.get());
+		dropSelf(ModBlocks.blazewood_trapdoor.get());
 	}
 
 	protected void dropCrops(ModCropsBlock cropBlock, Item primary_drop, ItemNameBlockItem seed_item, int max_age) {

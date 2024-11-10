@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/orientable_with_bottom",
-  "textures": {
-    "bottom": "ashenwheat:block/ender_clam_bottom",
-    "front": "ashenwheat:block/ender_clam_front",
-    "side": "ashenwheat:block/ender_clam_side",
-    "top": "ashenwheat:block/ender_clam_top"
-  }
-}

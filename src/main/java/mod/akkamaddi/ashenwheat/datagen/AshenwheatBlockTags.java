@@ -76,6 +76,13 @@ public class AshenwheatBlockTags extends MiningBlockTags
             .add(ModBlocks.blazewood_fence_gate.get());
         this.tag(BlockTags.FENCE_GATES)
             .add(ModBlocks.blazewood_fence_gate.get());
+
+        this.tag(BlockTags.DOORS)
+                .add(ModBlocks.blazewood_door.get());
+
+        this.tag(BlockTags.TRAPDOORS)
+                .add(ModBlocks.blazewood_trapdoor.get());
+
     } // end registerPlankBlockTags()
     
     @Override

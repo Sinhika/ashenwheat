@@ -9,6 +9,7 @@ import mod.alexndr.simplecorelib.api.datagen.MiningItemTags;
 import mod.alexndr.simplecorelib.api.helpers.TagUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
@@ -58,6 +59,9 @@ public class AshenwheatItemTags extends MiningItemTags
 
         this.tag(Tags.Items.FENCE_GATES_WOODEN).add(ModBlocks.blazewood_fence_gate.get().asItem());
         this.tag(Tags.Items.FENCE_GATES).add(ModBlocks.blazewood_fence_gate.get().asItem());
+
+        this.tag(ItemTags.DOORS).add(ModBlocks.blazewood_door.asItem());
+        this.tag(ItemTags.TRAPDOORS).add(ModBlocks.blazewood_trapdoor.asItem());
     }
 
     protected void registerLogTags()
